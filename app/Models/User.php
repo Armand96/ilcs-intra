@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -20,6 +21,8 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'name',
+        'nip',
+        'rle_id',
         'email',
         'password',
         'jabatan',
@@ -47,4 +50,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function nilai()
+    {
+        return $this->hasMany(NilaiKaryawan::class, 'user_id', 'id');
+    }
+
+    public static function nilaiBulanIni()
+    {
+        return static::with(['nilai' => function($qry){
+            $qry->where('tgl_penilaian', date('Y-m-d'));
+        }]);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id', 'id');
+    }
 }
