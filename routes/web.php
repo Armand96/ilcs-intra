@@ -36,3 +36,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'cms_admin'], function() {
 Route::any("*", function() {
     throw new NotFoundHttpException("Halaman Tidak Ditemukan");
 });
+
+Route::get("/test", function(){
+    return view('test');
+});
