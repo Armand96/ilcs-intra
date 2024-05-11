@@ -19,7 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test_nilai', [UserController::class, 'getAllNilaiKaryawan']);
+Route::get('/staff_of_the_month', [UserController::class, 'getAllNilaiKaryawan']);
+Route::get('/birthday_today', [UserController::class, 'getKaryawanBirthdayToday']);
 
 /* ROUTE UNTTUK LOGGED IN USER */
 Route::group(['middleware' => 'role.access'], function() {

@@ -2,24 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NilaiKaryawan;
-use App\Models\User;
+use App\Models\Notification;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class UserController extends Controller
+class NotificationController extends Controller
 {
-    // use UserService;
-
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-
+        //
     }
 
     /**
@@ -46,10 +41,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Notification $notification)
     {
         //
     }
@@ -57,10 +52,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Notification $notification)
     {
         //
     }
@@ -69,10 +64,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Notification $notification)
     {
         //
     }
@@ -80,27 +75,11 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Notification $notification)
     {
         //
     }
-
-    /* ======================================================================== */
-    public function getAllNilaiKaryawan()
-    {
-        return NilaiKaryawan::with('karyawan')->where(DB::raw('MONTH(tgl_penilaian)'),  date('m'))->orderBy('nilai', 'ASC')->limit(5)->get();
-        // return User::nilaiBulanIni()->orderBy()->limit(5);
-    }
-
-    public function getKaryawanBirthdayToday()
-    {
-        $whereMonth = DB::raw('MONTH(tgl_lahir)');
-        $wherDate = DB::raw('DAY(tgl_lahir)');
-        return User::where($whereMonth, date('m'))->where($wherDate, date('d'))->limit(5)->get();
-    }
-
-
 }
