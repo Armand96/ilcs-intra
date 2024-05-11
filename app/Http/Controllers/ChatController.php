@@ -82,4 +82,17 @@ class ChatController extends Controller
     {
         //
     }
+
+    // ======================================================
+    public function unreadChat()
+    {
+        $data = Chat::where('is_read', false)->orderBy('created_at', 'DESC')->limit(10)->get();
+        return $data;
+    }
+
+    public function unreadCount()
+    {
+        $data = Chat::where('is_read', false)->count();
+        return $data;
+    }
 }

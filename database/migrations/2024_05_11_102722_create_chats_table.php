@@ -18,6 +18,7 @@ class CreateChatsTable extends Migration
             $table->bigInteger('from_user_id');
             $table->bigInteger('to_user_id');
             $table->text('message');
+            $table->boolean('is_read');
             $table->timestamps();
         });
     }
