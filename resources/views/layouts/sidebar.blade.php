@@ -1,13 +1,12 @@
-    <div class="left-sidenav">
+<div class="left-sidenav">
         <!-- LOGO -->
         <div class="brand">
-            <a href="index" class="logo">
-                <span>
-                    <img src="{{ URL::asset('assets/images/pelindo.png') }}" alt="logo-large" class="logo-lg logo-light">
-                    <img src="{{ URL::asset('assets/images/pelindo.png') }}" alt="logo-large" class="logo-lg logo-dark">
-                </span>
+       
+            <a href="index" class="px-4 py-4">
+            <img src="{{ URL::asset('assets/images/pelindo-logo.png') }}" width="150" class="my-3" alt="logo-large" >
             </a>
         </div>
+        
         <!--end logo-->
         <div class="menu-content h-100" data-simplebar>
             <ul class="metismenu left-sidenav-menu">
