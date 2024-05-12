@@ -24,7 +24,7 @@
         <div class="row ">
 
             <div class="col-md-6 col-lg-6">
-                <div class="card report-card">
+                <div class="card report-card py-3">
                     <div class="card-body">
                         <div class="row d-flex justify-content-center">
                             <div class="col">
@@ -39,22 +39,27 @@
                         </div>
                     </div><!--end card-body-->
                 </div><!--end card-->
-
             </div> <!--end col-->
 
             <div class="col-md-6 col-lg-6">
                 <div class="card report-card">
                     <div class="card-body">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col">
-                                <p class="text-dark mb-0 fw-semibold">Selamat Datang</p>
-                                <h3 class="m-0">Nama user</h3>
-                            </div>
-                            <div class="col-auto align-self-center">
-                                <div class="report-main-icon bg-light-alt">
-                                    <i data-feather="users" class="align-self-center text-muted icon-sm"></i>
-                                </div>
-                            </div>
+                        <p class="text-dark mb-0 fw-semibold">Shortcut backoffice</p>
+                        <div class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
+                            <span class="avatar-title bg-purple rounded-circle"><i class="fas fa-user"></i></span>
+                            <p class="mt-1">test</p>
+                        </div>
+                        <div class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
+                            <span class="avatar-title bg-warning rounded-circle"><i class="fas fa-user"></i></span>
+                            <p class="mt-1">test</p>
+                        </div>
+                        <div class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
+                            <span class="avatar-title bg-danger rounded-circle"><i class="fas fa-user"></i></span>
+                            <p class="mt-1">test</p>
+                        </div>
+                        <div class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
+                            <span class="avatar-title bg-blue rounded-circle"><i class="fas fa-user"></i></span>
+                            <p class="mt-1">test</p>
                         </div>
                     </div><!--end card-body-->
                 </div><!--end card-->
@@ -228,12 +233,12 @@
             </div><!--end card-header-->
 
             <div class="row">
-          
-            <div class="dash-datepick mb-3 col-6">
-                <input type="hidden" id="light_datepick" />
-            </div>
-            
-            <ul class="list-group col-lg-6 mb-n3">
+
+                <div class="dash-datepick mb-3 col-lg-6">
+                    <input type="hidden" id="light_datepick" />
+                </div>
+
+                <ul class="list-group col-lg-6 mb-n3">
                     <li class="list-group-item align-items-center d-flex justify-content-between">
                         <div class="media">
                             <img src="{{ URL::asset('assets/images/small/rgb.svg') }}" height="30" class="me-3 align-self-center rounded" alt="...">
@@ -400,6 +405,27 @@
                 </ul>
             </div><!--end card-body-->
         </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h4 class="card-title">our social media</h4>
+                    </div><!--end col-->
+                </div> <!--end row-->
+            </div><!--end card-header-->
+            <div class="card-body">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-auto align-self-center">
+                        <div class="button-items">
+                            <button type="button" class="btn btn-outline-primary btn-icon-circle btn-icon-circle-sm"><i class="fab fa-facebook-f"></i></button>
+                            <button type="button" class="btn btn-outline-info btn-icon-circle btn-icon-circle-sm"><i class="fab fa-twitter"></i></button>
+                            <button type="button" class="btn btn-outline-pink btn-icon-circle btn-icon-circle-sm"><i class="fab fa-dribbble"></i></button>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end card-body-->
+        </div><!--end card-->
     </div>
 
 </div>

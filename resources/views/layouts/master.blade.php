@@ -11,7 +11,7 @@
         @include('layouts.head-css')
     </head>
 
-    <body>
+    <body style="background-color: #e7f1fa">
         @include('layouts.sidebar')
 
         <div class="page-wrapper">
