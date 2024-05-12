@@ -40,6 +40,19 @@ Route::any("*", function() {
 });
 
 
+Route::get("/test", function(){
+    return view('test');
+});
+
+Route::get("/login", function(){
+    return view('login');
+}) ->name('login');
+
+Route::get("/dashboard", function(){
+    return view('dashboard');
+});
+
+
 // ==========================================
 Route::get('link_sosmed', [LinkController::class, 'sosmedLink']);
 Route::get('link_apps', [LinkController::class, 'appLink']);
@@ -52,3 +65,4 @@ Route::get('unread_notif', [NotificationController::class, 'unreadNotif']);
 Route::get('unread_count_notif', [NotificationController::class, 'unreadCount']);
 Route::get('unread_chat', [NotificationController::class, 'unreadChat']);
 Route::get('unread_count_chat', [NotificationController::class, 'unreadCount']);
+
