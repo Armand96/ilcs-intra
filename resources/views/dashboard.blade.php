@@ -418,5 +418,4 @@
 <script src="{{ URL::asset('assets/plugins/lightpick/lightpick.js') }}"></script>
 <script src="{{ URL::asset('assets/js/pages/jquery.calendar.js') }}"></script>
 <script src="{{ URL::asset('assets/js/app.js') }}"></script>
-<script src="{{ URL::asset('assets/js/app.js') }}"></script>
 @endsection
