@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\LinkTypeEnum;
 use App\Models\Link;
 use Illuminate\Http\Request;
 
@@ -81,5 +82,18 @@ class LinkController extends Controller
     public function destroy(Link $link)
     {
         //
+    }
+
+    /* ========================================================== */
+    public function appLink()
+    {
+        $data = Link::where('tipe', LinkTypeEnum::OTHER)->get();
+        return $data;
+    }
+
+    public function sosmedLink()
+    {
+        $data = Link::where('tipe', LinkTypeEnum::SOSMED)->get();
+        return $data;
     }
 }

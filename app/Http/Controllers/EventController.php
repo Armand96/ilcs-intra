@@ -82,4 +82,11 @@ class EventController extends Controller
     {
         //
     }
+
+    // ======================================================
+    public function latestEvents()
+    {
+        $data = Event::orderBy('tgl_event')->limit(5)->get();
+        return $data;
+    }
 }

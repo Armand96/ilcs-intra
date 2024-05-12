@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CalendarEvent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CalendarEventController extends Controller
 {
@@ -82,4 +83,13 @@ class CalendarEventController extends Controller
     {
         //
     }
+
+    // ================================================
+    public function getListKalendarBulanIni()
+    {
+        $data = CalendarEvent::where(DB::raw('MONTH(tgl_cal_event)'), date('m'))->get();
+        return $data;
+    }
+
+
 }

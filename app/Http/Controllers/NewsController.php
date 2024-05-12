@@ -82,4 +82,11 @@ class NewsController extends Controller
     {
         //
     }
+
+    // ============================================================================= \\
+    public function latestNews()
+    {
+        $data = News::orderBy('tgl_event', 'ASC')->limit(5)->get();
+        return $data;
+    }
 }

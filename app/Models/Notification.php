@@ -12,6 +12,7 @@ class Notification extends Model
     protected $fillable = [
         "notif_to_user_id",
         "notif_description",
+        "is_read",
     ];
 
     public function user()

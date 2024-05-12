@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNotificationsTable extends Migration
+class CreateRegulasisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('notifications', function (Blueprint $table) {
+        Schema::create('regulasis', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("notif_to_user_id");
-            $table->string("notif_description");
-            $table->boolean('is_read');
+            $table->string('judul'. 50);
+            $table->text('deskripsi');
+            $table->string('file_path');
+            $table->boolean('is_image');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateNotificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notifications');
+        Schema::dropIfExists('regulasis');
     }
 }
