@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CalendarEvent;
+use App\Models\Produk;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class CalendarEventController extends Controller
+class ProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +41,10 @@ class CalendarEventController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CalendarEvent  $calendarEvent
+     * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function show(CalendarEvent $calendarEvent)
+    public function show(Produk $produk)
     {
         //
     }
@@ -53,10 +52,10 @@ class CalendarEventController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CalendarEvent  $calendarEvent
+     * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function edit(CalendarEvent $calendarEvent)
+    public function edit(Produk $produk)
     {
         //
     }
@@ -65,10 +64,10 @@ class CalendarEventController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\CalendarEvent  $calendarEvent
+     * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CalendarEvent $calendarEvent)
+    public function update(Request $request, Produk $produk)
     {
         //
     }
@@ -76,20 +75,11 @@ class CalendarEventController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CalendarEvent  $calendarEvent
+     * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CalendarEvent $calendarEvent)
+    public function destroy(Produk $produk)
     {
         //
     }
-
-    // ================================================
-    public function getListKalendarBulanIni()
-    {
-        $data = CalendarEvent::where(DB::raw('MONTH(tgl_cal_event)'), date('m'))->get();
-        return $data;
-    }
-
-
 }
