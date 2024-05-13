@@ -7,18 +7,17 @@
 <body class="account-body accountbg">
     <div class="container">
         <div class="row vh-100 d-flex justify-content-center">
-            <div class="col-12 align-self-center p-4" style="background: #002363 ; border-radius: 0.5rem">
+            <div class="col-12 align-self-center" style="background-color:rgba(16, 163, 127, 0.7); padding: 100px ; border-radius: 0.5rem">
                 <div class="row">
                     <div class="col-lg-7 mx-auto">
-                        <div class="card">
+                        <div class="card"  style="padding-bottom: 8px ; ">
                             <div class="card-body p-0">
 
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div class="tab-pane active  p-3" id="LogIn_Tab" role="tabpanel">
 
-
-                                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                        <div id="carouselExampleControls"  class="carousel slide" data-bs-ride="carousel">
 
                                             <div class="carousel-inner">
                                                 <div class="carousel-item active">
@@ -80,8 +79,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4 mx-auto">
-                        <div class="card">
-                            <div class="card-body p-0 auth-header-box">
+                        <div class="card " style="border-radius: 0px 0px 10px 10px  !important ;">
+                            <div class="card-body p-0 auth-header-box" >
                                 <div class="text-center p-3">
                                     <a href="index" class="logo logo-admin">
                                         <img src="https://www.ilcs.co.id/cfind/source/images/pelindo-solusi-digital-logo-putih.png" height="50" alt="logo" class="auth-logo">

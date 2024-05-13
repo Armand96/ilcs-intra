@@ -47,19 +47,27 @@
                     <div class="card-body">
                         <p class="text-dark mb-0 fw-semibold">Shortcut backoffice</p>
                         <a href="#" class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
-                            <span class="avatar-title bg-purple rounded-circle"><i class="fas fa-user"></i></span>
+                            <span class="avatar-title bg-purple rounded-circle"><i class="fas fa-book"></i></span>
                             <p class="mt-1">test</p>
                         </a>
                         <a  href="#" class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
-                            <span class="avatar-title bg-warning rounded-circle"><i class="fas fa-user"></i></span>
+                            <span class="avatar-title bg-warning rounded-circle"><i class="fas fa-home"></i></span>
                             <p class="mt-1">test</p>
                         </a>
                         <a  href="#" class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
-                            <span class="avatar-title bg-danger rounded-circle"><i class="fas fa-user"></i></span>
+                            <span class="avatar-title bg-danger rounded-circle"><i class="fas fa-envelope-open"></i></span>
                             <p class="mt-1">test</p>
                         </a>
                         <a   href="#"   class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
-                            <span class="avatar-title bg-blue rounded-circle"><i class="fas fa-user"></i></span>
+                            <span class="avatar-title bg-blue rounded-circle"><i class="fas fa-file"></i></span>
+                            <p class="mt-1">test</p>
+                        </a>
+                        <a  href="#" class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
+                            <span class="avatar-title bg-danger rounded-circle"><i class="fas fa-file-medical"></i></span>
+                            <p class="mt-1">test</p>
+                        </a>
+                        <a   href="#"   class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
+                            <span class="avatar-title bg-blue rounded-circle"><i class="fas fa-file-powerpoint"></i></span>
                             <p class="mt-1">test</p>
                         </a>
                     </div><!--end card-body-->
@@ -75,14 +83,11 @@
                 <div class="carousel-item active">
                     <div class="card">
                         <div class="card-header">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h4 class="card-title">Berita 1</h4>
-                                </div><!--end col-->
-                            </div> <!--end row-->
+                          
                             <div class="card-body">
+                            <h4 class="card-title pb-3">Berita 1</h4>
                                 <div class="row align-items-center">
-                                    <img src="{{ URL::asset('assets/images/small/img-4.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ;" alt="...">
+                                    <img src="{{ URL::asset('assets/images/small/img-1.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ; border-radius: 16px ; " alt="">
                                 </div>
                             </div>
                         </div>
@@ -92,13 +97,9 @@
                 <div class="carousel-item">
                     <div class="card">
                         <div class="card-header">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h4 class="card-title">Berita 2</h4>
-                                </div><!--end col-->
-                            </div> <!--end row-->
                             <div class="card-body">
-                                <img src="{{ URL::asset('assets/images/small/img-4.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ;" alt="...">
+                            <h4 class="card-title pb-3">Berita 2</h4>
+                                <img src="{{ URL::asset('assets/images/small/img-2.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ; border-radius: 16px ;" alt="...">
                             </div>
                         </div>
                     </div>
@@ -107,13 +108,9 @@
                 <div class="carousel-item">
                     <div class="card">
                         <div class="card-header">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h4 class="card-title">Berita 3</h4>
-                                </div><!--end col-->
-                            </div> <!--end row-->
                             <div class="card-body">
-                                <img src="{{ URL::asset('assets/images/small/img-4.jpg') }}" class="d-block" style="width: 100% ; height: 33vh  ; object-fit: cover ;" alt="...">
+                            <h4 class="card-title pb-3">Berita 3</h4>
+                                <img src="{{ URL::asset('assets/images/small/img-3.jpg') }}" class="d-block" style="width: 100% ; height: 33vh  ; object-fit: cover ; border-radius: 16px ;" alt="...">
                             </div>
                         </div>
                     </div>
