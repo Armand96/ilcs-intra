@@ -9,6 +9,7 @@
 <link href="{{ URL::asset('assets/plugins/fullcalendar/packages/timegrid/main.css') }}" rel="stylesheet" />
 <link href="{{ URL::asset('assets/plugins/fullcalendar/packages/list/main.css') }}" rel="stylesheet" />
 <link href="{{ URL::asset('assets/plugins/lightpick/lightpick.css') }}" rel="stylesheet" />
+<link href="{{ URL::asset('assets/app.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 
@@ -45,22 +46,22 @@
                 <div class="card report-card">
                     <div class="card-body">
                         <p class="text-dark mb-0 fw-semibold">Shortcut backoffice</p>
-                        <div class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
+                        <a href="#" class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
                             <span class="avatar-title bg-purple rounded-circle"><i class="fas fa-user"></i></span>
                             <p class="mt-1">test</p>
-                        </div>
-                        <div class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
+                        </a>
+                        <a  href="#" class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
                             <span class="avatar-title bg-warning rounded-circle"><i class="fas fa-user"></i></span>
                             <p class="mt-1">test</p>
-                        </div>
-                        <div class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
+                        </a>
+                        <a  href="#" class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
                             <span class="avatar-title bg-danger rounded-circle"><i class="fas fa-user"></i></span>
                             <p class="mt-1">test</p>
-                        </div>
-                        <div class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
+                        </a>
+                        <a   href="#"   class="avatar-box thumb-sm align-self-center text-center me-2 mt-2">
                             <span class="avatar-title bg-blue rounded-circle"><i class="fas fa-user"></i></span>
                             <p class="mt-1">test</p>
-                        </div>
+                        </a>
                     </div><!--end card-body-->
                 </div><!--end card-->
 
@@ -232,60 +233,30 @@
                 </div> <!--end row-->
             </div><!--end card-header-->
 
-            <div class="row">
+            <div class="row px-4">
 
-                <div class="dash-datepick mb-3 col-lg-6">
-                    <input type="hidden" id="light_datepick" />
+                <div class="dash-datepick my-3 col-lg-6">
+                    <input type="hidden"id="light_datepick" />
                 </div>
 
-                <ul class="list-group col-lg-6 mb-n3">
-                    <li class="list-group-item align-items-center d-flex justify-content-between">
+                <ul class="list-group col-lg-6 my-3 mb-n3">
+                    <li class="list-group-item align-items-center d-flex">
                         <div class="media">
-                            <img src="{{ URL::asset('assets/images/small/rgb.svg') }}" height="30" class="me-3 align-self-center rounded" alt="...">
                             <div class="media-body align-self-center">
-                                <h6 class="m-0">Event 1</h6>
-                                <p class="mb-0 text-muted">12 mei 2024</p>
+                                <h6 class="m-0">juni 2024</h6>
+                                <p class="mb-0 text-muted">Hari libur idul adha</p>
                             </div><!--end media body-->
                         </div>
-                        <div class="align-self-center">
-                            <a href="" class="btn btn-sm btn-soft-primary">read more<i class="las la-external-link-alt font-15"></i></a>
-                        </div>
+                     
                     </li>
-                    <li class="list-group-item align-items-center d-flex justify-content-between">
+                    <li class="list-group-item align-items-center d-flex">
                         <div class="media">
-                            <img src="{{ URL::asset('assets/images/small/cobweb.svg') }}" height="30" class="me-3 align-self-center rounded" alt="...">
                             <div class="media-body align-self-center">
-                                <h6 class="m-0">event diluar kantor</h6>
-                                <p class="mb-0 text-muted">16 mei</p>
+                                <h6 class="m-0">juni 2024</h6>
+                                <p class="mb-0 text-muted">cuti bersama libur idul adha</p>
                             </div><!--end media body-->
                         </div>
-                        <div class="align-self-center">
-                            <a href="" class="btn btn-sm btn-soft-primary">read more<i class="las la-external-link-alt font-15"></i></a>
-                        </div>
-                    </li>
-                    <li class="list-group-item align-items-center d-flex justify-content-between">
-                        <div class="media">
-                            <img src="{{ URL::asset('assets/images/small/cobweb.svg') }}" height="30" class="me-3 align-self-center rounded" alt="...">
-                            <div class="media-body align-self-center">
-                                <h6 class="m-0">event internal kantor</h6>
-                                <p class="mb-0 text-muted">16 mei</p>
-                            </div><!--end media body-->
-                        </div>
-                        <div class="align-self-center">
-                            <a href="" class="btn btn-sm btn-soft-primary">read more<i class="las la-external-link-alt font-15"></i></a>
-                        </div>
-                    </li>
-                    <li class="list-group-item align-items-center d-flex justify-content-between">
-                        <div class="media">
-                            <img src="{{ URL::asset('assets/images/small/atom.svg') }}" height="30" class="me-3 align-self-center rounded" alt="...">
-                            <div class="media-body align-self-center">
-                                <h6 class="m-0">event ditengah kantor</h6>
-                                <p class="mb-0 text-muted">30 mei</p>
-                            </div><!--end media body-->
-                        </div>
-                        <div class="align-self-center">
-                            <a href="" class="btn btn-sm btn-soft-primary">read more<i class="las la-external-link-alt font-15"></i></a>
-                        </div>
+                     
                     </li>
                 </ul>
             </div>

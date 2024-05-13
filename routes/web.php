@@ -40,9 +40,6 @@ Route::any("*", function() {
 });
 
 
-Route::get("/test", function(){
-    return view('test');
-});
 
 Route::get("/login", function(){
     return view('login');
@@ -52,6 +49,9 @@ Route::get("/dashboard", function(){
     return view('dashboard');
 });
 
+Route::get("/our-leader", function(){
+    return view('our_leader');
+});
 
 // ==========================================
 Route::get('link_sosmed', [LinkController::class, 'sosmedLink']);

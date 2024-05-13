@@ -9,9 +9,9 @@
   .card-header{
     background-color: $card-bg;
     border-bottom: 1px solid $border_2;
-    &:first-child {
-      border-radius: calc(.5rem - 5px) calc(.5rem - 5px) 0 0;
-    }
+    // &:first-child {
+    //   border-radius: calc(.5rem - 5px) calc(.5rem - 5px) 0 0;
+    // }
   }
   .card-footer{
     background-color: $card-bg;

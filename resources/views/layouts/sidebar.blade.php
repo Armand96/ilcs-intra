@@ -11,13 +11,13 @@
         <div class="menu-content h-100" data-simplebar>
             <ul class="metismenu left-sidenav-menu">
                 <li>
-                    <a href="javascript: void(0);"  class="mb-4"> <i data-feather="home"
+                    <a href="/dashboard"  class="mb-4"> <i data-feather="home"
                             class="align-self-center menu-icon"></i><span>Dashboard</span></a>
     
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" class="mb-4"><i data-feather="user-plus"
+                    <a href="/our-leader" class="mb-4"><i data-feather="user-plus"
                             class="align-self-center menu-icon "></i><span>Our Leader</span></a>
                 </li>
 
