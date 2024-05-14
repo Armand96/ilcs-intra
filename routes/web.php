@@ -53,6 +53,10 @@ Route::get("/our-leader", function(){
     return view('our_leader');
 });
 
+Route::get("/regulations", function(){
+    return view('regulations');
+});
+
 // ==========================================
 Route::get('link_sosmed', [LinkController::class, 'sosmedLink']);
 Route::get('link_apps', [LinkController::class, 'appLink']);

@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&display=swap');
+
+
+* {
+    font-family: "Epilogue", sans-serif;
+}
+
 .card {
     border-radius: 10px !important;
 }
@@ -14,6 +21,21 @@
     color: #FFF !important;
 }
 
-.page-title-box .breadcrumb::before {
+.page-title-box .breadcrumb-item::before {
     color: #FFF !important;
 }
+
+.btn-primary:hover {
+    background-color: #aabfb8 !important;
+    border-color: #aabfb8 ;
+}
+
+.metismenu span {
+    font-size: 16px !important ;
+}
+
+.feather  {
+    width: 30px  !important ;
+    height: 30px  !important  ;
+}
+

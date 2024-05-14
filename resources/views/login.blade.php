@@ -7,51 +7,51 @@
 <body class="account-body accountbg">
     <div class="container">
         <div class="row vh-100 d-flex justify-content-center">
-            <div class="col-12 align-self-center" style="background-color:rgba(16, 163, 127, 0.7); padding: 100px ; border-radius: 0.5rem">
+            <div class="col-12 align-self-center" style="background-color:#517470; padding: 100px ; border-radius: 0.5rem">
                 <div class="row">
                     <div class="col-lg-7 mx-auto">
-                        <div class="card"  style="padding-bottom: 8px ; ">
+                        <div class="card" style="padding-bottom: 8px ; ">
                             <div class="card-body p-0">
 
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div class="tab-pane active  p-3" id="LogIn_Tab" role="tabpanel">
 
-                                        <div id="carouselExampleControls"  class="carousel slide" data-bs-ride="carousel">
+                                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 
                                             <div class="carousel-inner">
                                                 <div class="carousel-item active">
-                                                    <div class="card">
-                                                            
-                                                            <div class="card-body">
-                                                                <div class="row align-items-center">
-                                                                    <img src="{{ URL::asset('assets/images/small/img-3.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ;" alt="...">
-                                                                    <button class="btn mt-4 btn-primary col-6 mx-auto waves-effect waves-light" type="submit">Baca selengkap nya
-                                                                </div>
+                                                    <div class="">
+
+                                                        <div class="card-body">
+                                                            <div class="row align-items-center">
+                                                                <img src="{{ URL::asset('assets/images/small/img-3.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ; border-radius: 20px ;" alt="...">
+                                                                <button class="btn mt-4 btn-primary col-6 mx-auto waves-effect waves-light" type="submit">Baca selengkap nya
                                                             </div>
+                                                        </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="carousel-item">
-                                                    <div class="card">
-                                
+                                                    <div class="">
+
                                                         <div class="card-body">
-                                                                <div class="row align-items-center">
-                                                                    <img src="{{ URL::asset('assets/images/small/img-2.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ;" alt="...">
-                                                                    <button class="btn mt-4 btn-primary col-6 mx-auto waves-effect waves-light" type="submit">Baca selengkap nya
-                                                                </div>
+                                                            <div class="row align-items-center">
+                                                                <img src="{{ URL::asset('assets/images/small/img-2.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ; border-radius: 20px ;" alt="...">
+                                                                <button class="btn mt-4 btn-primary col-6 mx-auto waves-effect waves-light" type="submit">Baca selengkap nya
                                                             </div>
+                                                        </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="carousel-item">
-                                                    <div class="card">
+                                                    <div class="">
                                                         <div class="card-body">
-                                                                <div class="row align-items-center">
-                                                                    <img src="{{ URL::asset('assets/images/small/img-4.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ;" alt="...">
-                                                                    <button class="btn mt-4 btn-primary col-6 mx-auto waves-effect waves-light" type="submit">Baca selengkap nya
-                                                                </div>
+                                                            <div class="row align-items-center">
+                                                                <img src="{{ URL::asset('assets/images/small/img-4.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ; border-radius: 20px ;" alt="...">
+                                                                <button class="btn mt-4 btn-primary col-6 mx-auto waves-effect waves-light" type="submit">Baca selengkap nya
                                                             </div>
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -80,7 +80,7 @@
                     </div>
                     <div class="col-lg-4 mx-auto">
                         <div class="card " style="border-radius: 0px 0px 10px 10px  !important ;">
-                            <div class="card-body p-0 auth-header-box" >
+                            <div class="card-body p-0 auth-header-box">
                                 <div class="text-center p-3">
                                     <a href="index" class="logo logo-admin">
                                         <img src="https://www.ilcs.co.id/cfind/source/images/pelindo-solusi-digital-logo-putih.png" height="50" alt="logo" class="auth-logo">
@@ -169,6 +169,8 @@
                         </div>
                     </div>
                 </div>
+
+                <p style="font-size: 18px ;" class="text-white">Ultah Danny 17 agustus 2024 <a href="#" style="color: #aaae9f ; font-weight: bold ;">Ucapkan selamat</a></p>
             </div>
         </div>
     </div>

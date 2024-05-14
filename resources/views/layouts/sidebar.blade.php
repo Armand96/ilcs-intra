@@ -45,13 +45,13 @@
             <li>
                 <a  href="javascript: void(0);"class="mb-4 d-flex justify-content-center">
                     <span class="text-center">
-                        <i data-feather="calendar" class="align-self-center menu-icon"></i><br /><span>Meeting Calendar</span>
+                        <i data-feather="calendar" class="align-self-center icon-size menu-icon fa-2xl"></i><br /><span>Meeting Calendar</span>
                     </span>
                 </a>
             </li>
 
             <li>
-                <a href="javascript: void(0);" class="mb-4 d-flex justify-content-center">
+                <a href="/regulations" class="mb-4 d-flex justify-content-center">
                     <span class="text-center">
                         <i data-feather="alert-triangle" class="align-self-center menu-icon "></i><br /><span>Our Regulations</span>
                     </span>

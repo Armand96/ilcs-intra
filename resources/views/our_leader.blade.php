@@ -36,9 +36,9 @@
                     <li class="nav-item waves-effect waves-light">
                         <a class="nav-link" data-bs-toggle="tab" href="#profile-1" role="tab" aria-selected="false">Board Of Directors</a>
                     </li>
-                    <li class="nav-item waves-effect waves-light">
+                    <!-- <li class="nav-item waves-effect waves-light">
                         <a class="nav-link" data-bs-toggle="tab" href="#settings-1" role="tab" aria-selected="false">Board Of Management</a>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <!-- Tab panes -->
