@@ -170,7 +170,7 @@
                     </div>
                 </div>
 
-                <p style="font-size: 14px ; " class="text-white text-center text-sm-left">Ultah Danny 17 agustus 2024 <a href="#" style="color: #aaae9f ; font-weight: bold ;">Ucapkan selamat</a></p>
+                <p style="font-size: 14px ; " class="text-white text-center text-sm-left mx-auto">Ultah Danny 17 agustus 2024 <a href="#" style="color: #aaae9f ; font-weight: bold ;">Ucapkan selamat</a></p>
             </div>
         </div>
     </div>
