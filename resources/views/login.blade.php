@@ -7,9 +7,9 @@
 <body class="account-body accountbg">
     <div class="container">
         <div class="row vh-100 d-flex justify-content-center">
-            <div class="col-12 align-self-center" style="background-color:#517470; padding: 100px ; border-radius: 0.5rem">
+            <div class="col-12 align-self-center login-panel" style="">
                 <div class="row">
-                    <div class="col-lg-7 mx-auto">
+                    <div class="col-lg-7 d-none d-sm-block mx-auto">
                         <div class="card" style="padding-bottom: 8px ; ">
                             <div class="card-body p-0">
 
@@ -170,7 +170,7 @@
                     </div>
                 </div>
 
-                <p style="font-size: 18px ;" class="text-white">Ultah Danny 17 agustus 2024 <a href="#" style="color: #aaae9f ; font-weight: bold ;">Ucapkan selamat</a></p>
+                <p style="font-size: 14px ; " class="text-white text-center text-sm-left">Ultah Danny 17 agustus 2024 <a href="#" style="color: #aaae9f ; font-weight: bold ;">Ucapkan selamat</a></p>
             </div>
         </div>
     </div>
