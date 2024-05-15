@@ -13,5 +13,6 @@ class Link extends Model
         "name",
         "image_path",
         "tipe",
+        'link_tujuan',
     ];
 }
