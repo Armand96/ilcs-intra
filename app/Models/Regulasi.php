@@ -14,5 +14,6 @@ class Regulasi extends Model
         'deskripsi',
         'file_path',
         'is_image',
+        'is_first'
     ];
 }

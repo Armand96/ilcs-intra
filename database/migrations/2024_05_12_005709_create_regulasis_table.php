@@ -18,7 +18,7 @@ class CreateRegulasisTable extends Migration
             $table->string('judul'. 50);
             $table->text('deskripsi');
             $table->string('file_path');
-            $table->boolean('is_image');
+            // $table->boolean('is_first');
             $table->timestamps();
         });
     }
