@@ -12,5 +12,6 @@ class Leader extends Model
     protected $fillable = [
         'user_id',
         'description',
+        'divisi',
     ];
 }

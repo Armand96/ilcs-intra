@@ -16,6 +16,7 @@ class CreateLeadersTable extends Migration
         Schema::create('leaders', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
+            $table->string('divisi');
             $table->text('description');
             $table->timestamps();
         });
