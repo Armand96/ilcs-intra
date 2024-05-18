@@ -229,11 +229,11 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'username' => 'required',
+            'nip' => 'required',
             'password' => 'required',
         ]);
 
-        $credential = $request->only(['email', 'password']);
+        $credential = $request->only(['nip', 'password']);
 
         try {
             if(Auth::attempt($credential)) {
@@ -244,9 +244,9 @@ class UserController extends Controller
                 }
             }
             // else if(Auth::guard('siswa')->attempt($credential)) return redirect()->route('test.siswa');
-            else return redirect()->back()->withErrors(['notif' => 'email atau password salah']);
+            else return redirect()->back()->withErrors(['errors' => 'nip atau password salah']);
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors(['notif' => $th->getMessage()]);
+            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
         }
     }
 }

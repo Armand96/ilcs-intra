@@ -49,7 +49,7 @@ Route::get("/login", function(){
 
 Route::get("/dashboard", function(){
     return view('dashboard');
-});
+})->name('dashboard');
 
 Route::get("/our-leader", function(){
     return view('our_leader');
