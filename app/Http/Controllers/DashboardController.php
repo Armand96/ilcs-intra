@@ -16,6 +16,7 @@ class DashboardController extends Controller
         $upcomingBirthday = $this->getUpcomingBirthday();
         $linkApps = $this->appLink();
         $linkSosmed = $this->sosmedLink();
+        $newEmployee = $this->newEmployee();
 
         return view('dashboard');
     }

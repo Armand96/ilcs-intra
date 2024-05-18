@@ -249,4 +249,22 @@ class UserController extends Controller
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
         }
     }
+
+    /**
+     * LOG OUT CURRENT USER
+     * @return void
+    */
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        // Invalidate the user's session
+        $request->session()->invalidate();
+
+        // Regenerate the CSRF token to prevent CSRF attacks
+        $request->session()->regenerateToken();
+
+        // Redirect to the login page or any other page
+        return redirect('/login');
+    }
 }

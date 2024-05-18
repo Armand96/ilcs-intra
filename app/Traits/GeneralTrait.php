@@ -7,22 +7,37 @@ use App\Models\Link;
 use App\Models\News;
 use App\Models\NilaiKaryawan;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
 trait GeneralTrait
 {
-    public function latestNews()
+    /**
+     * Get the latest news.
+     *
+     * @return Collection|News[]
+    **/
+    public function latestNews(): Collection
     {
         $data = News::orderBy('tgl_event', 'ASC')->limit(5)->get();
         return $data;
     }
 
+    /**
+     * Get new employee data.
+     *
+     * @return Collection|User[]
+    **/
     public function newEmployee()
     {
         $data = User::whereBetween('tgl_masuk', [date('Y-m-d'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->limit(5)->get();
         return $data;
     }
 
+    /**
+     * Get upcoming birthday employee.
+     * @return Collection|User[]
+    **/
     public function getUpcomingBirthday()
     {
         $whereMonth = DB::raw('MONTH(tgl_lahir)');
