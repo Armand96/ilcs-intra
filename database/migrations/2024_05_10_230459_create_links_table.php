@@ -18,6 +18,7 @@ class CreateLinksTable extends Migration
             $table->string('name', 100);
             $table->string('image_path');
             $table->enum('tipe', ['sosmed', 'other']);
+            $table->string('link_tujuan');
             $table->timestamps();
         });
     }

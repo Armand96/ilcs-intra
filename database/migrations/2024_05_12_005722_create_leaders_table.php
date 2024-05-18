@@ -16,9 +16,8 @@ class CreateLeadersTable extends Migration
         Schema::create('leaders', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
-            $table->text('visi');
-            $table->text('misi');
-            $table->text('quotes');
+            $table->string('divisi');
+            $table->text('description');
             $table->timestamps();
         });
     }

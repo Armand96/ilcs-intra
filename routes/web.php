@@ -57,6 +57,10 @@ Route::get("/regulations", function(){
     return view('regulations');
 });
 
+Route::get('testtailwind', function() {
+    return view('test_tailwind');
+});
+
 // ==========================================
 Route::get('link_sosmed', [LinkController::class, 'sosmedLink']);
 Route::get('link_apps', [LinkController::class, 'appLink']);

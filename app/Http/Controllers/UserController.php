@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NilaiKaryawan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -218,5 +219,34 @@ class UserController extends Controller
     {
         $data = User::whereBetween('tgl_masuk', [date('Y-m-d'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->limit(5)->get();
         return $data;
+    }
+
+    public function checkLogin()
+    {
+
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        $credential = $request->only(['email', 'password']);
+
+        try {
+            if(Auth::attempt($credential)) {
+                if(Auth::user()->role->is_admin == true) {
+                    return redirect()->route('dashboard');
+                } else {
+                    return redirect()->route('cms');
+                }
+            }
+            // else if(Auth::guard('siswa')->attempt($credential)) return redirect()->route('test.siswa');
+            else return redirect()->back()->withErrors(['notif' => 'email atau password salah']);
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['notif' => $th->getMessage()]);
+        }
     }
 }
