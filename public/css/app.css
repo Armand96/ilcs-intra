@@ -4265,6 +4265,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: rgb(18 24 49 / var(--tw-bg-opacity));
 }
+.bg-login-button {
+  --tw-bg-opacity: 1;
+  background-color: rgb(11 90 253 / var(--tw-bg-opacity));
+}
 .bg-login-input {
   background-color: #2C365D99;
 }
@@ -4508,6 +4512,10 @@ details.collapse summary::-webkit-details-marker {
 }
 .\[index_n-1\:index_n\] {
   index_n-1: index n;
+}
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 @media (min-width: 640px) {
 

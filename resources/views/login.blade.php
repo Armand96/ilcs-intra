@@ -28,7 +28,7 @@
                             <p class="text-white text-lg text-left">
                                 NIP
                             </p>
-                            <input type="text" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text no-focus" placeholder="Enter Your NIP">
+                            <input type="text" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none" placeholder="Enter Your NIP">
                         </div>
                         <div class="mt-4">
                             <p class="text-white text-lg text-left">
@@ -36,7 +36,7 @@
                             </p>
                             <input type="password" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text no-focus" placeholder="Password ">
                         </div>
-                        <button class="bg-login-button relative z-10 w-full mt-12 text-white rounded-md py-2">
+                        <button class="bg-login-button login-button relative z-10 w-full mt-12 text-white rounded-md py-2">
                             Login
                         </button>
                     </div>
