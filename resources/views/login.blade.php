@@ -14,7 +14,8 @@
         <div class="lg:w-3/6 h-full flex flex-col justify-center items-center bg-login-100">
             <div class="flex-col lg:w-5/6">
                 <img src="assets/images/logo/login_logo.svg" alt="tes" class=" mx-auto mt-6 lg:mt-0">
-                <div class="background-inner-login text-center mt-4 lg:mt-12 px-12 py-12 lg:px-20 lg:py-20">
+                <form class="background-inner-login text-center mt-4 lg:mt-12 px-12 py-12 lg:px-20 lg:py-20" action="{{ route('login_user') }}">
+                    @csrf
                     <h4 class="text-xl lg:text-2xl font-bold text-white">
                         Sign In
                     </h4>
@@ -33,13 +34,13 @@
                             <p class="text-white text-lg text-left">
                                 Password
                             </p>
-                            <input type="text" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text no-focus" placeholder="Password ">
+                            <input type="password" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text no-focus" placeholder="Password ">
                         </div>
                         <button class="bg-login-button relative z-10 w-full mt-12 text-white rounded-md py-2">
                             Login
                         </button>
                     </div>
-                </div>
+                </form>
                 <p class="mt-6 text-xs text-center lg:text-base text-login-text">© 2024 ILCS. All rights reserved</p>
                 <img src="assets/images/background/tech-bg-left.svg" class="absolute bottom-0 left-0 w-42 hidden lg:block" alt="test">
             </div>

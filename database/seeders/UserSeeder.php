@@ -19,8 +19,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'admin',
                 'name' => 'Admin',
-                'nip' => 12345,
-                'rle_id' => 1,
+                'nip' => 1,
+                'role_id' => 1,
                 'email' => 'admin@admin.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'admin',
@@ -33,8 +33,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'prakosa',
                 'name' => 'Prakosa Hadi Takariyanto',
-                'nip' => 43433,
-                'rle_id' => 2,
+                'nip' => 2,
+                'role_id' => 2,
                 'email' => 'prakosa@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'President Commisioner',
@@ -46,8 +46,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'budi',
                 'name' => 'Budi Mantoro',
-                'nip' => 43432,
-                'rle_id' => 2,
+                'nip' => 3,
+                'role_id' => 2,
                 'email' => 'budi@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'Commisioner',
@@ -59,8 +59,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'nugroho',
                 'name' => 'Nugroho Indrio',
-                'nip' => 513434,
-                'rle_id' => 2,
+                'nip' => 4,
+                'role_id' => 2,
                 'email' => 'nugroho@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'Commisioner',
@@ -74,8 +74,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'natal',
                 'name' => 'Natal Iman Ginting',
-                'nip' => 232321,
-                'rle_id' => 2,
+                'nip' => 5,
+                'role_id' => 2,
                 'email' => 'natal@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'Chief Executive Officer (CEO)',
@@ -87,8 +87,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'agus',
                 'name' => 'Agus Dharmawan',
-                'nip' => 45653,
-                'rle_id' => 2,
+                'nip' => 6,
+                'role_id' => 2,
                 'email' => 'agus@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'Chief Marketing Officer (CMO)',
@@ -100,8 +100,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'judi',
                 'name' => 'Judi Ginta Irawan',
-                'nip' => 45655673,
-                'rle_id' => 2,
+                'nip' => 7,
+                'role_id' => 2,
                 'email' => 'judi@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'Chief Technology Officer (CTO) Current Chief Financial Officer (CFO)',
@@ -115,8 +115,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'demas',
                 'name' => 'Demas Bermani Surya',
-                'nip' => 4123213,
-                'rle_id' => 3,
+                'nip' => 8,
+                'role_id' => 3,
                 'email' => 'demas@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'UI UX Developer Produk',
@@ -128,8 +128,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'dony',
                 'name' => 'Dony Sapta Kurniawan',
-                'nip' => 543544,
-                'rle_id' => 3,
+                'nip' => 9,
+                'role_id' => 3,
                 'email' => 'dony@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'UI UX Developer Produk',
@@ -141,8 +141,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'albert',
                 'name' => 'Albert Nusantara',
-                'nip' => 412312,
-                'rle_id' => 3,
+                'nip' => 10,
+                'role_id' => 3,
                 'email' => 'albert@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'Project Manager',
@@ -156,8 +156,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'nurul',
                 'name' => 'Nurul Amelia',
-                'nip' => 5545766,
-                'rle_id' => 3,
+                'nip' => 11,
+                'role_id' => 3,
                 'email' => 'nurul@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'System Analyst',
@@ -169,8 +169,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'ari',
                 'name' => 'Ari Panen',
-                'nip' => 5543266,
-                'rle_id' => 3,
+                'nip' => 12,
+                'role_id' => 3,
                 'email' => 'ari@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'System Analyst',
@@ -182,8 +182,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'adit',
                 'name' => 'Muhammad Aditya Suazi',
-                'nip' => 5543266,
-                'rle_id' => 3,
+                'nip' => 13,
+                'role_id' => 3,
                 'email' => 'adit@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'UIUX Developer Produk',
@@ -195,8 +195,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'eva',
                 'name' => 'Eva Soraya',
-                'nip' => 76754,
-                'rle_id' => 3,
+                'nip' => 14,
+                'role_id' => 3,
                 'email' => 'eva@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'Data Analyst',
@@ -210,8 +210,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'evelyn',
                 'name' => 'Evelyn Halim',
-                'nip' => 2423425,
-                'rle_id' => 3,
+                'nip' => 15,
+                'role_id' => 3,
                 'email' => 'evelyn@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => 'Business Intelligence',
@@ -223,8 +223,8 @@ class UserSeeder extends Seeder
             [
                 'username' => 'amanda',
                 'name' => 'Amanda Najwa Perak',
-                'nip' => 51242421,
-                'rle_id' => 3,
+                'nip' => 16,
+                'role_id' => 3,
                 'email' => 'amanda@ilcs.com',
                 'password' => Hash::make('admin'),
                 'jabatan' => '3D Designer',
@@ -235,6 +235,6 @@ class UserSeeder extends Seeder
             ],
         ];
 
-        User::create($data);
+        User::insert($data);
     }
 }

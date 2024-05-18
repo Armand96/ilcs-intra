@@ -76,3 +76,5 @@ Route::get('unread_count_notif', [NotificationController::class, 'unreadCount'])
 Route::get('unread_chat', [NotificationController::class, 'unreadChat']);
 Route::get('unread_count_chat', [NotificationController::class, 'unreadCount']);
 
+/* NANTI DIBERESIN SUSUNAN ROUTENYA */
+Route::post('login_user', [UserController::class, 'login'])->name('login_user');

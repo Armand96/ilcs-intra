@@ -4389,10 +4389,6 @@ details.collapse summary::-webkit-details-marker {
 .leading-7 {
   line-height: 1.75rem;
 }
-.text-blue-300 {
-  --tw-text-opacity: 1;
-  color: rgb(147 197 253 / var(--tw-text-opacity));
-}
 .text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
@@ -4425,6 +4421,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-text-opacity: 1;
   color: rgb(188 188 189 / var(--tw-text-opacity));
 }
+.text-login-text-blue {
+  --tw-text-opacity: 1;
+  color: rgb(36 195 207 / var(--tw-text-opacity));
+}
 .text-primary {
   --tw-text-opacity: 1;
   color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
@@ -4436,10 +4436,6 @@ details.collapse summary::-webkit-details-marker {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.text-login-text-blue {
-  --tw-text-opacity: 1;
-  color: rgb(36 195 207 / var(--tw-text-opacity));
 }
 .underline {
   text-decoration-line: underline;
@@ -4628,23 +4624,19 @@ details.collapse summary::-webkit-details-marker {
     text-align: left;
   }
 
-  .lg\:text-center {
-    text-align: center;
-  }
-
   .lg\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
   }
 
-  .lg\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
   .lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 @media (prefers-color-scheme: dark) {

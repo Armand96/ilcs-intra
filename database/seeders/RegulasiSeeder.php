@@ -17,11 +17,9 @@ class RegulasiSeeder extends Seeder
         $data1 = [
             [
                 'judul' => "Code of Conduct",
-                'deskripsi' => "The company has compiled a Code of Conduct as a guide for professional behavior for all company personnel. The purpose of implementing the code of ethics so that every employee has the awareness to practice good ethics and will ultimately improve and strengthen the company's reputation.
-
-                                Therefore, ILCS is determined to actively implement a culture of compliance with ethical behavior in the company, including by encouraging the implementation of reporting on matters that can cause financial or non-financial losses to the company.
-
-                                Company or cause tarnishing of the Company's good name.",
+                'deskripsi' => "The company has compiled a Code of Conduct as a guide for professional behavior for all company personnel. The purpose of implementing the code of ethics so that every employee has the awareness to practice good ethics and will ultimately improve and strengthen the company's reputation.".
+                                "Therefore, ILCS is determined to actively implement a culture of compliance with ethical behavior in the company, including by encouraging the implementation of reporting on matters that can cause financial or non-financial losses to the company.".
+                                "Company or cause tarnishing of the Company's good name.",
                 'file_path' => "https://www.ilcs.co.id/cfind/source/files/complience/pedoman-kode-etik-bisnis-025.umm.doo.2020-2020.pdf",
             ],
             [
@@ -31,9 +29,8 @@ class RegulasiSeeder extends Seeder
             ],
             [
                 "judul" => "GCG",
-                "deskripsi" => "ILCS is committed to implementing good corporate governance with high moral standards by referring to the Guidelines for the Implementation of Good Corporate Governance.
-
-                                GCG guidelines are guidelines for all company personnel in making decisions and carrying out actions based on high morals, compliance with applicable laws and awareness of the existence of corporate social responsibility towards interested parties (stakeholders) consistently.",
+                "deskripsi" => "ILCS is committed to implementing good corporate governance with high moral standards by referring to the Guidelines for the Implementation of Good Corporate Governance.".
+                                "GCG guidelines are guidelines for all company personnel in making decisions and carrying out actions based on high morals, compliance with applicable laws and awareness of the existence of corporate social responsibility towards interested parties (stakeholders) consistently.",
                 "file_path" => "https://www.ilcs.co.id/cfind/source/files/complience/pemutakhiran-pedoman-gcg-pt-ilcs-signed-off.pdf"
             ],
             [

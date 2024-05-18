@@ -15,7 +15,7 @@ class CreateRegulasisTable extends Migration
     {
         Schema::create('regulasis', function (Blueprint $table) {
             $table->id();
-            $table->string('judul'. 50);
+            $table->string('judul', 50);
             $table->text('deskripsi');
             $table->string('file_path');
             // $table->boolean('is_first');
