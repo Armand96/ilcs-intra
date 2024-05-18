@@ -39,7 +39,9 @@ Route::any("*", function() {
     throw new NotFoundHttpException("Halaman Tidak Ditemukan");
 });
 
-
+Route::get("/comming-soon", function(){
+    return view('comming_soon');
+}) ->name('comming_soon');
 
 Route::get("/login", function(){
     return view('login');

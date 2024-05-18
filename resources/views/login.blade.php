@@ -1,178 +1,56 @@
-@extends('master_without_nav')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('title') Login @endsection
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+</head>
 
-@section('content')
+<body>
+    <div class="flex flex-col lg:flex-row w-full h-screen">
+        <div class="lg:w-3/6 h-full flex flex-col justify-center items-center bg-login-100">
+            <div class="flex-col lg:w-5/6">
+                <img src="assets/images/logo/login_logo.svg" alt="tes" class=" mx-auto mt-6 lg:mt-0">
+                <div class="background-inner-login text-center mt-4 lg:mt-12 px-12 py-12 lg:px-20 lg:py-20">
+                    <h4 class="text-xl lg:text-2xl font-bold text-white">
+                        Sign In
+                    </h4>
+                    <p class="text-sm lg:text-xl mt-4 text-login-text">
+                        Welcome back! Please enter your details
+                    </p>
 
-<body class="account-body accountbg">
-    <div class="container">
-        <div class="row vh-100 d-flex justify-content-center">
-            <div class="col-12 align-self-center login-panel" style="">
-                <div class="row">
-                    <div class="col-lg-7 d-none d-sm-block mx-auto">
-                        <div class="card" style="padding-bottom: 8px ; ">
-                            <div class="card-body p-0">
-
-                                <!-- Tab panes -->
-                                <div class="tab-content">
-                                    <div class="tab-pane active  p-3" id="LogIn_Tab" role="tabpanel">
-
-                                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-
-                                            <div class="carousel-inner">
-                                                <div class="carousel-item active">
-                                                    <div class="">
-
-                                                        <div class="card-body">
-                                                            <div class="row align-items-center">
-                                                                <img src="{{ URL::asset('assets/images/small/img-3.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ; border-radius: 20px ;" alt="...">
-                                                                <button class="btn mt-4 btn-primary col-6 mx-auto waves-effect waves-light" type="submit">Baca selengkap nya
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="carousel-item">
-                                                    <div class="">
-
-                                                        <div class="card-body">
-                                                            <div class="row align-items-center">
-                                                                <img src="{{ URL::asset('assets/images/small/img-2.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ; border-radius: 20px ;" alt="...">
-                                                                <button class="btn mt-4 btn-primary col-6 mx-auto waves-effect waves-light" type="submit">Baca selengkap nya
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="carousel-item">
-                                                    <div class="">
-                                                        <div class="card-body">
-                                                            <div class="row align-items-center">
-                                                                <img src="{{ URL::asset('assets/images/small/img-4.jpg') }}" class="d-block" style="width: 100% ; height: 33vh ; object-fit: cover ; border-radius: 20px ;" alt="...">
-                                                                <button class="btn mt-4 btn-primary col-6 mx-auto waves-effect waves-light" type="submit">Baca selengkap nya
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                <span class="visually-hidden">Previous</span>
-                                            </a>
-                                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="visually-hidden">Next</span>
-                                            </a>
-                                        </div>
-
-                                        <!--end form-group-->
-                                        </form>
-                                        <!--end form-->
-
-
-                                    </div>
-
-                                </div>
-                            </div>
+                    <div class="mt-12">
+                        <div class="mt-3">
+                            <p class="text-white text-lg text-left">
+                                NIP
+                            </p>
+                            <input type="text" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text no-focus" placeholder="Enter Your NIP">
                         </div>
-                    </div>
-                    <div class="col-lg-4 mx-auto">
-                        <div class="card " style="border-radius: 0px 0px 10px 10px  !important ;">
-                            <div class="card-body p-0 auth-header-box">
-                                <div class="text-center p-3">
-                                    <a href="index" class="logo logo-admin">
-                                        <img src="https://www.ilcs.co.id/cfind/source/images/pelindo-solusi-digital-logo-putih.png" height="50" alt="logo" class="auth-logo">
-                                    </a>
-                                    <h4 class="mt-3 mb-1 fw-semibold text-white font-18">Selamat datang</h4>
-                                    <p class="text-muted  mb-0">Silahkan login untuk menggunakan wifi</p>
-                                </div>
-                            </div>
-                            <div class="card-body p-0">
-
-                                <!-- Tab panes -->
-                                <div class="tab-content">
-                                    <div class="tab-pane active  p-3" id="LogIn_Tab" role="tabpanel">
-
-
-                                        <!-- <div class="alert alert-success text-center">
-                                            message
-                                        </div> -->
-
-                                        <form class="form-horizontal auth-form" method="POST" action="">
-                                            @csrf
-                                            <div class="form-group mb-2">
-                                                <label class="form-label" for="username">Username</label>
-                                                <div class="input-group">
-                                                    <input name="email" type="email" class="form-control" value="" id="username" placeholder="Enter Email" autocomplete="email" autofocus>
-
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong></strong>
-                                                    </span>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group mb-2">
-                                                <label class="form-label" for="userpassword">Password</label>
-                                                <div class="input-group">
-                                                    <input type="password" name="password" class="form-control " id="userpassword" value="123456" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
-                                                    @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row my-3">
-                                                <div class="col-sm-6">
-                                                    <div class="custom-control custom-switch switch-success">
-                                                        <input class="form-check-input" type="checkbox" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                        <label class="form-check-label" for="remember"> simpan user
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-sm-6 text-end">
-
-                                                    <a href="" class="text-muted">Lupa password ?</a>
-
-                                                </div>
-                                                <!--end col-->
-                                            </div>
-                                            <!--end form-group-->
-
-                                            <div class="form-group mb-0 row">
-                                                <div class="col-12">
-                                                    <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Log In
-                                                </div>
-                                                <!--end col-->
-                                            </div>
-
-                                            <div class="form-group mt-3 row">
-                                                <p>tidak punya akun ? <a href="" class="text-muted">buat disini</a></p>
-                                            </div>
-
-
-                                            <!--end form-group-->
-                                        </form>
-                                        <!--end form-->
-
-
-                                    </div>
-
-                                </div>
-                            </div>
-
+                        <div class="mt-4">
+                            <p class="text-white text-lg text-left">
+                                Password
+                            </p>
+                            <input type="text" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text no-focus" placeholder="Password ">
                         </div>
+                        <button class="bg-login-button relative z-10 w-full mt-12 text-white rounded-md py-2">
+                            Login
+                        </button>
                     </div>
                 </div>
-
-                <p style="font-size: 14px ; " class="text-white text-center text-sm-left mx-auto">Ultah Danny 17 agustus 2024 <a href="#" style="color: #aaae9f ; font-weight: bold ;">Ucapkan selamat</a></p>
+                <p class="mt-6 text-xs text-center lg:text-base text-login-text">© 2024 ILCS. All rights reserved</p>
+                <img src="assets/images/background/tech-bg-left.svg" class="absolute bottom-0 left-0 w-42 hidden lg:block" alt="test">
             </div>
-        </div>
-    </div>
 
-    @endsection
+        </div>
+        <div class="hidden lg:w-3/6 back-login lg:flex justify-center items-center h-screen" >
+           <div class="w-5/6">
+            <h1 class="text-2xl mt-5 mb-12 font-semibold text-white">Welcome to <span class="text-login-text-blue">INTRANET 2.0</span> <br />Please sign in to your account</h1>
+           <img src="assets/images/background/login-right-image.svg" class="w-full mb-16">
+           </div>
+        </div>
+</body>
+
+</html>
