@@ -73,7 +73,7 @@ class UserController extends Controller
             if($request->hasFile('foto')) {
 
                 $imageName = time().'.'.$request->foto->extension();
-                $request->foto->storeAs('public/user_image', $imageName);
+                $request->foto->storeAs('public/profile_picture/', $imageName);
                 $data['image_user'] = $imageName;
             }
 
@@ -146,11 +146,11 @@ class UserController extends Controller
         try {
             if($request->hasFile('foto')) {
 
-                Storage::disk('public')->exists("profile_picture/$user->image_user");
-                Storage::delete("public/profile_picture/$user->image_user");
+                $isExist = Storage::disk('public')->exists("profile_picture/$user->image_user") ?? false;
+                if($isExist) Storage::delete("public/profile_picture/$user->image_user");
 
                 $imageName = time().'.'.$request->foto->extension();
-                $request->foto->storeAs('public/user_image', $imageName);
+                $request->foto->storeAs('public/profile_picture', $imageName);
                 $data['image_user'] = $imageName;
             }
 
@@ -167,11 +167,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
         try {
-            $user = User::find($id);
-
             if($user->image_user != null) {
 
                 Storage::disk('public')->exists("profile_picture/$user->image_user");
