@@ -16,7 +16,7 @@ class CreateCalendarEventsTable extends Migration
         Schema::create('calendar_events', function (Blueprint $table) {
             $table->id();
             $table->string('judul', 100);
-            $table->text('description');
+            $table->text('description')->nullable(true);
             $table->date('tgl_cal_event');
             $table->timestamps();
         });

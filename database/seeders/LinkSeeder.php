@@ -15,6 +15,7 @@ class LinkSeeder extends Seeder
     public function run()
     {
         $data = [
+            /* ================================ SOSMED ================================ */
             [
                 'name' => "Facebook",
                 'image_path' => "https://www.ilcs.co.id/cfind/source/thumb/images/dev/material/cover_w24_h24_soc-facebook.png",
@@ -38,6 +39,38 @@ class LinkSeeder extends Seeder
                 'image_path' => "https://www.ilcs.co.id/cfind/source/thumb/images/dev/material/cover_w24_h24_soc-twitter.png",
                 'tipe' => "sosmed",
                 'link_tujuan' => "https://twitter.com/ilcs_id/",
+            ],
+
+            /* ================================ BACK OFFICE LINK ================================ */
+            [
+                'name' => "PEO",
+                'image_path' => "https://www.ilcs.co.id/cfind/source/thumb/images/dev/material/cover_w24_h24_soc-twitter.png",
+                'tipe' => "other",
+                'link_tujuan' => "http://peo.ilcs.co.id",
+            ],
+            [
+                'name' => "Zimbra",
+                'image_path' => "https://www.ilcs.co.id/cfind/source/thumb/images/dev/material/cover_w24_h24_soc-twitter.png",
+                'tipe' => "other",
+                'link_tujuan' => "http://peo.ilcs.co.id",
+            ],
+            [
+                'name' => "E-Office",
+                'image_path' => "https://www.ilcs.co.id/cfind/source/thumb/images/dev/material/cover_w24_h24_soc-twitter.png",
+                'tipe' => "other",
+                'link_tujuan' => "http://peo.ilcs.co.id",
+            ],
+            [
+                'name' => "PCICO",
+                'image_path' => "https://www.ilcs.co.id/cfind/source/thumb/images/dev/material/cover_w24_h24_soc-twitter.png",
+                'tipe' => "other",
+                'link_tujuan' => "http://peo.ilcs.co.id",
+            ],
+            [
+                'name' => "ilcs.co.id",
+                'image_path' => "https://www.ilcs.co.id/cfind/source/thumb/images/dev/material/cover_w24_h24_soc-twitter.png",
+                'tipe' => "other",
+                'link_tujuan' => "http://peo.ilcs.co.id",
             ],
         ];
 

@@ -23,6 +23,10 @@ class RoleSeeder extends Seeder
                 'role_name' => 'Leader',
                 'is_admin' => false
             ],
+            [
+                'role_name' => 'Staff',
+                'is_admin' => false
+            ]
         ];
 
         Role::insert($data);
