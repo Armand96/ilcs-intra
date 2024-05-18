@@ -12,7 +12,8 @@ module.exports = {
           100: "#121831",
           input: "#2C365D99",
           text: "#BCBCBD",
-          "text-blue": "#24C3CF"
+          "text-blue": "#24C3CF",
+          button: "#0B5AFD"
         }
       }
     },
