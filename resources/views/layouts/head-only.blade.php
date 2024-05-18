@@ -1,6 +1,3 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8" />
     <title>Pelindo</title>
@@ -10,12 +7,3 @@
     <link rel="shortcut icon" href="{{ URL::asset('assets/images/pelindo.png') }}">
     @include('layouts.head-css')
 </head>
-
-@yield('body')
-
-@yield('content')
-
-@include('layouts.vendor-scripts')
-</body>
-
-</html>
