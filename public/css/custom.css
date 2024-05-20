@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
@@ -24,6 +29,48 @@
 
 
 .login-button:hover {
-    background: radial-gradient(109.99% 253.12% at 76.68% 66.67%, #0B5AFD 0%, #0960FF 100%) ;
+    background: radial-gradient(109.99% 253.12% at 76.68% 66.67%, #0B5AFD 0%, #0960FF 100%);
     box-shadow: 0px 0px 18.28px 0px #25B5D2;
+}
+
+.drawer-content {
+    background-image: url('../assets/images/background/bg-dashboard.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sidebar-background {
+    background: linear-gradient(269.37deg, #1B3351 15.06%, #240621 187.53%);
+    
+}
+
+.drawer-side::-webkit-scrollbar {
+    display: none;
+  }
+
+.menu-child-active {
+    background: linear-gradient(180deg, rgba(49, 58, 91, 0) -1.11%, rgba(49, 58, 91, 0.44) 23.83%, #313A5B 99.56%);
+}
+
+.menu-child:hover  {
+    background: linear-gradient(180deg, rgba(49, 58, 91, 0) -1.11%, rgba(49, 58, 91, 0.44) 23.83%, #313A5B 99.56%);
+    
+}
+
+.menu-child:hover .hex-icon  {
+    background: radial-gradient(109.99% 253.12% at 76.68% 66.67%, #2C3D8D 0%, #24C6CE 100%);
+    box-shadow: 0px 0px 18.28px 0px #25B5D2;
+}
+
+.hex-icon-active {
+    background: radial-gradient(109.99% 253.12% at 76.68% 66.67%, #2C3D8D 0%, #24C6CE 100%);
+    box-shadow: 0px 0px 18.28px 0px #25B5D2;
+}
+
+.bg-onboarding {
+    background-image: url('../assets/images/background/background_login_kanan.svg');
+}
+
+.bg-backoffice-icon {
+    background: #FFFFFF33;
 }

@@ -14,7 +14,10 @@ module.exports = {
           text: "#BCBCBD",
           "text-blue": "#24C3CF",
           button: "#0B5AFD"
-        }
+        },
+        "dashboard": {
+          background: " #111632"
+        },
       }
     },
     
