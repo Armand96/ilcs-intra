@@ -97,7 +97,7 @@
                                     <p class="text-base">Selamat Datang di Intranet ILCS</p>
                                 </div>
                                 <div class="flex-col w-2/6">
-                                    <img src="{{ asset('assets/images/icon/orang-kerja-icon.svg') }}" class="pr-4 -mb-12" alt="">
+                                    <img src="{{ asset('assets/images/icon/orang-kerja-icon.svg') }}" class="pr-4 -mb-8" alt="">
                                 </div>
                             </div>
 
@@ -140,7 +140,7 @@
 
                         </div>
 
-                        <div class="flex flex-col h-screen mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
+                        <div class="flex flex-col rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
                             <div class="flex justify-between mb-3">
                                 <div class="w-1/6 text-white">
                                     <p class="text-xl">ILCS News</p>
@@ -160,16 +160,48 @@
                                 </div>
                             </div>
                             <div class="owl-carousel w-full">
+
                                 <div id="slide1" class="carousel-item flex flex-col w-full mt-4">
                                     <h1 class="text-lg font-semibold text-white">PT ILCS dengan bangga berpartisipasi dalam program Mudik Gratis Bersama Pelindo Group 2024</h1>
-                                    <div class="mt-6 w-full h-64">
-                                        <img src="{{ asset('assets/images/carousel/mockup-news.svg') }}" alt="" class="w-full h-full object-cover rounded-2xl">
+                                    <div class="mt-6 w-full h-72">
+                                        <img src="{{ asset('assets/images/carousel/mockup-news.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
                                     </div>
                                 </div>
+
                                 <div id="slide2" class="carousel-item flex flex-col w-full mt-4">
                                     <h1 class="text-lg font-semibold text-white">Slide 2</h1>
-                                    <div class="mt-6 w-full h-64">
-                                        <img src="{{ asset('assets/images/carousel/mockup-news.svg') }}" alt="" class="w-full h-full object-cover rounded-2xl">
+                                    <div class="mt-6 w-full h-72">
+                                        <img src="{{ asset('assets/images/carousel/mockup-news.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="flex rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
+                            <div id='calendar' class="w-3/6 text-white text-xs"></div>
+                            <div class="flex flex-col text-white ml-6">
+                                <h5 class="font-semibold mb-6">
+                                    ILCS Events
+                                </h5>
+                                <div class="max-h-80 overflow-auto">
+                                    <div class="flex mb-6">
+                                        <div class="w-1/6 mx-6">
+                                            <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full">
+                                        </div>
+                                        <div class="w-4/6 text-sm">
+                                            <h4 class="font-semibold text-white">Go Live PTOS-M Tanjung Priok</h4>
+                                            <p class="text-dashboard-blue-right text-xs">Senin, 29 April 2024 | 10.00 </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex mb-6">
+                                        <div class="w-1/6 mx-6">
+                                            <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full">
+                                        </div>
+                                        <div class="w-4/6 text-sm">
+                                            <h4 class="font-semibold text-white">Go Live PTOS-M Tanjung Priok</h4>
+                                            <p class="text-dashboard-blue-right text-xs">Senin, 29 April 2024 | 10.00 </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -307,7 +339,6 @@
 
 
             </div>
-            <!-- <div id='calendar' class="w-full"></div> -->
 
         </div>
         <!-- sidebar -->
@@ -417,10 +448,11 @@
                 },
 
                 initialDate: new Date(),
-                navLinks: true, // can click day/week names to navigate views
+                navLinks: false, // can click day/week names to navigate views
                 businessHours: true, // display business hours
                 editable: true,
-                selectable: true,
+
+                // selectable: true,
                 // events: [{
                 //         title: 'Business Lunch',
                 //         start: '2023-01-03T13:00:00',
