@@ -87,7 +87,7 @@
 
                             <div class="flex w-6/12 rounded-2xl bg-onboarding items-center mr-8 ">
                                 <div class=" flex flex-col w-4/6 px-4 py-6 text-white">
-                                    <h4 class="text-lg text-sm font-semibold">Halo Warriors! 👋</h4>
+                                    <h4 class="text-sm font-semibold">Halo Warriors! 👋</h4>
                                     <p class="text-base">Selamat Datang di Intranet ILCS</p>
                                 </div>
                                 <div class="flex-col w-2/6">
@@ -135,15 +135,29 @@
                         </div>
 
                         <div class="flex flex-col h-screen mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
-                         <div class="flex justify-between mb-3">
-                            <div class="w-1/6 text-white">
-                            <p class="text-xs">ILCS News</p>
+                            <div class="flex justify-between mb-3">
+                                <div class="w-1/6 text-white">
+                                    <p class="text-xl">ILCS News</p>
+                                </div>
+                                <div class="w-1/6 flex text-xl text-white">
+                                    <p class="mr-6"><</p>
+                                     <p>></p>
+                                </div>
                             </div>
-                            <div class="w-1/6 flex text-white">
-                                <p><</p>
-                                <p>></p>
+                            <div class="carousel w-full">
+                                <div id="slide1" class="carousel-item flex flex-col w-full mt-4">
+                                    <h1 class="text-lg font-semibold text-white">PT ILCS dengan bangga berpartisipasi dalam program Mudik Gratis Bersama Pelindo Group 2024</h1>
+                                    <div class="mt-6 w-full h-64">
+                                        <img src="assets/images/carousel/mockup-news.svg" alt="" class="w-full h-full object-cover rounded-2xl">
+                                    </div>
+                                </div>
+                                <div id="slide2" class="carousel-item flex flex-col w-full mt-4">
+                                    <h1 class="text-lg font-semibold text-white">Slide 2</h1>
+                                    <div class="mt-6 w-full h-64">
+                                        <img src="assets/images/carousel/mockup-news.svg" alt="" class="w-full h-full object-cover rounded-2xl">
+                                    </div>
+                                </div>
                             </div>
-                         </div>
                         </div>
 
                     </div>
