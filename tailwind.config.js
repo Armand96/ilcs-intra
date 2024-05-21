@@ -16,7 +16,8 @@ module.exports = {
           button: "#0B5AFD"
         },
         "dashboard": {
-          background: " #111632"
+          background: " #111632",
+          "blue-right": "#4AA5FF"
         },
       }
     },

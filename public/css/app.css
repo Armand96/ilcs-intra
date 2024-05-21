@@ -4229,6 +4229,17 @@ html:has(.drawer-toggle:checked) {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.mx-8 {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+.-mb-12 {
+  margin-bottom: -3rem;
+}
 .-mt-px {
   margin-top: -1px;
 }
@@ -4265,11 +4276,17 @@ html:has(.drawer-toggle:checked) {
 .ml-4 {
   margin-left: 1rem;
 }
+.ml-8 {
+  margin-left: 2rem;
+}
 .mr-2 {
   margin-right: 0.5rem;
 }
 .mr-3 {
   margin-right: 0.75rem;
+}
+.mr-8 {
+  margin-right: 2rem;
 }
 .mt-0 {
   margin-top: 0px;
@@ -4295,35 +4312,11 @@ html:has(.drawer-toggle:checked) {
 .mt-8 {
   margin-top: 2rem;
 }
-.mr-8 {
-  margin-right: 2rem;
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
-.mr-1 {
-  margin-right: 0.25rem;
-}
-.mr-5 {
-  margin-right: 1.25rem;
-}
-.-mt-2 {
-  margin-top: -0.5rem;
-}
-.-mt-6 {
-  margin-top: -1.5rem;
-}
-.mr-6 {
-  margin-right: 1.5rem;
-}
-.mr-12 {
-  margin-right: 3rem;
-}
-.mr-24 {
-  margin-right: 6rem;
-}
-.-mb-6 {
-  margin-bottom: -1.5rem;
-}
-.-mb-12 {
-  margin-bottom: -3rem;
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 .block {
   display: block;
@@ -4385,29 +4378,26 @@ html:has(.drawer-toggle:checked) {
 .h-screen {
   height: 100vh;
 }
-.h-\[3\] {
-  height: 3;
-}
-.h-\[12\] {
-  height: 12;
-}
-.h-12 {
-  height: 3rem;
-}
-.h-60 {
-  height: 15rem;
-}
 .min-h-full {
   min-height: 100%;
 }
 .min-h-screen {
   min-height: 100vh;
 }
+.w-1\/6 {
+  width: 16.666667%;
+}
 .w-10 {
   width: 2.5rem;
 }
+.w-2\/6 {
+  width: 33.333333%;
+}
 .w-36 {
   width: 9rem;
+}
+.w-4\/6 {
+  width: 66.666667%;
 }
 .w-5 {
   width: 1.25rem;
@@ -4421,6 +4411,9 @@ html:has(.drawer-toggle:checked) {
 .w-6 {
   width: 1.5rem;
 }
+.w-6\/12 {
+  width: 50%;
+}
 .w-64 {
   width: 16rem;
 }
@@ -4433,41 +4426,11 @@ html:has(.drawer-toggle:checked) {
 .w-full {
   width: 100%;
 }
-.w-4\/6 {
-  width: 66.666667%;
-}
-.w-2\/6 {
-  width: 33.333333%;
-}
-.w-1\/6 {
-  width: 16.666667%;
-}
 .w-3\/6 {
   width: 50%;
 }
-.w-4\/12 {
-  width: 33.333333%;
-}
-.w-6\/12 {
-  width: 50%;
-}
-.w-5\/12 {
-  width: 41.666667%;
-}
-.w-\[6\] {
-  width: 6;
-}
-.w-\[12\] {
-  width: 12;
-}
-.w-12 {
-  width: 3rem;
-}
-.w-60 {
-  width: 15rem;
-}
-.w-16 {
-  width: 4rem;
+.w-1\/12 {
+  width: 8.333333%;
 }
 .w-2\/12 {
   width: 16.666667%;
@@ -4523,6 +4486,9 @@ html:has(.drawer-toggle:checked) {
 }
 .overflow-hidden {
   overflow: hidden;
+}
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 .text-nowrap {
   text-wrap: nowrap;
@@ -4624,9 +4590,17 @@ html:has(.drawer-toggle:checked) {
 .p-6 {
   padding: 1.5rem;
 }
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
 .px-12 {
   padding-left: 3rem;
   padding-right: 3rem;
+}
+.px-14 {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -4652,36 +4626,15 @@ html:has(.drawer-toggle:checked) {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.px-14 {
-  padding-left: 3.5rem;
-  padding-right: 3.5rem;
-}
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-.pt-8 {
-  padding-top: 2rem;
-}
-.pr-5 {
-  padding-right: 1.25rem;
-}
 .pr-4 {
   padding-right: 1rem;
 }
-.pb-2 {
-  padding-bottom: 0.5rem;
-}
-.pt-2 {
-  padding-top: 0.5rem;
+.pt-8 {
+  padding-top: 2rem;
 }
 .text-left {
   text-align: left;
@@ -4701,6 +4654,10 @@ html:has(.drawer-toggle:checked) {
   font-size: 3rem;
   line-height: 1;
 }
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -4716,10 +4673,6 @@ html:has(.drawer-toggle:checked) {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 .font-bold {
   font-weight: 700;
@@ -4798,6 +4751,10 @@ html:has(.drawer-toggle:checked) {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-dashboard-blue-right {
+  --tw-text-opacity: 1;
+  color: rgb(74 165 255 / var(--tw-text-opacity));
 }
 .underline {
   text-decoration-line: underline;
@@ -5049,6 +5006,25 @@ html:has(.drawer-toggle:checked) {
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+@media (min-width: 1280px) {
+
+  .xl\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+@media (min-width: 1536px) {
+
+  .\32xl\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 @media (prefers-color-scheme: dark) {

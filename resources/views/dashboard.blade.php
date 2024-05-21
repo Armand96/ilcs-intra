@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@extends('layouts.head-only')
+@include('layouts.head-only')
 
 <body>
 
@@ -82,11 +82,12 @@
 
                 <div class="flex w-full px-14 py-6">
                     <div class="w-4/6 flex flex-col">
+
                         <div class="flex w-full">
 
                             <div class="flex w-6/12 rounded-2xl bg-onboarding items-center mr-8 ">
-                                <div class=" flex flex-col w-4/6 px-4 py-12 text-white">
-                                    <h4 class="text-lg font-semibold">Halo Warriors! 👋</h4>
+                                <div class=" flex flex-col w-4/6 px-4 py-6 text-white">
+                                    <h4 class="text-lg text-sm font-semibold">Halo Warriors! 👋</h4>
                                     <p class="text-base">Selamat Datang di Intranet ILCS</p>
                                 </div>
                                 <div class="flex-col w-2/6">
@@ -94,51 +95,185 @@
                                 </div>
                             </div>
 
-                            <div class="flex flex-col w-6/12 bg-onboarding rounded-2xl px-4 py-4">
+                            <div class="flex flex-col w-6/12 bg-card-dashboard border-blue-950 border rounded-2xl px-4 py-4">
                                 <p class="text-white font-semibold">Shortcut Back Office Access</p>
                                 <div class="flex justify-evenly  mt-4">
 
-                                    <a href="#" class="w-1/6 flex flex-col items-center rounded-full">
-                                        <div class="    h-full py-2 px-2 w-full bg-backoffice-icon">
-                                            <img src="assets/images/shortcut-icon/peo.svg" class="" alt="">
+                                    <a href="#" class="w-1/6 flex flex-col items-center">
+                                        <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
+                                            <img src="assets/images/shortcut-icon/peo.svg" class="mx-auto" alt="">
                                         </div>
                                         <p class="text-sm text-white">Peo</p>
                                     </a>
-
-                                    <a href="#" class="w-1/6 flex flex-col items-center bg-backoffice-icon  py-2 rounded-full">
-                                        <img src="assets/images/shortcut-icon/zimbra.svg" class="w-2/6 h-6" alt="">
+                                    <a href="#" class="w-1/6 flex flex-col items-center">
+                                        <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
+                                            <img src="assets/images/shortcut-icon/zimbra.svg" class="mx-auto" alt="">
+                                        </div>
                                         <p class="text-sm text-white">zimbra</p>
                                     </a>
-
-                                    <a href="#" class="w-1/6 flex flex-col items-center bg-backoffice-icon  py-2 rounded-full">
-                                        <img src="assets/images/shortcut-icon/eoffice.svg" class="w-2/6 h-6" alt="">
-                                        <p class="text-sm text-white">E Office</p>
+                                    <a href="#" class="w-1/6 flex flex-col items-center">
+                                        <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
+                                            <img src="assets/images/shortcut-icon/eoffice.svg" class="mx-auto" alt="">
+                                        </div>
+                                        <p class="text-sm text-white">E office</p>
                                     </a>
-
-
-                                    <a href="#" class="w-1/6 flex flex-col items-center bg-backoffice-icon  py-2 rounded-full">
-                                        <img src="assets/images/shortcut-icon/pcico.svg" class="w-2/6 h-6" alt="">
+                                    <a href="#" class="w-1/6 flex flex-col items-center">
+                                        <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
+                                            <img src="assets/images/shortcut-icon/pcico.svg" class="mx-auto" alt="">
+                                        </div>
                                         <p class="text-sm text-white">PCICO</p>
                                     </a>
-
-
-                                    <a href="#" class="w-1/6 flex flex-col items-center bg-backoffice-icon  py-2 rounded-full">
-                                        <img src="assets/images/shortcut-icon/ilcs.svg" class="w-2/6 h-6" alt="">
+                                    <a href="#" class="w-1/6 flex flex-col items-center">
+                                        <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
+                                            <img src="assets/images/shortcut-icon/ilcs.svg" class="mx-auto" alt="">
+                                        </div>
                                         <p class="text-sm text-white">Ilcs.co.id</p>
                                     </a>
-
                                 </div>
                             </div>
 
                         </div>
-                        <div class="w-full h-screen mt-6 bg-white">
-                            <p>all coll</p>
+
+                        <div class="flex flex-col h-screen mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
+                         <div class="flex justify-between mb-3">
+                            <div class="w-1/6 text-white">
+                            <p class="text-xs">ILCS News</p>
+                            </div>
+                            <div class="w-1/6 flex text-white">
+                                <p><</p>
+                                <p>></p>
+                            </div>
+                         </div>
                         </div>
-                    </div>
-
-                    <div class="w-2/6">
 
                     </div>
+
+                    <div class="w-2/6 flex flex-col">
+                        <div class="flex-col bg-card-dashboard border border-blue-950   px-4 py-6 ml-8 rounded-xl">
+                            <div class="w-full flex justify-between text-white mb-4">
+                                <h5 class="font-semibold ">Upcoming Birthday 🎉</h5>
+                                <p>April 2024</p>
+                            </div>
+                            <div class="w-full flex-col">
+                                <div class="flex mb-6">
+                                    <h1 class="w-1/6 font-semibold text-center text-white">
+                                        26 April
+                                    </h1>
+                                    <div class="w-1/6 mx-6">
+                                        <img src="assets/images/users/user-1.jpg" alt="" class="rounded-full">
+                                    </div>
+                                    <div class="w-4/6 text-sm">
+                                        <h4 class="font-semibold text-white">Nurul Amelia</h4>
+                                        <p class="text-dashboard-blue-right text-xs">System Analyst (PIP)</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-6">
+                                    <h1 class="w-1/6 font-semibold text-center text-white">
+                                        26 April
+                                    </h1>
+                                    <div class="w-1/6 mx-6">
+                                        <img src="assets/images/users/user-2.jpg" alt="" class="rounded-full">
+                                    </div>
+                                    <div class="w-4/6 text-sm">
+                                        <h4 class="font-semibold text-white">Ari Panen</h4>
+                                        <p class="text-dashboard-blue-right text-xs">System Analyst (PIP)</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-6">
+                                    <h1 class="w-1/6 font-semibold text-center text-white">
+                                        26 April
+                                    </h1>
+                                    <div class="w-1/6 mx-6">
+                                        <img src="assets/images/users/user-3.jpg" alt="" class="rounded-full">
+                                    </div>
+                                    <div class="w-4/6 text-sm">
+                                        <h4 class="font-semibold text-white">Muhammad Aditya Suazi</h4>
+                                        <p class="text-dashboard-blue-right text-xs">UIUX Developer Produk (PPR)</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="border-divider-card w-full"></div>
+
+                            <div class="w-full flex  mt-6 justify-between text-white mb-4">
+
+                                <h5 class="font-semibold ">Welcoming New Employee 🥳</h5>
+                            </div>
+                            <div class="w-full flex-col">
+                                <div class="flex mb-6">
+                                    <div class="w-1/6 mx-6">
+                                        <img src="assets/images/users/user-4.jpg" alt="" class="rounded-full">
+                                    </div>
+                                    <div class="w-4/6 text-sm">
+                                        <h4 class="font-semibold text-white">Evelyn Halim</h4>
+                                        <p class="text-dashboard-blue-right text-xs">Business Intelligence (Produk)</p>
+                                    </div>
+                                </div>
+                                <div class="flex mb-6">
+                                    <div class="w-1/6 mx-6">
+                                        <img src="assets/images/users/user-5.jpg" alt="" class="rounded-full">
+                                    </div>
+                                    <div class="w-4/6 text-sm">
+                                        <h4 class="font-semibold text-white">Amanda Najwa Perak</h4>
+                                        <p class="text-dashboard-blue-right text-xs">3D Designer Produk</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-divider-card w-full"></div>
+
+                            <div class="w-full flex  mt-6 justify-between text-white mb-4">
+
+                                <h5 class="font-semibold ">Farewell Employee 👋</h5>
+                            </div>
+                            <div class="w-full flex-col">
+                                <div class="flex mb-6">
+                                    <div class="w-1/6 mx-6">
+                                        <img src="assets/images/users/user-2.jpg" alt="" class="rounded-full">
+                                    </div>
+                                    <div class="w-4/6 text-sm">
+                                        <h4 class="font-semibold text-white">Evelyn Halim</h4>
+                                        <p class="text-dashboard-blue-right text-xs">Business Intelligence (Produk)</p>
+                                    </div>
+                                </div>
+                                <div class="flex mb-6">
+                                    <div class="w-1/6 mx-6">
+                                        <img src="assets/images/users/user-3.jpg" alt="" class="rounded-full">
+                                    </div>
+                                    <div class="w-4/6 text-sm">
+                                        <h4 class="font-semibold text-white">Amanda Najwa Perak</h4>
+                                        <p class="text-dashboard-blue-right text-xs">3D Designer Produk</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="flex-col bg-card-dashboard border border-blue-950 mt-6 px-4 py-6 ml-8 rounded-xl">
+                            <div class="w-full flex justify-between text-white mb-4">
+                                <h5 class="font-semibold ">Social Media ILCS</h5>
+                            </div>
+                            <div class="w-full flex">
+                                <a href="#" class="w-2/12">
+                                    <img src="assets/images/icon/instragram-dashboard.svg" alt="" class="w-3/6">
+                                </a>
+                                <a href="#" class="w-2/12">
+                                    <img src="assets/images/icon/twitter-dashboard.svg" alt="" class="w-3/6">
+                                </a>
+                                <a href="#" class="w-2/12">
+                                    <img src="assets/images/icon/youtube-dashboard.svg" alt="" class="w-3/6">
+                                </a>
+                                <a href="#" class="w-2/12">
+                                    <img src="assets/images/icon/linkedin-dashboard.svg" alt="" class="w-3/6">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
 
 
@@ -146,9 +281,10 @@
             <!-- <div id='calendar' class="w-full"></div> -->
 
         </div>
+        <!-- sidebar -->
         <div class="drawer-side">
             <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
-            <div class="menu py-4 w-64 min-h-full text-base-content sidebar-background border-blue-950 border">
+            <div class="menu py-4 w-64 min-h-screen text-base-content sidebar-background border-blue-950 border">
                 <img src="assets/images/logo/sidebar_logo.svg" class=" mx-auto w-36 mb-4 mt-2 object-cover" alt="logo">
                 <!-- Sidebar content here -->
                 <div class="flex flex-col w-full justify-center items-center">

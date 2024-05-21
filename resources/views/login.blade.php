@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@extends('layouts.head-only')
+@include('layouts.head-only')
 
 <body>
     <div class="flex flex-col lg:flex-row w-full h-screen">
