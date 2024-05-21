@@ -2,6 +2,12 @@
 <html lang="en">
 @include('layouts.head-only')
 
+<head>
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
+
+</head>
+
 <body>
 
     <div class="drawer lg:drawer-open">
@@ -139,12 +145,21 @@
                                 <div class="w-1/6 text-white">
                                     <p class="text-xl">ILCS News</p>
                                 </div>
-                                <div class="w-1/6 flex text-xl text-white">
-                                    <p class="mr-6"><</p>
-                                     <p>></p>
+                                <div class="w-1/6 flex text-xl nextBtn text-white">
+                                    <p class="mr-6 prevBtn cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                                        </svg>
+                                    </p>
+                                    <p class="cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                        </svg>
+
+                                    </p>
                                 </div>
                             </div>
-                            <div class="carousel w-full">
+                            <div class="owl-carousel w-full">
                                 <div id="slide1" class="carousel-item flex flex-col w-full mt-4">
                                     <h1 class="text-lg font-semibold text-white">PT ILCS dengan bangga berpartisipasi dalam program Mudik Gratis Bersama Pelindo Group 2024</h1>
                                     <div class="mt-6 w-full h-64">
@@ -314,7 +329,7 @@
                         <div class=" p-2 rounded-xl mt-2 hex-icon">
                             <img src="assets/images/icon/user-octagon.svg" alt="">
                         </div>
-                        <p class="mt-2 text-sm">Form The Board</p>
+                        <p class="mt-2 text-sm">From The Board</p>
                     </a>
 
                     <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
@@ -366,8 +381,31 @@
 
         </div>
     </div>
+
     <script src='js/full-calendar.js'></script>
+    <script src='assets/js/jquery.min.js'></script>
+    <script src='assets/js/owl.carousel.js'></script>
     <script>
+        $(document).ready(function() {
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                loop: true,
+                margin: 10,
+                animation: true,
+                nav: false,
+                items: 1,
+            });
+
+            // Custom Button
+            $('.nextBtn').click(function() {
+                owl.trigger('next.owl.carousel');
+            });
+            $('.prevBtn').click(function() {
+                owl.trigger('prev.owl.carousel');
+            });
+
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
 
