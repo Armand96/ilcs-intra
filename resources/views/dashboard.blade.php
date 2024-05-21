@@ -3,8 +3,8 @@
 @include('layouts.head-only')
 
 <head>
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
 
 </head>
 
@@ -97,7 +97,7 @@
                                     <p class="text-base">Selamat Datang di Intranet ILCS</p>
                                 </div>
                                 <div class="flex-col w-2/6">
-                                    <img src="assets/images/icon/orang-kerja-icon.svg" class="pr-4 -mb-12" alt="">
+                                    <img src="{{ asset('assets/images/icon/orang-kerja-icon.svg') }}" class="pr-4 -mb-12" alt="">
                                 </div>
                             </div>
 
@@ -107,31 +107,31 @@
 
                                     <a href="#" class="w-1/6 flex flex-col items-center">
                                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
-                                            <img src="assets/images/shortcut-icon/peo.svg" class="mx-auto" alt="">
+                                            <img src="{{ asset('assets/images/shortcut-icon/peo.svg') }}" class="mx-auto" alt="">
                                         </div>
                                         <p class="text-sm text-white">Peo</p>
                                     </a>
                                     <a href="#" class="w-1/6 flex flex-col items-center">
                                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
-                                            <img src="assets/images/shortcut-icon/zimbra.svg" class="mx-auto" alt="">
+                                            <img src="{{ asset('assets/images/shortcut-icon/zimbra.svg') }}" class="mx-auto" alt="">
                                         </div>
                                         <p class="text-sm text-white">zimbra</p>
                                     </a>
                                     <a href="#" class="w-1/6 flex flex-col items-center">
                                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
-                                            <img src="assets/images/shortcut-icon/eoffice.svg" class="mx-auto" alt="">
+                                            <img src="{{ asset('assets/images/shortcut-icon/eoffice.svg') }}" class="mx-auto" alt="">
                                         </div>
                                         <p class="text-sm text-white">E office</p>
                                     </a>
                                     <a href="#" class="w-1/6 flex flex-col items-center">
                                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
-                                            <img src="assets/images/shortcut-icon/pcico.svg" class="mx-auto" alt="">
+                                            <img src="{{ asset('assets/images/shortcut-icon/pcico.svg') }}" class="mx-auto" alt="">
                                         </div>
                                         <p class="text-sm text-white">PCICO</p>
                                     </a>
                                     <a href="#" class="w-1/6 flex flex-col items-center">
                                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
-                                            <img src="assets/images/shortcut-icon/ilcs.svg" class="mx-auto" alt="">
+                                            <img src="{{ asset('assets/images/shortcut-icon/ilcs.svg') }}" class="mx-auto" alt="">
                                         </div>
                                         <p class="text-sm text-white">Ilcs.co.id</p>
                                     </a>
@@ -163,13 +163,13 @@
                                 <div id="slide1" class="carousel-item flex flex-col w-full mt-4">
                                     <h1 class="text-lg font-semibold text-white">PT ILCS dengan bangga berpartisipasi dalam program Mudik Gratis Bersama Pelindo Group 2024</h1>
                                     <div class="mt-6 w-full h-64">
-                                        <img src="assets/images/carousel/mockup-news.svg" alt="" class="w-full h-full object-cover rounded-2xl">
+                                        <img src="{{ asset('assets/images/carousel/mockup-news.svg') }}" alt="" class="w-full h-full object-cover rounded-2xl">
                                     </div>
                                 </div>
                                 <div id="slide2" class="carousel-item flex flex-col w-full mt-4">
                                     <h1 class="text-lg font-semibold text-white">Slide 2</h1>
                                     <div class="mt-6 w-full h-64">
-                                        <img src="assets/images/carousel/mockup-news.svg" alt="" class="w-full h-full object-cover rounded-2xl">
+                                        <img src="{{ asset('assets/images/carousel/mockup-news.svg') }}" alt="" class="w-full h-full object-cover rounded-2xl">
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +189,7 @@
                                         26 April
                                     </h1>
                                     <div class="w-1/6 mx-6">
-                                        <img src="assets/images/users/user-1.jpg" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Nurul Amelia</h4>
@@ -202,7 +202,7 @@
                                         26 April
                                     </h1>
                                     <div class="w-1/6 mx-6">
-                                        <img src="assets/images/users/user-2.jpg" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Ari Panen</h4>
@@ -215,7 +215,7 @@
                                         26 April
                                     </h1>
                                     <div class="w-1/6 mx-6">
-                                        <img src="assets/images/users/user-3.jpg" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Muhammad Aditya Suazi</h4>
@@ -234,7 +234,7 @@
                             <div class="w-full flex-col">
                                 <div class="flex mb-6">
                                     <div class="w-1/6 mx-6">
-                                        <img src="assets/images/users/user-4.jpg" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Evelyn Halim</h4>
@@ -243,7 +243,7 @@
                                 </div>
                                 <div class="flex mb-6">
                                     <div class="w-1/6 mx-6">
-                                        <img src="assets/images/users/user-5.jpg" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Amanda Najwa Perak</h4>
@@ -261,7 +261,7 @@
                             <div class="w-full flex-col">
                                 <div class="flex mb-6">
                                     <div class="w-1/6 mx-6">
-                                        <img src="assets/images/users/user-2.jpg" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Evelyn Halim</h4>
@@ -270,7 +270,7 @@
                                 </div>
                                 <div class="flex mb-6">
                                     <div class="w-1/6 mx-6">
-                                        <img src="assets/images/users/user-3.jpg" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Amanda Najwa Perak</h4>
@@ -287,16 +287,16 @@
                             </div>
                             <div class="w-full flex">
                                 <a href="#" class="w-2/12">
-                                    <img src="assets/images/icon/instragram-dashboard.svg" alt="" class="w-3/6">
+                                    <img src="{{ asset('assets/images/icon/instragram-dashboard.svg') }}" alt="" class="w-3/6">
                                 </a>
                                 <a href="#" class="w-2/12">
-                                    <img src="assets/images/icon/twitter-dashboard.svg" alt="" class="w-3/6">
+                                    <img src="{{ asset('assets/images/icon/twitter-dashboard.svg') }}" alt="" class="w-3/6">
                                 </a>
                                 <a href="#" class="w-2/12">
-                                    <img src="assets/images/icon/youtube-dashboard.svg" alt="" class="w-3/6">
+                                    <img src="{{ asset('assets/images/icon/youtube-dashboard.svg') }}" alt="" class="w-3/6">
                                 </a>
                                 <a href="#" class="w-2/12">
-                                    <img src="assets/images/icon/linkedin-dashboard.svg" alt="" class="w-3/6">
+                                    <img src="{{ asset('assets/images/icon/linkedin-dashboard.svg') }}" alt="" class="w-3/6">
                                 </a>
                             </div>
                         </div>
@@ -314,27 +314,27 @@
         <div class="drawer-side">
             <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
             <div class="menu py-4 w-64 min-h-screen text-base-content sidebar-background border-blue-950 border">
-                <img src="assets/images/logo/sidebar_logo.svg" class=" mx-auto w-36 mb-4 mt-2 object-cover" alt="logo">
+                <img src="{{ asset('assets/images/logo/sidebar_logo.svg') }}" class=" mx-auto w-36 mb-4 mt-2 object-cover" alt="logo">
                 <!-- Sidebar content here -->
                 <div class="flex flex-col w-full justify-center items-center">
 
                     <a class="text-white rounded-2xl menu-child-active  flex-col items-center justify-center flex mt-6 w-5/6 px-4 py-3" href="#">
                         <div class="hex-icon-active p-2 rounded-xl mt-2">
-                            <img src="assets/images/icon/dashboard-icon.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/dashboard-icon.svg') }}" alt="">
                         </div>
                         <p class="mt-2 text-sm">Dashboard</p>
                     </a>
 
                     <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
                         <div class=" p-2 rounded-xl mt-2 hex-icon">
-                            <img src="assets/images/icon/user-octagon.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/user-octagon.svg') }}" alt="">
                         </div>
                         <p class="mt-2 text-sm">From The Board</p>
                     </a>
 
                     <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
                         <div class=" p-2 rounded-xl mt-2 hex-icon">
-                            <img src="assets/images/icon/user-square.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/user-square.svg') }}" alt="">
                         </div>
                         <p class="mt-2 text-sm">Our Team</p>
                     </a>
@@ -342,35 +342,35 @@
 
                     <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
                         <div class="p-2 rounded-xl mt-2 hex-icon">
-                            <img src="assets/images/icon/employe-aspiration.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/employe-aspiration.svg') }}" alt="">
                         </div>
                         <p class="mt-2 text-sm text-nowrap w-full">Employe Aspiration</p>
                     </a>
 
                     <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
                         <div class="p-2 rounded-xl mt-2 hex-icon">
-                            <img src="assets/images/icon/calendar-icon.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/calendar-icon.svg') }}" alt="">
                         </div>
                         <p class="mt-2 text-sm text-nowrap w-full">Meeting Calendar</p>
                     </a>
 
                     <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
                         <div class="p-2 rounded-xl mt-2 hex-icon">
-                            <img src="assets/images/icon/our-regulation.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/our-regulation.svg') }}" alt="">
                         </div>
                         <p class="mt-2 text-sm text-center w-full">Our Regulation</p>
                     </a>
 
                     <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
                         <div class="p-2 rounded-xl mt-2 hex-icon">
-                            <img src="assets/images/icon/book-icon.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/book-icon.svg') }}" alt="">
                         </div>
                         <p class="mt-2 text-sm  text-center w-full">Knowledge Management</p>
                     </a>
 
                     <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
                         <div class="p-2 rounded-xl mt-2 hex-icon">
-                            <img src="assets/images/icon/book-icon-2.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/book-icon-2.svg') }}" alt="">
                         </div>
                         <p class="mt-2 text-sm  text-center w-full">Our Product</p>
                     </a>
@@ -382,9 +382,9 @@
         </div>
     </div>
 
-    <script src='js/full-calendar.js'></script>
-    <script src='assets/js/jquery.min.js'></script>
-    <script src='assets/js/owl.carousel.js'></script>
+    <script src='{{ asset('js/full-calendar.js') }}'></script>
+    <script src='{{ asset('js/jquery.min.js') }}'></script>
+    <script src='{{ asset('js/owl.carousel.js') }}'></script>
     <script>
         $(document).ready(function() {
             var owl = $('.owl-carousel');
