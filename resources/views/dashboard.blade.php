@@ -103,33 +103,33 @@
 
                             <div class="flex flex-col w-6/12 bg-card-dashboard border-blue-950 border rounded-2xl px-4 py-4">
                                 <p class="text-white font-semibold">Shortcut Back Office Access</p>
-                                <div class="flex justify-evenly  mt-4">
+                                <div class="flex justify-evenly overflow-x-auto w-full whitespace-nowrap	 mt-4">
 
-                                    <a href="#" class="w-1/6 flex flex-col items-center">
+                                    <a href="#" class="w-2/6 flex mr-6 flex-col items-center">
                                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
                                             <img src="{{ asset('assets/images/shortcut-icon/peo.svg') }}" class="mx-auto" alt="">
                                         </div>
                                         <p class="text-sm text-white">Peo</p>
                                     </a>
-                                    <a href="#" class="w-1/6 flex flex-col items-center">
+                                    <a href="#" class="w-2/6 flex flex-col  mr-6 items-center">
                                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
                                             <img src="{{ asset('assets/images/shortcut-icon/zimbra.svg') }}" class="mx-auto" alt="">
                                         </div>
                                         <p class="text-sm text-white">zimbra</p>
                                     </a>
-                                    <a href="#" class="w-1/6 flex flex-col items-center">
+                                    <a href="#" class="w-2/6 flex flex-col  mr-6 items-center">
                                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
                                             <img src="{{ asset('assets/images/shortcut-icon/eoffice.svg') }}" class="mx-auto" alt="">
                                         </div>
                                         <p class="text-sm text-white">E office</p>
                                     </a>
-                                    <a href="#" class="w-1/6 flex flex-col items-center">
+                                    <a href="#" class="w-2/6 flex flex-col  mr-6 items-center">
                                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
                                             <img src="{{ asset('assets/images/shortcut-icon/pcico.svg') }}" class="mx-auto" alt="">
                                         </div>
                                         <p class="text-sm text-white">PCICO</p>
                                     </a>
-                                    <a href="#" class="w-1/6 flex flex-col items-center">
+                                    <a href="#" class="w-2/6 flex flex-col  mr-6 items-center">
                                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
                                             <img src="{{ asset('assets/images/shortcut-icon/ilcs.svg') }}" class="mx-auto" alt="">
                                         </div>
@@ -436,6 +436,8 @@
             });
 
         });
+
+        document.body.style.zoom = "80%"; 
 
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
