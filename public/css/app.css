@@ -2643,6 +2643,15 @@ html:has(.drawer-toggle:checked) {
 .w-40 {
   width: 10rem;
 }
+.w-16 {
+  width: 4rem;
+}
+.w-12 {
+  width: 3rem;
+}
+.w-24 {
+  width: 6rem;
+}
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -2816,6 +2825,10 @@ html:has(.drawer-toggle:checked) {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 .pr-4 {
   padding-right: 1rem;
@@ -3125,6 +3138,10 @@ html:has(.drawer-toggle:checked) {
 
   .xl\:w-64 {
     width: 16rem;
+  }
+
+  .xl\:w-4\/6 {
+    width: 66.666667%;
   }
 
   .xl\:text-nowrap {

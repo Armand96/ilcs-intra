@@ -107,7 +107,7 @@
 
                                     <a href="#" class="w-2/6 flex mr-6 flex-col items-center">
                                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
-                                            <img src="{{ asset('assets/images/shortcut-icon/peo.svg') }}" class="mx-auto" alt="">
+                                            <img src="{{ asset('assets/images/shortcut-icon/peo.svg') }}" class="mx-auto object-cover" alt="">
                                         </div>
                                         <p class="text-sm text-white">Peo</p>
                                     </a>
@@ -187,7 +187,7 @@
                                 <div class="max-h-80 overflow-auto">
                                     <div class="flex mb-6">
                                         <div class="w-1/6 mx-6">
-                                            <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full">
+                                            <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full xl:w-4/6">
                                         </div>
                                         <div class="w-4/6 text-sm">
                                             <h4 class="font-semibold text-white">Go Live PTOS-M Tanjung Priok</h4>
@@ -196,7 +196,7 @@
                                     </div>
                                     <div class="flex mb-6">
                                         <div class="w-1/6 mx-6">
-                                            <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full">
+                                            <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full xl:w-4/6">
                                         </div>
                                         <div class="w-4/6 text-sm">
                                             <h4 class="font-semibold text-white">Go Live PTOS-M Tanjung Priok</h4>
@@ -221,7 +221,7 @@
                                         26 April
                                     </h1>
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full w-4/6">
+                                        <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full xl:w-4/6">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Nurul Amelia</h4>
@@ -234,7 +234,7 @@
                                         26 April
                                     </h1>
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full w-4/6">
+                                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full xl:w-4/6">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Ari Panen</h4>
@@ -247,7 +247,7 @@
                                         26 April
                                     </h1>
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full w-4/6">
+                                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full xl:w-4/6">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Muhammad Aditya Suazi</h4>
@@ -266,7 +266,7 @@
                             <div class="w-full flex-col">
                                 <div class="flex mb-6">
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full w-4/6">
+                                        <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full xl:w-4/6">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Evelyn Halim</h4>
@@ -275,7 +275,7 @@
                                 </div>
                                 <div class="flex mb-6">
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full w-4/6">
+                                        <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full xl:w-4/6">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Amanda Najwa Perak</h4>
@@ -293,7 +293,7 @@
                             <div class="w-full flex-col">
                                 <div class="flex mb-6">
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full w-4/6 ">
+                                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full xl:w-4/6 ">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Evelyn Halim</h4>
@@ -302,7 +302,7 @@
                                 </div>
                                 <div class="flex mb-6">
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full w-4/6">
+                                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full xl:w-4/6">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Amanda Najwa Perak</h4>
