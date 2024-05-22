@@ -1736,14 +1736,6 @@ input.tab:checked + .tab-content,
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-.card-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 600;
-}
 .card.image-full :where(figure) {
   overflow: hidden;
   border-radius: inherit;
@@ -2416,9 +2408,6 @@ html:has(.drawer-toggle:checked) {
   font-size: 1rem;
   line-height: 1.5rem;
 }
-.card-normal .card-title {
-  margin-bottom: 0.75rem;
-}
 .drawer-open > .drawer-toggle ~ .drawer-side > .drawer-overlay {
   cursor: default;
   background-color: transparent;
@@ -2479,9 +2468,6 @@ html:has(.drawer-toggle:checked) {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-.-mb-8 {
-  margin-bottom: -2rem;
 }
 .-mt-px {
   margin-top: -1px;
@@ -2588,9 +2574,6 @@ html:has(.drawer-toggle:checked) {
 .h-screen {
   height: 100vh;
 }
-.h-7 {
-  height: 1.75rem;
-}
 .max-h-80 {
   max-height: 20rem;
 }
@@ -2602,6 +2585,9 @@ html:has(.drawer-toggle:checked) {
 }
 .w-10 {
   width: 2.5rem;
+}
+.w-11\/12 {
+  width: 91.666667%;
 }
 .w-2\/12 {
   width: 16.666667%;
@@ -2639,32 +2625,23 @@ html:has(.drawer-toggle:checked) {
 .w-8 {
   width: 2rem;
 }
+.w-\[500\] {
+  width: 500;
+}
 .w-auto {
   width: auto;
 }
 .w-full {
   width: 100%;
 }
-.w-11\/12 {
-  width: 91.666667%;
-}
 .w-32 {
   width: 8rem;
 }
-.w-96 {
-  width: 24rem;
+.w-\[46\] {
+  width: 46;
 }
-.w-\[100\] {
-  width: 100;
-}
-.w-\[130\] {
-  width: 130;
-}
-.w-\[130vh\] {
-  width: 130vh;
-}
-.w-\[500\] {
-  width: 500;
+.w-40 {
+  width: 10rem;
 }
 .max-w-6xl {
   max-width: 72rem;
@@ -2840,11 +2817,11 @@ html:has(.drawer-toggle:checked) {
 .pr-4 {
   padding-right: 1rem;
 }
-.pt-8 {
-  padding-top: 2rem;
-}
 .pt-6 {
   padding-top: 1.5rem;
+}
+.pt-8 {
+  padding-top: 2rem;
 }
 .text-left {
   text-align: left;
@@ -2940,10 +2917,6 @@ html:has(.drawer-toggle:checked) {
 .text-login-text-blue {
   --tw-text-opacity: 1;
   color: rgb(36 195 207 / var(--tw-text-opacity));
-}
-.text-primary {
-  --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
 }
 .text-success {
   --tw-text-opacity: 1;
@@ -3143,6 +3116,21 @@ html:has(.drawer-toggle:checked) {
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+}
+@media (min-width: 1280px) {
+
+  .xl\:w-64 {
+    width: 16rem;
+  }
+
+  .xl\:text-nowrap {
+    text-wrap: nowrap;
+  }
+
+  .xl\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 @media (prefers-color-scheme: dark) {
