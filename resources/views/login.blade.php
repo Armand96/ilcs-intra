@@ -39,7 +39,7 @@
 
                             </div>
                         </div>
-                        <button class="bg-login-button login-button relative z-10 w-full mt-12 text-white rounded-md py-2">
+                        <button class="bg-login-button login-button relative z-10 w-full mt-12 text-white rounded-3xl py-2">
                             Login
                         </button>
                     </div>
