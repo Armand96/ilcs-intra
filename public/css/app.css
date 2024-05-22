@@ -2732,6 +2732,9 @@ html:has(.drawer-toggle:checked) {
 .rounded-xl {
   border-radius: 0.75rem;
 }
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
 .border {
   border-width: 1px;
 }
