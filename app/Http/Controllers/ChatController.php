@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chat;
+use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
 {
+    use GeneralTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -93,6 +96,12 @@ class ChatController extends Controller
     public function unreadCount()
     {
         $data = Chat::where('is_read', false)->count();
+        return $data;
+    }
+
+    public function test()
+    {
+        $data = $this->allUserChat(2);
         return $data;
     }
 }

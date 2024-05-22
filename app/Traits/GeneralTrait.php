@@ -3,9 +3,11 @@
 namespace App\Traits;
 
 use App\Enums\LinkTypeEnum;
+use App\Models\Chat;
 use App\Models\Link;
 use App\Models\News;
 use App\Models\NilaiKaryawan;
+use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +18,7 @@ trait GeneralTrait
      * Get the latest news.
      *
      * @return Collection|News[]
-    **/
+     **/
     public function latestNews(): Collection
     {
         $data = News::orderBy('tgl_event', 'ASC')->limit(5)->get();
@@ -27,7 +29,7 @@ trait GeneralTrait
      * Get new employee data.
      *
      * @return Collection|User[]
-    **/
+     **/
     public function newEmployee()
     {
         $data = User::whereBetween('tgl_masuk', [date('Y-m-d'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->limit(5)->get();
@@ -37,7 +39,7 @@ trait GeneralTrait
     /**
      * Get upcoming birthday employee.
      * @return Collection|User[]
-    **/
+     **/
     public function getUpcomingBirthday()
     {
         $whereMonth = DB::raw('MONTH(tgl_lahir)');
@@ -75,6 +77,51 @@ trait GeneralTrait
     public function sosmedLink()
     {
         $data = Link::where('tipe', LinkTypeEnum::SOSMED)->get();
+        return $data;
+    }
+
+    /**
+     * Get upcoming all notification user.
+     * @return Collection|Notification[]
+     * @param int $userId
+     **/
+    public function userNotifAll(int $userId)
+    {
+        $data = Notification::where('notif_to_user_id', $userId)->orderBy('created_at', 'ASC')->get();
+        return $data;
+    }
+
+    /**
+     * Get unread notification user.
+     * @return Collection|Notification[]
+     * @param int $userId
+     **/
+    public function userNotifUnread(int $userId)
+    {
+        $data = Notification::where('notif_to_user_id', $userId)->where('is_read', false)->orderBy('created_at', 'ASC')->get();
+        return $data;
+    }
+
+    /**
+     * Get all chat limited by $limit.
+     * @return Collection|Chat[]
+     * @param int $userId
+     * @param int $limit
+     **/
+    public function allUserChat(int $userId, int $limit = 5)
+    {
+        // Step 1: Get the latest chat IDs for each from_user_id for the specific to_user_id
+        $subquery = Chat::select(DB::raw('id'))
+            ->where('to_user_id', $userId)
+            ->orderBy('created_at', 'DESC')
+            ->groupBy('from_user_id');
+
+        // Step 2: Retrieve the chat data using the IDs obtained from the subquery
+        $data = Chat::whereIn('id', $subquery)
+            ->orderBy('created_at', 'DESC')
+            ->when($limit > 0, function ($qry) use ($limit) {
+                $qry->limit($limit);
+            })->get();
         return $data;
     }
 }
