@@ -1,317 +1,172 @@
-@extends('layouts.master')
-@section('title') Dashboard @endsection
+<!DOCTYPE html>
+<html lang="en">
+@include('layouts.head-only')
 
-@section('css')
-<link href="{{ URL::asset('assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet">
-<link href="{{ URL::asset('assets/plugins/fullcalendar/packages/core/main.css') }}" rel="stylesheet" />
-<link href="{{ URL::asset('assets/plugins/fullcalendar/packages/daygrid/main.css') }}" rel="stylesheet" />
-<link href="{{ URL::asset('assets/plugins/fullcalendar/packages/bootstrap/main.css') }}" rel="stylesheet" />
-<link href="{{ URL::asset('assets/plugins/fullcalendar/packages/timegrid/main.css') }}" rel="stylesheet" />
-<link href="{{ URL::asset('assets/plugins/fullcalendar/packages/list/main.css') }}" rel="stylesheet" />
-<link href="{{ URL::asset('assets/plugins/lightpick/lightpick.css') }}" rel="stylesheet" />
-<link href="{{ URL::asset('assets/app.css') }}" rel="stylesheet" type="text/css" />
-@endsection
+<body>
+    
 
+  <div class="drawer lg:drawer-open">
+        <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content">
 
-@section('content')
-@component('components.breadcrumb')
-@slot('li_1') Home @endslot
-@slot('li_2') Our Leader @endslot
-@slot('title') Our Leader @endslot
-@endcomponent
-
-<div class="row">
-
-    <div class="col">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">Our Leaders</h4>
-            </div><!--end card-header-->
-            <div class="card-body">
-                <!-- Nav tabs -->
-                <ul class="nav nav-pills nav-justified" role="tablist">
-                    <li class="nav-item waves-effect waves-light">
-                        <a class="nav-link active" data-bs-toggle="tab" href="#home-1" role="tab" aria-selected="true">Board Of Commission</a>
-                    </li>
-                    <li class="nav-item waves-effect waves-light">
-                        <a class="nav-link" data-bs-toggle="tab" href="#profile-1" role="tab" aria-selected="false">Board Of Directors</a>
-                    </li>
-                    <!-- <li class="nav-item waves-effect waves-light">
-                        <a class="nav-link" data-bs-toggle="tab" href="#settings-1" role="tab" aria-selected="false">Board Of Management</a>
-                    </li> -->
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div class="tab-pane p-3 active" id="home-1" role="tabpanel">
-                        <div class="row row-cols-1 justify-content-between row-cols-md-4 gx-3">
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://www.ilcs.co.id/cfind/source/thumb/images/management-profile/cover_w361_h390_prakosa.jpg" class="card-img-top bg-light-alt" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center fw-bold">PRAKOSA HADI TAKARIYANTO</h5>
-                                        <h4 class="card-text  text-center fw-bold mt-0 mb-3 text-primary">PRESIDENT COMMISSIONER</h4>
-                                        <!-- <p class="card-text">Served as President Commissioner based on Shareholders' Decree Number KP.03/3/10/2/RKTK/PGLS/PLND-22 dated October 3, 2022. </p> -->
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-1" class="btn col-12 mx-auto btn-primary btn-sm">Full Profile</a>
-
-                                        @component('components.modal_member')
-                                        @slot('title') PRAKOSA HADI TAKARIYANTO @endslot
-                                        @slot('subjabatan') PRESIDENT COMMISSIONER @endslot
-                                        @slot('modalId') modal-1 @endslot
-                                        @slot('image') https://www.ilcs.co.id/cfind/source/thumb/images/management-profile/cover_w361_h390_prakosa.jpg @endslot
-                                        @slot('text1') Served as President Commissioner based on Shareholders' Decree Number KP.03/3/10/2/RKTK/PGLS/PLND-22 dated October 3, 2022. @endslot
-                                        @slot('text2') He earned a Bachelor's degree in Civil Engineering from Gajah Mada University, Yogyakarta, and a Master's in Highways Systems and Engineering at the Institute of Technology Bandung in 1995. .@endslot
-                                        @slot('text3')Served as Project Manager of PT Pelabuhan Indonesia II (Persero) Car Terminal in 2006, Project Manager of PLTD Bali, PLTG Rengat, and PLTD Ambon in 2009, Manager of the Power Plant and Energy Investment Division in 2013, General Manager of the Investment Department in 2017, and served as Technical Director of PT Pelabuhan Indonesia IV (Persero) in 2018. .@endslot
-                                        @endcomponent
-
-                                    </div><!--end card-body-->
-                                </div><!--end card-->
-                            </div><!--end col-->
-
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://www.ilcs.co.id/cfind/source/thumb/images/management-profile/cover_w361_h390_budi.jpg" class="card-img-top bg-light-alt" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center fw-bold">BUDI MANTORO</h5>
-                                        <h4 class="card-text  text-center fw-bold mt-0 mb-3 text-primary">COMMISSIONER</h4>
-                                        <!-- <p class="card-text">Served as President Director based on Shareholders' Decision Number KP.10.05/10/7/1/RKTK/UTMA/PLND-23 Number SK.03/10/7/1/PAPR/DIUT/PLPL-23 dated July 10, 2023 .</p> -->
-                                        <button href="#" data-bs-toggle="modal" data-bs-target="#modal-2" class="btn col-12 mx-auto btn-primary btn-sm">Full Profile</button>
-                                    </div><!--end card-body-->
-                                </div><!--end card-->
-
-                                @component('components.modal_member')
-                                @slot('title') BUDI MANTORO @endslot
-                                @slot('subjabatan') COMMISSIONER @endslot
-                                @slot('modalId') modal-2 @endslot
-                                @slot('image') https://www.ilcs.co.id/cfind/source/thumb/images/management-profile/cover_w361_h390_budi.jpg @endslot
-                                @slot('text1') Served as President Director based on Shareholders' Decision Number KP.10.05/10/7/1/RKTK/UTMA/PLND-23 Number SK.03/10/7/1/PAPR/DIUT/PLPL-23 dated July 10, 2023 .@endslot
-                                @slot('text2') He earned a Diploma's degree majoring in Nautica at Jakarta College of Maritime Science in 2001 and Master's degree in Magister's of Administrative Science program at University of Syech Islam Yusuf in 2010..@endslot
-                                @slot('text3')He served as Head of sub-directorate of special sea transportation and related service businesses, directorate of traffic, directorate general of sea relations, Ministry of Transportation (2018-2018), Head of the domestic sea transportation sub-directorate, traffic directorate, directorate general of sea relations, Ministry of Transportation (2018-2020), Head of the academic and cadet administration section, BPSDM (2020-2021), Head of the Tanjung Pinang Class 1 Type A navigation district, Directorate General of Maritime Relations, Ministry of Transportation (2020-2021), and Director of Navigation, Directorate General of Maritime Relations, Ministry of Transportation (2022-now), and as Commissioner of PT ILCS. .@endslot
-                                @endcomponent
-
-                            </div><!--end col-->
-
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://www.ilcs.co.id/cfind/source/thumb/images/management-profile/cover_w361_h390_nugroho.jpg" class="card-img-top bg-light-alt" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center fw-bold">NUGROHO INDRIO</h5>
-                                        <h4 class="card-text  text-center fw-bold mt-0 mb-3 text-primary">COMMISSIONER</h4>
-                                        <!-- <p class="card-text">Served as Commissioner based on Shareholders' Decision KP.03/25/9/1/MTA/UT/PI.11-2021 dated August 25, 2021. </p> -->
-                                        <a href="#"  data-bs-toggle="modal" data-bs-target="#modal-3" class="btn col-12 mx-auto btn-primary btn-sm">Full Profile</a>
-                                    </div><!--end card-body-->
-
-
-                                    @component('components.modal_member')
-                                    @slot('title')NUGROHO INDRIO @endslot
-                                    @slot('subjabatan') COMMISSIONER @endslot
-                                    @slot('modalId') modal-3 @endslot
-                                    @slot('image') https://www.ilcs.co.id/cfind/source/thumb/images/management-profile/cover_w361_h390_nugroho.jpg @endslot
-                                    @slot('text1')Served as Commissioner based on Shareholders' Decision KP.03/25/9/1/MTA/UT/PI.11-2021 dated August 25, 2021. @endslot
-                                    @slot('text2')He earned his Bachelor of Engineering degree from the Bandung Institute of Technology in 1982. @endslot
-                                    @slot('text3')He served as Head of the Land Transportation Research and Development Center (2002-2005), Secretary of the Directorate General of Railways (2005-2010), as Expert Staff for Technology, Energy, and Environment at the Ministry of Transportation for the period 2014 — 2017, and as Commissioner of PT Tanjung Priok Port. @endslot
-                                    @endcomponent
-
-                                </div><!--end card-->
-                            </div><!--end col-->
-
+            <!-- navbar -->
+            <div class="navbar bg-dashboard-background border border-blue-950 ">
+                <div class="flex-1">
+                    <p class="text-xl font-semibold text-white">Dashboard intranet</p>
+                </div>
+                <div class="flex-none">
+                    <div class="dropdown dropdown-end">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                            <div class="indicator text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                                </svg>
+                                <span class="badge badge-sm bg-red-500 border-none text-white indicator-item">8</span>
+                            </div>
+                        </div>
+                        <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                            <div class="card-body">
+                                <span class="font-bold text-lg">8 Items</span>
+                                <span class="text-info">Subtotal: $999</span>
+                                <div class="card-actions">
+                                    <button class="btn btn-primary btn-block">View cart</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="tab-pane p-3" id="profile-1" role="tabpanel">
-                        <div class="row row-cols-1 justify-content-between row-cols-md-4 gx-3">
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://www.ilcs.co.id/cfind/source/thumb/images/management-profile/cover_w361_h390_natal.jpg" class="card-img-top bg-light-alt" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center fw-bold">NATAL IMAN GINTING</h5>
-                                        <h4 class="card-text  text-center fw-bold mt-0 mb-3 text-primary">CHIEF EXECUTIVE OFFICER (CEO)</h4>
-                                        <!-- <p class="card-text">Served as President Commissioner based on Shareholders' Decree Number KP.03/3/10/2/RKTK/PGLS/PLND-22 dated October 3, 2022. </p> -->
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-4" class="btn col-12 mx-auto btn-primary btn-sm">Full Profile</a>
+                    <div class="dropdown dropdown-end">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                            <div class="indicator text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                                </svg>
+                                <span class="badge badge-sm bg-red-500 border-none text-white indicator-item">8</span>
+                            </div>
 
-                                        @component('components.modal_member')
-                                        @slot('title') NATAL IMAN GINTING @endslot
-                                        @slot('subjabatan') CHIEF EXECUTIVE OFFICER (CEO) @endslot
-                                        @slot('modalId') modal-4 @endslot
-                                        @slot('image') https://www.ilcs.co.id/cfind/source/thumb/images/management-profile/cover_w361_h390_natal.jpg @endslot
-                                        @slot('text1') Served as President Director based on Shareholders' Decision Number KP.03/28/2/1/RKTK/WDUT/PLND-23 Number SK.03/27/2/1/PAPR/DKMT/PLSL-23 dated March 1, 2023. @endslot
-                                        @slot('text2')He earned a Bachelor’s degree in Industrial Engineering at University of Sumatera Utara in 1991 and Master's degree in Magister's of Business Administration (MBA) Strategic Management program at University of Birmingham in 2000. @endslot
-                                        @slot('text3')Appointed as President Director of PT Integration Logistik Cipta Solusi (ILCS) in March 2023. Previously he served as Project Director Digital Ecosystem Platform at PT Telkom Indonesia (Tbk) for the 2020-present period.@endslot
-                                        @endcomponent
-
-                                    </div><!--end card-body-->
-                                </div><!--end card-->
-                            </div><!--end col-->
-
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://www.ilcs.co.id/cfind/source/thumb/images/management-profile/cover_w361_h390_agus.jpg" class="card-img-top bg-light-alt" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center fw-bold">AGUS DHARMAWAN</h5>
-                                        <h4 class="card-text  text-center fw-bold mt-0 mb-3 text-primary">CHIEF MARKETING OFFICER (CMO)</h4>
-                                        <!-- <p class="card-text">Served as President Director based on Shareholders' Decision Number KP.10.05/10/7/1/RKTK/UTMA/PLND-23 Number SK.03/10/7/1/PAPR/DIUT/PLPL-23 dated July 10, 2023 .</p> -->
-                                        <button href="#" data-bs-toggle="modal" data-bs-target="#modal-5" class="btn col-12 mx-auto btn-primary btn-sm">Full Profile</button>
-                                    </div><!--end card-body-->
-                                </div><!--end card-->
-
-                                @component('components.modal_member')
-                                @slot('title')AGUS DHARMAWAN @endslot
-                                @slot('subjabatan')CHIEF MARKETING OFFICER (CMO) @endslot
-                                @slot('modalId') modal-5 @endslot
-                                @slot('image') https://www.ilcs.co.id/cfind/source/thumb/images/management-profile/cover_w361_h390_agus.jpg @endslot
-                                @slot('text1')Served as Chief Marketing Officer (CMO) based on Shareholders' Decision Number KP.03/3/10/2/RKTK/PGLS/PLND-22 dated October 3, 2022.@endslot
-                                @slot('text2')He earned a Diploma III in Informatics Engineering from the STIKOM in 1999 at Surabaya.@endslot
-                                @slot('text3')Appointed as Acting President Director of PT Integration Logistik Cipta Solusi (ILCS) in October 2022. Previously he served as Group Head of Information and Communication Technology at PT Pelabuhan Indonesia (Persero) Holding. @endslot
-                                @endcomponent
-
-                            </div><!--end col-->
-
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://www.ilcs.co.id/cfind/source/thumb/images/management-profile/cover_w361_h390_judi.jpg" class="card-img-top bg-light-alt" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center fw-bold">JUDI GINTA IRAWAN</h5>
-                                        <h4 class="card-text  text-center fw-bold mt-0 mb-3 text-primary">CHIEF TECHNOLOGY OFFICER (CTO) CURRENT CHIEF FINANCIAL OFFICER (CFO)</h4>
-                                        <!-- <p class="card-text">Served as Commissioner based on Shareholders' Decision KP.03/25/9/1/MTA/UT/PI.11-2021 dated August 25, 2021. </p> -->
-                                        <a href="#"  data-bs-toggle="modal" data-bs-target="#modal-6" class="btn col-12 mx-auto btn-primary btn-sm">Full Profile</a>
-                                    </div><!--end card-body-->
-
-
-                                    @component('components.modal_member')
-                                    @slot('title')JUDI GINTA IRAWAN @endslot
-                                    @slot('subjabatan') CHIEF TECHNOLOGY OFFICER (CTO) CURRENT CHIEF FINANCIAL OFFICER (CFO) @endslot
-                                    @slot('modalId') modal-6 @endslot
-                                    @slot('image')https://www.ilcs.co.id/cfind/source/thumb/images/management-profile/cover_w361_h390_judi.jpg @endslot
-                                    @slot('text1')SServed as Chief Technology Officer (CTO) based on Shareholder Decision Number KP.03/3/11/3/MTA/UT/PI.II-2020 dated November 3, 2020 and concurrently serves as Chief Financial Officer (CFO) based on Commissioner's Decision Number DK/05/10/1/ILCS-2022 dated 5 October 2022. @endslot
-                                    @slot('text2')He earned a Bachelor's degree in Naval Architecture from the Sepuluh November Institute of Technology, Surabaya in 1996. @endslot
-                                    @slot('text3')He served as the PMO Team at PT Pelabuhan Indonesia II (Persero) for the 2012-2015 period and as the Information System Manager at PT IPC Terminal Petikemas Koja for the 2016-present period.@endslot
-                                    @endcomponent
-
-                                </div><!--end card-->
-                            </div><!--end col-->
-
+                        </div>
+                        <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                            <div class="card-body">
+                                <span class="font-bold text-lg">8 Items</span>
+                                <span class="text-info">Subtotal: $999</span>
+                                <div class="card-actions">
+                                    <button class="btn btn-primary btn-block">View cart</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="tab-pane p-3" id="settings-1" role="tabpanel">
-                        <div class="row row-cols-1 justify-content-between row-cols-md-4 gx-3">
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://www.ilcs.co.id/cfind/source/thumb/images/cover_w361_h390_mas-aldi.jpg" class="card-img-top bg-light-alt" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center fw-bold">Kamaldila Puja Yusnika</h5>
-                                        <h4 class="card-text  text-center fw-bold mt-0 mb-3 text-primary">Pjs Senior Manager for Service Management</h4>
-                                        <!-- <p class="card-text">Served as President Commissioner based on Shareholders' Decree Number KP.03/3/10/2/RKTK/PGLS/PLND-22 dated October 3, 2022. </p> -->
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-7" class="btn col-12 mx-auto btn-primary btn-sm">Full Profile</a>
 
-                                        @component('components.modal_member')
-                                        @slot('title') Kamaldila Puja Yusnika @endslot
-                                        @slot('subjabatan') Pjs Senior Manager for Service Management(CEO) @endslot
-                                        @slot('modalId') modal-7 @endslot
-                                        @slot('image') https://www.ilcs.co.id/cfind/source/thumb/images/cover_w361_h390_mas-aldi.jpg @endslot
-                                        @slot('text1') @endslot
-                                        @slot('text2')He earned a Bachelor of Applied Science degree at Semarang State Polytechnic and a Masters in Electrical Engineering at Mercubuana University.@endslot
-                                        @slot('text3')As Pjs Senior Manager for Service Management, he manages Managed Services for Pelindo Group, both for applications and IT infrastructure.@endslot
-                                        @endcomponent
-
-                                    </div><!--end card-body-->
-                                </div><!--end card-->
-                            </div><!--end col-->
-
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://www.ilcs.co.id/cfind/source/thumb/images/cover_w361_h390_pak-affandi.jpg" class="card-img-top bg-light-alt" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center fw-bold">Afandi Nurrahman</h5>
-                                        <h4 class="card-text  text-center fw-bold mt-0 mb-3 text-primary">Senior Manager of Project Planning and Implementation</h4>
-                                        <!-- <p class="card-text">Served as President Director based on Shareholders' Decision Number KP.10.05/10/7/1/RKTK/UTMA/PLND-23 Number SK.03/10/7/1/PAPR/DIUT/PLPL-23 dated July 10, 2023 .</p> -->
-                                        <button href="#" data-bs-toggle="modal" data-bs-target="#modal-8" class="btn col-12 mx-auto btn-primary btn-sm">Full Profile</button>
-                                    </div><!--end card-body-->
-                                </div><!--end card-->
-
-                                @component('components.modal_member')
-                                @slot('title')Afandi Nurrahman @endslot
-                                @slot('subjabatan')Senior Manager of Project Planning and Implementation (CMO) @endslot
-                                @slot('modalId') modal-8 @endslot
-                                @slot('image') https://www.ilcs.co.id/cfind/source/thumb/images/cover_w361_h390_pak-affandi.jpg @endslot
-                                @slot('text1')@endslot
-                                @slot('text2')He earned a Bachelor's degree in Informatics Engineering at the Islamic University of Indonesia and a Master's degree in Shipping and Transport at the Netherland Maritime University.@endslot
-                                @slot('text3')As Senior Manager for Project Planning and Implementation, he is responsible for planning and implementing service delivery to ILCS customers, especially for services with an enterprise solution scheme.@endslot
-                                @endcomponent
-
-                            </div><!--end col-->
-
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://www.ilcs.co.id/cfind/source/thumb/images/cover_w361_h390_pak-frenda.jpg" class="card-img-top bg-light-alt" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center fw-bold">Frenda Rangga Aksara</h5>
-                                        <h4 class="card-text  text-center fw-bold mt-0 mb-3 text-primary">Senior Manager of Product Development</h4>
-                                        <!-- <p class="card-text">Served as Commissioner based on Shareholders' Decision KP.03/25/9/1/MTA/UT/PI.11-2021 dated August 25, 2021. </p> -->
-                                        <a href="#"  data-bs-toggle="modal" data-bs-target="#modal-9" class="btn col-12 mx-auto btn-primary btn-sm">Full Profile</a>
-                                    </div><!--end card-body-->
-
-
-                                    @component('components.modal_member')
-                                    @slot('title')Frenda Rangga Aksara @endslot
-                                    @slot('subjabatan')Senior Manager of Product Development @endslot
-                                    @slot('modalId') modal-9 @endslot
-                                    @slot('image')https://www.ilcs.co.id/cfind/source/thumb/images/cover_w361_h390_pak-frenda.jpg @endslot
-                                    @slot('text1')@endslot
-                                    @slot('text2')He earned a Bachelor's degree in Informatics Engineering at the Sepuluh November Institute of Technology and a Masters in Business Administration at Tanri Abeng University. As Senior Manager of Product Development, he is responsible for developing and implementing a single system across all PT Pelabuhan Indonesia (Persero) entities.      @endslot
-                                    @slot('text3')@endslot
-                                    @endcomponent
-
-                                </div><!--end card-->
-                            </div><!--end col-->
-
-
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://www.ilcs.co.id/cfind/source/thumb/images/cover_w361_h390_pak-rubi.jpg" class="card-img-top bg-light-alt" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center fw-bold">Raden Rubiyanto</h5>
-                                        <h4 class="card-text  text-center fw-bold mt-0 mb-3 text-primary">Support Services Manager</h4>
-                                        <!-- <p class="card-text">Served as Commissioner based on Shareholders' Decision KP.03/25/9/1/MTA/UT/PI.11-2021 dated August 25, 2021. </p> -->
-                                        <a href="#"  data-bs-toggle="modal" data-bs-target="#modal-10" class="btn col-12 mx-auto btn-primary btn-sm">Full Profile</a>
-                                    </div><!--end card-body-->
-
-
-                                    @component('components.modal_member')
-                                    @slot('title')Raden Rubiyanto @endslot
-                                    @slot('subjabatan') Support Services Manager @endslot
-                                    @slot('modalId') modal-10 @endslot
-                                    @slot('image')https://www.ilcs.co.id/cfind/source/thumb/images/cover_w361_h390_pak-rubi.jpg @endslot
-                                    @slot('text1') @endslot
-                                    @slot('text2')Beliau meraih gelar Sarjana Teknik di Institut Sains dan Teknologi Nasional. @endslot
-                                    @slot('text3')Sebagai Manager Layanan Pendukung, saya bertanggung jawab untuk memberikan layanan pendukung yang berkualitas kepada pelanggan atau pengguna.@endslot
-                                    @endcomponent
-
-                                </div><!--end card-->
-                            </div><!--end col-->
-                            
-
+                    <div class="dropdown dropdown-end">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                            <div class="w-10 rounded-full">
+                                <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            </div>
                         </div>
+                        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <li>
+                                <a class="justify-between">
+                                    Profile
+                                    <span class="badge">New</span>
+                                </a>
+                            </li>
+                            <li><a>Settings</a></li>
+                            <li><a>Logout</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Page content -->
+            <div class="flex flex-col items-center justify-center">
+                <!-- Page content here -->
+                <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+
+                <div class="bg-onboarding w-11/12 mx-auto mt-6 px-6 py-6">
+                    <div class="flex flex-col w-full">
+                        <h4 class="text-lg bg-blur-comission border border-white text-white font-semibold">
+                        From The Board
+                        </h4>
                     </div>
                 </div>
-            </div><!--end card-body-->
-        </div><!--end card-->
-    </div><!--end col-->
-</div>
 
 
 
+            </div>
 
-@endsection
-@section('script')
-<script src="{{ URL::asset('assets/plugins/apex-charts/apexcharts.min.js') }}"></script>
-<script src="{{ URL::asset('assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
-<script src="{{ URL::asset('assets/plugins/jvectormap/jquery-jvectormap-us-aea-en.js') }}"></script>
-<script src="{{ URL::asset('assets/js/pages/jquery.analytics_dashboard.init.js') }}"></script>
-<script src="{{ URL::asset('assets/plugins/fullcalendar/packages/core/main.js') }}"></script>
-<script src="{{ URL::asset('assets/plugins/fullcalendar/packages/daygrid/main.js') }}"></script>
-<script src="{{ URL::asset('assets/plugins/fullcalendar/packages/timegrid/main.js') }}"></script>
-<script src="{{ URL::asset('assets/plugins/fullcalendar/packages/interaction/main.js') }}"></script>
-<script src="{{ URL::asset('assets/plugins/fullcalendar/packages/list/main.js') }}"></script>
-<script src="{{ URL::asset('assets/plugins/lightpick/lightpick.js') }}"></script>
-<script src="{{ URL::asset('assets/js/pages/jquery.calendar.js') }}"></script>
-<script src="{{ URL::asset('assets/js/app.js') }}"></script>
-@endsection
+        </div>
+
+        <!-- sidebar -->
+        <div class="drawer-side">
+            <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+            <div class="menu py-4 w-64 min-h-screen text-base-content sidebar-background border-blue-950 border">
+                <img src="{{ asset('assets/images/logo/sidebar_logo.svg') }}" class=" mx-auto w-36 mb-4 mt-2 object-cover" alt="logo">
+                <!-- Sidebar content here -->
+                <div class="flex flex-col w-full justify-center items-center">
+
+                    <a class="text-white rounded-2xl menu-child-active  flex-col items-center justify-center flex mt-6 w-5/6 px-4 py-3" href="#">
+                        <div class="hex-icon-active p-2 rounded-xl mt-2">
+                            <img src="{{ asset('assets/images/icon/dashboard-icon.svg') }}" alt="">
+                        </div>
+                        <p class="mt-2 text-sm">Dashboard</p>
+                    </a>
+
+                    <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
+                        <div class=" p-2 rounded-xl mt-2 hex-icon">
+                            <img src="{{ asset('assets/images/icon/user-octagon.svg') }}" alt="">
+                        </div>
+                        <p class="mt-2 text-sm">From The Board</p>
+                    </a>
+
+                    <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
+                        <div class=" p-2 rounded-xl mt-2 hex-icon">
+                            <img src="{{ asset('assets/images/icon/user-square.svg') }}" alt="">
+                        </div>
+                        <p class="mt-2 text-sm">Our Team</p>
+                    </a>
+
+
+                    <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
+                        <div class="p-2 rounded-xl mt-2 hex-icon">
+                            <img src="{{ asset('assets/images/icon/employe-aspiration.svg') }}" alt="">
+                        </div>
+                        <p class="mt-2 text-sm text-nowrap w-full">Employe Aspiration</p>
+                    </a>
+
+                    <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
+                        <div class="p-2 rounded-xl mt-2 hex-icon">
+                            <img src="{{ asset('assets/images/icon/calendar-icon.svg') }}" alt="">
+                        </div>
+                        <p class="mt-2 text-sm text-nowrap w-full">Meeting Calendar</p>
+                    </a>
+
+                    <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
+                        <div class="p-2 rounded-xl mt-2 hex-icon">
+                            <img src="{{ asset('assets/images/icon/our-regulation.svg') }}" alt="">
+                        </div>
+                        <p class="mt-2 text-sm text-center w-full">Our Regulation</p>
+                    </a>
+
+                    <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
+                        <div class="p-2 rounded-xl mt-2 hex-icon">
+                            <img src="{{ asset('assets/images/icon/book-icon.svg') }}" alt="">
+                        </div>
+                        <p class="mt-2 text-sm  text-center w-full">Knowledge Management</p>
+                    </a>
+
+                    <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3" href="#">
+                        <div class="p-2 rounded-xl mt-2 hex-icon">
+                            <img src="{{ asset('assets/images/icon/book-icon-2.svg') }}" alt="">
+                        </div>
+                        <p class="mt-2 text-sm  text-center w-full">Our Product</p>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

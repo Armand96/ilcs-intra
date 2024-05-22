@@ -91,13 +91,13 @@
 
                         <div class="flex w-full">
 
-                            <div class="flex w-6/12 rounded-2xl bg-onboarding items-center mr-8 ">
-                                <div class=" flex flex-col w-4/6 px-4 py-6 text-white">
+                            <div class="flex w-6/12 rounded-2xl bg-onboarding items-center pt-6 mr-8 ">
+                                <div class=" flex flex-col w-6/6 px-4 py-6 text-white">
                                     <h4 class="text-sm font-semibold">Halo Warriors! 👋</h4>
                                     <p class="text-base">Selamat Datang di Intranet ILCS</p>
                                 </div>
-                                <div class="flex-col w-2/6">
-                                    <img src="{{ asset('assets/images/icon/orang-kerja-icon.svg') }}" class="pr-4 -mb-8" alt="">
+                                <div class="flex-col w-3/6">
+                                    <img src="{{ asset('assets/images/icon/orang-kerja-icon.svg') }}" class="pr-4 w-[500] " alt="">
                                 </div>
                             </div>
 
@@ -221,7 +221,7 @@
                                         26 April
                                     </h1>
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full w-4/6">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Nurul Amelia</h4>
@@ -234,7 +234,7 @@
                                         26 April
                                     </h1>
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full w-4/6">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Ari Panen</h4>
@@ -247,7 +247,7 @@
                                         26 April
                                     </h1>
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full w-4/6">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Muhammad Aditya Suazi</h4>
@@ -266,7 +266,7 @@
                             <div class="w-full flex-col">
                                 <div class="flex mb-6">
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full w-4/6">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Evelyn Halim</h4>
@@ -275,7 +275,7 @@
                                 </div>
                                 <div class="flex mb-6">
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full w-4/6">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Amanda Najwa Perak</h4>
@@ -293,7 +293,7 @@
                             <div class="w-full flex-col">
                                 <div class="flex mb-6">
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full w-4/6 ">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Evelyn Halim</h4>
@@ -302,7 +302,7 @@
                                 </div>
                                 <div class="flex mb-6">
                                     <div class="w-1/6 mx-6">
-                                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full">
+                                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full w-4/6">
                                     </div>
                                     <div class="w-4/6 text-sm">
                                         <h4 class="font-semibold text-white">Amanda Najwa Perak</h4>
@@ -437,7 +437,6 @@
 
         });
 
-        document.body.style.zoom = "80%"; 
 
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
