@@ -7,6 +7,7 @@
 <script src='{{ asset('js/full-calendar.js') }}'></script>
 <script src='{{ asset('js/owl.carousel.js') }}'></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 
 @endsection
 
@@ -305,11 +306,38 @@
     <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
         <h2 class="text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d TW I</h2>
         <div class="grid grid-cols-2 gap-7 mt-4">
-            <div class="flex flex-col  bg-card-dashboard px-2 py-2 border border-blue-950">
-                <h4 class="text-white font-semibold">Pendapatan</h4>
+            <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
+                <h4 class="text-white font-semibold text-xl">Pendapatan</h4>
                 <div class="w-full mt-8">
                     <canvas id="barChart"></canvas>
                 </div>
+
+                <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                    <div class="bg-green-600 mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold">Pendapatan RP. 96,47 M, tercapai 56,68% RKAP; Growth 21,59% YoY</h4>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
+                <h4 class="text-white font-semibold text-xl">Beban Usaha</h4>
+                <div class="w-full mt-8">
+                    <canvas id="barChart2"></canvas>
+                </div>
+
+                <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                    <div class="bg-green-600 mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold">Beban Usaha Rp. 94,18 M, tercapai 66,82% RKAP; Growth 20,21% YoY</h4>
+                </div>
+
             </div>
         </div>
     </div>
@@ -421,8 +449,6 @@
         [10000, 23000, 19000, 13000, 12900],
     ]
 
-
-
     var myChart = new Chart(ctx, {
         type: 'bar',
         color: "#FFF",
@@ -451,6 +477,7 @@
 
             }]
         },
+        plugins: [ChartDataLabels],
         options: {
             scales: {
                 y: {
@@ -474,6 +501,10 @@
                 legend: {
                     display: false // Menyembunyikan legenda
                 },
+                datalabels: {
+                    color: '#FFF',
+                    anchor: "center",
+                },
                 title: {
                     display: true,
                     text: '(Miliar)',
@@ -481,7 +512,82 @@
                     color: "#FFF"
                 }
             },
+        },
+    });
 
+
+    var ctx2 = document.getElementById('barChart2').getContext('2d');
+
+    const dataDumn2 = [
+        ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
+        [30000, 23000, 19000, 13000, 12900],
+    ]
+
+    var myChart = new Chart(ctx2, {
+        type: 'bar',
+        color: "#FFF",
+        data: {
+            datalabels: {
+                align: 'end',
+                anchor: 'end',
+            },
+            labels: dataDumn2[0],
+            datasets: [
+                {
+                    label: 'Data',
+                    data: dataDumn2[1],
+                    backgroundColor: [
+                        '#466AFF',
+                        '#F6C01D',
+                        '#F88B2E',
+                        '#C6C6C6',
+                    ],
+                    borderColor: [
+                        '#466AFF',
+                        '#F6C01D',
+                        '#F88B2E',
+                        '#C6C6C6',
+                    ],
+                    borderWidth: 1,
+
+                },
+            ]
+        },
+        plugins: [ChartDataLabels],
+        options: {
+            scales: {
+                y: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // Menyembunyikan legenda
+                },
+                datalabels: {
+                    color: '#FFF',
+                    anchor: "center",
+                },
+                title: {
+                    display: true,
+                    text: '(Miliar)',
+                    align: "start",
+                    color: "#FFF"
+                }
+            },
         },
     });
 </script>

@@ -133,6 +133,10 @@ linear-gradient(180deg, rgba(0, 0, 0, 0) 121.55%, rgba(0, 0, 0, 0.2) 123.68%);
 
 }
 
+.bg-card-chart {
+    background: linear-gradient(142.21deg, rgba(27, 51, 81, 0.3) 19.63%, rgba(97, 127, 155, 0.3) 83.01%);
+}
+
 
 @media only screen and (max-width: 1336px) {
     .fc-toolbar-title {
