@@ -93,6 +93,22 @@ height: 1px ;
 }
 
 .bg-blur-comission {
-    background: linear-gradient(97.9deg, rgba(255, 255, 255, 0.15) -2.72%, rgba(255, 255, 255, 0.15) 106.41%);    
-    
+    background: linear-gradient(69.9deg, rgba(156, 156, 156, 0.15) -8.72%, rgba(255, 255, 255, 0.15) 10.41%);    
+}
+
+.tab-active {
+    background: #FFFFFF26;
+    border: 1px solid #FFFF ;
+}
+
+.tabs:hover {
+    background: #FFFFFF26;
+    border: 1px solid #FFFF ;
+}
+
+.card-comission {
+    background: linear-gradient(180deg, rgba(49, 58, 91, 0) -19.57%, #313A5B 98.8%, rgba(49, 58, 91, 0.222222) 130.43%),
+linear-gradient(180deg, rgba(0, 0, 0, 0) 121.55%, rgba(0, 0, 0, 0.2) 123.68%);
+
+
 }
