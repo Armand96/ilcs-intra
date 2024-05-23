@@ -7,12 +7,14 @@
         <!-- Sidebar content here -->
         <div class="flex flex-col w-full justify-center items-center">
 
-            <a class="text-white rounded-2xl menu-child-active  flex-col items-center justify-center flex mt-6 w-5/6 px-4 py-3"
-                href="#">
+            <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'users.index' ? 'menu-child-active' : 'menu-child' }}   flex-col items-center justify-center flex mt-6 w-5/6 px-4 py-3"
+                href="{{ route('users.index') }}">
                 <div class="hex-icon-active p-2 rounded-xl mt-2">
                     <img src="{{ asset('assets/images/icon/dashboard-icon.svg') }}" alt="">
                 </div>
-                <p class="mt-2 text-sm">User</p>
+                <p class="mt-2 text-sm text-center">
+                    User
+                </p>
             </a>
 
             <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CMS\UserCMSController;
 use App\Http\Controllers\CMSController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LinkController;
@@ -37,7 +38,9 @@ Route::group(
     // 'middleware' => 'admin',
     'prefix' => 'cms_admin'
 ], function() {
-    Route::get('home', [CMSController::class, 'index']);
+    Route::get('home', [CMSController::class, 'index'])->name('cms.home');
+    Route::resource('users', UserCMSController::class);
+    // Route::get('users', [UserCMSController::class, 'index'])->name('cms.user');
 });
 
 Route::any("*", function() {
