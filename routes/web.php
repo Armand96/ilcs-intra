@@ -63,6 +63,11 @@ Route::get("/our-leader", function(){
     return view('intranet.pages.our_leader');
 })->name('our_leader');
 
+Route::get("/our-regulation", function(){
+    return view('intranet.pages.our_regulation');
+})->name('our_regulation');
+
+
 Route::get("/regulations", function(){
     return view('regulations');
 });
