@@ -3,9 +3,11 @@
 namespace App\Traits;
 
 use App\Enums\LinkTypeEnum;
+use App\Models\Chat;
 use App\Models\Link;
 use App\Models\News;
 use App\Models\NilaiKaryawan;
+use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
