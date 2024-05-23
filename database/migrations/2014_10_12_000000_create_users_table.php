@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('sub_jabatan');
             $table->date('tgl_lahir');
             $table->date('tgl_masuk');
+            $table->date('tgl_keluar')->nullable();
             $table->string('image_user');
             // $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

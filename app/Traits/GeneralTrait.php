@@ -68,6 +68,18 @@ trait GeneralTrait
         // return User::nilaiBulanIni()->orderBy()->limit(5);
     }
 
+    /**
+     * Karyawan yang keluar
+     *
+     * @return Collection|User[]
+     */
+    public function farewellKaryawan()
+    {
+        $currentDate = date('Y-m-d');
+        $oneWeekPast = date('Y-m-d', strtotime('-1 week'));
+        return User::where('tgl_keluar', [$oneWeekPast, $currentDate])->get();
+    }
+
     public function appLink()
     {
         $data = Link::where('tipe', LinkTypeEnum::OTHER)->get();
@@ -96,10 +108,37 @@ trait GeneralTrait
      * @return Collection|Notification[]
      * @param int $userId
      **/
-    public function userNotifUnread(int $userId)
+    public function userNotifUnread(int $userId, int $limit = 5)
     {
-        $data = Notification::where('notif_to_user_id', $userId)->where('is_read', false)->orderBy('created_at', 'ASC')->get();
+        $data = Notification::where('notif_to_user_id', $userId)->where('is_read', false)->orderBy('created_at', 'ASC')->when($limit > 0, function ($qry) use ($limit) {
+            $qry->limit($limit);
+        })->get();
         return $data;
+    }
+
+    /**
+     * Unread count notification
+     *
+     * @param  int $userId
+     * @return int
+     */
+    public function unreadCount(int $userId)
+    {
+        $notifUnreadCount = Notification::where('is_read', false)->where('notif_to_user_id', $userId)->count();
+        return $notifUnreadCount;
+    }
+
+    /**
+     * Chat history to single person
+     *
+     * @param  int $userIdSender
+     * @param  int $userIdReceiver
+     * @return Collection|Chat[]
+     */
+    public function chatHistory(int $userIdSender, int $userIdReceiver)
+    {
+        $chats = Chat::where('from_user_id', $userIdReceiver)->where('to_user_id', $userIdSender)->orderBy('created_at', 'asc')->get();
+        return $chats;
     }
 
     /**
@@ -111,7 +150,7 @@ trait GeneralTrait
     public function allUserChat(int $userId, int $limit = 5)
     {
         // Step 1: Get the latest chat IDs for each from_user_id for the specific to_user_id
-        $subquery = Chat::select(DB::raw('id'))
+        $subquery = Chat::select(DB::raw('MAX(id) as id'))
             ->where('to_user_id', $userId)
             ->orderBy('created_at', 'DESC')
             ->groupBy('from_user_id');

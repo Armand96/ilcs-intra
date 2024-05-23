@@ -90,12 +90,6 @@ class NotificationController extends Controller
         return $data;
     }
 
-    public function unreadCount()
-    {
-        $data = Notification::where('is_read', false)->count();
-        return $data;
-    }
-
     public function allNotif()
     {
         return Notification::orderBy('created_at', 'DESC')->get();
