@@ -91,14 +91,12 @@
 
                         <div class="flex w-full">
 
-                            <div class="flex w-6/12 rounded-2xl bg-onboarding items-center pt-6 mr-8 ">
-                                <div class=" flex flex-col w-6/6 px-4 py-6 text-white">
+                            <div class="flex w-6/12 rounded-2xl bg-onboarding items-center mr-8 ">
+                                <div class=" flex flex-col w-4/6 px-4 text-white">
                                     <h4 class="text-sm font-semibold">Halo Warriors! 👋</h4>
                                     <p class="text-base">Selamat Datang di Intranet ILCS</p>
                                 </div>
-                                <div class="flex-col w-3/6">
-                                    <img src="{{ asset('assets/images/icon/orang-kerja-icon.svg') }}" class="pr-4 w-[500] " alt="">
-                                </div>
+                                <img src="{{ asset('assets/images/icon/orang-kerja-icon.svg') }}" class="w-2/6 h-full rounded-r-xl object-cover" alt="">
                             </div>
 
                             <div class="flex flex-col w-6/12 bg-card-dashboard border-blue-950 border rounded-2xl px-4 py-4">
@@ -140,12 +138,13 @@
 
                         </div>
 
+                        <!-- carousel -->
                         <div class="flex flex-col rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
                             <div class="flex justify-between mb-3">
                                 <div class="w-1/6 text-white">
                                     <p class="text-xl">ILCS News</p>
                                 </div>
-                                <div class="w-1/6 flex text-xl nextBtn text-white">
+                                <!-- <div class="w-1/6 flex text-xl nextBtn text-white">
                                     <p class="mr-6 prevBtn cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -157,9 +156,16 @@
                                         </svg>
 
                                     </p>
-                                </div>
+                                </div> -->
                             </div>
-                            <div class="owl-carousel w-full">
+
+                            <div class="flex flex-col w-full mt-3">
+                                <h1 class="text-lg font-semibold mb-4 text-white">INTRANET 2.0 COMING SOON!!</h1>
+                                <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
+
+                            </div>
+
+                            <!-- <div class="owl-carousel w-full">
 
                                 <div id="slide1" class="carousel-item flex flex-col w-full mt-4">
                                     <h1 class="text-lg font-semibold text-white">PT ILCS dengan bangga berpartisipasi dalam program Mudik Gratis Bersama Pelindo Group 2024</h1>
@@ -175,11 +181,21 @@
                                     </div>
                                 </div>
 
-                            </div>
+                            </div> -->
+
+
                         </div>
 
                         <div class="flex rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
                             <div id='calendar' class="w-3/6 text-white text-xs"></div>
+                            <div class="w-1/6 flex flex-col h-full overflow-auto calender-notif ml-4 px-4 py-2 rounded-2xl" >
+                                <div class="flex flex-col w-full">
+                                    <p class="text-xs text-white bg-red-500 w-10 pl-1 mt-3  rounded-full py-1">8-15</p>
+                                    <p class="text-sm text-white my-2 font-semibold">April 2024</p>
+                                    <p class="text-sm text-white">Hari Raya Idul Fitri dan Cuti Bersama</p>
+                                </div>
+                            
+                            </div>
                             <div class="flex flex-col text-white ml-6">
                                 <h5 class="font-semibold mb-6">
                                     ILCS Events
@@ -210,7 +226,24 @@
                     </div>
 
                     <div class="w-2/6 flex flex-col">
-                        <div class="flex-col bg-card-dashboard border border-blue-950   px-4 py-6 ml-8 rounded-xl">
+
+                        <div class="flex justify-between bg-card-dashboard border border-blue-950 ml-8 rounded-xl">
+
+                            <div class=" flex flex-col w-4/6 items-center text-white">
+                                <h4 class="text-lg text-center font-semibold mt-2">See <br /> Statistic KPI</h4>
+                                <button class="mx-auto rounded-full mt-3 kpi-button bg-login-button p-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="flex-col w-2/6">
+                                <img src="{{ asset('assets/images/icon/kpi-icon.svg') }}" class="w-full h-full ml-auto rounded-r-xl" alt="">
+                            </div>
+
+                        </div>
+
+                        <div class="flex-col bg-card-dashboard border border-blue-950 mt-8 px-4 py-6 ml-8 rounded-xl">
                             <div class="w-full flex justify-between text-white mb-4">
                                 <h5 class="font-semibold ">Upcoming Birthday 🎉</h5>
                                 <p>April 2024</p>

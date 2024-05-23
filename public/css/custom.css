@@ -112,3 +112,12 @@ linear-gradient(180deg, rgba(0, 0, 0, 0) 121.55%, rgba(0, 0, 0, 0.2) 123.68%);
 
 
 }
+
+.kpi-button {
+    box-shadow: 0px 8.33px 33.1px 0px #25B5D2;
+}
+
+.calender-notif {
+    background: #666B81;
+
+}
