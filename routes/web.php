@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CMSController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\NewsController;
@@ -31,8 +32,12 @@ Route::group(['middleware' => 'role.access'], function() {
 
 
 /* ROUTE UNTUK ADMIN CMS */
-Route::group(['middleware' => 'admin', 'prefix' => 'cms_admin'], function() {
-
+Route::group(
+    [
+    // 'middleware' => 'admin',
+    'prefix' => 'cms_admin'
+], function() {
+    Route::get('home', [CMSController::class, 'index']);
 });
 
 Route::any("*", function() {
