@@ -2705,6 +2705,15 @@ html:has(.drawer-toggle:checked) {
 .w-1\/5 {
   width: 20%;
 }
+.w-16 {
+  width: 4rem;
+}
+.w-12 {
+  width: 3rem;
+}
+.w-24 {
+  width: 6rem;
+}
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -3206,6 +3215,10 @@ html:has(.drawer-toggle:checked) {
 
   .xl\:w-64 {
     width: 16rem;
+  }
+
+  .xl\:w-4\/6 {
+    width: 66.666667%;
   }
 
   .xl\:text-nowrap {
