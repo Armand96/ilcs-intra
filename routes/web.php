@@ -56,12 +56,12 @@ Route::get("/login", function(){
 }) ->name('login');
 
 Route::get("/dashboard", function(){
-    return view('dashboard');
+    return view('intranet.pages.dashboard');
 })->name('dashboard');
 
 Route::get("/our-leader", function(){
-    return view('our_leader');
-});
+    return view('intranet.pages.our_leader');
+})->name('our_leader');
 
 Route::get("/regulations", function(){
     return view('regulations');
