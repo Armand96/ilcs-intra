@@ -20,3 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('test_api', [DashboardController::class, 'leader']);
+Route::get('wifi_login', function() {
+    return redirect()->route('dashboard');
+});
