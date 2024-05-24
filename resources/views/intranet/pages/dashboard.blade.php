@@ -7,7 +7,7 @@
 <script src='{{ asset('js/full-calendar.js') }}'></script>
 <script src='{{ asset('js/owl.carousel.js') }}'></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
 @endsection
 
@@ -302,46 +302,155 @@
     </div>
 </div>
 
+<!-- Chart -->
 <div class="flex flex-col w-full pb-6 px-14 ">
     <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
-        <h2 class="text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d TW I</h2>
+        <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d TW I</h2>
         <div class="grid grid-cols-2 gap-7 mt-4">
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
-                <h4 class="text-white font-semibold text-xl">Pendapatan</h4>
+                <h4 class="text-white font-semibold 2xl:text-lg">Pendapatan</h4>
                 <div class="w-full mt-8">
                     <canvas id="barChart"></canvas>
                 </div>
 
                 <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                    <div class="bg-green-600 mb-5">
+                    <div class="bg-green-600 mb-5 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                         </svg>
                     </div>
-                    <h4 class="font-semibold">Pendapatan RP. 96,47 M, tercapai 56,68% RKAP; Growth 21,59% YoY</h4>
+                    <h4 class="font-semibold text-sm 2xl:text-base">Pendapatan RP. 96,47 M, tercapai 56,68% RKAP; Growth 21,59% YoY</h4>
                 </div>
 
             </div>
 
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
-                <h4 class="text-white font-semibold text-xl">Beban Usaha</h4>
+                <h4 class="text-white font-semibold 2xl:text-lg">Beban Usaha</h4>
                 <div class="w-full mt-8">
-                    <canvas id="barChart2"></canvas>
+                    <canvas id="barChart2" class="pt-4"></canvas>
                 </div>
 
                 <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                    <div class="bg-green-600 mb-5">
+                    <div class="bg-green-600 mb-5 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                         </svg>
                     </div>
-                    <h4 class="font-semibold">Beban Usaha Rp. 94,18 M, tercapai 66,82% RKAP; Growth 20,21% YoY</h4>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">Beban Usaha Rp. 94,18 M, tercapai 66,82% RKAP; Growth 20,21% YoY</h4>
                 </div>
 
             </div>
         </div>
     </div>
+
+    <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
+        <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan per Portofolio TW I</h2>
+        <div class="grid grid-cols-2 gap-7 mt-4">
+
+            <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
+                <h4 class="text-white font-semibold 2xl:text-lg">ICT System Implementor</h4>
+                <div class="w-full mt-8">
+                    <canvas id="barChart3"></canvas>
+                </div>
+
+                <div class="grid 2xl:grid-cols-2 gap-7">
+                    <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                        <div class="bg-red-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
+                            </svg>
+
+                        </div>
+                        <h4 class="font-semibold 2xl:text-base text-sm">97,28 %</h4>
+                        <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs RKAP 2023</h4>
+                    </div>
+                    <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                        <div class="bg-green-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold 2xl:text-base text-sm">212,84 %</h4>
+                        <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs Real 2022</h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
+                <h4 class="text-white font-semibold 2xl:text-lg">IT Manage Service</h4>
+                <div class="w-full mt-8">
+                    <canvas id="barChart4"></canvas>
+                </div>
+
+                <div class="grid 2xl:grid-cols-2 gap-7">
+                    <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                        <div class="bg-green-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-sm 2xl:text-base">136,79 %</h4>
+                        <h4 class="font-semibold text-sm 2xl:text-base">Real 2023 vs RKAP 2023</h4>
+                    </div>
+                    <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                        <div class="bg-green-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold 2xl:text-base text-sm ">242,01 %</h4>
+                        <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs Real 2022</h4>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
+                <h4 class="text-white font-semibold  2xl:text-lg">Digital Seaport</h4>
+                <div class="w-full mt-8">
+                    <canvas id="barChart5"></canvas>
+                </div>
+
+                <div class="grid 2xl:grid-cols-2 gap-7">
+                    <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                        <div class="bg-green-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold 2xl:text-base text-sm">97,28 %</h4>
+                        <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs RKAP 2023</h4>
+                    </div>
+                    <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                        <div class="bg-green-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold 2xl:text-base text-sm">212,84 %</h4>
+                        <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs Real 2022</h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
+
+                <div class="w-full mt-8">
+                    <canvas id="barChart6" class="w-4/6 mx-auto"></canvas>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
 </div>
+
+<button class="bg-login-button px-6 py-2 mx-auto text-white rounded-xl mb-12" onclick="toTop()">Back to top</button>
 
 <script>
     // owlCarousel
@@ -438,15 +547,19 @@
         calendar.render();
     });
 
+    // utils
+    function toTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
     // chart
-
-
 
     var ctx = document.getElementById('barChart').getContext('2d');
 
     const dataDumn = [
         ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
-        [10000, 23000, 19000, 13000, 12900],
+        [10000, 23000, 19000, 13000],
     ]
 
     var myChart = new Chart(ctx, {
@@ -477,7 +590,6 @@
 
             }]
         },
-        plugins: [ChartDataLabels],
         options: {
             scales: {
                 y: {
@@ -501,39 +613,38 @@
                 legend: {
                     display: false // Menyembunyikan legenda
                 },
-                datalabels: {
-                    color: '#FFF',
-                    anchor: "center",
-                },
                 title: {
                     display: true,
                     text: '(Miliar)',
                     align: "start",
                     color: "#FFF"
-                }
+                },
+                datalabels: {
+                    color: '#FFF',
+                    anchor: "center",
+                    offset: 9,
+                    align: "end",
+                },
             },
         },
+        plugins: [ChartDataLabels],
     });
 
+    //  chart2
 
     var ctx2 = document.getElementById('barChart2').getContext('2d');
 
     const dataDumn2 = [
         ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
-        [30000, 23000, 19000, 13000, 12900],
+        [300, 400, 200, 10],
+        [80, 90, 95, 99],
     ]
 
     var myChart = new Chart(ctx2, {
         type: 'bar',
-        color: "#FFF",
         data: {
-            datalabels: {
-                align: 'end',
-                anchor: 'end',
-            },
             labels: dataDumn2[0],
-            datasets: [
-                {
+            datasets: [{
                     label: 'Data',
                     data: dataDumn2[1],
                     backgroundColor: [
@@ -549,7 +660,23 @@
                         '#C6C6C6',
                     ],
                     borderWidth: 1,
-
+                    datalabels: {
+                        anchor: "center",
+                    }
+                },
+                {
+                    type: "line", // Specify the type as line for the line chart
+                    label: "Percentage",
+                    data: dataDumn2[2],
+                    borderColor: "rgba(255, 99, 132, 1)",
+                    backgroundColor: "#FFF",
+                    borderWidth: 1,
+                    zIndex: 2,
+                    fill: false,
+                    yAxisID: "y1", // Link this dataset to the right y-axis
+                    datalabels: {
+                        display: true // Disable datalabels for the line chart
+                    },
                 },
             ]
         },
@@ -571,15 +698,38 @@
                     grid: {
                         color: 'rgba(255, 255, 255, 0.1)'
                     }
-                }
+                },
+                y1: {
+                    beginAtZero: true,
+                    type: "linear",
+                    position: "right",
+                    title: {
+                        color: "#FFF",
+                        display: true,
+                        text: "Persen",
+                    },
+                    datalabels: {
+                        color: "#FFF"
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    grid: {
+                        drawOnChartArea: false,
+                    },
+                },
             },
             plugins: {
                 legend: {
-                    display: false // Menyembunyikan legenda
+                    display: false,
+
                 },
                 datalabels: {
                     color: '#FFF',
-                    anchor: "center",
+                    anchor: "end",
+                    align: "end",
+                    offset: 4,
+                    display: true
                 },
                 title: {
                     display: true,
@@ -589,6 +739,302 @@
                 }
             },
         },
+    });
+
+    // chart 3
+
+    var ctx = document.getElementById('barChart3').getContext('2d');
+
+    const dataDumn3 = [
+        ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
+        [10000, 23000, 19000, 13000],
+    ]
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        color: "#FFF",
+        data: {
+            datalabels: {
+                align: 'end',
+                anchor: 'end',
+            },
+            labels: dataDumn3[0],
+            datasets: [{
+                label: 'Data',
+                data: dataDumn3[1],
+                backgroundColor: [
+                    '#466AFF',
+                    '#F6C01D',
+                    '#F88B2E',
+                    '#C6C6C6',
+                ],
+                borderColor: [
+                    '#466AFF',
+                    '#F6C01D',
+                    '#F88B2E',
+                    '#C6C6C6',
+                ],
+                borderWidth: 1,
+
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // Menyembunyikan legenda
+                },
+                title: {
+                    display: true,
+                    text: '(Miliar)',
+                    align: "start",
+                    color: "#FFF"
+                },
+                datalabels: {
+                    color: '#FFF',
+                    anchor: "center",
+                    offset: 9,
+                    align: "end",
+                },
+            },
+        },
+        plugins: [ChartDataLabels],
+    });
+
+    // chart 4
+
+    var ctx = document.getElementById('barChart4').getContext('2d');
+
+    const dataDumn4 = [
+        ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
+        [10000, 23000, 19000, 13000],
+    ]
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        color: "#FFF",
+        data: {
+            datalabels: {
+                align: 'end',
+                anchor: 'end',
+            },
+            labels: dataDumn4[0],
+            datasets: [{
+                label: 'Data',
+                data: dataDumn4[1],
+                backgroundColor: [
+                    '#466AFF',
+                    '#F6C01D',
+                    '#F88B2E',
+                    '#C6C6C6',
+                ],
+                borderColor: [
+                    '#466AFF',
+                    '#F6C01D',
+                    '#F88B2E',
+                    '#C6C6C6',
+                ],
+                borderWidth: 1,
+
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // Menyembunyikan legenda
+                },
+                title: {
+                    display: true,
+                    text: '(Miliar)',
+                    align: "start",
+                    color: "#FFF"
+                },
+                datalabels: {
+                    color: '#FFF',
+                    anchor: "center",
+                    offset: 9,
+                    align: "end",
+                },
+            },
+        },
+        plugins: [ChartDataLabels],
+    });
+
+    // chart 5
+
+    var ctx = document.getElementById('barChart5').getContext('2d');
+
+    const dataDumn5 = [
+        ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
+        [10000, 23000, 19000, 13000],
+    ]
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        color: "#FFF",
+        data: {
+            datalabels: {
+                align: 'end',
+                anchor: 'end',
+            },
+            labels: dataDumn5[0],
+            datasets: [{
+                label: 'Data',
+                data: dataDumn5[1],
+                backgroundColor: [
+                    '#466AFF',
+                    '#F6C01D',
+                    '#F88B2E',
+                    '#C6C6C6',
+                ],
+                borderColor: [
+                    '#466AFF',
+                    '#F6C01D',
+                    '#F88B2E',
+                    '#C6C6C6',
+                ],
+                borderWidth: 1,
+
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // Menyembunyikan legenda
+                },
+                title: {
+                    display: true,
+                    text: '(Miliar)',
+                    align: "start",
+                    color: "#FFF"
+                },
+                datalabels: {
+                    color: '#FFF',
+                    anchor: "center",
+                    offset: 9,
+                    align: "end",
+                },
+            },
+        },
+        plugins: [ChartDataLabels],
+    });
+
+    // chart 6
+
+    var ctx = document.getElementById('barChart6').getContext('2d');
+
+    const dataDumn6 = [
+        ['IT Manage Service ', 'Digital Seaport', 'ICT Implementor ', 'other'],
+        [10, 30, 20, 40],
+    ]
+
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        color: "#FFF",
+        data: {
+            labels: dataDumn6[0],
+            datasets: [{
+                label: 'Persen',
+                data: dataDumn6[1],
+                datalabels: {
+                    formatter: function(value, context) {
+                        return context.chart.data.labels[context.dataIndex];
+                    }
+                },
+                backgroundColor: [
+                    '#466AFF',
+                    '#F6C01D',
+                    '#F88B2E',
+                    '#C6C6C6',
+                ],
+
+
+
+                borderColor: [
+                    '#466AFF',
+                    '#F6C01D',
+                    '#F88B2E',
+                    '#C6C6C6',
+                ],
+                borderWidth: 1,
+
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    display: false
+                },
+                x: {
+                    display: false
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // Menyembunyikan legenda
+                },
+
+                datalabels: {
+                    color: '#FFF',
+                    anchor: "center",
+                    align: "center",
+                },
+            },
+        },
+        plugins: [ChartDataLabels],
     });
 </script>
 @endsection

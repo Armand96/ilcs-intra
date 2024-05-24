@@ -22,7 +22,7 @@
             <div class="w-1/4 mr-6 tabs flex justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white " data-tab-target="#tab3">
                 <img src="{{ asset('assets/images/icon/bom-icon.svg') }}" alt="img" class="w-12">
                 <p class="font-semibold text-sm ml-6">
-                    Board of Commissioner
+                    Board of Management
                 </p>
             </div>
         </div>
@@ -155,7 +155,7 @@
                     message</button>
             </div>
         </div>
-        
+
         <div class=" flex flex-col card-comission border border-blue-950 rounded-2xl">
             <img src="{{ asset('assets/images/from-board/bom-4.svg') }}" alt="img" class="w-full rounded-t-2xl">
             <div class="flex flex-col px-4 pt-4 h-40">

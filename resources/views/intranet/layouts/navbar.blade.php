@@ -14,13 +14,19 @@
                     <span class="badge badge-sm bg-red-500 border-none text-white indicator-item">8</span>
                 </div>
             </div>
-            <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
-                <div class="card-body">
-                    <span class="font-bold text-lg">8 Items</span>
-                    <span class="text-info">Subtotal: $999</span>
-                    <div class="card-actions">
-                        <button class="btn btn-primary btn-block">View cart</button>
-                    </div>
+            <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-60 bg-base-100 shadow">
+                <h4 class=" px-4 font-semibold my-3">Notification</h4>
+                <div class=" flex flex-col items-center justify-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
+                    <p class="text-sm font-semibold text-center ">Selamat kamu kena sp 1</p>
+                    <p class="text-sm font-light text-blue-300">Klik lebih lanjut..</p>
+                </div>
+                <div class="flex flex-col items-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950" >
+                    <p class="text-sm font-semibold text-center ">Selamat kamu kena sp 2</p>
+                    <p class="text-sm font-light text-blue-300">Klik lebih lanjut..</p>
+                </div>
+                <div class="flex flex-col mt-2 items-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
+                    <p class="text-sm font-semibold text-center ">Selamat kamu kena sp 3 🎉 selamat tinggal</p>
+                    <p class="text-sm font-light text-blue-300">Klik lebih lanjut..</p>
                 </div>
             </div>
         </div>
@@ -36,13 +42,19 @@
                 </div>
 
             </div>
-            <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
-                <div class="card-body">
-                    <span class="font-bold text-lg">8 Items</span>
-                    <span class="text-info">Subtotal: $999</span>
-                    <div class="card-actions">
-                        <button class="btn btn-primary btn-block">View cart</button>
-                    </div>
+            <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-60 bg-base-100 shadow">
+                <h4 class=" px-4 font-semibold my-3">Notification</h4>
+                <div class=" flex flex-col items-center justify-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
+                    <p class="text-sm font-semibold text-center ">Selamat kamu kena sp 1</p>
+                    <p class="text-sm font-light text-blue-300">Klik lebih lanjut..</p>
+                </div>
+                <div class="flex flex-col items-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950" >
+                    <p class="text-sm font-semibold text-center ">Selamat kamu kena sp 2</p>
+                    <p class="text-sm font-light text-blue-300">Klik lebih lanjut..</p>
+                </div>
+                <div class="flex flex-col mt-2 items-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
+                    <p class="text-sm font-semibold text-center ">Selamat kamu kena sp 3 🎉 selamat tinggal</p>
+                    <p class="text-sm font-light text-blue-300">Klik lebih lanjut..</p>
                 </div>
             </div>
         </div>

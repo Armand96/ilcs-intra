@@ -5,6 +5,8 @@
 
 <body>
 
+    @include('components.loading')
+
     <div class="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
@@ -26,5 +28,11 @@
 
     </div>
 </body>
+
+<script>
+       window.onload = function() {
+            document.getElementById('loading').style.display = 'none';
+        }
+</script>
 
 </html>
