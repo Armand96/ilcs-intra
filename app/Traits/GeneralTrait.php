@@ -163,4 +163,10 @@ trait GeneralTrait
             })->get();
         return $data;
     }
+
+    public function unreadChatCount(int $userId)
+    {
+        $count = Chat::where('to_user_id', $userId)->where('is_read', false)->count();
+        return $count;
+    }
 }
