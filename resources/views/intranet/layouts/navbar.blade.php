@@ -71,7 +71,7 @@
 
             <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white rounded-box w-52 bg-dashboard-background border border-blue-950 ">
                 <li><a>Profile</a></li>
-                <li><a>Logout</a></li>
+                <li><a href="{{ route('logout') }}">Logout</a></li>
             </ul>
         </div>
 

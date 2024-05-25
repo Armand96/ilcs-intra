@@ -42,6 +42,16 @@
                         <button class="bg-login-button login-button relative z-10 w-full mt-12 text-white rounded-3xl py-2">
                             Login
                         </button>
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                 </form>
                 <p class="mt-6 text-xs text-center lg:text-base text-login-text">© 2024 ILCS. All rights reserved</p>
