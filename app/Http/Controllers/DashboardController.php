@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Leader;
+use App\Models\User;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -13,19 +15,25 @@ class DashboardController extends Controller
     public function home()
     {
         $data = array(
-            'news' => $this->latestNews(),
-            'eom' => $this->getAllNilaiKaryawan(),
-            'upcomingBirthday' => $this->getUpcomingBirthday(),
-            'linkApps' => $this->appLink(),
-            'linkSosmed' => $this->sosmedLink(),
-            'newEmployee' => $this->newEmployee(),
-            'farewellEmployee' => $this->farewellKaryawan(),
-            'notifCount' => $this->unreadCount(1),
-            'chatHist' => $this->allUserChat(1),
-            'chatCount' => $this->unreadCount(1),
+            // 'news' => $this->latestNews(),
+            // 'eom' => $this->getAllNilaiKaryawan(),
+            // 'upcomingBirthday' => $this->getUpcomingBirthday(),
+            // 'linkApps' => $this->appLink(),
+            // 'linkSosmed' => $this->sosmedLink(),
+            // 'newEmployee' => $this->newEmployee(),
+            // 'farewellEmployee' => $this->farewellKaryawan(),
+            // 'notifCount' => $this->unreadCount(1),
+            // 'chatHist' => $this->allUserChat(1),
+            // 'chatCount' => $this->unreadCount(1),
         );
 
-        return view('dashboard', compact('data'));
+        if(Auth::check()) {
+            // dd(Auth::user());
+        } else {
+            dd('blm ada auth');
+        }
+
+        return view('intranet.pages.dashboard', compact('data'));
     }
 
     public function leader()
@@ -41,5 +49,25 @@ class DashboardController extends Controller
             }
         }
         return response()->json($groupedLeaders);
+    }
+
+    public function apiRedirect(Request $request)
+    {
+        // dd($request->all());
+        $user = User::where('nip', $request->get('username'))->first();
+
+        if($user) {
+            Auth::loginUsingId($user->id);
+            // dd(Auth::user());
+            return redirect()->route('dashboard');
+        }
+
+        return redirect()->route('login')->withErrors(['msg' => 'NIP tidak ditemukan']);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

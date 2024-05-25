@@ -41,15 +41,15 @@
             <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-60 bg-base-100 shadow">
                 <h4 class=" px-4 font-semibold my-3">Notification</h4>
                 <div class=" flex flex-col items-center justify-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
-                    <p class="text-sm font-semibold text-center ">Selamat kamu kena sp 1</p>
+                    <p class="text-sm font-semibold text-center ">User 1 Mengomentari aspirasi Anda</p>
                     <p class="text-sm font-light text-blue-300">Klik lebih lanjut..</p>
                 </div>
                 <div class="flex flex-col items-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
-                    <p class="text-sm font-semibold text-center ">Selamat kamu kena sp 2</p>
+                    <p class="text-sm font-semibold text-center ">User 2 Mengomentari aspirasi Anda</p>
                     <p class="text-sm font-light text-blue-300">Klik lebih lanjut..</p>
                 </div>
                 <div class="flex flex-col mt-2 items-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
-                    <p class="text-sm font-semibold text-center ">Selamat kamu kena sp 3 🎉 selamat tinggal</p>
+                    <p class="text-sm font-semibold text-center ">User 3 Mengomentari aspirasi Anda</p>
                     <p class="text-sm font-light text-blue-300">Klik lebih lanjut..</p>
                 </div>
             </div>
@@ -57,7 +57,7 @@
 
         <div class="dropdown dropdown-end ">
             <div class="flex items-center" tabindex="0" role="button">
-                <p class="text-semibold  text-white mx-4">Lorem, ipsum dolor.</p>
+                <p class="text-semibold  text-white mx-4">{{ explode(' ', Auth::user()->name)[0] }}</p>
                 <div class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
                         <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
@@ -70,9 +70,11 @@
             </div>
 
             <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white rounded-box w-52 bg-dashboard-background border border-blue-950 ">
+                <li><a>Profile</a></li>
                 <li><a>Logout</a></li>
             </ul>
         </div>
 
     </div>
 </div>
+
