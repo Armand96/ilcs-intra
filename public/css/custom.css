@@ -156,6 +156,10 @@ html {
     animation: spin 1s linear infinite;
 }
 
+/* .backoffice-style::-webkit-scrollbar {
+    height: 4px ;
+} */
+
 
 @media only screen and (max-width: 1336px) {
     .fc-toolbar-title {

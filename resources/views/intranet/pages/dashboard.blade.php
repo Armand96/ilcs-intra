@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-<div class="flex w-full px-14 pt-6">
+<div class="flex w-full px-14 pt-6 mb-8">
 
     <!-- section kiri -->
     <div class="w-4/6 flex flex-col">
@@ -27,39 +27,51 @@
                 <img src="{{ asset('assets/images/icon/orang-kerja-icon.svg') }}" class="w-3/6 2xl:w-2/6 h-full rounded-r-xl object-cover" alt="">
             </div>
 
-            <div class="flex flex-col w-6/12 bg-card-dashboard border-blue-950 border rounded-2xl px-4 py-4">
+            <div class="flex flex-col w-6/12 bg-card-dashboard border-blue-950 border rounded-2xl px-4 py-4 ">
                 <p class="text-white font-semibold">Shortcut Back Office Access</p>
-                <div class="flex justify-evenly overflow-x-auto w-full whitespace-nowrap	 mt-4">
+                <div class="flex justify-evenly overflow-x-auto w-full whitespace-nowrap backoffice-style	 mt-4">
 
-                    <a href="#" class="w-2/6 flex mr-6 flex-col items-center">
-                        <div class="h-full py-2 px-1 bg-backoffice-icon rounded-full">
-                            <img src="{{ asset('assets/images/shortcut-icon/peo.svg') }}" class="mx-auto 2xl:w-full object-cover" alt="">
+                    <a href="https://peo.pelindo.id/" target="_blank" class="w-2/6 flex mr-6 flex-col items-center">
+                        <div class="h-full w-16 py-2 px-1 bg-backoffice-icon rounded-full">
+                            <img src="{{ asset('assets/images/shortcut-icon/peo.svg') }}" class="mx-auto object-cover"  alt="">
                         </div>
                         <p class="text-sm text-white">Peo</p>
                     </a>
-                    <a href="#" class="w-2/6 flex flex-col  mr-6 items-center">
+                    <a href="https://mail.ilcs.id/" target="_blank" class="w-2/6 flex flex-col  mr-6 items-center">
                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
                             <img src="{{ asset('assets/images/shortcut-icon/zimbra.svg') }}" class="mx-auto" alt="">
                         </div>
                         <p class="text-sm text-white">zimbra</p>
                     </a>
-                    <a href="#" class="w-2/6 flex flex-col  mr-6 items-center">
+                    <a href="https://eoffice.ilcs.co.id/p2b/login" target="_blank" class="w-2/6 flex flex-col  mr-6 items-center">
                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
                             <img src="{{ asset('assets/images/shortcut-icon/eoffice.svg') }}" class="mx-auto" alt="">
                         </div>
                         <p class="text-sm text-white">E office</p>
                     </a>
-                    <a href="#" class="w-2/6 flex flex-col  mr-6 items-center">
+                    <a href="https://my.pelindo.co.id/login" target="_blank" class="w-2/6 flex flex-col  mr-6 items-center">
                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
                             <img src="{{ asset('assets/images/shortcut-icon/pcico.svg') }}" class="mx-auto" alt="">
                         </div>
-                        <p class="text-sm text-white">PCICO</p>
+                        <p class="text-sm text-white">My Pelindo</p>
                     </a>
-                    <a href="#" class="w-2/6 flex flex-col  mr-6 items-center">
+                    <a href="https://www.ilcs.co.id/" target="_blank" class="w-2/6 flex flex-col  mr-6 items-center">
                         <div class="h-full py-2 px-1 w-full bg-backoffice-icon rounded-full">
                             <img src="{{ asset('assets/images/shortcut-icon/ilcs.svg') }}" class="mx-auto" alt="">
                         </div>
                         <p class="text-sm text-white">Ilcs.co.id</p>
+                    </a>
+                    <a href="https://ho-bios.pelindo.co.id/" target="_blank" class="w-2/6 flex flex-col  mr-6 items-center">
+                        <div class="h-full py-2 px-1 w-16 bg-backoffice-icon rounded-full">
+                            <img src="{{ asset('assets/images/shortcut-icon/ilcs.svg') }}" class="mx-auto w-full object-cover" alt="">
+                        </div>
+                        <p class="text-sm text-white">Bios</p>
+                    </a>
+                    <a href="https://eproc.pelindo.co.id/" target="_blank" class="w-2/6 flex flex-col  mr-6 items-center">
+                        <div class="h-full py-2 px-1 bg-backoffice-icon w-16 rounded-full">
+                            <img src="{{ asset('assets/images/shortcut-icon/ilcs.svg') }}" class="mx-auto w-full object-cover" alt="">
+                        </div>
+                        <p class="text-sm text-white">E Proc</p>
                     </a>
                 </div>
             </div>
@@ -303,7 +315,7 @@
 </div>
 
 <!-- Chart -->
-<div class="flex flex-col w-full pb-6 px-14 ">
+<!-- <div class="flex flex-col w-full pb-6 px-14 ">
     <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
         <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d TW I</h2>
         <div class="grid grid-cols-2 gap-7 mt-4">
@@ -448,7 +460,7 @@
 
         </div>
     </div>
-</div>
+</div> -->
 
 <button class="bg-login-button px-6 py-2 mx-auto text-white rounded-xl mb-12" onclick="toTop()">Back to top</button>
 
