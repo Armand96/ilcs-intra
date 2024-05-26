@@ -87,7 +87,7 @@ class GenerateQuery extends Command
                 'image_user' => ''
             ];
 
-            echo $tempUser['name'].$tempUser['nip']."\r";
+            // echo $tempUser['name'].$tempUser['nip']."\r";
             array_push($users, $tempUser);
             // $this->info($tempUser['name']);
         }
