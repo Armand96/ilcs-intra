@@ -6,8 +6,8 @@
 @section('extrajs')
 <script src='{{ asset('js/full-calendar.js') }}'></script>
 <script src='{{ asset('js/owl.carousel.js') }}'></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+<script src="{{ asset('assets/plugins/chartjs4/dist/chart.umd.js') }}"></script>
+<script src="{{ asset('assets/plugins/chartjs4/dist/chartjs-plugin-datalabels.min.js') }}"></script>
 
 @endsection
 
@@ -763,7 +763,7 @@
                     }
                 },
                 y1: {
-                    beginAtZero: true,
+                    beginAtZero: false,
                     type: "linear",
                     position: "right",
                     title: {
