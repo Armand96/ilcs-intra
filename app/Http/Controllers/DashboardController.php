@@ -27,7 +27,7 @@ class DashboardController extends Controller
             // 'chatCount' => $this->unreadCount(1),
         );
 
-        if(Auth::check()) {
+        if (Auth::check()) {
             // dd(Auth::user());
         } else {
             dd('blm ada auth');
@@ -53,10 +53,16 @@ class DashboardController extends Controller
 
     public function apiRedirect(Request $request)
     {
-        // dd($request->all());
-        $user = User::where('nip', $request->get('username'))->first();
+        $nip = $request->get('nip');
+        $username = $request->get('username');
 
-        if($user) {
+        $user = User::when($nip, function ($qry) use ($nip) {
+            $qry->where('nip', $nip);
+        })->when($username, function ($qry) use ($username) {
+            $qry->where('username', $username);
+        })->first();
+
+        if ($user) {
             Auth::loginUsingId($user->id);
             // dd(Auth::user());
             return redirect()->route('dashboard');
