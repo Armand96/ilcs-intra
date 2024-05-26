@@ -16,7 +16,7 @@
 
         <div class="bg-login-button text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Code OF Conduct
+            Code of Conduct
             </p>
         </div>
         <div class="text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer " data-tab-target="#tab2">
