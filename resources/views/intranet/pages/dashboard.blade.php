@@ -176,7 +176,7 @@
 
             <div class="flex flex-col w-3/6 2xl:w-4/6 items-center text-white">
                 <h4 class="text-base 2xl:text-lg text-center font-semibold mt-2">See <br /> Statistic KPI</h4>
-                <a href="#kpi" class="mx-auto rounded-full mt-3 kpi-button bg-login-button p-1">
+                <a href="#kpi" class="mx-auto rounded-full mt-3 mb-8 2xl:mn-0 kpi-button bg-login-button p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 2xl:size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
                     </svg>
