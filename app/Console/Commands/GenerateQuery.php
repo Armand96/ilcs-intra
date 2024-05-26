@@ -39,13 +39,13 @@ class GenerateQuery extends Command
      */
     public function handle()
     {
-        echo "READ DATA \r";
+        echo "READ DATA \n";
         $users = $this->readFile();
         if(count($users)) {
-            echo "INSERTING DATA.... \r";
+            echo "INSERTING DATA.... \n";
             DB::table('users')->insert($users);
         } else {
-            echo "DATA KOSONG \r";
+            echo "DATA KOSONG \n";
         }
 
         // $query = $this->generateInsertQuery('users', $data);
@@ -67,7 +67,7 @@ class GenerateQuery extends Command
         // Read the file contents
         $contents = file_get_contents($filename);
 
-        $data = explode(";", $contents);
+        $data = explode(";[]", $contents);
         $users = [];
         // Display the contents
         foreach ($data as $key => $value) {
@@ -87,7 +87,7 @@ class GenerateQuery extends Command
                 'image_user' => ''
             ];
 
-            // echo $tempUser['name'].$tempUser['nip']."\r";
+            // echo $tempUser['name'].$tempUser['nip']."\n";
             array_push($users, $tempUser);
             // $this->info($tempUser['name']);
         }
