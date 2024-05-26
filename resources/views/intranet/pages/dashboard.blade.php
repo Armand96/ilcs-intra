@@ -29,7 +29,7 @@
 
             <div class="flex flex-col w-6/12 bg-card-dashboard border-blue-950 border rounded-2xl px-4 py-4 ">
                 <p class="text-white font-semibold">Shortcut Back Office Access</p>
-                <div class="flex justify-evenly overflow-x-auto w-full whitespace-nowrap backoffice-style-2	 mt-4">
+                <div class="flex justify-evenly overflow-x-auto pb-4 w-full whitespace-nowrap backoffice-style-2	 mt-4">
 
                     <a href="https://peo.pelindo.id/" target="_blank" class="w-2/6 flex mr-6 flex-col items-center">
                         <div class="h-full w-16 py-2 px-1 bg-backoffice-icon rounded-full">
@@ -176,7 +176,7 @@
 
             <div class="flex flex-col w-3/6 2xl:w-4/6 items-center text-white">
                 <h4 class="text-base 2xl:text-lg text-center font-semibold mt-2">See <br /> Statistic KPI</h4>
-                <a href="#kpi" class="mx-auto rounded-full mt-3 mb-8 2xl:mn-0 kpi-button bg-login-button p-1">
+                <a href="#kpi" class="mx-auto rounded-full mt-3 mb-8 2xl:mb-0 kpi-button bg-login-button p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 2xl:size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
                     </svg>
@@ -191,45 +191,45 @@
         <div class="flex-col bg-card-dashboard border border-blue-950 mt-8 px-4 py-6 ml-8 rounded-xl">
             <div class="w-full flex justify-between text-white mb-4">
                 <h5 class="font-semibold text-sm 2xl:text-base">Upcoming Birthday 🎉</h5>
-                <p class="text-sm 2xl:text-base">April 2024</p>
+                <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
             </div>
             <div class="w-full flex-col">
                 <div class="flex mb-6">
                     <h1 class="w-1/6 text-sm 2xl:text-base font-semibold text-center text-white">
-                        26 April
+                        30 mei
                     </h1>
                     <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full 2xl:w-4/6">
+                        <img src="{{ asset('assets/images/dashboard/ultah/faiz.png') }}" alt="" class="rounded-full object-cover border border-blue-700  w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
                     <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Nurul Amelia</h4>
-                        <p class="text-dashboard-blue-right text-xs">System Analyst (PIP)</p>
+                        <h4 class="font-semibold text-white">Faiz Khoiron</h4>
+                        <!-- <p class="text-dashboard-blue-right text-xs">System Analyst (PIP)</p> -->
                     </div>
                 </div>
 
                 <div class="flex mb-6">
                     <h1 class="w-1/6 text-sm 2xl:text-base font-semibold text-center text-white">
-                        26 April
+                        1 Juni
                     </h1>
                     <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full  2xl:w-4/6">
+                        <img src="{{ asset('assets/images/dashboard/ultah/alifa.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
                     <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Ari Panen</h4>
-                        <p class="text-dashboard-blue-right text-xs">System Analyst (PIP)</p>
+                        <h4 class="font-semibold text-white">Alifa Rezki Amalia</h4>
+                        <!-- <p class="text-dashboard-blue-right text-xs">System Analyst (PIP)</p> -->
                     </div>
                 </div>
 
                 <div class="flex mb-6">
                     <h1 class="w-1/6 text-sm 2xl:text-base font-semibold text-center text-white">
-                        26 April
+                        02 Juni
                     </h1>
                     <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full  2xl:w-4/6">
+                        <img src="{{ asset('assets/images/dashboard/ultah/agnia.png') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
                     <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Muhammad Aditya Suazi</h4>
-                        <p class="text-dashboard-blue-right text-xs">UIUX Developer Produk (PPR)</p>
+                        <h4 class="font-semibold text-white">Aghnia Awalunnisa</h4>
+                        <!-- <p class="text-dashboard-blue-right text-xs">UIUX Developer Produk (PPR)</p> -->
                     </div>
                 </div>
 
@@ -244,20 +244,29 @@
             <div class="w-full flex-col">
                 <div class="flex mb-6">
                     <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full  2xl:w-4/6">
+                        <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
                     <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Evelyn Halim</h4>
-                        <p class="text-dashboard-blue-right text-xs">Business Intelligence (Produk)</p>
+                        <h4 class="font-semibold text-white">Giffari Faqih Phrasya Hardani</h4>
+                        <!-- <p class="text-dashboard-blue-right text-xs">Business Intelligence (Produk)</p> -->
                     </div>
                 </div>
                 <div class="flex mb-6">
                     <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full  2xl:w-4/6">
+                    <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
                     <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Amanda Najwa Perak</h4>
-                        <p class="text-dashboard-blue-right text-xs">3D Designer Produk</p>
+                        <h4 class="font-semibold text-white">Slamet Apriyantok</h4>
+                        <!-- <p class="text-dashboard-blue-right text-xs">3D Designer Produk</p> -->
+                    </div>
+                </div>
+                <div class="flex mb-6">
+                    <div class="w-1/6 mx-6">
+                    <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
+                    </div>
+                    <div class="w-4/6 text-sm">
+                        <h4 class="font-semibold text-white">Hendrik Praditya</h4>
+                        <!-- <p class="text-dashboard-blue-right text-xs">3D Designer Produk</p> -->
                     </div>
                 </div>
             </div>
@@ -274,8 +283,8 @@
                         <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full  2xl:w-4/6 ">
                     </div>
                     <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Evelyn Halim</h4>
-                        <p class="text-dashboard-blue-right text-xs">Business Intelligence (Produk)</p>
+                        <h4 class="font-semibold text-white">Kevin Anas Wicaksono</h4>
+                        <!-- <p class="text-dashboard-blue-right text-xs">Business Intelligence (Produk)</p> -->
                     </div>
                 </div>
                 <div class="flex mb-6">
@@ -283,8 +292,17 @@
                         <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full  2xl:w-4/6">
                     </div>
                     <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Amanda Najwa Perak</h4>
-                        <p class="text-dashboard-blue-right text-xs">3D Designer Produk</p>
+                        <h4 class="font-semibold text-white">Eka Khoirotin Nurul</h4>
+                        <!-- <p class="text-dashboard-blue-right text-xs">3D Designer Produk</p> -->
+                    </div>
+                </div>
+                <div class="flex mb-6">
+                    <div class="w-1/6 mx-6">
+                        <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full  2xl:w-4/6">
+                    </div>
+                    <div class="w-4/6 text-sm">
+                        <h4 class="font-semibold text-white">Surya Adhi Waskito</h4>
+                        <!-- <p class="text-dashboard-blue-right text-xs">3D Designer Produk</p> -->
                     </div>
                 </div>
             </div>
@@ -296,16 +314,16 @@
                 <h5 class="font-semibold ">Social Media ILCS</h5>
             </div>
             <div class="w-full flex">
-                <a href="#" class="w-2/12">
+                <a href="https://www.instagram.com/ilcs.co?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="w-2/12">
                     <img src="{{ asset('assets/images/icon/instragram-dashboard.svg') }}" alt="" class="w-3/6">
                 </a>
-                <a href="#" class="w-2/12">
+                <a href="https://x.com/ilcs_id" target="_blank" class="w-2/12">
                     <img src="{{ asset('assets/images/icon/twitter-dashboard.svg') }}" alt="" class="w-3/6">
                 </a>
-                <a href="#" class="w-2/12">
+                <a href="https://www.youtube.com/@pelindosolusidigital" target="_blank" class="w-2/12">
                     <img src="{{ asset('assets/images/icon/youtube-dashboard.svg') }}" alt="" class="w-3/6">
                 </a>
-                <a href="#" class="w-2/12">
+                <a href="#" target="_blank" class="w-2/12">
                     <img src="{{ asset('assets/images/icon/linkedin-dashboard.svg') }}" alt="" class="w-3/6">
                 </a>
             </div>
@@ -942,7 +960,7 @@
 
     const dataDumn5 = [
         ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
-        [81.904, 24.350, 13.768, 5.026],
+        [81.904, 24.3500, 13.768, 5.026],
     ]
 
     var myChart = new Chart(ctx, {
@@ -995,6 +1013,7 @@
             plugins: {
                 legend: {
                     display: false // Menyembunyikan legenda
+                    
                 },
                 title: {
                     display: true,

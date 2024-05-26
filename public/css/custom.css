@@ -168,6 +168,7 @@ html {
 
 .backoffice-style-2::-webkit-scrollbar {
     display: block ;
+    cursor: pointer;
 }
 
 
@@ -181,9 +182,29 @@ html {
 
 .backoffice-style-2::-webkit-scrollbar-track {
     background-color: #0B5AFD ;
+    width: 1px ;
+    border-radius: 18px ;
+}
+
+.fc-scroller-liquid-absolute::-webkit-scrollbar {
+    display: block ;
+    cursor: pointer;
+}
+
+.fc-scroller-liquid-absolute::-webkit-scrollbar-thumb {
+    display: block ;
+    background-color: #1B3351 ;
     width: 2px ;
     border-radius: 18px ;
 }
+
+
+.fc-scroller-liquid-absolute::-webkit-scrollbar-track {
+    background-color: #0B5AFD ;
+    width: 1px ;
+    border-radius: 18px ;
+}
+
 
 
 @media only screen and (max-width: 1336px) {
