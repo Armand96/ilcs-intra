@@ -174,13 +174,13 @@
 
         <div class="flex justify-between bg-card-dashboard border border-blue-950 ml-8 rounded-xl">
 
-            <div class=" flex flex-col w-3/6 2xl:w-4/6 items-center text-white">
+            <div class="flex flex-col w-3/6 2xl:w-4/6 items-center text-white">
                 <h4 class="text-base 2xl:text-lg text-center font-semibold mt-2">See <br /> Statistic KPI</h4>
-                <button class="mx-auto rounded-full mt-3 kpi-button bg-login-button p-1">
+                <a href="#kpi" class="mx-auto rounded-full mt-3 kpi-button bg-login-button p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 2xl:size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
                     </svg>
-                </button>
+</a>
             </div>
             <div class="flex-col w-3/6 2xl:w-2/6">
                 <img src="{{ asset('assets/images/icon/kpi-icon.svg') }}" class="w-full h-full ml-auto rounded-r-xl" alt="">
@@ -315,7 +315,7 @@
 </div>
 
 <!-- Chart -->
-<div class="flex flex-col w-full pb-6 px-14 ">
+<div class="flex flex-col w-full pb-6 px-14 " id="kpi">
     <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
         <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d TW I</h2>
         <div class="grid grid-cols-2 gap-7 mt-4">
@@ -355,7 +355,7 @@
         </div>
     </div>
 
-    <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
+    <div  class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
         <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan per Portofolio TW I</h2>
         <div class="grid grid-cols-2 gap-7 mt-4">
 
