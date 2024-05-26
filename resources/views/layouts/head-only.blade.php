@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8" />
-    <title>Pelindo</title>
+    <title>INTRANET 2.0</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
