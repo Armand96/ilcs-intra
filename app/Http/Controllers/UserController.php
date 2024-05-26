@@ -64,7 +64,7 @@ class UserController extends Controller
                 if(Auth::user()->role->is_admin == false) {
                     return redirect()->route('dashboard');
                 } else {
-                    return redirect()->route('cms');
+                    return redirect()->route('cms.home');
                 }
             }
             // else if(Auth::guard('siswa')->attempt($credential)) return redirect()->route('test.siswa');
