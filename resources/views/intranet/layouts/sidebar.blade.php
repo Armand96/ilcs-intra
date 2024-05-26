@@ -52,7 +52,7 @@
                 <div class="p-2 rounded-xl mt-2 hex-icon">
                     <img src="{{ asset('assets/images/icon/book-icon.svg') }}" alt="">
                 </div>
-                <p class="mt-2 text-xs xl:text-sm text-center w-full">laporan Rapat Management</p>
+                <p class="mt-2 text-xs xl:text-sm text-center w-full">Laporan Rapat Management</p>
             </a>
 
             <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
