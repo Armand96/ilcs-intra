@@ -21,10 +21,10 @@
             Appointed as President Director of PT Integration Logistik Cipta Solusi (ILCS) in March 2023. Previously he served as Project Director Digital Ecosystem Platform at PT Telkom Indonesia (Tbk) for the 2020-present period.
           </p>
         </div>
-        <div class="flex w-full mt-5 ">
+        <!-- <div class="flex w-full mt-5 ">
           <button onclick="my_modal_2.showModal()" class="text-white mt-4 px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
             message</button>
-        </div>
+        </div> -->
       </div>
 
     </div>

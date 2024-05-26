@@ -132,9 +132,14 @@
 
             <div class="w-1/6 2xl:w-1/6 flex flex-col h-full overflow-auto calender-notif ml-4 px-4 py-2 rounded-2xl">
                 <div class="flex flex-col w-full">
-                    <p class="text-xs text-white bg-red-500 w-10 pl-1 mt-3  rounded-full py-1">8-15</p>
-                    <p class="text-xs 2xl:text-sm text-white my-2 font-semibold">April 2024</p>
-                    <p class="text-xs 2xl:text-sm text-white">Hari Raya Idul Fitri dan Cuti Bersama</p>
+                    <p class="text-xs text-white bg-red-500 w-10 pl-1 mt-3  rounded-full py-1">23</p>
+                    <p class="text-xs 2xl:text-sm text-white my-2 font-semibold">Mei 2024</p>
+                    <p class="text-xs 2xl:text-sm text-white">Hari Raya Waisak</p>
+                </div>
+                <div class="flex flex-col w-full">
+                    <p class="text-xs text-white bg-red-500 w-10 pl-1 mt-3  rounded-full py-1">24</p>
+                    <p class="text-xs 2xl:text-sm text-white my-2 font-semibold">Mei 2024</p>
+                    <p class="text-xs 2xl:text-sm text-white">Cuti Bersama Hari Raya Waisak</p>
                 </div>
 
             </div>
@@ -146,20 +151,20 @@
                 <div class="max-h-80 overflow-auto">
                     <div class="flex mb-6">
                         <div class="w-1/6 mx-6">
-                            <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full 2xl:w-4/6">
+                            <img src="{{ asset('assets/images/dashboard/event/dmc.jpeg') }}" alt="" class="object-cover border border-blue-700  2xl:w-12 2xl:h-12">
                         </div>
                         <div class="w-4/6 text-sm">
-                            <h4 class="font-semibold text-white">Go Live PTOS-M Tanjung Priok</h4>
-                            <p class="text-dashboard-blue-right text-xs">Senin, 29 April 2024 | 10.00 </p>
+                            <h4 class="font-semibold text-white">Launching DMDC</h4>
+                            <p class="text-dashboard-blue-right text-xs">Senin, 20 Mei 2024 </p>
                         </div>
                     </div>
                     <div class="flex mb-6">
                         <div class="w-1/6 mx-6">
-                            <img src="{{ asset('assets/images/users/user-5.jpg') }}" alt="" class="rounded-full 2xl:w-4/6">
+                            <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="object-cover border border-blue-700  2xl:w-12 2xl:h-12">
                         </div>
                         <div class="w-4/6 text-sm">
-                            <h4 class="font-semibold text-white">Go Live PTOS-M Tanjung Priok</h4>
-                            <p class="text-dashboard-blue-right text-xs">Senin, 29 April 2024 | 10.00 </p>
+                            <h4 class="font-semibold text-white">Soft Go Live INTRANET 2.0 </h4>
+                            <p class="text-dashboard-blue-right text-xs">Senin, 27 Mei 2024| 10.00 </p>
                         </div>
                     </div>
                 </div>
@@ -209,7 +214,7 @@
 
                 <div class="flex mb-6">
                     <h1 class="w-1/6 text-sm 2xl:text-base font-semibold text-center text-white">
-                        1 Juni
+                        01 Juni
                     </h1>
                     <div class="w-1/6 mx-6">
                         <img src="{{ asset('assets/images/dashboard/ultah/alifa.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
@@ -253,7 +258,7 @@
                 </div>
                 <div class="flex mb-6">
                     <div class="w-1/6 mx-6">
-                    <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
+                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
                     <div class="w-4/6 text-sm">
                         <h4 class="font-semibold text-white">Slamet Apriyantok</h4>
@@ -262,7 +267,7 @@
                 </div>
                 <div class="flex mb-6">
                     <div class="w-1/6 mx-6">
-                    <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
+                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
                     <div class="w-4/6 text-sm">
                         <h4 class="font-semibold text-white">Hendrik Praditya</h4>
@@ -546,61 +551,60 @@
 
             initialDate: new Date(),
             navLinks: false, // can click day/week names to navigate views
-            businessHours: true, // display business hours
             editable: true,
 
-            // selectable: true,
-            // events: [{
-            //         title: 'Business Lunch',
-            //         start: '2023-01-03T13:00:00',
-            //         constraint: 'businessHours'
-            //     },
-            //     {
-            //         title: 'Meeting',
-            //         start: '2023-01-13T11:00:00',
-            //         constraint: 'availableForMeeting', // defined below
-            //         color: '#257e4a'
-            //     },
-            //     {
-            //         title: 'Conference',
-            //         start: '2023-01-18',
-            //         end: '2023-01-20'
-            //     },
-            //     {
-            //         title: 'Party',
-            //         start: '2023-01-29T20:00:00'
-            //     },
+            selectable: true,
+            events: [
+                {
+                    title: 'Hari Raya Waisak',
+                    start: '2024-05-23T13:00:00',
+                },
+                // {
+                //     title: 'Meeting',
+                //     start: '2023-01-13T11:00:00',
+                //     constraint: 'availableForMeeting', // defined below
+                //     color: '#257e4a'
+                // },
+                // {
+                //     title: 'Conference',
+                //     start: '2023-01-18',
+                //     end: '2023-01-20'
+                // },
+                // {
+                //     title: 'Party',
+                //     start: '2023-01-29T20:00:00'
+                // },
 
-            //     // areas where "Meeting" must be dropped
-            //     {
-            //         groupId: 'availableForMeeting',
-            //         start: '2023-01-11T10:00:00',
-            //         end: '2023-01-11T16:00:00',
-            //         display: 'background'
-            //     },
-            //     {
-            //         groupId: 'availableForMeeting',
-            //         start: '2023-01-13T10:00:00',
-            //         end: '2023-01-13T16:00:00',
-            //         display: 'background'
-            //     },
+                // // areas where "Meeting" must be dropped
+                // {
+                //     groupId: 'availableForMeeting',
+                //     start: '2023-01-11T10:00:00',
+                //     end: '2023-01-11T16:00:00',
+                //     display: 'background'
+                // },
+                // {
+                //     groupId: 'availableForMeeting',
+                //     start: '2023-01-13T10:00:00',
+                //     end: '2023-01-13T16:00:00',
+                //     display: 'background'
+                // },
 
-            //     // red areas where no events can be dropped
-            //     {
-            //         start: '2023-01-24',
-            //         end: '2023-01-28',
-            //         overlap: false,
-            //         display: 'background',
-            //         color: '#ff9f89'
-            //     },
-            //     {
-            //         start: '2023-01-06',
-            //         end: '2023-01-08',
-            //         overlap: false,
-            //         display: 'background',
-            //         color: '#ff9f89'
-            //     }
-            // ]
+                // // red areas where no events can be dropped
+                // {
+                //     start: '2023-01-24',
+                //     end: '2023-01-28',
+                //     overlap: false,
+                //     display: 'background',
+                //     color: '#ff9f89'
+                // },
+                // {
+                //     start: '2023-01-06',
+                //     end: '2023-01-08',
+                //     overlap: false,
+                //     display: 'background',
+                //     color: '#ff9f89'
+                // }
+            ]
         });
 
         calendar.render();
@@ -871,6 +875,9 @@
                     anchor: "center",
                     offset: 9,
                     align: "end",
+                    formatter: function(value, context) {
+                        return value.toFixed(3);
+                    }
                 },
             },
         },
@@ -948,6 +955,9 @@
                     anchor: "center",
                     offset: 9,
                     align: "end",
+                    formatter: function(value, context) {
+                        return value.toFixed(3);
+                    }
                 },
             },
         },
@@ -995,7 +1005,7 @@
             scales: {
                 y: {
                     ticks: {
-                        color: 'white'
+                        color: 'white',
                     },
                     grid: {
                         color: 'rgba(255, 255, 255, 0.1)'
@@ -1013,7 +1023,6 @@
             plugins: {
                 legend: {
                     display: false // Menyembunyikan legenda
-                    
                 },
                 title: {
                     display: true,
@@ -1026,6 +1035,9 @@
                     anchor: "center",
                     offset: 9,
                     align: "end",
+                    formatter: function(value, context) {
+                        return value.toFixed(3);
+                    }
                 },
             },
         },
