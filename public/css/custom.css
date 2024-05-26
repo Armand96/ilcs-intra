@@ -97,7 +97,6 @@ html {
 }
 
 .bg-blur-comission {
-    /* From https://css.glass */
     background: rgba(255, 255, 255, 0.21);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -156,9 +155,29 @@ html {
     animation: spin 1s linear infinite;
 }
 
-/* .backoffice-style::-webkit-scrollbar {
-    height: 4px ;
-} */
+.backoffice-style::-webkit-scrollbar {
+    display: block ;
+}
+
+.backoffice-style::-webkit-scrollbar-thumb {
+    background-color: #1B3351 ;
+    width: 3px ;
+    border-radius: 18px ;
+}
+
+.backoffice-style-2::-webkit-scrollbar-thumb {
+    display: block ;
+    background-color: #1B3351 ;
+    width: 3px ;
+    border-radius: 18px ;
+}
+
+
+.backoffice-style-2::-webkit-scrollbar-track {
+    background-color: #0B5AFD ;
+    width: 3px ;
+    border-radius: 18px ;
+}
 
 
 @media only screen and (max-width: 1336px) {

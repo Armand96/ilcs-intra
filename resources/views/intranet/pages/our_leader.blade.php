@@ -19,12 +19,12 @@
                     Board of Directors
                 </p>
             </div>
-            <div class="w-1/4 mr-6 tabs flex justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white " data-tab-target="#tab3">
+            <!-- <div class="w-1/4 mr-6 tabs flex justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white " data-tab-target="#tab3">
                 <img src="{{ asset('assets/images/icon/bom-icon.svg') }}" alt="img" class="w-12">
                 <p class="font-semibold text-sm ml-6">
                     Board of Management
                 </p>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -41,7 +41,7 @@
                 <p class="text-dashboard-blue-right text-sm font-semibold">President Commissioner</p>
             </div>
             <div class="flex w-full px-4 pb-4">
-                <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
+                <button  class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
                     message</button>
             </div>
         </div>
@@ -83,7 +83,7 @@
                 <p class="text-dashboard-blue-right text-sm font-semibold">Chief Executive Officer (CEO)</p>
             </div>
             <div class="flex w-full px-4 pb-4">
-                <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
+                <button onclick="my_modal_2.showModal()" class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
                     message</button>
             </div>
         </div>
@@ -171,6 +171,8 @@
     </div>
 
 </div>
+
+@include('components.modal_leader')
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

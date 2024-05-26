@@ -29,7 +29,7 @@
 
             <div class="flex flex-col w-6/12 bg-card-dashboard border-blue-950 border rounded-2xl px-4 py-4 ">
                 <p class="text-white font-semibold">Shortcut Back Office Access</p>
-                <div class="flex justify-evenly overflow-x-auto w-full whitespace-nowrap backoffice-style	 mt-4">
+                <div class="flex justify-evenly overflow-x-auto w-full whitespace-nowrap backoffice-style-2	 mt-4">
 
                     <a href="https://peo.pelindo.id/" target="_blank" class="w-2/6 flex mr-6 flex-col items-center">
                         <div class="h-full w-16 py-2 px-1 bg-backoffice-icon rounded-full">
@@ -320,7 +320,7 @@
         <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d TW I</h2>
         <div class="grid grid-cols-2 gap-7 mt-4">
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
-                <h4 class="text-white font-semibold 2xl:text-lg">Pendapatan</h4>
+                <h4 class="text-white font-semibold 2xl:text-lg">Pendapatan Usaha</h4>
                 <div class="w-full mt-8">
                     <canvas id="barChart"></canvas>
                 </div>
@@ -331,13 +331,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                         </svg>
                     </div>
-                    <h4 class="font-semibold text-sm 2xl:text-base">Pendapatan RP. 96,47 M, tercapai 56,68% RKAP; Growth 21,59% YoY</h4>
+                    <h4 class="font-semibold text-sm 2xl:text-base">Pendapatan RP. 134,78 M, tercapai 61,27% RKAP; Growth 17,03% YoY</h4>
                 </div>
 
             </div>
 
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
-                <h4 class="text-white font-semibold 2xl:text-lg">Beban Usaha</h4>
+                <h4 class="text-white font-semibold 2xl:text-lg">Beban Usaha & OR</h4>
                 <div class="w-full mt-8">
                     <canvas id="barChart2" class="pt-4"></canvas>
                 </div>
@@ -348,7 +348,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                         </svg>
                     </div>
-                    <h4 class="font-semibold  text-sm 2xl:text-base">Beban Usaha Rp. 94,18 M, tercapai 66,82% RKAP; Growth 20,21% YoY</h4>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">Beban Usaha Rp. 127,49 M, tercapai 67,67% RKAP; Growth 12,16% YoY</h4>
                 </div>
 
             </div>
@@ -365,7 +365,7 @@
                     <canvas id="barChart3"></canvas>
                 </div>
 
-                <div class="grid 2xl:grid-cols-2 gap-7">
+                <!-- <div class="grid 2xl:grid-cols-2 gap-7">
                     <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
                         <div class="bg-red-600 mb-5 rounded-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -385,7 +385,18 @@
                         <h4 class="font-semibold 2xl:text-base text-sm">212,84 %</h4>
                         <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs Real 2022</h4>
                     </div>
+                </div> -->
+
+                
+                <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                    <div class="bg-green-600 mb-5 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">ICT System Implementor Rp. 81,90 M, tercapai 96,15% RKAP; Growth 48,20% YoY</h4>
                 </div>
+
 
             </div>
 
@@ -395,7 +406,7 @@
                     <canvas id="barChart4"></canvas>
                 </div>
 
-                <div class="grid 2xl:grid-cols-2 gap-7">
+                <!-- <div class="grid 2xl:grid-cols-2 gap-7">
                     <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
                         <div class="bg-green-600 mb-5 rounded-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -414,8 +425,16 @@
                         <h4 class="font-semibold 2xl:text-base text-sm ">242,01 %</h4>
                         <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs Real 2022</h4>
                     </div>
-                </div>
+                </div> -->
 
+                <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                    <div class="bg-green-600 mb-5 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">IT Manage Service Rp. 39,12 M, tercapai 35,42% RKAP; Growth 28,73% YoY</h4>
+                </div>
 
 
             </div>
@@ -426,7 +445,7 @@
                     <canvas id="barChart5"></canvas>
                 </div>
 
-                <div class="grid 2xl:grid-cols-2 gap-7">
+                <!-- <div class="grid 2xl:grid-cols-2 gap-7">
                     <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
                         <div class="bg-green-600 mb-5 rounded-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -445,7 +464,17 @@
                         <h4 class="font-semibold 2xl:text-base text-sm">212,84 %</h4>
                         <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs Real 2022</h4>
                     </div>
+                </div> -->
+
+                <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                    <div class="bg-green-600 mb-5 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">Digital Seaport Rp. 13,77 M, tercapai 56,54% RKAP; Growth 173,94% YoY</h4>
                 </div>
+
 
             </div>
 
@@ -570,7 +599,7 @@
     var ctx = document.getElementById('barChart').getContext('2d');
 
     const dataDumn = [
-        ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
+        ['RKAP 2024', 'RKAP s.d April 2024', 'Real s.d April 2024', 'Real s.d April 2023'],
         [620.43, 219.97, 134.78, 115.17],
     ]
 
@@ -647,7 +676,7 @@
     var ctx2 = document.getElementById('barChart2').getContext('2d');
 
     const dataDumn2 = [
-        ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
+        ['RKAP 2024', 'RKAP s.d April 2024', 'Real s.d April 2024', 'Real s.d April 2023'],
         [533.14, 188.59, 127.49, 133.67],
         [85.9, 85.6, 94.6, 98.7],
     ]
@@ -758,7 +787,7 @@
     var ctx = document.getElementById('barChart3').getContext('2d');
 
     const dataDumn3 = [
-        ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
+        ['RKAP 2024', 'RKAP s.d April 2024', 'Real s.d April 2024', 'Real s.d April 2023'],
         [254.996, 85.176, 81.896, 55.262],
     ]
 
@@ -1008,8 +1037,8 @@
                 },
                 backgroundColor: [
                     '#466AFF',
-                    '#F6C01D',
-                    '#F88B2E',
+                "    #707070",
+                                        '#F88B2E',
                     '#C6C6C6',
                 ],
 
@@ -1017,7 +1046,7 @@
 
                 borderColor: [
                     '#466AFF',
-                    '#F6C01D',
+                    "    #707070",
                     '#F88B2E',
                     '#C6C6C6',
                 ],
