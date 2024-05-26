@@ -7,13 +7,13 @@
             From The Board
         </h4>
         <div class="flex w-full mt-5">
-            <div class="w-1/4 mr-6 tabs tab-active flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer " data-tab-target="#tab1">
+            <!-- <div class="w-1/4 mr-6 tabs tab-active flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer " data-tab-target="#tab1">
                 <img src="{{ asset('assets/images/icon/boc-icon.svg') }}" alt="img" class="w-12">
                 <p class="font-semibold text-sm ml-6">
                     Board of Commissioner
                 </p>
-            </div>
-            <div class="w-1/4 mr-6 flex tabs justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white" data-tab-target="#tab2">
+            </div> -->
+            <div class="w-1/4 mr-6 flex tabs tab-active justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white" data-tab-target="#tab2">
                 <img src="{{ asset('assets/images/icon/bod-icon.svg') }}" alt="img" class="w-12">
                 <p class="font-semibold text-sm ml-6">
                     Board of Directors
@@ -32,7 +32,7 @@
 <div id="tab-contents" class="w-11/12 mt-9">
 
     <!-- BOC -->
-    <div class="w-full grid grid-cols-4 gap-4" id="tab1">
+    <div class="w-full hidden grid-cols-4 gap-4" id="tab1">
 
         <div class="flex flex-col card-comission border border-blue-950 rounded-2xl">
             <img src="{{ asset('assets/images/from-board/boc-1.svg') }}" alt="img" class="w-full rounded-t-2xl ">
@@ -74,7 +74,7 @@
 
     </div>
     <!-- BOD -->
-    <div class="w-full  hidden grid-cols-4 gap-4" id="tab2">
+    <div class="w-full  grid grid-cols-4 gap-4" id="tab2">
 
         <div class=" flex flex-col card-comission border border-blue-950 rounded-2xl">
             <img src="{{ asset('assets/images/from-board/bod-1.svg') }}" alt="img" class="w-full rounded-t-2xl ">

@@ -315,7 +315,7 @@
 </div>
 
 <!-- Chart -->
-<!-- <div class="flex flex-col w-full pb-6 px-14 ">
+<div class="flex flex-col w-full pb-6 px-14 ">
     <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
         <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d TW I</h2>
         <div class="grid grid-cols-2 gap-7 mt-4">
@@ -460,7 +460,7 @@
 
         </div>
     </div>
-</div> -->
+</div>
 
 <button class="bg-login-button px-6 py-2 mx-auto text-white rounded-xl mb-12" onclick="toTop()">Back to top</button>
 
@@ -571,7 +571,7 @@
 
     const dataDumn = [
         ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
-        [10000, 23000, 19000, 13000],
+        [620.43, 219.97, 134.78, 115.17],
     ]
 
     var myChart = new Chart(ctx, {
@@ -648,8 +648,8 @@
 
     const dataDumn2 = [
         ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
-        [300, 400, 200, 10],
-        [80, 90, 95, 99],
+        [533.14, 188.59, 127.49, 133.67],
+        [85.9, 85.6, 94.6, 98.7],
     ]
 
     var myChart = new Chart(ctx2, {
@@ -753,13 +753,13 @@
         },
     });
 
-    // chart 3
+    // chart IT SYSTEM IMPLEMENTOR
 
     var ctx = document.getElementById('barChart3').getContext('2d');
 
     const dataDumn3 = [
         ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
-        [10000, 23000, 19000, 13000],
+        [254.996, 85.176, 81.896, 55.262],
     ]
 
     var myChart = new Chart(ctx, {
@@ -830,13 +830,13 @@
         plugins: [ChartDataLabels],
     });
 
-    // chart 4
+    // IT Manage service
 
     var ctx = document.getElementById('barChart4').getContext('2d');
 
     const dataDumn4 = [
         ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
-        [10000, 23000, 19000, 13000],
+        [283.529, 110.447, 39.117, 54.882],
     ]
 
     var myChart = new Chart(ctx, {
@@ -907,13 +907,13 @@
         plugins: [ChartDataLabels],
     });
 
-    // chart 5
+    // Digital Seaport
 
     var ctx = document.getElementById('barChart5').getContext('2d');
 
     const dataDumn5 = [
         ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
-        [10000, 23000, 19000, 13000],
+        [81.904, 24.350, 13.768, 5.026],
     ]
 
     var myChart = new Chart(ctx, {
@@ -984,13 +984,13 @@
         plugins: [ChartDataLabels],
     });
 
-    // chart 6
+    // chart bulet
 
     var ctx = document.getElementById('barChart6').getContext('2d');
 
     const dataDumn6 = [
-        ['IT Manage Service ', 'Digital Seaport', 'ICT Implementor ', 'other'],
-        [10, 30, 20, 40],
+        ['IT Manage Service ', 'Digital Seaport', 'ICT Implementor '],
+        [29, 10, 61],
     ]
 
     var myChart = new Chart(ctx, {
