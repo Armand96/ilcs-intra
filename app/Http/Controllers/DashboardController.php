@@ -30,7 +30,7 @@ class DashboardController extends Controller
         if (Auth::check()) {
             // dd(Auth::user());
         } else {
-            dd('blm ada auth');
+            // dd('blm ada auth');
         }
 
         return view('intranet.pages.dashboard', compact('data'));
