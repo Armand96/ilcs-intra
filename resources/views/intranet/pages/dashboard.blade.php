@@ -33,7 +33,7 @@
 
                     <a href="https://peo.pelindo.id/" target="_blank" class="w-2/6 flex mr-6 flex-col items-center">
                         <div class="h-full w-16 py-2 px-1 bg-backoffice-icon rounded-full">
-                            <img src="{{ asset('assets/images/shortcut-icon/peo.svg') }}" class="mx-auto object-cover"  alt="">
+                            <img src="{{ asset('assets/images/shortcut-icon/peo.svg') }}" class="mx-auto object-cover" alt="">
                         </div>
                         <p class="text-sm text-white">Peo</p>
                     </a>
@@ -180,7 +180,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 2xl:size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
                     </svg>
-</a>
+                </a>
             </div>
             <div class="flex-col w-3/6 2xl:w-2/6">
                 <img src="{{ asset('assets/images/icon/kpi-icon.svg') }}" class="w-full h-full ml-auto rounded-r-xl" alt="">
@@ -355,7 +355,7 @@
         </div>
     </div>
 
-    <div  class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
+    <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
         <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan per Portofolio TW I</h2>
         <div class="grid grid-cols-2 gap-7 mt-4">
 
@@ -387,7 +387,7 @@
                     </div>
                 </div> -->
 
-                
+
                 <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
                     <div class="bg-green-600 mb-5 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -1037,8 +1037,8 @@
                 },
                 backgroundColor: [
                     '#466AFF',
-                "    #707070",
-                                        '#F88B2E',
+                    "    #707070",
+                    '#F88B2E',
                     '#C6C6C6',
                 ],
 
