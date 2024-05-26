@@ -56,9 +56,11 @@ class DashboardController extends Controller
         $nip = $request->get('nip');
         $username = $request->get('username');
 
-        $user = User::when($nip, function ($qry) use ($nip) {
+        // dd($nip, $username);
+
+        $user = User::when($nip != null && $nip != '', function ($qry) use ($nip) {
             $qry->where('nip', $nip);
-        })->when($username, function ($qry) use ($username) {
+        })->when($username != null && $username != '', function ($qry) use ($username) {
             $qry->where('username', $username);
         })->first();
 

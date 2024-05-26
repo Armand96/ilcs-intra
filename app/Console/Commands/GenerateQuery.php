@@ -74,12 +74,12 @@ class GenerateQuery extends Command
             $split = explode("==", $value);
 
             $tempUser = [
-                'username' => $split[0],
-                'name' => $split[0],
-                'nip' => $split[1],
-                'email' => $split[0].$split[1]."@ilcs.co.id",
+                'username' => trim($split[0]),
+                'name' => trim($split[0]),
+                'nip' => trim($split[1]),
+                'email' => trim($split[0]).trim($split[1])."@ilcs.co.id",
                 'role_id' => 3,
-                'password' => Hash::make($split[1]),
+                'password' => Hash::make(trim($split[1])),
                 'jabatan' => 'staff',
                 'sub_jabatan' => 'STF',
                 'tgl_lahir' => '2000-01-01',

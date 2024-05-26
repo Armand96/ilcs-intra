@@ -75,12 +75,12 @@ class GenerateSangfor extends Command
             $split = explode("==", $value);
 
             $tempUser = [
-                'username' => $split[0],
-                'name' => $split[1],
-                'nip' => $split[0],
-                'email' => $split[0]."@ilcs.co.id",
+                'username' => trim($split[0]),
+                'name' => trim($split[1]),
+                'nip' => trim($split[0]),
+                'email' => trim($split[0])."@ilcs.co.id",
                 'role_id' => 3,
-                'password' => Hash::make($split[0]),
+                'password' => Hash::make(trim($split[0])),
                 'jabatan' => 'staff',
                 'sub_jabatan' => 'STF',
                 'tgl_lahir' => '2000-01-01',
