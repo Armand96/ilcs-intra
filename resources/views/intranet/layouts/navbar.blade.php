@@ -1,8 +1,8 @@
 <div class="navbar bg-dashboard-background border border-blue-950 ">
-    <div class="flex-1">
-        <p class="text-xl font-semibold text-white">Dashboard intranet</p>
+    <div class=" hidden lg:flex lg:flex-1">
+        <p class=" lg:text-xl font-semibold text-white">Dashboard intranet</p>
     </div>
-    <div class="flex-none">
+    <div class="flex w-full lg:w-4/6 lg:flex-none">
         <!-- <div class="dropdown dropdown-end">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                 <div class="indicator text-white">
@@ -28,7 +28,14 @@
                 </div>
             </div>
         </div> -->
-        <div class="dropdown dropdown-end">
+        <label for="my-drawer-2"  class="text-white w-7 lg:hidden ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+            </svg>
+
+        </label>
+
+        <div class="dropdown dropdown-end ml-auto">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                 <div class="indicator text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -36,9 +43,8 @@
                     </svg>
                     <span class="badge badge-sm bg-red-500 border-none text-white indicator-item">0</span>
                 </div>
-
             </div>
-            <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-60 bg-base-100 shadow">
+            <div tabindex="0" class="mt-3 z-[1] left-0 card card-compact dropdown-content w-60 bg-base-100 shadow">
                 <h4 class=" px-4 font-semibold my-3">Notification</h4>
                 <h4 class=" px-4 text-xs text-center mb-10 mt-3">No Notification</h4>
                 <!-- <div class=" flex flex-col items-center justify-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
@@ -78,4 +84,3 @@
 
     </div>
 </div>
-

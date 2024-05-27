@@ -12,22 +12,22 @@
 @endsection
 
 @section('content')
-<div class="flex w-full px-14 pt-6 mb-8">
+<div class="flex flex-col lg:flex-row w-full px-4 lg:px-14 pt-6 mb-8">
 
     <!-- section kiri -->
-    <div class="w-4/6 flex flex-col">
+    <div class="w-full lg:w-4/6 flex flex-col">
 
-        <div class="flex w-full">
+        <div class="flex flex-col lg:flex-row w-full ">
 
-            <div class="flex w-6/12 rounded-2xl bg-onboarding items-center mr-8 ">
-                <div class=" flex flex-col w-3/6 2xl:w-4/6 px-4 text-white">
-                    <h4 class=" text-xs 2xl:text-sm font-semibold">Halo Warriors! 👋</h4>
-                    <p class="text-xs 2xl:text-base">Selamat Datang di Intranet ILCS</p>
+            <div class="flex w-full lg:w-6/12 rounded-2xl bg-onboarding items-center mr-8 ">
+                <div class=" flex flex-col w-3/6 2xl:w-4/6 px-4 py-4 text-white">
+                    <h4 class="text-base lg:text-xs 2xl:text-sm font-semibold">Halo Warriors! 👋</h4>
+                    <p class="text-sm lg:text-xs 2xl:text-base">Selamat Datang di Intranet ILCS</p>
                 </div>
                 <img src="{{ asset('assets/images/icon/orang-kerja-icon.svg') }}" class="w-3/6 2xl:w-2/6 h-full rounded-r-xl object-cover" alt="">
             </div>
 
-            <div class="flex flex-col w-6/12 bg-card-dashboard border-blue-950 border rounded-2xl px-4 py-4 ">
+            <div class="flex w-full flex-col mt-6 lg:mt-0   lg:w-6/12 bg-card-dashboard border-blue-950 border rounded-2xl px-4 py-4 ">
                 <p class="text-white font-semibold">Shortcut Back Office Access</p>
                 <div class="flex justify-evenly overflow-x-auto pb-4 w-full whitespace-nowrap backoffice-style-2	 mt-4">
 
@@ -81,8 +81,8 @@
         <!-- carousel -->
         <div class="flex flex-col rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
             <div class="flex justify-between mb-3">
-                <div class="w-2/6 2xl:w-1/6 text-white">
-                    <p class="text-xl">ILCS News</p>
+                <div class="lg:w-2/6 2xl:w-1/6 text-white">
+                    <p class="text-base lg:text-xl">ILCS News</p>
                 </div>
                 <!-- <div class="w-1/6 flex text-xl nextBtn text-white">
                                         <p class="mr-6 prevBtn cursor-pointer">
@@ -127,24 +127,24 @@
         </div>
 
         <!--  calendar section -->
-        <div class="flex rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
-            <div id='calendar' class="w-2/6 2xl:w-3/6 text-white text-xs"></div>
+        <div class="flex flex-col lg:flex-row rounded-xl  mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
+            <div id='calendar' class="w-full lg:w-2/6 2xl:w-3/6 text-white text-xs"></div>
 
-            <div class="w-1/6 2xl:w-1/6 flex flex-col h-full overflow-auto calender-notif ml-4 px-4 py-2 rounded-2xl">
-                <div class="flex flex-col w-full">
-                    <p class="text-xs text-white bg-red-500 w-10 pl-1 mt-3  rounded-full py-1">23</p>
+            <div class="w-full lg:w-1/6 2xl:w-1/6 flex flex-col h-full overflow-auto calender-notif mt-6 lg:mt-0 lg:ml-4 px-4 py-2 rounded-2xl">
+                <div class="flex  flex-col w-full">
+                    <p class="text-xs text-center lg:text-left text-white bg-red-500 w-10 lg:pl-1 mt-3  rounded-full py-1">23</p>
                     <p class="text-xs 2xl:text-sm text-white my-2 font-semibold">Mei 2024</p>
                     <p class="text-xs 2xl:text-sm text-white">Hari Raya Waisak</p>
                 </div>
                 <div class="flex flex-col w-full">
-                    <p class="text-xs text-white bg-red-500 w-10 pl-1 mt-3  rounded-full py-1">24</p>
+                <p class="text-xs text-center lg:text-left text-white bg-red-500 w-10 lg:pl-1 mt-3  rounded-full py-1">24</p>
                     <p class="text-xs 2xl:text-sm text-white my-2 font-semibold">Mei 2024</p>
                     <p class="text-xs 2xl:text-sm text-white">Cuti Bersama Hari Raya Waisak</p>
                 </div>
 
             </div>
 
-            <div class="flex w-3/6 2xl:w-2/6 flex-col text-white ml-6">
+            <div class="w-full flex lg:w-3/6 2xl:w-2/6 flex-col text-white mt-6  lg:ml-6">
                 <h5 class="font-semibold mb-6">
                     ILCS Events
                 </h5>
@@ -175,12 +175,12 @@
     </div>
 
     <!-- section kanan -->
-    <div class="w-2/6 flex flex-col">
+    <div class="w-full lg:w-2/6 flex flex-col mt-6 lg:mt-0">
 
-        <div class="flex justify-between bg-card-dashboard border border-blue-950 ml-8 rounded-xl">
+        <div class="flex justify-between bg-card-dashboard border border-blue-950 lg:ml-8 rounded-xl">
 
             <div class="flex flex-col w-3/6 2xl:w-4/6 items-center text-white">
-                <h4 class="text-base 2xl:text-lg text-center font-semibold mt-2">See <br /> Statistic KPI</h4>
+                <h4 class=" text-base 2xl:text-lg text-center font-semibold mt-2">See <br /> Statistic KPI</h4>
                 <a href="#kpi" class="mx-auto rounded-full mt-3 mb-8 2xl:mb-0 kpi-button bg-login-button p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 2xl:size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
@@ -193,7 +193,7 @@
 
         </div>
 
-        <div class="flex-col bg-card-dashboard border border-blue-950 mt-8 px-4 py-6 ml-8 rounded-xl">
+        <div class="flex-col bg-card-dashboard border border-blue-950 mt-8 px-4 py-6 lg:ml-8 rounded-xl">
             <div class="w-full flex justify-between text-white mb-4">
                 <h5 class="font-semibold text-sm 2xl:text-base">Upcoming Birthday 🎉</h5>
                 <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
@@ -206,7 +206,7 @@
                     <div class="w-1/6 mx-6">
                         <img src="{{ asset('assets/images/dashboard/ultah/faiz.png') }}" alt="" class="rounded-full object-cover border border-blue-700  w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
-                    <div class="w-4/6 text-sm">
+                    <div class="w-4/6 lg:text-sm">
                         <h4 class="font-semibold text-white">Faiz Khoiron</h4>
                         <!-- <p class="text-dashboard-blue-right text-xs">System Analyst (PIP)</p> -->
                     </div>
@@ -253,7 +253,7 @@
                     </div>
                     <div class="w-4/6 text-sm">
                         <h4 class="font-semibold text-white">Giffari Faqih Phrasya Hardani</h4>
-                        <!-- <p class="text-dashboard-blue-right text-xs">Business Intelligence (Produk)</p> -->
+                        <p class="text-dashboard-blue-right text-xs">Developer</p>
                     </div>
                 </div>
                 <div class="flex mb-6">
@@ -262,7 +262,7 @@
                     </div>
                     <div class="w-4/6 text-sm">
                         <h4 class="font-semibold text-white">Slamet Apriyantok</h4>
-                        <!-- <p class="text-dashboard-blue-right text-xs">3D Designer Produk</p> -->
+                        <p class="text-dashboard-blue-right text-xs">Project Manager</p>
                     </div>
                 </div>
                 <div class="flex mb-6">
@@ -271,7 +271,7 @@
                     </div>
                     <div class="w-4/6 text-sm">
                         <h4 class="font-semibold text-white">Hendrik Praditya</h4>
-                        <!-- <p class="text-dashboard-blue-right text-xs">3D Designer Produk</p> -->
+                        <p class="text-dashboard-blue-right text-xs">Lead Developer National Development Center</p>
                     </div>
                 </div>
             </div>
@@ -285,36 +285,36 @@
             <div class="w-full flex-col">
                 <div class="flex mb-6">
                     <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full  2xl:w-4/6 ">
+                    <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
                     <div class="w-4/6 text-sm">
                         <h4 class="font-semibold text-white">Kevin Anas Wicaksono</h4>
-                        <!-- <p class="text-dashboard-blue-right text-xs">Business Intelligence (Produk)</p> -->
+                        <p class="text-dashboard-blue-right text-xs">SAP Expert</p>
                     </div>
                 </div>
                 <div class="flex mb-6">
                     <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full  2xl:w-4/6">
+                    <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
                     <div class="w-4/6 text-sm">
                         <h4 class="font-semibold text-white">Eka Khoirotin Nurul</h4>
-                        <!-- <p class="text-dashboard-blue-right text-xs">3D Designer Produk</p> -->
+                        <p class="text-dashboard-blue-right text-xs">Technical Writer</p>
                     </div>
                 </div>
                 <div class="flex mb-6">
                     <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full  2xl:w-4/6">
+                    <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
                     <div class="w-4/6 text-sm">
                         <h4 class="font-semibold text-white">Surya Adhi Waskito</h4>
-                        <!-- <p class="text-dashboard-blue-right text-xs">3D Designer Produk</p> -->
+                        <p class="text-dashboard-blue-right text-xs">Developer Engineer</p>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <div class="flex-col bg-card-dashboard border border-blue-950 mt-6 px-4 py-6 ml-8 rounded-xl">
+        <div class="flex-col bg-card-dashboard border border-blue-950 mt-6 px-4 py-6 lg:ml-8 rounded-xl">
             <div class="w-full flex justify-between text-white mb-4">
                 <h5 class="font-semibold ">Social Media ILCS</h5>
             </div>
@@ -338,13 +338,13 @@
 </div>
 
 <!-- Chart -->
-<div class="flex flex-col w-full pb-6 px-14 " id="kpi">
+<div class="flex flex-col w-full pb-6 px-4 lg:px-14 " id="kpi">
     <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
         <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d TW I</h2>
-        <div class="grid grid-cols-2 gap-7 mt-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-7 mt-4">
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
                 <h4 class="text-white font-semibold 2xl:text-lg">Pendapatan Usaha</h4>
-                <div class="w-full mt-8">
+                <div class=" container-chart w-full mt-8">
                     <canvas id="barChart"></canvas>
                 </div>
 
@@ -354,14 +354,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                         </svg>
                     </div>
-                    <h4 class="font-semibold text-sm 2xl:text-base">Pendapatan RP. 134,78 M, tercapai 61,27% RKAP; Growth 17,03% YoY</h4>
+                    <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">Pendapatan RP. 134,78 M, tercapai 61,27% RKAP; Growth 17,03% YoY</h4>
                 </div>
 
             </div>
 
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
                 <h4 class="text-white font-semibold 2xl:text-lg">Beban Usaha & OR</h4>
-                <div class="w-full mt-8">
+                <div class="container-chart w-full mt-8">
                     <canvas id="barChart2" class="pt-4"></canvas>
                 </div>
 
@@ -380,11 +380,11 @@
 
     <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
         <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan per Portofolio TW I</h2>
-        <div class="grid grid-cols-2 gap-7 mt-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-7 mt-4">
 
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
                 <h4 class="text-white font-semibold 2xl:text-lg">ICT System Implementor</h4>
-                <div class="w-full mt-8">
+                <div class="container-chart w-full mt-8">
                     <canvas id="barChart3"></canvas>
                 </div>
 
@@ -425,7 +425,7 @@
 
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
                 <h4 class="text-white font-semibold 2xl:text-lg">IT Manage Service</h4>
-                <div class="w-full mt-8">
+                <div class=" container-chart w-full mt-8">
                     <canvas id="barChart4"></canvas>
                 </div>
 
@@ -464,7 +464,7 @@
 
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
                 <h4 class="text-white font-semibold  2xl:text-lg">Digital Seaport</h4>
-                <div class="w-full mt-8">
+                <div class="w-full mt-8 container-chart">
                     <canvas id="barChart5"></canvas>
                 </div>
 
@@ -490,7 +490,7 @@
                 </div> -->
 
                 <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                    <div class="bg-green-600 mb-5 rounded-lg">
+                    <div class=" bg-green-600 mb-5 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                         </svg>
@@ -503,7 +503,7 @@
 
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
 
-                <div class="w-full mt-8">
+                <div class="container-chart w-full mt-8">
                     <canvas id="barChart6" class="w-4/6 mx-auto"></canvas>
                 </div>
 
@@ -654,6 +654,8 @@
             }]
         },
         options: {
+            maintainAspectRatio: false,
+            responsive: true,
             scales: {
                 y: {
                     ticks: {
@@ -745,6 +747,8 @@
         },
         plugins: [ChartDataLabels],
         options: {
+            maintainAspectRatio: false,
+            responsive: true,
             scales: {
                 y: {
                     ticks: {
@@ -842,6 +846,8 @@
             }]
         },
         options: {
+            maintainAspectRatio: false,
+            responsive: true,
             scales: {
                 y: {
                     ticks: {
@@ -922,6 +928,8 @@
             }]
         },
         options: {
+            maintainAspectRatio: false,
+            responsive: true,
             scales: {
                 y: {
                     ticks: {
@@ -1002,6 +1010,8 @@
             }]
         },
         options: {
+            maintainAspectRatio: false,
+            responsive: true,
             scales: {
                 y: {
                     ticks: {
@@ -1086,6 +1096,8 @@
             }]
         },
         options: {
+            maintainAspectRatio: false,
+            responsive: true,
             scales: {
                 y: {
                     display: false

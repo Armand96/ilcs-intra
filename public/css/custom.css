@@ -212,3 +212,14 @@ html {
         font-size: 14px !important;
     }
 }
+
+@media only screen and (max-width: 1024px) {
+    .fc-scroller-liquid-absolute::-webkit-scrollbar {
+        display: none ;
+    }
+
+   .container-chart {
+        position: relative; height:40vh; width:70vw ;
+        margin: 0 auto ;
+    }
+}

@@ -13,9 +13,9 @@
                     Board of Commissioner
                 </p>
             </div> -->
-            <div class="w-1/4 mr-6 flex tabs tab-active justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white" data-tab-target="#tab2">
+            <div class="w-full xl:w-1/4 mr-6 flex tabs tab-active justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white" data-tab-target="#tab2">
                 <img src="{{ asset('assets/images/icon/bod-icon.svg') }}" alt="img" class="w-12">
-                <p class="font-semibold text-sm ml-6">
+                <p class="font-semibold text-xs lg:text-sm ml-6">
                     Board of Directors
                 </p>
             </div>
@@ -74,7 +74,7 @@
 
     </div>
     <!-- BOD -->
-    <div class="w-full  grid grid-cols-4 gap-4" id="tab2">
+    <div class="w-full  grid grid-cols-1 lg:grid-cols-4 gap-4" id="tab2">
 
         <div class=" flex flex-col card-comission border border-blue-950 rounded-2xl">
             <img src="{{ asset('assets/images/from-board/bod-1.svg') }}" alt="img" class="w-full rounded-t-2xl ">
