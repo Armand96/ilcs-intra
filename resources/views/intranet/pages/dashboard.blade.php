@@ -654,7 +654,7 @@
             }]
         },
         options: {
-            maintainAspectRatio: false,
+            maintainAspectRatio: window.screen.availWidth >= 1024 ? true : false,
             responsive: true,
             scales: {
                 y: {
@@ -747,7 +747,7 @@
         },
         plugins: [ChartDataLabels],
         options: {
-            maintainAspectRatio: false,
+            maintainAspectRatio: window.screen.availWidth >= 1024 ? true : false,
             responsive: true,
             scales: {
                 y: {
@@ -846,7 +846,7 @@
             }]
         },
         options: {
-            maintainAspectRatio: false,
+            maintainAspectRatio: window.screen.availWidth >= 1024 ? true : false,
             responsive: true,
             scales: {
                 y: {
@@ -928,7 +928,7 @@
             }]
         },
         options: {
-            maintainAspectRatio: false,
+            maintainAspectRatio: window.screen.availWidth >= 1024 ? true : false,
             responsive: true,
             scales: {
                 y: {
@@ -1010,7 +1010,7 @@
             }]
         },
         options: {
-            maintainAspectRatio: false,
+            maintainAspectRatio: window.screen.availWidth >= 1024 ? true : false,
             responsive: true,
             scales: {
                 y: {
@@ -1096,7 +1096,7 @@
             }]
         },
         options: {
-            maintainAspectRatio: false,
+            maintainAspectRatio: window.screen.availWidth >= 1024 ? true : false,
             responsive: true,
             scales: {
                 y: {
