@@ -29,7 +29,7 @@
     </div>
 </div>
 
-<div id="tab-contents" class="w-11/12 mt-9">
+<div id="tab-contents" class="w-11/12 mt-9 mb-10">
 
     <!-- BOC -->
     <div class="w-full hidden grid-cols-4 gap-4" id="tab1">
@@ -104,7 +104,7 @@
             <img src="{{ asset('assets/images/from-board/bod-3.svg') }}" alt="img" class="w-full rounded-t-2xl mr-8">
             <div class="flex flex-col px-4 pt-4 h-40">
                 <h4 class="text-white text-lg font-semibold">JUDI GINTA IRAWAN</h4>
-                <p class="text-dashboard-blue-right text-sm font-semibold">Commissioner</p>
+                <p class="text-dashboard-blue-right text-sm font-semibold">Chief Technology Officer (CTO) Current Chief Financial Officer (CFO)</p>
             </div>
             <div class="flex w-full px-4 pb-4">
                 <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
