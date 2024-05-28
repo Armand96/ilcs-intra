@@ -15,7 +15,7 @@
     </div>
     <div class="w-full">
         <div class="overflow-x-auto text-white w-full">
-            <table class="table border w-full">
+            <table class="table border w-full mb-3">
                 <thead>
                     <tr class="text-white ">
                         <th></th>
@@ -31,7 +31,7 @@
                 <tbody>
                     @foreach ($users as $index => $usr)
                     <tr>
-                        <th>{{ $index + 1 }}</th>
+                        <th>{{ $usr->id }}</th>
                         <td class="w-1/6 text-wrap"> {{ $usr->username }} </td>
                         <td> {{ $usr->name }} </td>
                         <td> {{ $usr->nip }} </td>
@@ -56,6 +56,8 @@
                     @endforeach
                 </tbody>
             </table>
+
+            {{ $users->links('vendor.pagination.tailwind') }}
         </div>
     </div>
 </div>
