@@ -2,16 +2,43 @@
 
 @section('content')
 <div class="flex flex-col w-full mt-6 bg-card-dashboard border border-blue-950 p-6">
-    <div class="flex justify-between mb-3 items-center">
+    <div class="flex flex-col mb-3">
         <div class="w-1/6 text-white">
             <p class="text-xl">Users</p>
         </div>
-        <button onclick="my_modal.showModal()" class="btn btn-primary">
+
+       <div class="  bg-gray-900 px-4 py-6 my-6">
+       <!-- <p class="text-lg mb-7 font-semibold text-white">Search</p> -->
+        <div class=" w-full grid grid-cols-3 gap-4 rounded-xl">
+            <div >
+                <p class="text-white">Username</p>
+                <input type="text" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+            </div>
+            <div >
+                <p class="text-white">name</p>
+                <input type="text" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+            </div>
+            <div >
+                <p class="text-white">Jabatan</p>
+                <input type="text" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+            </div>
+            <div>
+                <p class="text-white">Role</p>
+                <input type="text" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+            </div>
+            <button class="btn btn-primary mt-7 w-3/12">
+                search
+            </button>
+        </div>
+       </div>
+
+        <button onclick="my_modal.showModal()" class="btn btn-primary w-1/6 mb-6">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
             Tambah User
         </button>
+
     </div>
     <div class="w-full">
         <div class="overflow-x-auto text-white w-full">

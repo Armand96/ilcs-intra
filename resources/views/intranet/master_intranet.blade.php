@@ -9,7 +9,7 @@
 
     <div class="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content">
+        <div class="drawer-content  bg-dashboard">
 
             @include('intranet.layouts.navbar')
 
