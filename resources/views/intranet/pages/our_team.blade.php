@@ -112,7 +112,7 @@
 
     </div>
 
-    <div class="w-full order-1 lg:order-2 lg:w-4/5 max-h-[70dvh] overflow-y-auto flex flex-col card-comission border px-6 py-8 border-blue-950 rounded-xl ">
+    <div class="w-full order-1 lg:order-2 lg:w-4/5 max-h-[70dvh]  flex flex-col card-comission border px-6 py-8 border-blue-950 rounded-xl ">
 
         <label class="input input-bordered flex items-center gap-2 py-2 w-full lg:w-2/6 text-white search-bar-our-team ">
             <input type="text" class="grow" placeholder="Search" />
@@ -121,7 +121,7 @@
             </svg>
         </label>
 
-        <div class="grid w-full lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-10">
+        <div class="grid w-full lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-10 h-full overflow-y-auto">
 
             <div class="flex flex-col rounded-xl border border-blue-900 ">
                 <img src="{{ asset('assets/images/background/bg-team.svg') }}" class="rounded-t-xl " alt="">
