@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\CMS;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -17,8 +18,36 @@ class UserCMSController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::paginate(10);
-        return view('cms.pages.user', compact('users'));
+        $query = User::query();
+
+        // Apply filters
+        if ($request->filled('username')) {
+            $query->where('username', 'like', '%' . $request->username . '%');
+        }
+
+        if ($request->filled('name')) {
+            $query->where('name', 'like', '%' . $request->name . '%');
+        }
+
+        if ($request->filled('nip')) {
+            $query->where('nip', 'like', '%' . $request->nip . '%');
+        }
+
+        if ($request->filled('jabatan')) {
+            $query->where('jabatan', 'like', '%' . $request->jabatan . '%')->orWhere('sub_jabatan', 'like', '%'.$request->jabatan.'%');
+        }
+
+        if ($request->filled('role')) {
+            $query->whereHas('role', function ($q) use ($request) {
+                $q->where('role_name', 'like', '%' . $request->role . '%');
+            });
+        }
+
+        $users = $query->paginate(10);
+        $roles = Role::select(['id', 'role_name'])->get();
+        $jabatans = User::select('jabatan')->distinct()->get();
+
+        return view('cms.pages.user', compact('users', 'roles', 'jabatans'));
     }
 
     /**

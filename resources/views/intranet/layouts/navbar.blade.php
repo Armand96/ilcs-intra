@@ -77,6 +77,9 @@
             </div>
 
             <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white rounded-box w-52 bg-dashboard-background border border-blue-950 ">
+                @if (Auth::user()->role->is_admin)
+                    <li><a href="{{ url('/cms_admin/home') }}">CMS</a></li>
+                @endif
                 <li><a>Profile</a></li>
                 <li><a href="{{ route('logout') }}">Logout</a></li>
             </ul>

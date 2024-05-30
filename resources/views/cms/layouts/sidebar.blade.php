@@ -9,8 +9,8 @@
 
             <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'users.index' ? 'menu-child-active' : 'menu-child' }}   flex-col items-center justify-center flex mt-6 w-5/6 px-4 py-3"
                 href="{{ route('users.index') }}">
-                <div class="hex-icon-active p-2 rounded-xl mt-2">
-                    <img src="{{ asset('assets/images/icon/dashboard-icon.svg') }}" alt="">
+                <div class="{{ Route::currentRouteName() == 'users.index' ? 'hex-icon-active' : 'hex-icon' }} p-2 rounded-xl mt-2">
+                    <img src="{{ asset('assets/images/icon/user-octagon.svg') }}" alt="">
                 </div>
                 <p class="mt-2 text-sm text-center">
                     User
