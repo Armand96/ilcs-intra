@@ -84,7 +84,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <button class="btn btn-primary">
+                                    <button class="btn btn-primary" onclick="edit({{ $usr->id }})">
                                         Edit
                                     </button>
                                 </td>
@@ -99,44 +99,58 @@
     </div>
 
     <!-- Modal -->
-    <dialog id="my_modal" class="modal ">
-        <div class="modal-box max-w-6xl bg-gray-600 text-white">
+    <dialog id="my_modal" class="modal">
+        <form id="user_form" method="POST" enctype="multipart/form-data" class="modal-box max-w-6xl bg-gray-600 text-white"
+            action="{{ route('users.store') }}">
+            @csrf
+            @method('PATCH')
             <h2 class="font-semibold my-2 text-xl">Tambah user</h2>
             <div class="divider divider-neutral mb-4"></div>
             <div class="flex flex-col mb-6">
                 <div class="mt-4">
                     <p class="text-white">Username</p>
-                    <input type="text" name="username"
+                    <input type="text" name="username" id="username"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Name</p>
-                    <input type="text" name="name"
+                    <input type="text" name="name" id="name"
+                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                </div>
+                <div class="mt-4">
+                    <p class="text-white">Email</p>
+                    <input type="email" name="email" id="email"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">NIP</p>
-                    <input type="text" name="nip"
+                    <input type="text" name="nip" id="nip"
+                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                </div>
+                <div class="mt-4">
+                    <p class="text-white">Password</p>
+                    <input type="password" name="password" id="password"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Tanggal Lahir</p>
-                    <input type="date" name="tgl_lahir"
+                    <input type="date" name="tgl_lahir" id="tgl_lahir"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Tanggal Masuk</p>
-                    <input type="date" name="tgl_masuk"
+                    <input type="date" name="tgl_masuk" id="tgl_masuk"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Tanggal Keluar</p>
-                    <input type="date" name="tgl_keluar"
+                    <input type="date" name="tgl_keluar" id="tgl_keluar"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Role</p>
-                    <select name="role" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                    <select name="role_id"
+                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         @foreach ($roles as $rl)
                             <option value="{{ $rl->id }}">{{ $rl->role_name }}</option>
                         @endforeach
@@ -144,7 +158,8 @@
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Jabatan</p>
-                    <select name="jabatan" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                    <select name="jabatan"
+                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         @foreach ($jabatans as $jbt)
                             <option value="{{ $jbt->jabatan }}">{{ $jbt->jabatan }}</option>
                         @endforeach
@@ -152,19 +167,19 @@
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Foto</p>
-                    <input type="file"
+                    <input type="file" name="foto"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
 
             </div>
 
             <div class="flex flex-row">
-                <form method="dialog">
-                    <button onclick="my_modal.closeModal()" class="btn btn-neutral mr-3">cancel</button>
-                </form>
-                <button class="btn btn-primary">save</button>
+                <div >
+                    <button type="button" class="btn btn-neutral mr-3" onclick="closeModal()">cancel</button>
+                    <button class="btn btn-primary">save</button>
+                </div>
             </div>
-        </div>
+        </form>
     </dialog>
 
     <!-- Modal dialog -->
@@ -186,4 +201,35 @@
             </div>
         </div>
     </dialog>
+
+    <script>
+        function closeModal() {
+            document.getElementById('my_modal').classList.remove('modal-open');
+        }
+
+        function createNew() {
+            document.getElementById('my_modal').classList.add('modal-open');
+        }
+
+        function edit(idUser) {
+
+            axios.get('{{ route('users.index') }}/' + idUser).then(resp => {
+                resp = resp.data;
+                console.log(resp);
+                document.getElementById('username').value = resp.username;
+                document.getElementById('name').value = resp.name;
+                document.getElementById('email').value = resp.email;
+                document.getElementById('nip').value = resp.nip;
+                document.getElementById('password').value = resp.password;
+                document.getElementById('tgl_lahir').value = resp.tgl_lahir;
+                document.getElementById('tgl_masuk').value = resp.tgl_masuk;
+                document.getElementById('tgl_keluar').value = resp.tgl_keluar;
+
+                document.getElementById('user_form').method = 'PATCH';
+
+                document.getElementById('my_modal').classList.add('modal-open');
+            })
+
+        }
+    </script>
 @endsection

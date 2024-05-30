@@ -14,6 +14,7 @@
     @yield('extracss')
 
     {{-- JS --}}
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src='{{ asset('js/full-calendar.js') }}'></script>
     <script src='{{ asset('js/jquery.min.js') }}'></script>
     <script src='{{ asset('js/owl.carousel.js') }}'></script>

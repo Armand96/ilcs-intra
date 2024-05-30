@@ -5,6 +5,7 @@ namespace App\Http\Controllers\CMS;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -34,7 +35,7 @@ class UserCMSController extends Controller
         }
 
         if ($request->filled('jabatan')) {
-            $query->where('jabatan', 'like', '%' . $request->jabatan . '%')->orWhere('sub_jabatan', 'like', '%'.$request->jabatan.'%');
+            $query->where('jabatan', 'like', '%' . $request->jabatan . '%')->orWhere('sub_jabatan', 'like', '%' . $request->jabatan . '%');
         }
 
         if ($request->filled('role')) {
@@ -68,45 +69,59 @@ class UserCMSController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'username' => 'required',
-            'name' => 'required',
-            'nip' => 'required',
-            'email' => 'required',
-            'role_id' => 'required',
-            'password' => 'required',
-            'jabatan' => 'required',
-            'sub_jabatan' => 'required',
-            'tgl_lahir' => 'required',
-            'tgl_masuk' => 'required',
-        ]);
-
-        $data = $request->only([
-            'username',
-            'name',
-            'nip',
-            'email',
-            'role_id',
-            'password',
-            'jabatan',
-            'sub_jabatan',
-            'tgl_lahir',
-            'tgl_masuk',
-        ]);
-
-        $data['password'] = Hash::make($data['password']);
+        // dd($request);
 
         try {
+            $request->validate([
+                'username' => 'required',
+                'name' => 'required',
+                'nip' => 'required',
+                'email' => 'required',
+                'role_id' => 'required',
+                'password' => 'required',
+                'jabatan' => 'required',
+                'tgl_lahir' => 'required',
+                'tgl_masuk' => 'required',
+            ]);
+
+            $data = $request->only([
+                'username',
+                'name',
+                'nip',
+                'email',
+                'role_id',
+                'password',
+                'jabatan',
+                'tgl_lahir',
+                'tgl_masuk',
+                'tgl_keluar'
+            ]);
+
+            $data['sub_jabatan'] = $data['jabatan'];
+            $data['tgl_lahir'] = date('Y-m-d', strtotime($data['tgl_lahir']));
+            $data['tgl_masuk'] = date('Y-m-d', strtotime($data['tgl_masuk']));
+
+            if ($data['tgl_keluar']) {
+                $data['tgl_keluar'] = date('Y-m-d', strtotime($data['tgl_keluar']));
+            }
+
+            $data['password'] = Hash::make($data['password']);
+
+            // dd($request);
+
             if ($request->hasFile('foto')) {
 
                 $imageName = time() . '.' . $request->foto->extension();
                 $request->foto->storeAs('public/profile_picture/', $imageName);
                 $data['image_user'] = $imageName;
+            } else {
+                $data['image_user'] = '';
             }
 
             User::create($data);
             return redirect()->back()->with(['message' => 'User telah dibuat']);
         } catch (\Throwable $th) {
+            throw $th;
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
         }
     }
@@ -119,7 +134,8 @@ class UserCMSController extends Controller
      */
     public function show(User $user)
     {
-        return response()->json($user->with('role')->first());
+        $user->load('role');
+        return response()->json($user);
     }
 
     /**
@@ -149,7 +165,6 @@ class UserCMSController extends Controller
             'email' => 'required',
             'role_id' => 'required',
             'jabatan' => 'required',
-            'sub_jabatan' => 'required',
             'tgl_lahir' => 'required',
             'tgl_masuk' => 'required',
         ]);
@@ -162,13 +177,20 @@ class UserCMSController extends Controller
             'role_id',
             'password',
             'jabatan',
-            'sub_jabatan',
             'tgl_lahir',
             'tgl_masuk',
         ]);
 
         if ($data['password'] == null) unset($data['password']);
         else $data['password'] = Hash::make($data['password']);
+
+        $data['sub_jabatan'] = $data['jabatan'];
+        $data['tgl_lahir'] = date('Y-m-d', strtotime($data['tgl_lahir']));
+        $data['tgl_masuk'] = date('Y-m-d', strtotime($data['tgl_masuk']));
+
+        if ($data['tgl_keluar']) {
+            $data['tgl_keluar'] = date('Y-m-d', strtotime($data['tgl_keluar']));
+        }
 
         try {
             if ($request->hasFile('foto')) {
