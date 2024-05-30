@@ -7,7 +7,7 @@
 
     <div class="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content">
+        <div class="drawer-content bg-gray-950">
 
             @include('cms.layouts.navbar')
 

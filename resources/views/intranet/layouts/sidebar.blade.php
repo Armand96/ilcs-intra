@@ -22,9 +22,9 @@
                 <p class="mt-2 text-xs text-center xl:text-sm">From The Board</p>
             </a>
 
-            <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
-                href="#">
-                <div class=" p-2 rounded-xl mt-2 hex-icon">
+            <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'our_team' ? 'menu-child-active border border-blue-950' : 'menu-child' }}  flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
+            href="{{route('our_team')}}">
+                <div class=" p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'our_team' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/user-square.svg') }}" alt="">
                 </div>
                 <p class="mt-2 text-xs 2xl:text-sm">Our Team</p>
