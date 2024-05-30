@@ -8,7 +8,7 @@
         <div class="lg:w-3/6 h-full flex flex-col justify-center items-center bg-login-100">
             <div class="flex-col lg:w-5/6">
                 <img src="assets/images/logo/login_logo.svg" alt="tes" class=" mx-auto mt-6 lg:mt-0">
-                <form class="background-inner-login text-center mt-4 lg:mt-12 px-12 py-12 lg:px-20 lg:py-20" action="{{ route('login_user') }}" method="POST">
+                <form class="background-inner-login text-center mt-4 lg:mt-12 px-6 py-6 2x1:px-20 2xl:py-20" action="{{ route('login_user') }}" method="POST">
                     @csrf
                     <h4 class="text-xl lg:text-2xl font-bold text-white">
                         Sign In
@@ -19,17 +19,17 @@
 
                     <div class="mt-12">
                         <div class="mt-3">
-                            <p class="text-white text-lg text-left">
+                            <p class="text-white text-sm 2xl:text-lg text-left">
                                 NIP
                             </p>
-                            <input type="text" name="nip" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none" placeholder="Enter Your NIP">
+                            <input type="text" name="nip" class="bg-login-input mt-3 px-4 py-1 text-sm py-2 w-full rounded-lg text-login-text focus:outline-none" placeholder="Enter Your NIP">
                         </div>
                         <div class="mt-4">
-                            <p class="text-white text-lg text-left">
+                            <p class="text-white text-sm 2xl:text-lg text-left">
                                 Password
                             </p>
                             <div class="relative">
-                                <input type="password" name="password" id="password-input" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none" placeholder="Password ">
+                                <input type="password" name="password" id="password-input" class="bg-login-input mt-3 px-4 text-sm py-2 w-full rounded-lg text-login-text focus:outline-none" placeholder="Password ">
                                 <div id="password-toggle" class="password-toggle text-white absolute top-0 right-0 mt-5 mr-3 cursor-pointer" onclick="togglePassword()">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
@@ -55,11 +55,11 @@
                     </div>
                 </form>
                 <p class="mt-6 text-xs text-center lg:text-base text-login-text">© 2024 ILCS. All rights reserved</p>
-                <img src="assets/images/background/tech-bg-left.svg" class="absolute bottom-0 left-0 w-42 hidden lg:block" alt="test">
+                <img src="assets/images/background/tech-bg-left.svg" class="absolute bottom-0 left-0 w-32 2xl:w-42 hidden lg:block" alt="test">
             </div>
 
         </div>
-        <div class="hidden lg:w-3/6 back-login lg:flex justify-center items-center h-screen">
+        <div class="hidden lg:w-3/6 back-login lg:flex justify-center items-center h-full">
             <div class="w-5/6">
                 <h1 class="text-2xl mt-5 mb-12 font-semibold text-white">Welcome to <span class="text-login-text-blue">INTRANET 2.0</span> <br />Please sign in to your account</h1>
                 <img src="assets/images/background/login-right-image.svg" class="w-full mb-16">
