@@ -9,10 +9,15 @@
     </div>
 </div>
 
-<div class="w-11/12 rounded-lg mx-auto mt-6 flex flex-col lg:flex-row gap-9">
-    <div class="w-full order-2 lg:order-1 lg:w-1/5 max-h-[70dvh] flex flex-col gap-6 overflow-hidden overflow-y-auto card-comission px-6 py-8 scroll border border-blue-950 rounded-xl our-team-left">
+<div class="w-11/12 rounded-lg mx-auto mt-6 flex flex-col lg:flex-row gap-9"> 
 
-        <div class="bg-login-button text-center text-white login-button-active flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+    <div class="flex justify-center dropdown px-2 py-2 rounded-lg card-comission cursor-pointer border border-blue-950 lg:hidden items-center w-full">
+        <h4 class="font-semibold text-center text-white">Kategori</h4>
+    </div>
+
+    <div class="w-full order-2 lg:order-1 lg:w-1/5 max-h-[70dvh] hidden lg:flex flex-col gap-6 overflow-hidden overflow-y-auto card-comission px-6 py-8 scroll border border-blue-950 rounded-xl our-team-left">
+
+        <div class="bg-login-button  text-center text-white login-button-active flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 All Employee
             </p>
@@ -202,5 +207,14 @@
     </div>
 
 </div>
+
+<script>
+    let toggle = document.getElementById("")
+    let categoriesComp = document.querySelector("")
+
+
+</script>
+
+
 
 @endsection
