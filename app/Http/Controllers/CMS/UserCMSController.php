@@ -179,6 +179,7 @@ class UserCMSController extends Controller
             'jabatan',
             'tgl_lahir',
             'tgl_masuk',
+            'tgl_keluar'
         ]);
 
         if ($data['password'] == null) unset($data['password']);

@@ -174,7 +174,7 @@
             </div>
 
             <div class="flex flex-row">
-                <div >
+                <div>
                     <button type="button" class="btn btn-neutral mr-3" onclick="closeModal()">cancel</button>
                     <button class="btn btn-primary">save</button>
                 </div>
@@ -201,7 +201,9 @@
             </div>
         </div>
     </dialog>
+@endsection
 
+@section('script')
     <script>
         function closeModal() {
             document.getElementById('my_modal').classList.remove('modal-open');
@@ -209,23 +211,23 @@
 
         function createNew() {
             document.getElementById('my_modal').classList.add('modal-open');
+            $('#user_form').prop('action', '{{ route("users.store") }}');
+            $('input[name="_method"]').val('POST');
         }
 
         function edit(idUser) {
-
             axios.get('{{ route('users.index') }}/' + idUser).then(resp => {
                 resp = resp.data;
-                console.log(resp);
-                document.getElementById('username').value = resp.username;
-                document.getElementById('name').value = resp.name;
-                document.getElementById('email').value = resp.email;
-                document.getElementById('nip').value = resp.nip;
-                document.getElementById('password').value = resp.password;
-                document.getElementById('tgl_lahir').value = resp.tgl_lahir;
-                document.getElementById('tgl_masuk').value = resp.tgl_masuk;
-                document.getElementById('tgl_keluar').value = resp.tgl_keluar;
+                $('#username').val(resp.username);
+                $('#name').val(resp.name);
+                $('#email').val(resp.email);
+                $('#nip').val(resp.nip);
+                $('#tgl_lahir').val(resp.tgl_lahir);
+                $('#tgl_masuk').val(resp.tgl_masuk);
+                $('#tgl_keluar').val(resp.tgl_keluar);
 
-                document.getElementById('user_form').method = 'PATCH';
+                $('#user_form').prop('action', '{{ route("users.index") }}/' + idUser);
+                $('input[name="_method"]').val('PATCH');
 
                 document.getElementById('my_modal').classList.add('modal-open');
             })
