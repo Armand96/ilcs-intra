@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CMS\RegulasiCMSController;
 use App\Http\Controllers\CMS\UserCMSController;
 use App\Http\Controllers\CMSController;
 use App\Http\Controllers\DashboardController;
@@ -37,11 +38,12 @@ Route::group(['middleware' => 'role.access'], function() {
 /* ROUTE UNTUK ADMIN CMS */
 Route::group(
     [
-    // 'middleware' => 'admin',
+    'middleware' => 'admin',
     'prefix' => 'cms_admin'
 ], function() {
     Route::get('home', [CMSController::class, 'index'])->name('cms.home');
     Route::resource('users', UserCMSController::class);
+    Route::resource('regulasis', RegulasiCMSController::class);
     // Route::get('users', [UserCMSController::class, 'index'])->name('cms.user');
 });
 

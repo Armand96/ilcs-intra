@@ -7,7 +7,7 @@
         <!-- Sidebar content here -->
         <div class="flex flex-col w-full justify-center items-center">
 
-            <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'users.index' ? 'menu-child-active' : 'menu-child' }}   flex-col items-center justify-center flex mt-6 w-5/6 px-4 py-3"
+            <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'users.index' ? 'menu-child-active' : 'menu-child' }} flex-col items-center justify-center flex mt-6 w-5/6 px-4 py-3"
                 href="{{ route('users.index') }}">
                 <div class="{{ Route::currentRouteName() == 'users.index' ? 'hex-icon-active' : 'hex-icon' }} p-2 rounded-xl mt-2">
                     <img src="{{ asset('assets/images/icon/user-octagon.svg') }}" alt="">
@@ -34,9 +34,9 @@
             </a>
 
 
-            <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
-                href="#">
-                <div class="p-2 rounded-xl mt-2 hex-icon">
+            <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'regulasis.index' ? 'menu-child-active' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
+                href="{{ route('regulasis.index') }}">
+                <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'regulasis.index' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/employe-aspiration.svg') }}" alt="">
                 </div>
                 <p class="mt-2 text-sm">Regulations</p>

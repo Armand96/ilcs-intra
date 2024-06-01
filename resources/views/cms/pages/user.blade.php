@@ -42,7 +42,7 @@
                 </div>
             </form>
 
-            <button onclick="my_modal.showModal()" class="btn btn-primary w-1/6 mb-6">
+            <button onclick="createNew()" class="btn btn-primary w-1/6 mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -104,7 +104,7 @@
             action="{{ route('users.store') }}">
             @csrf
             @method('PATCH')
-            <h2 class="font-semibold my-2 text-xl">Tambah user</h2>
+            <h2 class="font-semibold my-2 text-xl"><span id="operation">Tambah</span> user</h2>
             <div class="divider divider-neutral mb-4"></div>
             <div class="flex flex-col mb-6">
                 <div class="mt-4">
@@ -210,6 +210,7 @@
         }
 
         function createNew() {
+            $('#operation').html("Tambah");
             document.getElementById('my_modal').classList.add('modal-open');
             $('#user_form').prop('action', '{{ route("users.store") }}');
             $('input[name="_method"]').val('POST');
@@ -218,6 +219,7 @@
         function edit(idUser) {
             axios.get('{{ route('users.index') }}/' + idUser).then(resp => {
                 resp = resp.data;
+                $('#operation').html("Perbarui");
                 $('#username').val(resp.username);
                 $('#name').val(resp.name);
                 $('#email').val(resp.email);
