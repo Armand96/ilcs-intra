@@ -17,21 +17,15 @@ class DashboardController extends Controller
         $data = array(
             // 'news' => $this->latestNews(),
             // 'eom' => $this->getAllNilaiKaryawan(),
-            // 'upcomingBirthday' => $this->getUpcomingBirthday(),
-            // 'linkApps' => $this->appLink(),
-            // 'linkSosmed' => $this->sosmedLink(),
-            // 'newEmployee' => $this->newEmployee(),
-            // 'farewellEmployee' => $this->farewellKaryawan(),
+            'upcomingBirthday' => $this->getUpcomingBirthday(),
+            'linkApps' => $this->appLink(),
+            'linkSosmed' => $this->sosmedLink(),
+            'newEmployee' => $this->newEmployee(),
+            'farewellEmployee' => $this->farewellKaryawan(),
             // 'notifCount' => $this->unreadCount(1),
             // 'chatHist' => $this->allUserChat(1),
             // 'chatCount' => $this->unreadCount(1),
         );
-
-        if (Auth::check()) {
-            // dd(Auth::user());
-        } else {
-            // dd('blm ada auth');
-        }
 
         return view('intranet.pages.dashboard', compact('data'));
     }

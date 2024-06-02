@@ -33,13 +33,20 @@
                 <p class="mt-2 text-sm">Events</p>
             </a>
 
-
             <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'regulasis.index' ? 'menu-child-active' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
                 href="{{ route('regulasis.index') }}">
                 <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'regulasis.index' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/employe-aspiration.svg') }}" alt="">
                 </div>
                 <p class="mt-2 text-sm">Regulations</p>
+            </a>
+
+            <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'links.index' ? 'menu-child-active' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
+                href="{{ route('links.index') }}">
+                <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'links.index' ? 'hex-icon-active' : 'hex-icon' }}">
+                    <img src="{{ asset('assets/images/icon/employe-aspiration.svg') }}" alt="">
+                </div>
+                <p class="mt-2 text-sm">Link</p>
             </a>
 
             <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"

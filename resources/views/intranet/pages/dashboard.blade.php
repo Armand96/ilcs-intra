@@ -31,7 +31,15 @@
                 <p class="text-white font-semibold">Shortcut Back Office Access</p>
                 <div class="flex justify-evenly overflow-x-auto pb-4 w-full whitespace-nowrap backoffice-style-2	 mt-4">
 
-                    <a href="https://peo.pelindo.id/" target="_blank" class="w-2/6 flex mr-6 flex-col items-center">
+                    @foreach ($data['linkApps'] as $app)
+                        <a href="{{ $app->link_tujuan }}" target="_blank" class="w-2/6 flex mr-6 flex-col items-center">
+                            <div class="h-full w-16 py-2 px-1 bg-backoffice-icon rounded-full">
+                                <img src="{{ $app->image_path }}" class="mx-auto object-cover" alt="">
+                            </div>
+                            <p class="text-sm text-white">{{ $app->name }}</p>
+                        </a>
+                    @endforeach
+                    {{-- <a href="https://peo.pelindo.id/" target="_blank" class="w-2/6 flex mr-6 flex-col items-center">
                         <div class="h-full w-16 py-2 px-1 bg-backoffice-icon rounded-full">
                             <img src="{{ asset('assets/images/shortcut-icon/peo.svg') }}" class="mx-auto object-cover" alt="">
                         </div>
@@ -72,7 +80,7 @@
                             <img src="{{ asset('assets/images/shortcut-icon/ilcs.svg') }}" class="mx-auto w-full object-cover" alt="">
                         </div>
                         <p class="text-sm text-white">E Proc</p>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
 
@@ -199,44 +207,20 @@
                 <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
             </div>
             <div class="w-full flex-col">
-                <div class="flex mb-6">
-                    <h1 class="w-1/6 text-sm 2xl:text-base font-semibold text-center text-white">
-                        30 mei
-                    </h1>
-                    <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/dashboard/ultah/faiz.png') }}" alt="" class="rounded-full object-cover border border-blue-700  w-10 h-10 2xl:w-12 2xl:h-12">
+                @foreach ($data['upcomingBirthday'] as $birth)
+                    <div class="flex mb-6">
+                        <h1 class="w-1/6 text-sm 2xl:text-base font-semibold text-center text-white">
+                            {{ date('d F') }}
+                        </h1>
+                        <div class="w-1/6 mx-6">
+                            <img src="{{ asset('assets/images/dashboard/ultah/faiz.png') }}" alt="" class="rounded-full object-cover border border-blue-700  w-10 h-10 2xl:w-12 2xl:h-12">
+                        </div>
+                        <div class="w-4/6 lg:text-sm">
+                            <h4 class="font-semibold text-white">{{ $birth->name }}</h4>
+                            <p class="text-dashboard-blue-right text-xs">{{ $birth->jabatan }} ({{ $birth->sub_jabatan }})</p>
+                        </div>
                     </div>
-                    <div class="w-4/6 lg:text-sm">
-                        <h4 class="font-semibold text-white">Faiz Khoiron</h4>
-                        <!-- <p class="text-dashboard-blue-right text-xs">System Analyst (PIP)</p> -->
-                    </div>
-                </div>
-
-                <div class="flex mb-6">
-                    <h1 class="w-1/6 text-sm 2xl:text-base font-semibold text-center text-white">
-                        01 Juni
-                    </h1>
-                    <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/dashboard/ultah/alifa.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
-                    </div>
-                    <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Alifa Rezki Amalia</h4>
-                        <!-- <p class="text-dashboard-blue-right text-xs">System Analyst (PIP)</p> -->
-                    </div>
-                </div>
-
-                <div class="flex mb-6">
-                    <h1 class="w-1/6 text-sm 2xl:text-base font-semibold text-center text-white">
-                        02 Juni
-                    </h1>
-                    <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/dashboard/ultah/agnia.png') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
-                    </div>
-                    <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Aghnia Awalunnisa</h4>
-                        <!-- <p class="text-dashboard-blue-right text-xs">UIUX Developer Produk (PPR)</p> -->
-                    </div>
-                </div>
+                @endforeach
 
             </div>
 
@@ -247,16 +231,18 @@
                 <h5 class="font-semibold ">Welcoming New Employee 🥳</h5>
             </div>
             <div class="w-full flex-col">
-                <div class="flex mb-6">
-                    <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
+                @foreach ($data['newEmployee'] as $emp)
+                    <div class="flex mb-6">
+                        <div class="w-1/6 mx-6">
+                            <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
+                        </div>
+                        <div class="w-4/6 text-sm">
+                            <h4 class="font-semibold text-white">{{ $emp->name }}</h4>
+                            <p class="text-dashboard-blue-right text-xs">{{ $emp->jabatan }}</p>
+                        </div>
                     </div>
-                    <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Giffari Faqih Phrasya Hardani</h4>
-                        <p class="text-dashboard-blue-right text-xs">Developer</p>
-                    </div>
-                </div>
-                <div class="flex mb-6">
+                @endforeach
+                {{-- <div class="flex mb-6">
                     <div class="w-1/6 mx-6">
                         <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
@@ -273,7 +259,7 @@
                         <h4 class="font-semibold text-white">Hendrik Praditya</h4>
                         <p class="text-dashboard-blue-right text-xs">Lead Developer National Development Center</p>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
             <div class="border-divider-card w-full"></div>
@@ -283,16 +269,18 @@
                 <h5 class="font-semibold ">Farewell Employee 👋</h5>
             </div>
             <div class="w-full flex-col">
-                <div class="flex mb-6">
-                    <div class="w-1/6 mx-6">
-                    <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
+                @foreach ($data['farewellEmployee'] as $far)
+                    <div class="flex mb-6">
+                        <div class="w-1/6 mx-6">
+                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
+                        </div>
+                        <div class="w-4/6 text-sm">
+                            <h4 class="font-semibold text-white">{{ $far->name }}</h4>
+                            <p class="text-dashboard-blue-right text-xs">{{ $far->jabatan }}</p>
+                        </div>
                     </div>
-                    <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Kevin Anas Wicaksono</h4>
-                        <p class="text-dashboard-blue-right text-xs">SAP Expert</p>
-                    </div>
-                </div>
-                <div class="flex mb-6">
+                @endforeach
+                {{-- <div class="flex mb-6">
                     <div class="w-1/6 mx-6">
                     <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
                     </div>
@@ -309,7 +297,7 @@
                         <h4 class="font-semibold text-white">Surya Adhi Waskito</h4>
                         <p class="text-dashboard-blue-right text-xs">Developer Engineer</p>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
         </div>
@@ -319,10 +307,12 @@
                 <h5 class="font-semibold ">Social Media ILCS</h5>
             </div>
             <div class="w-full flex">
-                <a href="https://www.instagram.com/ilcs.co?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="w-2/12">
-                    <img src="{{ asset('assets/images/icon/instragram-dashboard.svg') }}" alt="" class="w-3/6">
-                </a>
-                <a href="https://x.com/ilcs_id" target="_blank" class="w-2/12">
+                @foreach ($data['linkSosmed'] as $sos)
+                    <a href="{{ $sos->link_tujuan }}" target="_blank" class="w-2/12">
+                        <img src="{{ $sos->image_path }}" alt="" class="w-3/6">
+                    </a>
+                @endforeach
+                {{-- <a href="https://x.com/ilcs_id" target="_blank" class="w-2/12">
                     <img src="{{ asset('assets/images/icon/twitter-dashboard.svg') }}" alt="" class="w-3/6">
                 </a>
                 <a href="https://www.youtube.com/@pelindosolusidigital" target="_blank" class="w-2/12">
@@ -330,7 +320,7 @@
                 </a>
                 <a href="#" target="_blank" class="w-2/12">
                     <img src="{{ asset('assets/images/icon/linkedin-dashboard.svg') }}" alt="" class="w-3/6">
-                </a>
+                </a> --}}
             </div>
         </div>
 

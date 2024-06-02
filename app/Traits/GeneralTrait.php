@@ -32,7 +32,7 @@ trait GeneralTrait
     **/
     public function newEmployee()
     {
-        $data = User::whereBetween('tgl_masuk', [date('Y-m-d'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->limit(5)->get();
+        $data = User::whereBetween('tgl_masuk', [date('Y-m-01'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->limit(5)->get();
         return $data;
     }
 
@@ -77,7 +77,8 @@ trait GeneralTrait
     {
         $currentDate = date('Y-m-d');
         $oneWeekPast = date('Y-m-d', strtotime('-1 week'));
-        return User::where('tgl_keluar', [$oneWeekPast, $currentDate])->get();
+        // dd(User::where('tgl_keluar', [$oneWeekPast, $currentDate])->toSql());
+        return User::whereBetween('tgl_keluar', [$oneWeekPast, $currentDate])->get();
     }
 
     public function appLink()

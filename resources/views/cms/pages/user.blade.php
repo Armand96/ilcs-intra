@@ -79,7 +79,7 @@
                                     <div class="avatar">
                                         <div class="w-10 rounded-full">
                                             <img
-                                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                                src="{{ $usr->image_user }}" onerror="this.src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'" />
                                         </div>
                                     </div>
                                 </td>
@@ -109,37 +109,37 @@
             <div class="flex flex-col mb-6">
                 <div class="mt-4">
                     <p class="text-white">Username</p>
-                    <input type="text" name="username" id="username"
+                    <input required type="text" name="username" id="username"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Name</p>
-                    <input type="text" name="name" id="name"
+                    <input required type="text" name="name" id="name"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Email</p>
-                    <input type="email" name="email" id="email"
+                    <input required type="email" name="email" id="email"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">NIP</p>
-                    <input type="text" name="nip" id="nip"
+                    <input required type="text" name="nip" id="nip"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Password</p>
-                    <input type="password" name="password" id="password"
+                    <input required type="password" name="password" id="password"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Tanggal Lahir</p>
-                    <input type="date" name="tgl_lahir" id="tgl_lahir"
+                    <input required type="date" name="tgl_lahir" id="tgl_lahir"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Tanggal Masuk</p>
-                    <input type="date" name="tgl_masuk" id="tgl_masuk"
+                    <input required type="date" name="tgl_masuk" id="tgl_masuk"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
@@ -149,7 +149,7 @@
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Role</p>
-                    <select name="role_id"
+                    <select required name="role_id"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         @foreach ($roles as $rl)
                             <option value="{{ $rl->id }}">{{ $rl->role_name }}</option>
@@ -158,7 +158,7 @@
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Jabatan</p>
-                    <select name="jabatan"
+                    <select required name="jabatan"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         @foreach ($jabatans as $jbt)
                             <option value="{{ $jbt->jabatan }}">{{ $jbt->jabatan }}</option>

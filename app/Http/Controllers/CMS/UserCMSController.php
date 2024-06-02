@@ -48,6 +48,12 @@ class UserCMSController extends Controller
         $roles = Role::select(['id', 'role_name'])->get();
         $jabatans = User::select('jabatan')->distinct()->get();
 
+        foreach ($users as $key => $reg) {
+            if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {
+                $reg->image_user = Storage::disk('public')->url('profile_picture/'.$reg->image_user);
+            }
+        }
+
         return view('cms.pages.user', compact('users', 'roles', 'jabatans'));
     }
 
