@@ -29,31 +29,31 @@
 
         <div onclick="clickBtn()" class="  text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Seketaris Perusahaan
+            Hukum & Pengadaan
             </p>
         </div>
 
         <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Hukum & Pengadaan
+            IT & Operasi
             </p>
         </div>
 
         <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Management Resiko
+            Keuangan
             </p>
         </div>
 
         <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Internal Audit
+            Layanan Umum
             </p>
         </div>
 
         <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Solusi & Sales
+            Pengelolaan Layanan
             </p>
         </div>
 
@@ -61,64 +61,52 @@
 
         <div onclick="clickBtn()" class="  text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Seketaris Perusahaan
+            Pengembangan Produk
             </p>
         </div>
 
         <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Hukum & Pengadaan
+            Perencanaan & Implementasi Proyek
             </p>
         </div>
 
         <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Management Resiko
+            Sekrataris Perusahaan
             </p>
         </div>
 
         <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Internal Audit
+            Solusi & Sales
+
             </p>
         </div>
 
         <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Solusi & Sales
+            Sumber Daya Manusia & Umum
             </p>
         </div>
 
         <div onclick="clickBtn()" class="  text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Seketaris Perusahaan
+            Area Makassar
             </p>
         </div>
 
         <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Hukum & Pengadaan
+            Area Medan
             </p>
         </div>
 
         <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
-                Management Resiko
+            Area Surabaya
             </p>
         </div>
-
-        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
-            <p class="font-semibold text-base">
-                Internal Audit
-            </p>
-        </div>
-
-        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
-            <p class="font-semibold text-base">
-                Solusi & Sales
-            </p>
-        </div>
-
     </div>
 
     <div class="w-full  lg:w-4/5 max-h-[70dvh]  flex flex-col card-comission border px-6 py-8 border-blue-950 rounded-xl ">
