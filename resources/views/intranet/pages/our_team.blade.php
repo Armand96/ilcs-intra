@@ -108,17 +108,16 @@
             </p>
         </div>
     </div>
+    <div class="w-full  lg:w-4/5 max-h-[70dvh]  flex flex-col card-comission border px-6 py-8  border-blue-950 rounded-xl ">
 
-    <div class="w-full  lg:w-4/5 max-h-[70dvh]  flex flex-col card-comission border px-6 py-8 border-blue-950 rounded-xl ">
-
-        <label class="input input-bordered flex items-center gap-2 py-2 w-full lg:w-2/6 text-white search-bar-our-team ">
+        <label class="input input-bordered  flex items-center gap-2 py-2 w-full lg:w-2/6 text-white search-bar-our-team ">
             <input type="text" class="grow" placeholder="Search" />
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70">
                 <path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" />
             </svg>
         </label>
 
-        <div class="grid w-full lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-10 h-full overflow-y-auto">
+        <div class="grid w-full lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-10 h-full overflow-y-auto our-team-left">
 
             <div class="flex flex-col rounded-xl border border-blue-900 ">
                 <img src="{{ asset('assets/images/background/bg-team.svg') }}" class="rounded-t-xl " alt="">
@@ -156,6 +155,43 @@
                 </div>
             </div>
 
+            <div class="flex flex-col rounded-xl border border-blue-900 ">
+                <img src="{{ asset('assets/images/background/bg-team.svg') }}" class="rounded-t-xl " alt="">
+                <img src="{{ asset('assets/images/teams/team-5.svg') }}" class="w-16 h-16 border border-white -mt-8 ml-2 rounded-full" alt="">
+                <div class="px-4 py-4">
+                    <h4 class="text-white text-base font-semibold">Harya Pravidya Putrarendani</h4>
+                    <p class="text-xs text-dashboard-blue-right font-medium mt-2">UIUX Developer Product</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col rounded-xl border border-blue-900 ">
+                <img src="{{ asset('assets/images/background/bg-team.svg') }}" class="rounded-t-xl " alt="">
+                <img src="{{ asset('assets/images/teams/team-6.svg') }}" class="w-16 h-16 border border-white -mt-8 ml-2 rounded-full" alt="">
+                <div class="px-4 py-4">
+                    <h4 class="text-white text-base font-semibold">Dany Sapta Kurniawan</h4>
+                    <p class="text-xs  text-dashboard-blue-right font-medium mt-2">UIUX Developer Product</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col rounded-xl border border-blue-900 ">
+                <img src="{{ asset('assets/images/background/bg-team.svg') }}" class="rounded-t-xl " alt="">
+                <img src="{{ asset('assets/images/teams/team-7.svg') }}" class="w-16 h-16 border border-white -mt-8 ml-2 rounded-full" alt="">
+                <div class="px-4 py-4">
+                    <h4 class="text-white text-base font-semibold">Yogi Muhammad Irshad</h4>
+                    <p class="text-xs  text-dashboard-blue-right font-medium mt-2">UIUX Developer Product</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col rounded-xl border border-blue-900 ">
+                <img src="{{ asset('assets/images/background/bg-team.svg') }}" class="rounded-t-xl " alt="">
+                <img src="{{ asset('assets/images/teams/team-8.svg') }}" class="w-16 h-16 border border-white -mt-8 ml-2 rounded-full" alt="">
+                <div class="px-4 py-4">
+                    <h4 class="text-white text-base font-semibold">Muhammad Aditya Suazi</h4>
+                    <p class="text-xs  text-dashboard-blue-right font-medium mt-2">UIUX Developer Product</p>
+                </div>
+            </div>
+
+            
             <div class="flex flex-col rounded-xl border border-blue-900 ">
                 <img src="{{ asset('assets/images/background/bg-team.svg') }}" class="rounded-t-xl " alt="">
                 <img src="{{ asset('assets/images/teams/team-5.svg') }}" class="w-16 h-16 border border-white -mt-8 ml-2 rounded-full" alt="">
