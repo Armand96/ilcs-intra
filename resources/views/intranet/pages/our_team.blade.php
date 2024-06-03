@@ -9,45 +9,49 @@
     </div>
 </div>
 
-<div class="w-11/12 rounded-lg mx-auto mt-6 flex flex-col lg:flex-row gap-9"> 
+<div class="w-11/12 rounded-lg mx-auto mt-6 flex flex-col lg:flex-row gap-9">
 
-    <div class="flex justify-center dropdown px-2 py-2 rounded-lg card-comission cursor-pointer border border-blue-950 lg:hidden items-center w-full">
-        <h4 class="font-semibold text-center text-white">Kategori</h4>
+    <div id="toggle" class="flex justify-between dropdown px-2 py-2 rounded-lg card-comission cursor-pointer border border-blue-950 lg:hidden items-center w-full">
+        <h4 class="font-semibold text-center text-white">Divisi</h4>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
+
     </div>
 
-    <div class="w-full order-2 lg:order-1 lg:w-1/5 max-h-[70dvh] hidden lg:flex flex-col gap-6 overflow-hidden overflow-y-auto card-comission px-6 py-8 scroll border border-blue-950 rounded-xl our-team-left">
+    <div id="divisi-categories" class="w-full  lg:w-1/5 max-h-[70dvh] hidden lg:flex flex-col gap-6 overflow-hidden overflow-y-auto card-comission px-6 py-8 scroll border border-blue-950 rounded-xl our-team-left">
 
-        <div class="bg-login-button  text-center text-white login-button-active flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class="bg-login-button  text-center text-white login-button-active flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 All Employee
             </p>
         </div>
 
-        <div class="  text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class="  text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Seketaris Perusahaan
             </p>
         </div>
 
-        <div class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Hukum & Pengadaan
             </p>
         </div>
 
-        <div class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Management Resiko
             </p>
         </div>
 
-        <div class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Internal Audit
             </p>
         </div>
 
-        <div class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Solusi & Sales
             </p>
@@ -55,61 +59,61 @@
 
         <!-- end of line -->
 
-        <div class="  text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class="  text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Seketaris Perusahaan
             </p>
         </div>
 
-        <div class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Hukum & Pengadaan
             </p>
         </div>
 
-        <div class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Management Resiko
             </p>
         </div>
 
-        <div class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Internal Audit
             </p>
         </div>
 
-        <div class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Solusi & Sales
             </p>
         </div>
 
-        <div class="  text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class="  text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Seketaris Perusahaan
             </p>
         </div>
 
-        <div class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Hukum & Pengadaan
             </p>
         </div>
 
-        <div class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Management Resiko
             </p>
         </div>
 
-        <div class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Internal Audit
             </p>
         </div>
 
-        <div class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class=" text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 Solusi & Sales
             </p>
@@ -117,7 +121,7 @@
 
     </div>
 
-    <div class="w-full order-1 lg:order-2 lg:w-4/5 max-h-[70dvh]  flex flex-col card-comission border px-6 py-8 border-blue-950 rounded-xl ">
+    <div class="w-full  lg:w-4/5 max-h-[70dvh]  flex flex-col card-comission border px-6 py-8 border-blue-950 rounded-xl ">
 
         <label class="input input-bordered flex items-center gap-2 py-2 w-full lg:w-2/6 text-white search-bar-our-team ">
             <input type="text" class="grow" placeholder="Search" />
@@ -199,7 +203,7 @@
                     <p class="text-xs  text-dashboard-blue-right font-medium mt-2">UIUX Developer Product</p>
                 </div>
             </div>
-        
+
         </div>
 
 
@@ -209,10 +213,23 @@
 </div>
 
 <script>
-    let toggle = document.getElementById("")
-    let categoriesComp = document.querySelector("")
+    let toggle = document.getElementById("toggle")
 
+    toggle.addEventListener('click', () => {
+        clickBtn()
+    })
 
+    function clickBtn() {
+        let categoriesComp = document.getElementById("divisi-categories")
+
+        if (categoriesComp.classList.contains("flex")) {
+            categoriesComp.classList.add("hidden")
+            categoriesComp.classList.remove("flex")
+        } else {
+            categoriesComp.classList.remove("hidden")
+            categoriesComp.classList.add("flex")
+        }
+    }
 </script>
 
 

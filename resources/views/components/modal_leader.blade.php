@@ -1,5 +1,5 @@
 <dialog id="my_modal_2" class="modal ">
-  <div class="modal-box max-w-3xl bg-gray-950 text-white">
+  <div class="modal-box max-w-5xl bg-gray-950 text-white">
     <form method="dialog">
       <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
     </form>
