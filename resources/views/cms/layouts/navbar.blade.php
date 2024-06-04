@@ -1,4 +1,4 @@
-<div class="navbar  bg-sky-950 border border-blue-950">
+<div class="navbar  bg-gray-800 border">
     <div class=" hidden lg:flex lg:flex-1">
         <p class=" lg:text-xl font-semibold text-white">Admin CMS</p>
     </div>

@@ -236,10 +236,13 @@ html {
 }
 
 .btn-primary {
-    background-color: #0ea5e9 ;
+    background-color: #1f2937 ;
     color: #FFFF ;
 }
 
+.hidden-scroll::-webkit-scrollbar {
+    display: none ;
+}
 
 
 @media only screen and (max-width: 1336px) {

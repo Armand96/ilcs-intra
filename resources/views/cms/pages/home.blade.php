@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="text-white">
-    Test
+<div class="text-black ">
+    Welcome Admin ^~^
 </div>
 
 @endsection
