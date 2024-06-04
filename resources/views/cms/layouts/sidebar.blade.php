@@ -1,7 +1,7 @@
 <!-- sidebar -->
 <div class="drawer-side">
     <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
-    <div class="menu py-4 w-64 min-h-screen text-base-content sidebar-background border-blue-950 border">
+    <div class="menu py-4 w-40 2xl:w-64 min-h-screen text-base-content bg-sky-950 border-blue-950 border" >
         <img src="{{ asset('assets/images/logo/sidebar_logo.svg') }}" class=" mx-auto w-36 mb-4 mt-2 object-cover"
             alt="logo">
         <!-- Sidebar content here -->

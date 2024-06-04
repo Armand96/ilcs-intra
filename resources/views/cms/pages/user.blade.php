@@ -1,38 +1,38 @@
 @extends('cms.master_cms')
 
 @section('content')
-    <div class="flex flex-col w-full mt-6 bg-card-dashboard border border-blue-950 p-6">
+    <div class="flex flex-col w-full mt-6 rounded-xl bg-blue-300 border border-blue-950 p-6">
         <div class="flex flex-col mb-3">
-            <div class="w-1/6 text-white">
+            <div class="w-1/6 text-black">
                 <p class="text-xl">Users</p>
             </div>
 
-            <form action="" class="bg-gray-900 px-4 py-6 my-6">
+            <form action="" class=" px-4 border rounded-xl py-6 my-6">
                 {{-- @csrf --}}
-                <!-- <p class="text-lg mb-7 font-semibold text-white">Search</p> -->
+                <!-- <p class="text-lg mb-7 font-semibold text-black">Search</p> -->
                 <div class=" w-full grid grid-cols-3 gap-4 rounded-xl">
                     <div>
-                        <p class="text-white">Username</p>
+                        <p class="text-black">Username</p>
                         <input type="text" name="username" value="{{ request('username') }}"
                             class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <div>
-                        <p class="text-white">Name</p>
+                        <p class="text-black">Name</p>
                         <input type="text" name="name" value="{{ request('name') }}"
                             class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <div>
-                        <p class="text-white">NIP</p>
+                        <p class="text-black">NIP</p>
                         <input type="text" name="nip" value="{{ request('nip') }}"
                             class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <div>
-                        <p class="text-white">Jabatan</p>
+                        <p class="text-black">Jabatan</p>
                         <input type="text" name="jabatan" value="{{ request('jabatan') }}"
                             class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <div>
-                        <p class="text-white">Role</p>
+                        <p class="text-black">Role</p>
                         <input type="text" name="role" value="{{ request('role') }}"
                             class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
@@ -51,11 +51,11 @@
             </button>
 
         </div>
-        <div class="w-full">
-            <div class="overflow-x-auto text-white w-full">
-                <table class="table border w-full mb-3">
-                    <thead>
-                        <tr class="text-white ">
+        <div class="w-full rounded-2xl">
+            <div class="overflow-x-auto text-black w-full">
+                <table class="table border rounded-2xl w-full mb-3">
+                    <thead class="">
+                        <tr class="text-black ">
                             <th></th>
                             <th>Username</th>
                             <th>Name</th>
@@ -100,7 +100,7 @@
 
     <!-- Modal -->
     <dialog id="my_modal" class="modal">
-        <form id="user_form" method="POST" enctype="multipart/form-data" class="modal-box max-w-6xl bg-gray-600 text-white"
+        <form id="user_form" method="POST" enctype="multipart/form-data" class="modal-box max-w-6xl bg-blue-300 text-black"
             action="{{ route('users.store') }}">
             @csrf
             @method('PATCH')
@@ -108,47 +108,47 @@
             <div class="divider divider-neutral mb-4"></div>
             <div class="flex flex-col mb-6">
                 <div class="mt-4">
-                    <p class="text-white">Username</p>
+                    <p class="text-black">Username</p>
                     <input required type="text" name="username" id="username"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
-                    <p class="text-white">Name</p>
+                    <p class="text-black">Name</p>
                     <input required type="text" name="name" id="name"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
-                    <p class="text-white">Email</p>
+                    <p class="text-black">Email</p>
                     <input required type="email" name="email" id="email"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
-                    <p class="text-white">NIP</p>
+                    <p class="text-black">NIP</p>
                     <input required type="text" name="nip" id="nip"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
-                    <p class="text-white">Password</p>
+                    <p class="text-black">Password</p>
                     <input required type="password" name="password" id="password"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
-                    <p class="text-white">Tanggal Lahir</p>
+                    <p class="text-black">Tanggal Lahir</p>
                     <input required type="date" name="tgl_lahir" id="tgl_lahir"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
-                    <p class="text-white">Tanggal Masuk</p>
+                    <p class="text-black">Tanggal Masuk</p>
                     <input required type="date" name="tgl_masuk" id="tgl_masuk"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
-                    <p class="text-white">Tanggal Keluar</p>
+                    <p class="text-black">Tanggal Keluar</p>
                     <input type="date" name="tgl_keluar" id="tgl_keluar"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
-                    <p class="text-white">Role</p>
+                    <p class="text-black">Role</p>
                     <select required name="role_id"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         @foreach ($roles as $rl)
@@ -157,7 +157,7 @@
                     </select>
                 </div>
                 <div class="mt-4">
-                    <p class="text-white">Jabatan</p>
+                    <p class="text-black">Jabatan</p>
                     <select required name="jabatan"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         @foreach ($jabatans as $jbt)
@@ -166,7 +166,7 @@
                     </select>
                 </div>
                 <div class="mt-4">
-                    <p class="text-white">Foto</p>
+                    <p class="text-black">Foto</p>
                     <input type="file" name="foto"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>

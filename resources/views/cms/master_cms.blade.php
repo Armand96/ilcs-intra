@@ -5,9 +5,9 @@
 
 <body>
 
-    <div class="drawer lg:drawer-open">
+    <div class="drawer lg:drawer-open" style="zoom: 80% ;">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content bg-gray-950">
+        <div class="drawer-content bg-blue-500 " >
 
             @include('cms.layouts.navbar')
 
