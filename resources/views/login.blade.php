@@ -3,12 +3,12 @@
 
 @include('layouts.head-only')
 
-<body>
+<body >
     <div class="flex flex-col lg:flex-row w-full h-screen">
         <div class="lg:w-3/6 h-full flex flex-col justify-center items-center bg-login-100">
             <div class="flex-col lg:w-5/6">
-                <img src="assets/images/logo/login_logo.svg" alt="tes" class=" mx-auto mt-6 lg:mt-0">
-                <form class="background-inner-login text-center mt-4 lg:mt-12 px-6 py-6 2x1:px-20 2xl:py-20" action="{{ route('login_user') }}" method="POST">
+                <img src="assets/images/logo/login_logo.svg" alt="tes" class=" mx-auto mt-6 lg:mt-0 lg:size-28">
+                <form class="background-inner-login overflow-hidden text-center mt-4 lg:mt-0 px-6 py-6 2x1:px-20 2xl:py-20" action="{{ route('login_user') }}" method="POST">
                     @csrf
                     <h4 class="text-xl lg:text-2xl font-bold text-white">
                         Sign In
@@ -22,7 +22,7 @@
                             <p class="text-white text-sm 2xl:text-lg text-left">
                                 NIP
                             </p>
-                            <input type="text" name="nip" class="bg-login-input mt-3 px-4 py-1 text-sm py-2 w-full rounded-lg text-login-text focus:outline-none" placeholder="Enter Your NIP">
+                            <input type="text" name="nip" class="bg-login-input mt-3 px-4 py-1 text-sm 2xl:py-2 w-full rounded-lg text-login-text focus:outline-none" placeholder="Enter Your NIP">
                         </div>
                         <div class="mt-4">
                             <p class="text-white text-sm 2xl:text-lg text-left">
@@ -44,24 +44,23 @@
                         </button>
 
                         @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                         @endif
                     </div>
                 </form>
                 <p class="mt-6 text-xs text-center lg:text-base text-login-text">© 2024 ILCS. All rights reserved</p>
                 <img src="assets/images/background/tech-bg-left.svg" class="absolute bottom-0 left-0 w-32 2xl:w-42 hidden lg:block" alt="test">
             </div>
-
         </div>
         <div class="hidden lg:w-3/6 back-login lg:flex justify-center items-center h-full">
             <div class="w-5/6">
-                <h1 class="text-2xl mt-5 mb-12 font-semibold text-white">Welcome to <span class="text-login-text-blue">INTRANET 2.0</span> <br />Please sign in to your account</h1>
+                <h1 class="text-xl mt-10 2xl:mt-5 mb-12 font-semibold text-white">Welcome to <span class="text-login-text-blue">INTRANET 2.0</span> <br />Please sign in to your account</h1>
                 <img src="assets/images/background/login-right-image.svg" class="w-full mb-16">
             </div>
         </div>

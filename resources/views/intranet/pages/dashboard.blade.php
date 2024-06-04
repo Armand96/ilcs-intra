@@ -216,7 +216,7 @@
                             <img src="{{ asset('assets/images/dashboard/ultah/faiz.png') }}" alt="" class="rounded-full object-cover border border-blue-700  w-10 h-10 2xl:w-12 2xl:h-12">
                         </div>
                         <div class="w-4/6 lg:text-sm">
-                            <h4 class="font-semibold text-white">{{ $birth->name }}</h4>
+                            <h4 class="font-semibold text-xs text-white">{{ $birth->name }}</h4>
                             <p class="text-dashboard-blue-right text-xs">{{ $birth->jabatan }} ({{ $birth->sub_jabatan }})</p>
                         </div>
                     </div>
@@ -328,7 +328,7 @@
 </div>
 
 <!-- Chart -->
-<div class="flex flex-col w-full pb-6 px-4 lg:px-14 " id="kpi">
+<div class="flex flex-col w-full pb-6 px-4 lg:px-14 " id="kpi" style="zoom: 100%">
     <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
         <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d TW I</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-7 mt-4">
