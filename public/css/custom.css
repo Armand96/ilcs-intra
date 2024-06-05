@@ -247,7 +247,10 @@ html {
 
 @media only screen and (min-width: 1500px ){
     .drawer-side {
-        height: 112dvh !important;
+        height: 100dvh !important;
+    }
+    body, .drawer  {
+        zoom: 100% !important ;
     }
 }
 
