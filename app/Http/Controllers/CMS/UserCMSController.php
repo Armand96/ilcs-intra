@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\User;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,6 +20,13 @@ class UserCMSController extends Controller
      */
     public function index(Request $request)
     {
+        if (
+            Auth::user()->role->role_name != \App\Enums\RoleAdminEnum::SUPER_ADMIN &&
+            Auth::user()->role->role_name != \App\Enums\RoleAdminEnum::ADMIN_SDM
+        ) {
+            return redirect()->route('cms.home');
+        }
+
         $query = User::query();
 
         // Apply filters
@@ -46,15 +54,14 @@ class UserCMSController extends Controller
 
         $users = $query->paginate(10);
         $roles = Role::select(['id', 'role_name'])->get();
-        $jabatans = User::select('jabatan')->distinct()->get();
 
         foreach ($users as $key => $reg) {
             if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {
-                $reg->image_user = Storage::disk('public')->url('profile_picture/'.$reg->image_user);
+                $reg->image_user = Storage::disk('public')->url('profile_picture/' . $reg->image_user);
             }
         }
 
-        return view('cms.pages.user', compact('users', 'roles', 'jabatans'));
+        return view('cms.pages.user', compact('users', 'roles'));
     }
 
     /**

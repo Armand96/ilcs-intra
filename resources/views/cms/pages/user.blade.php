@@ -84,9 +84,15 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <button class="btn btn-primary" onclick="edit({{ $usr->id }})">
-                                        Edit
-                                    </button>
+                                    @if (
+                                            Auth::user()->role->role_name == \App\Enums\RoleAdminEnum::SUPER_ADMIN ||
+                                            Auth::user()->id == $usr->id ||
+                                            ($usr->role->role_name != \App\Enums\RoleAdminEnum::SUPER_ADMIN)
+                                        )
+                                        <button class="btn btn-primary" onclick="edit({{ $usr->id }})">
+                                            Edit
+                                        </button>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
@@ -158,12 +164,8 @@
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Jabatan</p>
-                    <select required name="jabatan"
+                    <input required type="text" name="jabatan" id="jabatan"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
-                        @foreach ($jabatans as $jbt)
-                            <option value="{{ $jbt->jabatan }}">{{ $jbt->jabatan }}</option>
-                        @endforeach
-                    </select>
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Foto</p>
@@ -212,6 +214,7 @@
         function createNew() {
             $('#operation').html("Tambah");
             document.getElementById('my_modal').classList.add('modal-open');
+            $('#password').attr('required', 'required');
             $('#user_form').prop('action', '{{ route("users.store") }}');
             $('input[name="_method"]').val('POST');
         }
@@ -227,6 +230,7 @@
                 $('#tgl_lahir').val(resp.tgl_lahir);
                 $('#tgl_masuk').val(resp.tgl_masuk);
                 $('#tgl_keluar').val(resp.tgl_keluar);
+                $('#password').removeAttr('required');
 
                 $('#user_form').prop('action', '{{ route("users.index") }}/' + idUser);
                 $('input[name="_method"]').val('PATCH');
