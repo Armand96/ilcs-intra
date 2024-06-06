@@ -49,7 +49,7 @@
         <!-- carousel -->
         <div class="flex flex-col  rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
             <div class="flex justify-between mb-3">
-                <div class="lg:w-2/6 2xl:w-1/6 text-white">
+                <div class="lg:w-3/6 2xl:w-3/6 text-white">
                     <p class="text-base lg:text-xl">ILCS News</p>
                 </div>
                 <!-- <div class="w-1/6 flex text-xl nextBtn text-white">
@@ -222,7 +222,7 @@
             @foreach ($data['newEmployee'] as $emp)
             <div class="flex mb-6">
                 <div class="w-1/6 mx-6">
-                    <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
+                    <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10">
                 </div>
                 <div class="w-4/6 text-sm">
                     <h4 class="font-semibold text-white">{{ $emp->name }}</h4>
@@ -232,7 +232,7 @@
             @endforeach
             {{-- <div class="flex mb-6">
                     <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
+                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10">
         </div>
         <div class="w-4/6 text-sm">
             <h4 class="font-semibold text-white">Slamet Apriyantok</h4>
@@ -260,7 +260,7 @@
         @foreach ($data['farewellEmployee'] as $far)
         <div class="flex mb-6">
             <div class="w-1/6 mx-6">
-                <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
+                <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 ">
             </div>
             <div class="w-4/6 text-sm">
                 <h4 class="font-semibold text-white">{{ $far->name }}</h4>
@@ -270,7 +270,7 @@
         @endforeach
         {{-- <div class="flex mb-6">
                         <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
+                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 ">
     </div>
     <div class="w-4/6 text-sm">
         <h4 class="font-semibold text-white">Eka Khoirotin Nurul</h4>
@@ -279,7 +279,7 @@
     </div>
     <div class="flex mb-6">
         <div class="w-1/6 mx-6">
-            <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 2xl:w-12 2xl:h-12">
+            <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 ">
         </div>
         <div class="w-4/6 text-sm">
             <h4 class="font-semibold text-white">Surya Adhi Waskito</h4>
