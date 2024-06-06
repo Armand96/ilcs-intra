@@ -18,6 +18,7 @@ class CreateNotificationsTable extends Migration
             $table->bigInteger("notif_to_user_id");
             $table->string("notif_description");
             $table->boolean('is_read');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

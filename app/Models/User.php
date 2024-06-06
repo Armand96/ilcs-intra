@@ -30,6 +30,9 @@ class User extends Authenticatable
         'tgl_lahir',
         'tgl_masuk',
         'image_user',
+        'jabatan',
+        'dept',
+        'divisi',
     ];
 
     /**
