@@ -40,7 +40,7 @@ Route::group(['middleware' => 'role.access'], function() {
 /* ROUTE UNTUK ADMIN CMS */
 Route::group(
     [
-    'middleware' => 'admin',
+    'middleware' => ['admin', 'auth'],
     'prefix' => 'cms_admin'
 ], function() {
     Route::get('home', [CMSController::class, 'index'])->name('cms.home');
