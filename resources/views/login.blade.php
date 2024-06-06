@@ -4,7 +4,7 @@
 @include('layouts.head-only')
 
 <body >
-    <div class="flex flex-col lg:flex-row w-full h-screen">
+    <div class="flex lg:overflow-y-hidden flex-col lg:flex-row w-full h-screen">
         <div class="lg:w-3/6 h-full flex flex-col justify-center items-center bg-login-100">
             <div class="flex-col lg:w-5/6">
                 <img src="assets/images/logo/login_logo.svg" alt="tes" class=" mx-auto mt-6 lg:mt-0 lg:size-28">
@@ -18,7 +18,7 @@
                     </p>
 
                     <div class="mt-12">
-                        <div class="mt-3">
+                        <div class="mt-3 relative z-10">
                             <p class="text-white text-sm 2xl:text-lg text-left">
                                 NIP
                             </p>
@@ -28,7 +28,7 @@
                             <p class="text-white text-sm 2xl:text-lg text-left">
                                 Password
                             </p>
-                            <div class="relative">
+                            <div class="relative z-10">
                                 <input type="password" name="password" id="password-input" class="bg-login-input mt-3 px-4 text-sm py-2 w-full rounded-lg text-login-text focus:outline-none" placeholder="Password ">
                                 <div id="password-toggle" class="password-toggle text-white absolute top-0 right-0 mt-5 mr-3 cursor-pointer" onclick="togglePassword()">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
