@@ -165,7 +165,7 @@
     <div class="flex flex-col rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
         <div id='calendar' class="w-full  text-white text-xs" style="zoom: 60%;"></div>
 
-        <div class="w-full 2xl:w-1/6 flex flex-col h-full overflow-auto calender-notif mt-6 px-4 py-2 rounded-2xl">
+        <div class="w-full flex flex-col h-full overflow-auto calender-notif mt-6 px-4 py-2 rounded-2xl">
             <div class="flex  flex-col w-full">
                 <p class="text-xs text-center lg:text-left text-white bg-red-500 w-10 lg:pl-1 mt-3  rounded-full py-1">23</p>
                 <p class="text-xs 2xl:text-sm text-white my-2 font-semibold">Mei 2024</p>
@@ -191,13 +191,13 @@
 
     <div class="flex-col bg-card-dashboard border border-blue-950 px-4 py-6 lg:ml-8 rounded-xl">
         <div class="w-full flex justify-between text-white mb-4">
-            <h5 class="font-semibold text-sm 2xl:text-base">Upcoming Birthday 🎉</h5>
-            <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
+            <h5 class="font-semibold text-sm">Upcoming Birthday 🎉</h5>
+            <p class="text-sm">{{ date('F Y') }}</p>
         </div>
         <div class="w-full flex-col">
             @foreach ($data['upcomingBirthday'] as $birth)
             <div class="flex mb-6">
-                <h1 class="w-1/6 text-sm 2xl:text-base font-semibold text-center text-white">
+                <h1 class="w-1/6 text-sm font-semibold text-center text-white">
                     {{ date('d F') }}
                 </h1>
                 <div class="w-1/6 mx-6">
