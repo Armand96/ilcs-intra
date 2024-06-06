@@ -246,6 +246,18 @@ html {
     display: none ;
 }
 
+.fc-daygrid-event-dot {
+    width: 10px !important;
+    height: 10px !important ;
+    background-color: red ;
+    border-radius: 100% ;
+    margin-left: 50% !important ;
+}
+
+.fc-daygrid-dot-event {
+    display: flex !important ;
+    justify-content: flex-end  !important;
+}
 
 @media only screen and (min-width: 1500px ){
     .drawer-side {

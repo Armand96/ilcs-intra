@@ -165,23 +165,49 @@
     <div class="flex flex-col rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
         <div id='calendar' class="w-full  text-white text-xs" style="zoom: 60%;"></div>
 
-        <div class="w-full flex flex-col h-full overflow-auto calender-notif mt-6 px-4 py-2 rounded-2xl">
+        <div id="label-calendar" class="w-full hidden flex-col h-full overflow-auto calender-notif mt-6 px-4 py-2 rounded-2xl">
             <div class="flex  flex-col w-full">
                 <p class="text-xs text-center lg:text-left text-white bg-red-500 w-10 lg:pl-1 mt-3  rounded-full py-1">23</p>
                 <p class="text-xs 2xl:text-sm text-white my-2 font-semibold">Mei 2024</p>
                 <p class="text-xs 2xl:text-sm text-white">Hari Raya Waisak</p>
             </div>
-            <div class="flex flex-col w-full">
+            <!-- <div class="flex flex-col w-full">
                 <p class="text-xs text-center lg:text-left text-white bg-red-500 w-10 lg:pl-1 mt-3  rounded-full py-1">24</p>
                 <p class="text-xs 2xl:text-sm text-white my-2 font-semibold">Mei 2024</p>
                 <p class="text-xs 2xl:text-sm text-white">Cuti Bersama Hari Raya Waisak</p>
-            </div>
-
+            </div> -->
         </div>
+
+
 
     </div>
 
+    <div class="w-full flex flex-col text-white mt-6 bg-card-dashboard border border-blue-950 px-6 py-6 rounded-xl">
+        <h5 class="font-semibold mb-6">
+            ILCS Events
+        </h5>
+        <div class="max-h-80 overflow-auto">
+            <div class="flex mb-6">
+                <div class="w-1/6 mx-6">
+                    <img src="{{ asset('assets/images/dashboard/event/dmc.jpeg') }}" alt="" class="object-cover border border-blue-700  2xl:w-12 2xl:h-12">
+                </div>
+                <div class="w-4/6 text-sm">
+                    <h4 class="font-semibold text-white">Launching DMDC</h4>
+                    <p class="text-dashboard-blue-right text-xs">Senin, 20 Mei 2024 </p>
+                </div>
+            </div>
+            <div class="flex mb-6">
+                <div class="w-1/6 mx-6">
+                    <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="object-cover border border-blue-700  2xl:w-12 2xl:h-12">
+                </div>
+                <div class="w-4/6 text-sm">
+                    <h4 class="font-semibold text-white">Soft Go Live INTRANET 2.0 </h4>
+                    <p class="text-dashboard-blue-right text-xs">Senin, 27 Mei 2024| 10.00 </p>
+                </div>
+            </div>
+        </div>
 
+    </div>
 
 </div>
 
@@ -248,71 +274,71 @@
             <p class="text-dashboard-blue-right text-xs">Lead Developer National Development Center</p>
         </div>
     </div> --}}
-    </div>
+</div>
 
-    <div class="border-divider-card w-full"></div>
+<div class="border-divider-card w-full"></div>
 
-    <div class="w-full flex  mt-6 justify-between text-white mb-4">
+<div class="w-full flex  mt-6 justify-between text-white mb-4">
 
-        <h5 class="font-semibold text-sm">Farewell Employee 👋</h5>
-    </div>
-    <div class="w-full flex-col">
-        @foreach ($data['farewellEmployee'] as $far)
-        <div class="flex mb-6">
-            <div class="w-1/6 mx-6">
-                <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 ">
-            </div>
-            <div class="w-4/6 text-sm">
-                <h4 class="font-semibold text-white">{{ $far->name }}</h4>
-                <p class="text-dashboard-blue-right text-xs">{{ $far->jabatan }}</p>
-            </div>
-        </div>
-        @endforeach
-        {{-- <div class="flex mb-6">
-                        <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 ">
-    </div>
-    <div class="w-4/6 text-sm">
-        <h4 class="font-semibold text-white">Eka Khoirotin Nurul</h4>
-        <p class="text-dashboard-blue-right text-xs">Technical Writer</p>
-    </div>
-    </div>
+    <h5 class="font-semibold text-sm">Farewell Employee 👋</h5>
+</div>
+<div class="w-full flex-col">
+    @foreach ($data['farewellEmployee'] as $far)
     <div class="flex mb-6">
         <div class="w-1/6 mx-6">
-            <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 ">
+            <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 ">
         </div>
         <div class="w-4/6 text-sm">
-            <h4 class="font-semibold text-white">Surya Adhi Waskito</h4>
-            <p class="text-dashboard-blue-right text-xs">Developer Engineer</p>
+            <h4 class="font-semibold text-white">{{ $far->name }}</h4>
+            <p class="text-dashboard-blue-right text-xs">{{ $far->jabatan }}</p>
         </div>
-    </div> --}}
     </div>
-
+    @endforeach
+    {{-- <div class="flex mb-6">
+                        <div class="w-1/6 mx-6">
+                        <img src="{{ asset('assets/images/users/user-2.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 ">
+</div>
+<div class="w-4/6 text-sm">
+    <h4 class="font-semibold text-white">Eka Khoirotin Nurul</h4>
+    <p class="text-dashboard-blue-right text-xs">Technical Writer</p>
+</div>
+</div>
+<div class="flex mb-6">
+    <div class="w-1/6 mx-6">
+        <img src="{{ asset('assets/images/users/user-4.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700 w-10 h-10 ">
     </div>
+    <div class="w-4/6 text-sm">
+        <h4 class="font-semibold text-white">Surya Adhi Waskito</h4>
+        <p class="text-dashboard-blue-right text-xs">Developer Engineer</p>
+    </div>
+</div> --}}
+</div>
 
-    <div class="flex-col bg-card-dashboard border border-blue-950 mt-6 px-4 py-6 lg:ml-8 rounded-xl">
-        <div class="w-full flex justify-between text-white mb-4">
-            <h5 class="font-semibold ">Social Media ILCS</h5>
-        </div>
-        <div class="w-full flex">
-            @foreach ($data['linkSosmed'] as $sos)
-            <a href="{{ $sos->link_tujuan }}" target="_blank" class="w-2/12 ">
-                <img src="{{ $sos->image_path }}" alt="" class="w-3/6 rounded-full">
-            </a>
-            @endforeach
-            {{-- <a href="https://x.com/ilcs_id" target="_blank" class="w-2/12">
+</div>
+
+<div class="flex-col bg-card-dashboard border border-blue-950 mt-6 px-4 py-6 lg:ml-8 rounded-xl">
+    <div class="w-full flex justify-between text-white mb-4">
+        <h5 class="font-semibold ">Social Media ILCS</h5>
+    </div>
+    <div class="w-full flex">
+        @foreach ($data['linkSosmed'] as $sos)
+        <a href="{{ $sos->link_tujuan }}" target="_blank" class="w-2/12 ">
+            <img src="{{ $sos->image_path }}" alt="" class="w-3/6 rounded-full">
+        </a>
+        @endforeach
+        {{-- <a href="https://x.com/ilcs_id" target="_blank" class="w-2/12">
                         <img src="{{ asset('assets/images/icon/twitter-dashboard.svg') }}" alt="" class="w-3/6">
-            </a>
-            <a href="https://www.youtube.com/@pelindosolusidigital" target="_blank" class="w-2/12">
-                <img src="{{ asset('assets/images/icon/youtube-dashboard.svg') }}" alt="" class="w-3/6">
-            </a>
-            <a href="#" target="_blank" class="w-2/12">
-                <img src="{{ asset('assets/images/icon/linkedin-dashboard.svg') }}" alt="" class="w-3/6">
-            </a> --}}
-        </div>
+        </a>
+        <a href="https://www.youtube.com/@pelindosolusidigital" target="_blank" class="w-2/12">
+            <img src="{{ asset('assets/images/icon/youtube-dashboard.svg') }}" alt="" class="w-3/6">
+        </a>
+        <a href="#" target="_blank" class="w-2/12">
+            <img src="{{ asset('assets/images/icon/linkedin-dashboard.svg') }}" alt="" class="w-3/6">
+        </a> --}}
     </div>
+</div>
 
-    </div>
+</div>
 
 </div>
 
@@ -528,14 +554,28 @@
                 right: 'prev,today,next',
             },
 
+            eventClick: function(info) {
+                const legendComp = document.getElementById("label-calendar")
+
+                if (legendComp.classList.contains("flex")) {
+                    legendComp.classList.add("hidden")
+                    legendComp.classList.remove("flex")
+                } else {
+                    legendComp.classList.remove("hidden")
+                    legendComp.classList.add("flex")
+                }
+                // change the border color just for fun
+            },
+
             initialDate: new Date(),
             navLinks: false, // can click day/week names to navigate views
             editable: true,
 
             selectable: true,
             events: [{
-                    title: 'Hari Raya Waisak',
-                    start: '2024-05-23T13:00:00',
+
+                    title: '',
+                    start: '2024-06-23T13:00:00',
                 },
                 // {
                 //     title: 'Meeting',
@@ -582,7 +622,9 @@
                 //     display: 'background',
                 //     color: '#ff9f89'
                 // }
-            ]
+            ],
+            displayEventTime: false,
+            eventBackgroundColor: "red"
         });
 
         calendar.render();
