@@ -30,7 +30,7 @@
             <div class="flex w-6/12 relative justify-between bg-card-dashboard border border-blue-950 rounded-xl">
 
                 <div class="flex flex-col z-10 w-3/6 2xl:w-4/6 items-center text-white">
-                    <h4 class=" text-base text-center font-semibold mt-6">See <br /> Statistic KPI</h4>
+                    <h4 class=" text-base text-center font-semibold mt-2">See <br /> Statistic KPI</h4>
                     <a href="#kpi" class="mx-auto rounded-full mt-3 mb-6 2xl:mb-2 kpi-button bg-login-button p-1">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 2xl:size-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
