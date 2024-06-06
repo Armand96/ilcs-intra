@@ -36,7 +36,7 @@
                 <div class="p-2 rounded-xl mt-2 hex-icon">
                     <img src="{{ asset('assets/images/icon/employe-aspiration.svg') }}" alt="">
                 </div>
-                <p class="mt-2 text-xs 2xl:text-sm text-center 2xl:text-nowrap w-full">Employee Forum</p>
+                <p class="mt-2 text-xs text-center  w-full">Employee Forum</p>
             </a>
 
             <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
@@ -44,7 +44,7 @@
                 <div class="p-2 rounded-xl mt-2 hex-icon">
                     <img src="{{ asset('assets/images/icon/book-icon.svg') }}" alt="">
                 </div>
-                <p class="mt-2 text-xs 2xl:text-sm text-center w-full">Knowledge Management</p>
+                <p class="mt-2 text-xs text-center w-full">Knowledge Management</p>
             </a>
 
             <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
@@ -52,7 +52,7 @@
                 <div class="p-2 rounded-xl mt-2 hex-icon">
                     <img src="{{ asset('assets/images/icon/book-icon.svg') }}" alt="">
                 </div>
-                <p class="mt-2 text-xs 2xl:text-sm text-center w-full">Laporan Rapat Management</p>
+                <p class="mt-2 text-xs text-center w-full">Laporan Rapat Management</p>
             </a>
 
             <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
@@ -60,7 +60,7 @@
                 <div class="p-2 rounded-xl mt-2 hex-icon">
                     <img src="{{ asset('assets/images/icon/calendar-icon.svg') }}" alt="">
                 </div>
-                <p class="mt-2 text-xs 2xl:text-sm text-center 2xl:text-nowrap w-full">Meeting Calendar</p>
+                <p class="mt-2 text-xs text-center  w-full">Meeting Calendar</p>
             </a>
 
             <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'our_regulation' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
@@ -68,7 +68,7 @@
                 <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'our_regulation' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/our-regulation.svg') }}" alt="">
                 </div>
-                <p class="mt-2 text-xs 2xl:text-sm text-center w-full">Our Regulation</p>
+                <p class="mt-2 text-xs text-center w-full">Our Regulation</p>
             </a>
 
 
