@@ -12,12 +12,16 @@ class TeamController extends Controller
     {
         $query = User::query();
 
-        if ($request->filled('dept')) {
-            $query->where('dept', 'like', '%' . $request->dept . '%')->orWhere('dept', 'like', '%' . $request->dept . '%');
+        if ($request->filled('divisi')) {
+            $query->where('divisi', 'like', '%' . $request->divisi . '%');
         }
 
-        $users = $query->paginate(12);
-        $depts = User::select('dept')->distinct('dept')->get();
+        if ($request->filled('name')) {
+            $query->where('name', 'like', '%' . $request->name . '%');
+        }
+
+        $users = $query->orderBy('name')->paginate(12);
+        $divisi = User::where('divisi', '!=', '')->select('divisi')->distinct('divisi')->get();
 
         foreach ($users as $key => $reg) {
             if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {
@@ -25,6 +29,6 @@ class TeamController extends Controller
             }
         }
 
-        return view('intranet.pages.our_team', compact('users', 'depts'));
+        return view('intranet.pages.our_team', compact('users', 'divisi'));
     }
 }

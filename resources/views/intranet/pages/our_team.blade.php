@@ -4,7 +4,7 @@
 <div class="bg-onboarding w-11/12 rounded-2xl lg:rounded-lg mx-auto mt-6 px-6 py-4 lg:py-6">
     <div class="flex flex-col bg-blur-comission border border-white text-white rounded-lg w-full px-4 py-2 lg:py-6">
         <h4 class="text-sm lg:text-lg font-semibold">
-            our team
+            Our Team
         </h4>
     </div>
 </div>
@@ -21,13 +21,21 @@
 
     <div id="divisi-categories" class="w-full  lg:w-1/5 max-h-[70dvh] hidden lg:flex flex-col gap-6 overflow-hidden overflow-y-auto card-comission px-6 py-8 scroll border border-blue-950 rounded-xl our-team-left">
 
-        <div onclick="clickBtn()" class="bg-login-button  text-center text-white login-button-active flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        <div onclick="clickBtn()" class="{{ request('divisi') == '' ? 'bg-login-button login-button-active' : '' }}  text-center text-white flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
                 All Employee
             </p>
         </div>
 
-        <div onclick="clickBtn()" class="  text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+        @foreach ($divisi as $div)
+            <div onclick="clickBtn('{{ $div->divisi }}')" class=" {{ request('divisi') == $div->divisi ? 'bg-login-button login-button-active' : '' }} text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
+                <p class="font-semibold text-base">
+                    {{ $div->divisi }}
+                </p>
+            </div>
+        @endforeach
+
+        {{-- <div onclick="clickBtn()" class="  text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
             Hukum & Pengadaan
             </p>
@@ -106,20 +114,32 @@
             <p class="font-semibold text-base">
             Area Surabaya
             </p>
-        </div>
+        </div> --}}
     </div>
     <div class="w-full  lg:w-4/5 max-h-[70dvh]  flex flex-col card-comission border px-6 py-8  border-blue-950 rounded-xl ">
 
-        <label class="input input-bordered  flex items-center gap-2 py-2 w-full lg:w-2/6 text-white search-bar-our-team ">
-            <input type="text" class="grow" placeholder="Search" />
+        <form id="search_form" method="GET" action="{{ route('our_team') }}" class="input input-bordered  flex items-center gap-2 py-2 w-full lg:w-2/6 text-white search-bar-our-team ">
+            <input type="hidden" name="divisi" id="divisi" value="{{ request('divisi') }}">
+            <input type="text" class="grow" placeholder="Search" name="name" id="name" value="{{ request('name') }}"/>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70">
                 <path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" />
             </svg>
-        </label>
+        </form>
 
         <div class="grid w-full lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-10 h-full overflow-y-auto our-team-left">
 
-            <div class="flex flex-col rounded-xl border border-blue-900 ">
+            @foreach ($users as $usr)
+                <div class="flex flex-col rounded-xl border border-blue-900 ">
+                    <img src="{{ asset('assets/images/background/bg-team.svg') }}" class="rounded-t-xl " alt="">
+                    <img src="{{ $usr->user_image }}" onerror="this.src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'" class="w-16 h-16 border border-white -mt-8 ml-2 rounded-full" alt="">
+                    <div class="px-4 py-4">
+                        <h4 class="text-white text-base font-semibold">{{ $usr->name }}</h4>
+                        <p class="text-xs text-dashboard-blue-right font-medium mt-2">{{ $usr->jabatan }}</p>
+                    </div>
+                </div>
+            @endforeach
+
+            {{-- <div class="flex flex-col rounded-xl border border-blue-900 ">
                 <img src="{{ asset('assets/images/background/bg-team.svg') }}" class="rounded-t-xl " alt="">
                 <img src="{{ asset('assets/images/teams/team-1.svg') }}" class="w-16 h-16 border border-white -mt-8 ml-2 rounded-full" alt="">
                 <div class="px-4 py-4">
@@ -191,7 +211,7 @@
                 </div>
             </div>
 
-            
+
             <div class="flex flex-col rounded-xl border border-blue-900 ">
                 <img src="{{ asset('assets/images/background/bg-team.svg') }}" class="rounded-t-xl " alt="">
                 <img src="{{ asset('assets/images/teams/team-5.svg') }}" class="w-16 h-16 border border-white -mt-8 ml-2 rounded-full" alt="">
@@ -226,11 +246,13 @@
                     <h4 class="text-white text-base font-semibold">Muhammad Aditya Suazi</h4>
                     <p class="text-xs  text-dashboard-blue-right font-medium mt-2">UIUX Developer Product</p>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
 
-
+        <div class="mt-3">
+            {{ $users->appends(request()->query())->links('vendor.pagination.tailwind') }}
+        </div>
 
     </div>
 
@@ -243,16 +265,19 @@
         clickBtn()
     })
 
-    function clickBtn() {
-        let categoriesComp = document.getElementById("divisi-categories")
+    function clickBtn(divisi) {
+        $('#divisi').val(divisi);
+        $('#name').val('');
+        $('#search_form').submit();
+        // let categoriesComp = document.getElementById("divisi-categories")
 
-        if (categoriesComp.classList.contains("flex")) {
-            categoriesComp.classList.add("hidden")
-            categoriesComp.classList.remove("flex")
-        } else {
-            categoriesComp.classList.remove("hidden")
-            categoriesComp.classList.add("flex")
-        }
+        // if (categoriesComp.classList.contains("flex")) {
+        //     categoriesComp.classList.add("hidden")
+        //     categoriesComp.classList.remove("flex")
+        // } else {
+        //     categoriesComp.classList.remove("hidden")
+        //     categoriesComp.classList.add("flex")
+        // }
     }
 </script>
 

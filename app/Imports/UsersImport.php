@@ -26,7 +26,7 @@ class UsersImport implements ToModel
             $user->tgl_lahir = $date;
             $user->jabatan = $row[3];
             $user->dept = $row[4];
-            $user->divisi = $row[5];
+            $user->divisi = $row[5] == "-" ? "" : $row[5];
             $user->update();
             return $user;
         } else {
@@ -42,7 +42,7 @@ class UsersImport implements ToModel
                 'jabatan' => $row[3],
                 'sub_jabatan' => $row[3],
                 'dept' => $row[4],
-                'divisi' => $row[5],
+                'divisi' => $row[5] == "-" ? "" : $row[5],
                 'role_id' => 3
             ]);
         }
