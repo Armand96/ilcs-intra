@@ -7,7 +7,7 @@
 
     @include('components.loading')
 
-    <div style="zoom: 95% " class="drawer lg:drawer-open" >
+    <div style="zoom: 80% " class="drawer lg:drawer-open" >
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content  bg-dashboard">
 

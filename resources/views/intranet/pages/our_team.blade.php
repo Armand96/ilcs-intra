@@ -1,9 +1,9 @@
 @extends('intranet.master_intranet')
 
 @section('content')
-<div class="bg-onboarding w-11/12 rounded-2xl lg:rounded-lg mx-auto mt-6 px-6 py-4 lg:py-6">
-    <div class="flex flex-col bg-blur-comission border border-white text-white rounded-lg w-full px-4 py-2 lg:py-6">
-        <h4 class="text-sm lg:text-lg font-semibold">
+<div class="bg-onboarding w-11/12 rounded-2xl lg:rounded-lg mx-auto mt-6 px-6 py-2 lg:py-6" style="zoom: 80% ;">
+    <div class="flex flex-col bg-blur-comission border border-white text-white rounded-lg w-full px-4 py-2 lg:py-3">
+        <h4 class="text-sm lg:text-base font-semibold">
             Our Team
         </h4>
     </div>
@@ -19,7 +19,7 @@
 
     </div>
 
-    <div id="divisi-categories" class="w-full  lg:w-1/5 max-h-[70dvh] hidden lg:flex flex-col gap-6 overflow-hidden overflow-y-auto card-comission px-6 py-8 scroll border border-blue-950 rounded-xl our-team-left">
+    <div id="divisi-categories" class="w-full  lg:w-1/5 max-h-[90dvh] hidden lg:flex flex-col gap-6 overflow-hidden overflow-y-auto card-comission px-6 py-8 scroll border border-blue-950 rounded-xl our-team-left">
 
         <div onclick="clickBtn()" class="{{ request('divisi') == '' ? 'bg-login-button login-button-active' : '' }}  text-center text-white flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab1">
             <p class="font-semibold text-base">
@@ -116,7 +116,7 @@
             </p>
         </div> --}}
     </div>
-    <div class="w-full  lg:w-4/5 max-h-[70dvh]  flex flex-col card-comission border px-6 py-8  border-blue-950 rounded-xl ">
+    <div class="w-full  lg:w-4/5 max-h-[90dvh]  flex flex-col card-comission border px-6 py-8  border-blue-950 rounded-xl ">
 
         <form id="search_form" method="GET" action="{{ route('our_team') }}" class="input input-bordered  flex items-center gap-2 py-2 w-full lg:w-2/6 text-white search-bar-our-team ">
             <input type="hidden" name="divisi" id="divisi" value="{{ request('divisi') }}">
@@ -126,7 +126,7 @@
             </svg>
         </form>
 
-        <div class="grid w-full lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-10 h-full overflow-y-auto our-team-left">
+        <div class="grid w-full grid-cols-3 lg:grid-cols-4 gap-4 mt-10 h-full overflow-y-auto our-team-left">
 
             @foreach ($users as $usr)
                 <div class="flex flex-col rounded-xl border border-blue-900 ">

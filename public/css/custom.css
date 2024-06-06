@@ -222,6 +222,8 @@ html {
     display: block ;
     cursor: pointer;
     height: 10px ;
+    width: 6px ;
+    margin-left: 9px ;
 }
 
 .our-team-left::-webkit-scrollbar-thumb {
