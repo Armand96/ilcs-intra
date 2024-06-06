@@ -4,5 +4,8 @@ CARA START TAILWIND & DAISYUI
 
 NEXT STEP
 - composer install
+- php artisan migrate --seed
+- php artisan generate:query
+- php artisan generate:sangfor
 - php artisan user:addcol
 - php artisan adjust:role
