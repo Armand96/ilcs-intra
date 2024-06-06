@@ -61,11 +61,7 @@ class UserController extends Controller
 
         try {
             if(Auth::attempt($credential)) {
-                if(Auth::user()->role->is_admin == false) {
-                    return redirect()->route('dashboard');
-                } else {
-                    return redirect()->route('cms.home');
-                }
+                return redirect()->route('dashboard');
             }
             // else if(Auth::guard('siswa')->attempt($credential)) return redirect()->route('test.siswa');
             return redirect()->back()->withErrors(['errors' => 'nip atau password salah']);
