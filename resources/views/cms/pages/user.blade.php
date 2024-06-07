@@ -60,7 +60,7 @@
                             <th>Username</th>
                             <th>Name</th>
                             <th>NIP</th>
-                            <th>Role</th>
+                            <th>Divisi</th>
                             <th>Jabatan</th>
                             <th>Image</th>
                             <th>Action</th>
@@ -73,7 +73,7 @@
                                 <td class="w-1/6 text-wrap"> {{ $usr->username }} </td>
                                 <td> {{ $usr->name }} </td>
                                 <td> {{ $usr->nip }} </td>
-                                <td> {{ $usr->role->role_name }} </td>
+                                <td> {{ $usr->divisi }} </td>
                                 <td class="w-1/6 text-wrap"> {{ $usr->jabatan }} </td>
                                 <td>
                                     <div class="avatar">
@@ -164,8 +164,33 @@
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Jabatan</p>
-                    <input required type="text" name="jabatan" id="jabatan"
+                    <input required list="jabatans" type="text" name="jabatan" id="jabatan"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                        <datalist id="jabatans">
+                            @foreach ($jabatans as $jab)
+                                <option value="{{ $jab->jabatan }}">
+                            @endforeach
+                        </datalist>
+                </div>
+                <div class="mt-4">
+                    <p class="text-white">Departemen</p>
+                    <input required list="depts" type="text" name="dept" id="dept"
+                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                        <datalist id="depts">
+                            @foreach ($depts as $dep)
+                                <option value="{{ $dep->dept }}">
+                            @endforeach
+                        </datalist>
+                </div>
+                <div class="mt-4">
+                    <p class="text-white">Divisi</p>
+                    <input required list="divisis" type="text" name="divisi" id="divisi"
+                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                        <datalist id="divisis">
+                            @foreach ($divisis as $div)
+                                <option value="{{ $div->divisi }}">
+                            @endforeach
+                        </datalist>
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Foto</p>
@@ -215,6 +240,7 @@
             $('#operation').html("Tambah");
             document.getElementById('my_modal').classList.add('modal-open');
             $('#password').attr('required', 'required');
+            $('#user_form').trigger('reset');
             $('#user_form').prop('action', '{{ route("users.store") }}');
             $('input[name="_method"]').val('POST');
         }
@@ -231,6 +257,9 @@
                 $('#tgl_masuk').val(resp.tgl_masuk);
                 $('#tgl_keluar').val(resp.tgl_keluar);
                 $('#password').removeAttr('required');
+                $('#jabatan').val(resp.jabatan);
+                $('#divisi').val(resp.divisi);
+                $('#dept').val(resp.dept);
 
                 $('#user_form').prop('action', '{{ route("users.index") }}/' + idUser);
                 $('input[name="_method"]').val('PATCH');

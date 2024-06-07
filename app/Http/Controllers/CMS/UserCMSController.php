@@ -54,6 +54,9 @@ class UserCMSController extends Controller
 
         $users = $query->paginate(10);
         $roles = Role::select(['id', 'role_name'])->get();
+        $jabatans = User::select('jabatan')->distinct('jabatan')->get();
+        $divisis = User::select('divisi')->distinct('divisi')->get();
+        $depts = User::select('dept')->distinct('dept')->get();
 
         foreach ($users as $key => $reg) {
             if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {
@@ -61,7 +64,7 @@ class UserCMSController extends Controller
             }
         }
 
-        return view('cms.pages.user', compact('users', 'roles'));
+        return view('cms.pages.user', compact('users', 'roles', 'jabatans', 'divisis', 'depts'));
     }
 
     /**

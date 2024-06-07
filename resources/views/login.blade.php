@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="{{ asset('js/toast.js') }}">
+    <script src="{{ asset('js/toast.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/toast.css') }}">
 
 </head>
@@ -49,17 +49,7 @@
                             Login
                         </button>
 
-                        @if ($errors->any())
-                        <div class="toast toast-top toast-end">
-                            <div class="alert alert-error flex flex-col">
-                                @foreach ($errors->all() as $error)
-                                <span>{{ $error }}</span>
-                                @endforeach
-                            </div>
 
-                        </div>
-
-                        @endif
                     </div>
                 </form>
                 <p class="mt-6 text-xs text-center xl:text-base text-login-text">© 2024 ILCS. All rights reserved</p>
@@ -72,7 +62,21 @@
                 <img src="assets/images/background/login-right-image.svg" class="w-full mb-16">
             </div>
         </div>
+
+        {{-- @if ($errors->any())
+            <div class="toast toast-top toast-end">
+                <div class="alert alert-error flex flex-col text-white">
+                    @foreach ($errors->all() as $error)
+                        <span>{{ $error }}</span>
+                    @endforeach
+                </div>
+
+            </div>
+
+        @endif --}}
 </body>
+
+@include('components.toastify')
 
 <script>
     function togglePassword() {

@@ -11,6 +11,7 @@
     {{-- STYLE --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/toast.css') }}">
     @yield('extracss')
 
     {{-- JS --}}
@@ -18,5 +19,6 @@
     <script src='{{ asset('js/full-calendar.js') }}'></script>
     <script src='{{ asset('js/jquery.min.js') }}'></script>
     <script src='{{ asset('js/owl.carousel.js') }}'></script>
+    <script src="{{ asset('js/toast.js') }}"></script>
     @yield('extrajs')
 </head>
