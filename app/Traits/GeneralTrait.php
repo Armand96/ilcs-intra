@@ -21,7 +21,7 @@ trait GeneralTrait
     **/
     public function latestNews(): Collection
     {
-        $data = News::orderBy('tgl_event', 'ASC')->limit(5)->get();
+        $data = News::orderBy('tgl_event', 'ASC')->limit(3)->get();
         return $data;
     }
 
@@ -32,7 +32,7 @@ trait GeneralTrait
     **/
     public function newEmployee()
     {
-        $data = User::whereBetween('tgl_masuk', [date('Y-m-01'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->limit(5)->get();
+        $data = User::whereBetween('tgl_masuk', [date('Y-m-01'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->limit(3)->get();
         return $data;
     }
 
@@ -59,7 +59,7 @@ trait GeneralTrait
 
         return User::where($whereMonth, date('m'))->when($crossMonth, function ($qry) {
             $qry->orWhere('whereMonth', date('m', strtotime('+1 month')));
-        })->whereBetween($wherDate, [$currDate, $maxRangeDate])->orderBy('tgl_lahir', 'ASC')->limit(5)->get();
+        })->whereBetween($wherDate, [$currDate, $maxRangeDate])->orderByRaw('DATE_FORMAT(tgl_lahir, "%m-%d") asc')->limit(3)->get();
     }
 
     public function getAllNilaiKaryawan()
@@ -76,9 +76,9 @@ trait GeneralTrait
     public function farewellKaryawan()
     {
         $currentDate = date('Y-m-d');
-        $oneWeekPast = date('Y-m-d', strtotime('-1 week'));
+        $oneWeekPast = date('Y-m-d', strtotime('+1 week'));
         // dd(User::where('tgl_keluar', [$oneWeekPast, $currentDate])->toSql());
-        return User::whereBetween('tgl_keluar', [$oneWeekPast, $currentDate])->get();
+        return User::whereBetween('tgl_keluar', [$oneWeekPast, $currentDate])->limit(3)->get();
     }
 
     public function appLink()

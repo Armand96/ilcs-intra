@@ -210,7 +210,7 @@
                 @foreach ($data['upcomingBirthday'] as $birth)
                     <div class="flex mb-6">
                         <h1 class="w-1/6 text-sm 2xl:text-base font-semibold text-center text-white">
-                            {{ date('d F') }}
+                            {{ Illuminate\Support\Carbon::createFromFormat('Y-m-d', $birth->tgl_lahir)->format('d F') }}
                         </h1>
                         <div class="w-1/6 mx-6">
                             <img src="{{ asset('assets/images/dashboard/ultah/faiz.png') }}" alt="" class="rounded-full object-cover border border-blue-700  w-10 h-10 2xl:w-12 2xl:h-12">
