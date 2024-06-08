@@ -10,6 +10,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\RegulasiController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -75,9 +76,7 @@ Route::get("/our-leader", function(){
 
 Route::get("/our-team", [TeamController::class, 'teams'])->name('our_team');
 
-Route::get("/our-regulation", function(){
-    return view('intranet.pages.our_regulation');
-})->name('our_regulation');
+Route::get("/our-regulation", [RegulasiController::class, 'ourRegulations'])->name('our_regulation');
 
 
 Route::get("/regulations", function(){

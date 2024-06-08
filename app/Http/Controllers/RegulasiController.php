@@ -3,83 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Regulasi;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RegulasiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function ourRegulations()
     {
-        //
-    }
+        $regulations = Regulasi::paginate(10);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        foreach ($regulations as $key => $reg) {
+            if (Storage::disk('public')->exists("regulasi/" . $reg->file_path)) {
+                $regulations[$key]->file_size = number_format(Storage::disk('public')->size("regulasi/" . $reg->file_path) / 1000000, 2);
+                $reg->file_path = Storage::disk('public')->url('regulasi/'.$reg->file_path);
+            } else {
+                $regulations[$key]->file_size = '0.00';
+            }
+        }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Regulasi  $regulasi
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Regulasi $regulasi)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Regulasi  $regulasi
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Regulasi $regulasi)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Regulasi  $regulasi
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Regulasi $regulasi)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Regulasi  $regulasi
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Regulasi $regulasi)
-    {
-        //
+        return view('intranet.pages.our_regulation', compact('regulations'));
     }
 }
