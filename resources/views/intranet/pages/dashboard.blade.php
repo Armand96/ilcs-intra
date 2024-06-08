@@ -217,7 +217,7 @@
                         </div>
                         <div class="w-4/6 lg:text-sm">
                             <h4 class="font-semibold text-xs text-white">{{ $birth->name }}</h4>
-                            <p class="text-dashboard-blue-right text-xs">{{ $birth->jabatan }} ({{ $birth->sub_jabatan }})</p>
+                            <p class="text-dashboard-blue-right text-xs">{{ $birth->jabatan }} ({{ $birth->divisi }})</p>
                         </div>
                     </div>
                 @endforeach

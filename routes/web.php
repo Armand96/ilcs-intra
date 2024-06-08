@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CMS\LeaderCMSController;
 use App\Http\Controllers\CMS\LinkCMSController;
 use App\Http\Controllers\CMS\RegulasiCMSController;
 use App\Http\Controllers\CMS\UserCMSController;
@@ -47,6 +48,7 @@ Route::group(
     Route::resource('users', UserCMSController::class);
     Route::resource('regulasis', RegulasiCMSController::class);
     Route::resource('links', LinkCMSController::class);
+    Route::resource('leaders', LeaderCMSController::class);
     // Route::get('users', [UserCMSController::class, 'index'])->name('cms.user');
 });
 

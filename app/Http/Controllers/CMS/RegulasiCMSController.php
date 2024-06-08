@@ -74,7 +74,7 @@ class RegulasiCMSController extends Controller
             }
 
             Regulasi::create($data);
-            return redirect()->back()->with(['message' => 'Regulasi telah dibuat']);
+            return redirect()->back()->with(['notif' => 'Regulasi telah dibuat']);
         } catch (\Throwable $th) {
             throw $th;
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);

@@ -60,27 +60,25 @@
                 <p class="mt-2 text-sm">Events</p>
             </a> --}}
 
+            @if ($currRoleName == $superAdmin)
+                <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'leaders.index' ? 'menu-child-active' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
+                    href="{{ route('leaders.index') }}">
+                    <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'leaders.index' ? 'hex-icon-active' : 'hex-icon' }}">
+                        <img src="{{ asset('assets/images/icon/calendar-icon.svg') }}" alt="">
+                    </div>
+                    <p class="mt-2 text-sm">Leader</p>
+                </a>
+            @endif
 
-
-
-
-            <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
-                href="#">
-                <div class="p-2 rounded-xl mt-2 hex-icon">
-                    <img src="{{ asset('assets/images/icon/calendar-icon.svg') }}" alt="">
-                </div>
-                <p class="mt-2 text-sm">Leader</p>
-            </a>
-
-            <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
+            {{-- <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
                 href="#">
                 <div class="p-2 rounded-xl mt-2 hex-icon">
                     <img src="{{ asset('assets/images/icon/our-regulation.svg') }}" alt="">
                 </div>
                 <p class="mt-2 text-sm text-center w-full">Team</p>
-            </a>
+            </a> --}}
 
-            <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
+            {{-- <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
                 href="#">
                 <div class="p-2 rounded-xl mt-2 hex-icon">
                     <img src="{{ asset('assets/images/icon/book-icon.svg') }}" alt="">
@@ -94,7 +92,7 @@
                     <img src="{{ asset('assets/images/icon/book-icon-2.svg') }}" alt="">
                 </div>
                 <p class="mt-2 text-sm  text-center w-full">Products</p>
-            </a>
+            </a> --}}
 
         </div>
 

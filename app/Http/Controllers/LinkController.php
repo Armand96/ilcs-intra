@@ -58,7 +58,7 @@ class LinkController extends Controller
             }
 
             Link::create($data);
-            return redirect()->back()->with(['message' => 'LInk telah dibuat']);
+            return redirect()->back()->with(['notif' => 'LInk telah dibuat']);
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
         }
@@ -119,7 +119,7 @@ class LinkController extends Controller
             }
 
             Link::create($data);
-            return redirect()->back()->with(['message' => 'LInk telah diperbarui']);
+            return redirect()->back()->with(['notif' => 'LInk telah diperbarui']);
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
         }
