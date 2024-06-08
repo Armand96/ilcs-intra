@@ -4,82 +4,49 @@ namespace App\Http\Controllers;
 
 use App\Models\Leader;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LeaderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function ourLeader()
     {
-        //
-    }
+        $divisis = [
+            array(
+                'name' => 'Board Of Comission',
+                'icon' => 'boc-icon.svg'
+            ),
+            array(
+                'name' => 'Board Of Directors',
+                'icon' => 'bod-icon.svg'
+            ),
+            array(
+                'name' => 'Board Of Management',
+                'icon' => 'bom-icon.svg'
+            ),
+        ];
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $leaders = array(
+            'boc' => Leader::where('divisi', $divisis[0])->with('user')->get(),
+            'bod' => Leader::where('divisi', $divisis[1])->with('user')->get(),
+            'bom' => Leader::where('divisi', $divisis[2])->with('user')->get(),
+        );
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        foreach ($leaders['boc'] as $key => $usr) {
+            if (Storage::disk('public')->exists("profile_picture/" . $usr->user->image_user)) {
+                $usr->user->image_user = Storage::disk('public')->url('profile_picture/' . $usr->user->image_user);
+            }
+        }
+        foreach ($leaders['bod'] as $key => $usr) {
+            if (Storage::disk('public')->exists("profile_picture/" . $usr->user->image_user)) {
+                $usr->user->image_user = Storage::disk('public')->url('profile_picture/' . $usr->user->image_user);
+            }
+        }
+        foreach ($leaders['bom'] as $key => $usr) {
+            if (Storage::disk('public')->exists("profile_picture/" . $usr->user->image_user)) {
+                $usr->user->image_user = Storage::disk('public')->url('profile_picture/' . $usr->user->image_user);
+            }
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Leader  $leader
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Leader $leader)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Leader  $leader
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Leader $leader)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Leader  $leader
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Leader $leader)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Leader  $leader
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Leader $leader)
-    {
-        //
+        return view('intranet.pages.our_leader', compact('leaders', 'divisis'));
     }
 }

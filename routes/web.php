@@ -7,6 +7,7 @@ use App\Http\Controllers\CMS\UserCMSController;
 use App\Http\Controllers\CMSController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\LeaderController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NotificationController;
@@ -53,8 +54,17 @@ Route::group(
     // Route::get('users', [UserCMSController::class, 'index'])->name('cms.user');
 });
 
+/* INTRANET */
 Route::group(['middleware' =>'auth'], function() {
     Route::get("/dashboard", [DashboardController::class, 'home'])->name('dashboard');
+    Route::get("/our-leader", [LeaderController::class, 'ourLeader'])->name('our_leader');
+    Route::get("/our-team", [TeamController::class, 'teams'])->name('our_team');
+    Route::get("/our-regulation", [RegulasiController::class, 'ourRegulations'])->name('our_regulation');
+
+
+    Route::get("/regulations", function(){
+        return view('regulations');
+    });
 });
 
 Route::any("*", function() {
@@ -68,20 +78,6 @@ Route::get("/comming-soon", function(){
 Route::get("/login", function(){
     return view('login');
 }) ->name('login');
-
-
-Route::get("/our-leader", function(){
-    return view('intranet.pages.our_leader');
-})->name('our_leader');
-
-Route::get("/our-team", [TeamController::class, 'teams'])->name('our_team');
-
-Route::get("/our-regulation", [RegulasiController::class, 'ourRegulations'])->name('our_regulation');
-
-
-Route::get("/regulations", function(){
-    return view('regulations');
-});
 
 Route::get('testtailwind', function() {
     return view('test_tailwind');
