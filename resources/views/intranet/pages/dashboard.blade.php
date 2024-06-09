@@ -17,7 +17,7 @@
     <!-- section kiri -->
     <div class="w-full lg:w-4/6 flex flex-col">
 
-        <div class="grid grid-cols-2 flex-wrap w-full gap-3">
+        <div class="grid grid-cols-1 lg:grid-cols-2 flex-wrap w-full gap-3">
 
             <div class="flex  rounded-2xl bg-onboarding items-center">
                 <div class=" flex flex-col w-3/6 2xl:w-4/6 px-4 py-4 text-white">
@@ -43,7 +43,7 @@
 
             </div>
 
-            <div class="flex w-full flex-col col-span-2 bg-card-dashboard border-blue-950 border rounded-2xl px-4 py-4 ">
+            <div class="flex w-full flex-col lg:col-span-2 bg-card-dashboard border-blue-950 border rounded-2xl px-4 py-4 ">
                 <p class="text-white font-semibold">Shortcut Back Office Access</p>
                 <div class="flex justify-evenly overflow-x-auto pb-4 w-full whitespace-nowrap backoffice-style-2	 mt-4">
 
@@ -126,7 +126,7 @@
 
             <div class="flex flex-col w-full mt-3">
                 <h1 class="text-lg font-semibold mb-4 text-white">INTRANET 2.0 COMING SOON!!</h1>
-                <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full object-fill h-[43vh]">
+                <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full object-fill lg:h-[43vh] ml-0">
             </div>
 
             <!-- <div class="owl-carousel w-full">
@@ -151,9 +151,9 @@
         </div>
 
         <!--  farewell ultah dll -->
-        <div class="flex flex-row rounded-xl gap-4  mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
+        <div class="flex flex-col lg:flex-row rounded-xl gap-4  mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
 
-            <div class="flex-col w-2/6">
+            <div class="flex-col w-full lg:w-2/6">
                 <div class="flex justify-between text-white mb-4">
                     <h5 class="font-semibold text-sm 2xl:text-base">Upcoming Birthday 🎉</h5>
                     <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
@@ -177,7 +177,7 @@
                 </div>
             </div>
 
-            <div class="flex-col w-2/6 border-l pl-4 ">
+            <div class="flex-col w-full lg:w-2/6 lg:border-l lg:pl-4 ">
                 <div class="w-full flex justify-between text-white mb-4">
 
                     <h5 class="font-semibold text-sm 2xl:text-base">Welcoming New Employee 🥳</h5>
@@ -197,7 +197,7 @@
                 </div>
             </div>
 
-            <div class="flex-col w-2/6 border-l pl-4 ">
+            <div class="flex-col w-full lg:w-2/6 lg:border-l lg:pl-4 ">
                 <div class="w-full flex justify-between text-white mb-4">
                     <h5 class="font-semibold text-sm 2xl:text-base">Farewell Employee 👋</h5>
                 </div>
@@ -221,7 +221,7 @@
     </div>
 
     <!-- section kanan -->
-    <div class="w-full lg:w-2/6 flex flex-col ml-6 ">
+    <div class="w-full lg:w-2/6 flex flex-col lg:ml-6 mt-6 lg:mt-0 ">
         <div class="flex-col bg-card-dashboard border border-blue-950 px-2 py-2 rounded-xl">
             <div id='calendar' class="w-full text-white text-xs calendar-custom"></div>
         </div>
@@ -232,7 +232,7 @@
             <div class="h-[53vh] our-team-left overflow-auto">
                 <div class="flex mb-6">
                     <div class="w-2/6 mx-6">
-                        <img src="{{ asset('assets/images/dashboard/event/dmc.jpeg') }}" alt="" class="object-cover rounded-xl  border border-blue-700 h-16">
+                        <img src="{{ asset('assets/images/dashboard/event/dmc.jpeg') }}" alt="" class="object-cover rounded-xl  border border-blue-700 w-32 h-20 relative">
                     </div>
                     <div class="w-4/6 text-sm">
                         <h4 class="font-semibold text-white">Launching DMDC</h4>
@@ -241,7 +241,7 @@
                 </div>
                 <div class="flex mb-6">
                     <div class="w-2/6 mx-6">
-                        <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="object-cover rounded-xl border border-blue-700  h-16">
+                        <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="object-cover rounded-xl border border-blue-700  w-32 h-20 relative">
                     </div>
                     <div class="w-4/6 text-sm">
                         <h4 class="font-semibold text-white">Soft Go Live INTRANET 2.0 </h4>
@@ -259,18 +259,10 @@
             <div class="w-full flex">
                 @foreach ($data['linkSosmed'] as $sos)
                 <a href="{{ $sos->link_tujuan }}" target="_blank" class="w-2/12">
-                    <img src="{{ $sos->image_path }}" alt="" class="w-3/6">
+                    <img src="{{ $sos->image_path }}" alt="" class="w-3/6 rounded-full">
                 </a>
                 @endforeach
-                {{-- <a href="https://x.com/ilcs_id" target="_blank" class="w-2/12">
-                        <img src="{{ asset('assets/images/icon/twitter-dashboard.svg') }}" alt="" class="w-3/6">
-                </a>
-                <a href="https://www.youtube.com/@pelindosolusidigital" target="_blank" class="w-2/12">
-                    <img src="{{ asset('assets/images/icon/youtube-dashboard.svg') }}" alt="" class="w-3/6">
-                </a>
-                <a href="#" target="_blank" class="w-2/12">
-                    <img src="{{ asset('assets/images/icon/linkedin-dashboard.svg') }}" alt="" class="w-3/6">
-                </a> --}}
+             
             </div>
         </div>
 
