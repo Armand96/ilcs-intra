@@ -3710,6 +3710,10 @@ html:has(.drawer-toggle:checked) {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.object-fill {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
 .object-center {
   -o-object-position: center;
      object-position: center;
