@@ -124,9 +124,9 @@
                                         </div> -->
             </div>
 
-            <div class="flex flex-col h-[50vh] w-full mt-3">
+            <div class="flex flex-col w-full mt-3">
                 <h1 class="text-lg font-semibold mb-4 text-white">INTRANET 2.0 COMING SOON!!</h1>
-                <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="size-full">
+                <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="size-full h-[43vh]">
             </div>
 
             <!-- <div class="owl-carousel w-full">
