@@ -246,6 +246,34 @@ html {
     display: none ;
 }
 
+.calendar-custom {
+    zoom: 80% ;
+}
+
+/* .fc-dayGridMonth-view table thead tr,  .fc-dayGridMonth-view table tbody td{
+    border: hidden !important ;
+} */
+
+.fc-theme-standard .fc-scrollgrid, .fc-theme-standard th, .fc-theme-standard td  {
+    border: hidden !important ;
+} 
+
+.fc-daygrid-event-dot {
+    width: 10px !important;
+    height: 10px !important ;
+    background-color: red ;
+    border-radius: 100% ;
+    margin-left: 50% !important ;
+}
+
+.fc-button-primary {
+    background-color: transparent !important ;
+    border: hidden !important ;
+}
+
+.fc-daygrid-day-top {
+    height: 100% ;
+}
 
 @media only screen and (min-width: 1500px ){
     .drawer-side {

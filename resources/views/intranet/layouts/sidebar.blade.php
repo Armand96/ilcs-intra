@@ -1,6 +1,6 @@
 <div class="drawer-side">
     <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
-    <div class="menu py-4 w-40 2xl:w-64 min-h-screen text-base-content sidebar-background border-blue-950 border">
+    <div class="menu py-4 w-40 min-h-screen text-base-content sidebar-background border-blue-950 border">
         <img src="{{ asset('assets/images/logo/sidebar_logo.svg') }}" class=" mx-auto w-36 mb-4 mt-2 object-cover"
             alt="logo">
         <!-- Sidebar content here -->
@@ -36,7 +36,7 @@
                 <div class="p-2 rounded-xl mt-2 hex-icon">
                     <img src="{{ asset('assets/images/icon/employe-aspiration.svg') }}" alt="">
                 </div>
-                <p class="mt-2 text-xs 2xl:text-sm text-center 2xl:text-nowrap w-full">Employee Forum</p>
+                <p class="mt-2 text-xs 2xl:text-sm text-center">Employee Forum</p>
             </a>
 
             <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
@@ -60,7 +60,7 @@
                 <div class="p-2 rounded-xl mt-2 hex-icon">
                     <img src="{{ asset('assets/images/icon/calendar-icon.svg') }}" alt="">
                 </div>
-                <p class="mt-2 text-xs 2xl:text-sm text-center 2xl:text-nowrap w-full">Meeting Calendar</p>
+                <p class="mt-2 text-xs 2xl:text-sm text-center">Meeting Calendar</p>
             </a>
 
             <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'our_regulation' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
