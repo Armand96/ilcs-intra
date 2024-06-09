@@ -1,23 +1,23 @@
 @extends('cms.master_cms')
 
 @section('content')
-    <div class="flex flex-col w-full mt-6 bg-card-dashboard border border-blue-950 p-6">
+    <div class="flex flex-col w-full mt-6  bg-gray-600 rounded-xl p-6">
         <div class="flex flex-col mb-3">
             <div class="w-1/6 text-white">
                 <p class="text-xl">Link</p>
             </div>
 
-            <form action="" class="bg-gray-900 px-4 py-6 my-6">
+            <form action="" class="border px-4 py-6 my-6">
                 <div class=" w-full grid grid-cols-3 gap-4 rounded-xl">
                     <div>
                         <p class="text-white">Nama</p>
                         <input type="text" name="name" value="{{ request('name') }}"
-                            class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                            class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <div>
                         <p class="text-white">Tipe</p>
                         <input type="text" name="tipe" value="{{ request('tipe') }}"
-                            class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                            class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <button type="submit" class="btn btn-primary mt-7 w-3/12">
                         Cari
@@ -90,12 +90,12 @@
                 <div class="mt-4">
                     <p class="text-white">Nama</p>
                     <input type="text" name="name" id="name"
-                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Tipe</p>
                     <select name="tipe"
-                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         <option value="sosmed">Sosmed</option>
                         <option value="other">Other</option>
                     </select>
@@ -103,12 +103,12 @@
                 <div class="mt-4">
                     <p class="text-white">Link Tujuan</p>
                     <input type="text" name="link_tujuan" id="link_tujuan"
-                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Gambar</p>
                     <input type="file" name="file"
-                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
             </div>
 

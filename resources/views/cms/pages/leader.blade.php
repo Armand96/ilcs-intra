@@ -1,23 +1,23 @@
 @extends('cms.master_cms')
 
 @section('content')
-    <div class="flex flex-col w-full mt-6 bg-card-dashboard border border-blue-950 p-6">
+    <div class="flex flex-col w-full mt-6 bg-gray-600 p-6">
         <div class="flex flex-col mb-3">
             <div class="w-1/6 text-white">
                 <p class="text-xl">Leader</p>
             </div>
 
-            <form action="" class="bg-gray-900 px-4 py-6 my-6">
+            <form action="" class="border rounded-xl px-4 py-6 my-6">
                 <div class=" w-full grid grid-cols-3 gap-4 rounded-xl">
                     <div>
                         <p class="text-white">Name</p>
                         <input type="text" name="name" value="{{ request('name') }}"
-                            class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                            class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <div>
                         <p class="text-white">Divisi</p>
                         <input type="text" name="divisi" value="{{ request('divisi') }}"
-                            class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                            class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <button type="submit" class="btn btn-primary mt-7 w-3/12">
                         Cari
@@ -82,7 +82,7 @@
                 <div class="mt-4">
                     <p class="text-white">User</p>
                     <input type="text" list="users" name="user_id" id="user_id"
-                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         <datalist id="users">
                             @foreach ($users as $usr)
                                 <option value="{{ $usr->id }}">{{ $usr->name }}</option>
@@ -92,7 +92,7 @@
                 <div class="mt-4">
                     <p class="text-white">Divisi</p>
                     <select required name="divisi"
-                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         @foreach ($divisis as $div)
                             <option value="{{ $div }}">{{ $div }}</option>
                         @endforeach
@@ -101,12 +101,12 @@
                 <div class="mt-4">
                     <p class="text-white">Deskripsi</p>
                     <textarea name="description" id="description" cols="30" rows="10"
-                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none"></textarea>
+                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none"></textarea>
                 </div>
                 {{-- <div class="mt-4">
                     <p class="text-white">File</p>
                     <input type="file" name="file"
-                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div> --}}
             </div>
 
