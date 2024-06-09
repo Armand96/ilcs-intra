@@ -48,7 +48,7 @@
                     <tbody>
                         @foreach ($leaders as $index => $lead)
                             <tr>
-                                <th>{{ $lead->id }}</th>
+                                <th>{{ $index+1 }}</th>
                                 <td> {{ $lead->user->name }} </td>
                                 <td>{{ $lead->divisi }}</td>
                                 <td>
@@ -84,7 +84,9 @@
                     <input type="text" list="users" name="user_id" id="user_id"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         <datalist id="users">
-                            <option value="1">Admin</option>
+                            @foreach ($users as $usr)
+                                <option value="{{ $usr->id }}">{{ $usr->name }}</option>
+                            @endforeach
                         </datalist>
                 </div>
                 <div class="mt-4">

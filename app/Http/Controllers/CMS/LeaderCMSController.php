@@ -4,6 +4,7 @@ namespace App\Http\Controllers\CMS;
 
 use App\Http\Controllers\Controller;
 use App\Models\Leader;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LeaderCMSController extends Controller
@@ -30,8 +31,9 @@ class LeaderCMSController extends Controller
 
         $leaders = $query->paginate(10);
         $divisis = ['Board Of Comission', 'Board Of Directors', 'Board Of Management'];
+        $users = User::select('id', 'name')->get();
 
-        return view('cms.pages.leader', compact('leaders', 'divisis'));
+        return view('cms.pages.leader', compact('leaders', 'divisis', 'users'));
     }
 
     /**
