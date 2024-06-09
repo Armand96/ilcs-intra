@@ -96,6 +96,8 @@ class UserCMSController extends Controller
                 'role_id' => 'required',
                 'password' => 'required',
                 'jabatan' => 'required',
+                // 'divisi' => 'required',
+                // 'dept' => 'required',
                 'tgl_lahir' => 'required',
                 'tgl_masuk' => 'required',
             ]);
@@ -108,6 +110,8 @@ class UserCMSController extends Controller
                 'role_id',
                 'password',
                 'jabatan',
+                'divisi',
+                'dept',
                 'tgl_lahir',
                 'tgl_masuk',
                 'tgl_keluar'
@@ -193,6 +197,8 @@ class UserCMSController extends Controller
             'role_id',
             'password',
             'jabatan',
+            'divisi',
+            'dept',
             'tgl_lahir',
             'tgl_masuk',
             'tgl_keluar'
