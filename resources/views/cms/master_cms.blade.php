@@ -5,7 +5,7 @@
 
 <body>
 
-    <div class="drawer lg:drawer-open" style="zoom: 80% ;">
+    <div style="zoom: 80% ;" class="drawer lg:drawer-open" >
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content bg-slate-200 ">
 
@@ -14,7 +14,7 @@
             <!-- Page content -->
             <div class="flex flex-col items-center justify-center">
                 <!-- Page content here -->
-                <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                <!-- <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label> -->
 
                 <div class="flex w-full px-14 py-6">
                     @yield('content')

@@ -237,10 +237,10 @@ html {
     background: #2C365D99;
 }
 
-.btn-primary {
+/* .btn-primary {
     background-color: #1f2937 ;
     color: #FFFF ;
-}
+} */
 
 .hidden-scroll::-webkit-scrollbar {
     display: none ;

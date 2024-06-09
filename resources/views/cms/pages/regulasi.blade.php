@@ -1,18 +1,18 @@
 @extends('cms.master_cms')
 
 @section('content')
-    <div class="flex flex-col w-full mt-6 bg-card-dashboard border border-blue-950 p-6">
+    <div class="flex flex-col w-full mt-6  bg-gray-600 p-6 rounded-xl">
         <div class="flex flex-col mb-3">
             <div class="w-1/6 text-white">
                 <p class="text-xl">Regulasi</p>
             </div>
 
-            <form action="" class="bg-gray-900 px-4 py-6 my-6">
+            <form action="" class="border px-4 py-6 my-6">
                 <div class=" w-full grid grid-cols-3 gap-4 rounded-xl">
                     <div>
                         <p class="text-white">Judul</p>
                         <input type="text" name="judul" value="{{ request('judul') }}"
-                            class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                            class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <button type="submit" class="btn btn-primary mt-7 w-3/12">
                         Cari
@@ -20,7 +20,7 @@
                 </div>
             </form>
 
-            <button onclick="createNew()" class="btn btn-primary w-1/6 mb-6">
+            <button onclick="createNew()" class="btn btn-primary w-2/6 mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -78,16 +78,16 @@
                 <div class="mt-4">
                     <p class="text-white">Judul</p>
                     <input type="text" name="judul" id="judul"
-                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Deskripsi</p>
-                    <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none"></textarea>
+                    <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none"></textarea>
                 </div>
                 <div class="mt-4">
                     <p class="text-white">File</p>
                     <input type="file" name="file"
-                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
             </div>
 
