@@ -11,6 +11,7 @@ use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 trait GeneralTrait
 {
@@ -84,12 +85,22 @@ trait GeneralTrait
     public function appLink()
     {
         $data = Link::where('tipe', LinkTypeEnum::OTHER)->get();
+        foreach ($data as $key => $lnk) {
+            if (Storage::disk('public')->exists("link_gambar/" . $lnk->image_path)) {
+                $lnk->image_path = Storage::disk('public')->url('link_gambar/'.$lnk->image_path);
+            }
+        }
         return $data;
     }
 
     public function sosmedLink()
     {
         $data = Link::where('tipe', LinkTypeEnum::SOSMED)->get();
+        foreach ($data as $key => $lnk) {
+            if (Storage::disk('public')->exists("link_gambar/" . $lnk->image_path)) {
+                $lnk->image_path = Storage::disk('public')->url('link_gambar/'.$lnk->image_path);
+            }
+        }
         return $data;
     }
 
