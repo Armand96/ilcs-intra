@@ -126,7 +126,7 @@
 
             <div class="flex flex-col h-[50vh] w-full mt-3">
                 <h1 class="text-lg font-semibold mb-4 text-white">INTRANET 2.0 COMING SOON!!</h1>
-                <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full h-fit  object-center rounded-xl">
+                <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="size-full">
             </div>
 
             <!-- <div class="owl-carousel w-full">
@@ -496,7 +496,7 @@
             selectable: true,
             eventMouseEnter: function(info) {
                 let tooltip = document.createElement('div');
-                tooltip.className = 'absolute z-30 bg-black text-white text-sm px-2 py-1 rounded';
+                tooltip.className = 'absolute z-30 bg-black text-white text-sm px-2 py-1 rounded-xl';
                 tooltip.style.left = (info.jsEvent.pageX + 10) + 'px';
                 tooltip.style.top = (info.jsEvent.pageY + 10) + 'px';
                 tooltip.innerHTML = `
