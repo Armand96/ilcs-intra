@@ -128,7 +128,7 @@
             <h1 class="text-lg font-semibold mb-4 text-white">INTRANET 2.0 COMING SOON!!</h1>
             <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full object-fill lg:h-[43vh] ml-0">
         </div>
-        <!-- 
+        <!--
         <div class="owl-carousel owl-theme w-full">
 
             <div id="slide1" class="carousel-item flex flex-col w-full mt-4">
@@ -163,7 +163,7 @@
                         {{ Illuminate\Support\Carbon::createFromFormat('Y-m-d', $birth->tgl_lahir)->format('d F') }}
                     </h1>
                     <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/dashboard/ultah/faiz.png') }}" alt="" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
+                        <img src="{{ $birth->image_user }}" alt="" onerror="this.src='{{asset('assets/images/dashboard/ultah/faiz.png')}}'" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
                     </div>
                     <div class="w-4/6 lg:text-sm">
                         <h4 class="font-semibold text-xs text-white">{{ $birth->name }}</h4>
@@ -183,7 +183,7 @@
                 @foreach ($data['newEmployee'] as $emp)
                 <div class="flex mb-6 relative">
                     <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
+                        <img src="{{ $emp->image_user }}" alt="" onerror="this.src='{{asset('assets/images/users/user-1.jpg')}}'" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
                     </div>
                     <div class="w-5/6 text-sm">
                         <h4 class="font-semibold text-xs text-white">{{ $emp->name }}</h4>
@@ -191,7 +191,7 @@
                     </div>
                 </div>
                 @endforeach
-              
+
             </div>
         </div>
 
@@ -203,7 +203,7 @@
                 @foreach ($data['farewellEmployee'] as $far)
                 <div class="flex mb-6 relative ">
                     <div class="w-1/6 mx-6">
-                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700  w-8 h-8 ">
+                        <img src="{{ $far->image_user }}" alt="" onerror="this.src='{{asset('assets/images/users/user-3.jpg')}}'" class="rounded-full object-cover border border-blue-700  w-8 h-8 ">
                     </div>
                     <div class="w-5/6 text-sm">
                         <h4 class="font-semibold text-xs text-white">{{ $far->name }}</h4>
@@ -211,7 +211,7 @@
                     </div>
                 </div>
                 @endforeach
-             
+
             </div>
         </div>
 
