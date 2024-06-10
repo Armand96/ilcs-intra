@@ -101,173 +101,187 @@
 
         </div>
 
-        </div>
-
-        <!-- carousel -->
-        <div class="flex flex-col rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
-            <div class="flex justify-between mb-3">
-                <div class="lg:w-2/6 2xl:w-1/6 text-white">
-                    <p class="text-base lg:text-xl">ILCS News</p>
-                </div>
-                <!-- <div class="w-1/6 flex text-xl nextBtn text-white">
-                                            <p class="mr-6 prevBtn cursor-pointer">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                                                </svg>
-                                            </p>
-                                            <p class="cursor-pointer">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                </svg>
-
-                                            </p>
-                                        </div> -->
-            </div>
-
-            <div class="flex flex-col w-full mt-3">
-                <h1 class="text-lg font-semibold mb-4 text-white">INTRANET 2.0 COMING SOON!!</h1>
-                <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full object-fill lg:h-[43vh] ml-0">
-            </div>
-
-            <!-- <div class="owl-carousel w-full">
-
-                                        <div id="slide1" class="carousel-item flex flex-col w-full mt-4">
-                                            <h1 class="text-lg font-semibold text-white">PT ILCS dengan bangga berpartisipasi dalam program Mudik Gratis Bersama Pelindo Group 2024</h1>
-                                            <div class="mt-6 w-full h-72">
-                                                <img src="{{ asset('assets/images/carousel/mockup-news.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
-                                            </div>
-                                        </div>
-
-                                        <div id="slide2" class="carousel-item flex flex-col w-full mt-4">
-                                            <h1 class="text-lg font-semibold text-white">Slide 2</h1>
-                                            <div class="mt-6 w-full h-72">
-                                                <img src="{{ asset('assets/images/carousel/mockup-news.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
-                                            </div>
-                                        </div>
-
-                                    </div> -->
-
-
-        </div>
-
-        <!--  farewell ultah dll -->
-        <div class="flex flex-col lg:flex-row rounded-xl gap-4  mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
-
-            <div class="flex-col w-full lg:w-2/6 h-32">
-                <div class="flex justify-between text-white mb-4">
-                    <h5 class="font-semibold text-sm 2xl:text-base">Upcoming Birthday 🎉</h5>
-                    <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
-                </div>
-                <div class="w-full flex-col  h-36 overflow-y-auto our-team-left">
-                    @foreach ($data['upcomingBirthday'] as $birth)
-                    <div class="flex mb-6 relative">
-                        <h1 class="w-1/6 text-sm font-semibold text-center text-white">
-                            {{ Illuminate\Support\Carbon::createFromFormat('Y-m-d', $birth->tgl_lahir)->format('d F') }}
-                        </h1>
-                        <div class="w-1/6 mx-6">
-                            <img src="{{ asset('assets/images/dashboard/ultah/faiz.png') }}" alt="" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
-                        </div>
-                        <div class="w-4/6 lg:text-sm">
-                            <h4 class="font-semibold text-xs text-white">{{ $birth->name }}</h4>
-                            <p class="text-dashboard-blue-right text-xs">{{ $birth->jabatan }}</p>
-                        </div>
-                    </div>
-                    @endforeach
-
-                </div>
-            </div>
-
-            <div class="flex-col w-full lg:w-2/6 lg:border-l lg:pl-4">
-                <div class="w-full flex justify-between text-white mb-4">
-
-                    <h5 class="font-semibold text-sm 2xl:text-base">Welcoming New Employee 🥳</h5>
-                </div>
-                <div class="w-full flex-col  h-36 overflow-y-auto our-team-left">
-                    @foreach ($data['newEmployee'] as $emp)
-                    <div class="flex mb-6 relative">
-                        <div class="w-1/6 mx-6">
-                            <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
-                        </div>
-                        <div class="w-5/6 text-sm">
-                            <h4 class="font-semibold text-xs text-white">{{ $emp->name }}</h4>
-                            <p class="text-dashboard-blue-right text-xs">{{ $emp->jabatan }}</p>
-                        </div>
-                    </div>
-                    @endforeach
-
-                </div>
-            </div>
-
-            <div class="flex-col w-full lg:w-2/6 lg:border-l lg:pl-4 ">
-                <div class="w-full flex justify-between text-white mb-4">
-                    <h5 class="font-semibold text-sm 2xl:text-base">Farewell Employee 👋</h5>
-                </div>
-                <div class="w-full flex-col h-36 overflow-y-auto our-team-left">
-                    @foreach ($data['farewellEmployee'] as $far)
-                    <div class="flex mb-6 relative ">
-                        <div class="w-1/6 mx-6">
-                            <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700  w-8 h-8 ">
-                        </div>
-                        <div class="w-5/6 text-sm">
-                            <h4 class="font-semibold text-xs text-white">{{ $far->name }}</h4>
-                            <p class="text-dashboard-blue-right text-xs">{{ $far->jabatan }}</p>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-
-        </div>
-
     </div>
 
-    <!-- section kanan -->
-    <div class="w-full lg:w-2/6 flex flex-col lg:ml-6 mt-6 lg:mt-0 ">
-        <div class="flex-col bg-card-dashboard border border-blue-950 px-2 py-2 rounded-xl">
-            <div id='calendar' class="w-full text-white text-xs calendar-custom"></div>
+    <!-- carousel -->
+    <div class="flex flex-col rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
+        <!-- <div class="flex justify-between mb-3">
+            <div class="lg:w-2/6 2xl:w-1/6 text-white">
+                <p class="text-base lg:text-xl">ILCS News</p>
+            </div>
+            <div class="w-1/6 flex text-xl nextBtn text-white">
+                <p class="mr-6 prevBtn cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                    </svg>
+                </p>
+                <p class="cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                    </svg>
+
+                </p>
+            </div>
+        </div> -->
+
+        <div class="flex flex-col w-full mt-3">
+            <h1 class="text-lg font-semibold mb-4 text-white">INTRANET 2.0 COMING SOON!!</h1>
+            <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full object-fill lg:h-[43vh] ml-0">
         </div>
-        <div class="w-full flex  bg-card-dashboard border border-blue-950 flex-col text-white mt-6  px-4 py-4 rounded-xl">
-            <h5 class="font-semibold mb-6">
-                ILCS Events
-            </h5>
-            <div class="h-[53vh] our-team-left overflow-auto">
-                <div class="flex mb-6">
-                    <div class="w-2/6 mx-6">
-                        <img src="{{ asset('assets/images/dashboard/event/dmc.jpeg') }}" alt="" class="object-cover rounded-xl  border border-blue-700 w-32 h-20 relative">
-                    </div>
-                    <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Launching DMDC</h4>
-                        <p class="text-dashboard-blue-right text-xs">Senin, 20 Mei 2024 </p>
-                    </div>
-                </div>
-                <div class="flex mb-6">
-                    <div class="w-2/6 mx-6">
-                        <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="object-cover rounded-xl border border-blue-700  w-32 h-20 relative">
-                    </div>
-                    <div class="w-4/6 text-sm">
-                        <h4 class="font-semibold text-white">Soft Go Live INTRANET 2.0 </h4>
-                        <p class="text-dashboard-blue-right text-xs">Senin, 27 Mei 2024| 10.00 </p>
-                    </div>
+        <!-- 
+        <div class="owl-carousel owl-theme w-full">
+
+            <div id="slide1" class="carousel-item flex flex-col w-full mt-4">
+                <h1 class="text-lg font-semibold text-white">PT ILCS dengan bangga berpartisipasi dalam program Mudik Gratis Bersama Pelindo Group 2024</h1>
+                <div class="mt-6 w-full h-72">
+                    <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
                 </div>
             </div>
 
-        </div>
-
-        <div class="flex-col bg-card-dashboard border border-blue-950 mt-6 px-4 py-4 rounded-xl">
-            <div class="w-full flex justify-between text-white mb-4">
-                <h5 class="font-semibold ">Social Media ILCS</h5>
+            <div id="slide2" class="carousel-item flex flex-col w-full mt-4">
+                <h1 class="text-lg font-semibold text-white">Slide 2</h1>
+                <div class="mt-6 w-full h-72">
+                    <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
+                </div>
             </div>
-            <div class="w-full flex">
-                @foreach ($data['linkSosmed'] as $sos)
-                <a href="{{ $sos->link_tujuan }}" target="_blank" class="w-2/12">
-                    <img src="{{ $sos->image_path }}" alt="" class="w-3/6 rounded-full">
-                </a>
+
+        </div> -->
+    </div>
+
+    <!--  farewell ultah dll -->
+    <div class="flex flex-col lg:flex-row rounded-xl gap-4  mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
+
+        <div class="flex-col w-full lg:w-2/6 h-32">
+            <div class="flex justify-between text-white mb-4">
+                <h5 class="font-semibold text-sm 2xl:text-base">Upcoming Birthday 🎉</h5>
+                <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
+            </div>
+            <div class="w-full flex-col  h-36 overflow-y-auto our-team-left">
+                @foreach ($data['upcomingBirthday'] as $birth)
+                <div class="flex mb-6 relative">
+                    <h1 class="w-1/6 text-sm font-semibold text-center text-white">
+                        {{ Illuminate\Support\Carbon::createFromFormat('Y-m-d', $birth->tgl_lahir)->format('d F') }}
+                    </h1>
+                    <div class="w-1/6 mx-6">
+                        <img src="{{ asset('assets/images/dashboard/ultah/faiz.png') }}" alt="" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
+                    </div>
+                    <div class="w-4/6 lg:text-sm">
+                        <h4 class="font-semibold text-xs text-white">{{ $birth->name }}</h4>
+                        <p class="text-dashboard-blue-right text-xs">{{ $birth->jabatan }}</p>
+                    </div>
+                </div>
                 @endforeach
-             
+
+            </div>
+        </div>
+
+        <div class="flex-col w-full lg:w-2/6 lg:border-l lg:pl-4">
+            <div class="w-full flex justify-between text-white mb-4">
+
+                <h5 class="font-semibold text-sm 2xl:text-base">Welcoming New Employee 🥳</h5>
+            </div>
+            <div class="w-full flex-col  h-36 overflow-y-auto our-team-left">
+                @foreach ($data['newEmployee'] as $emp)
+                <div class="flex mb-6 relative">
+                    <div class="w-1/6 mx-6">
+                        <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
+                    </div>
+                    <div class="w-5/6 text-sm">
+                        <h4 class="font-semibold text-xs text-white">{{ $emp->name }}</h4>
+                        <p class="text-dashboard-blue-right text-xs">{{ $emp->jabatan }}</p>
+                    </div>
+                </div>
+                @endforeach
+
+            </div>
+        </div>
+
+        <div class="flex-col w-full lg:w-2/6 lg:border-l lg:pl-4 ">
+            <div class="w-full flex justify-between text-white mb-4">
+                <h5 class="font-semibold text-sm 2xl:text-base">Farewell Employee 👋</h5>
+            </div>
+            <div class="w-full flex-col h-36 overflow-y-auto our-team-left">
+                @foreach ($data['farewellEmployee'] as $far)
+                <div class="flex mb-6 relative ">
+                    <div class="w-1/6 mx-6">
+                        <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700  w-8 h-8 ">
+                    </div>
+                    <div class="w-5/6 text-sm">
+                        <h4 class="font-semibold text-xs text-white">{{ $far->name }}</h4>
+                        <p class="text-dashboard-blue-right text-xs">{{ $far->jabatan }}</p>
+                    </div>
+                </div>
+                @endforeach
             </div>
         </div>
 
     </div>
+
+</div>
+
+<!-- section kanan -->
+<div class="w-full lg:w-2/6 flex flex-col lg:ml-6 mt-6 lg:mt-0 ">
+    <div class="flex-col bg-card-dashboard border border-blue-950 px-2 py-2 rounded-xl">
+        <div id='calendar' class="w-full text-white text-xs calendar-custom"></div>
+    </div>
+    <div class="w-full flex  bg-card-dashboard border border-blue-950 flex-col text-white mt-6  px-4 py-4 rounded-xl">
+        <h5 class="font-semibold mb-6">
+            ILCS Events
+        </h5>
+        <div class="h-[43vh] our-team-left overflow-auto">
+            <div class="flex mb-6">
+                <div class="w-2/6 mx-6">
+                    <img src="{{ asset('assets/images/dashboard/event/dmc.jpeg') }}" alt="" class="object-cover rounded-xl  border border-blue-700 w-32 h-20 relative">
+                </div>
+                <div class="w-4/6 text-sm">
+                    <h4 class="font-semibold text-white">Launching DMDC</h4>
+                    <p class="text-dashboard-blue-right text-xs">Senin, 20 Mei 2024 </p>
+                </div>
+            </div>
+            <div class="flex mb-6">
+                <div class="w-2/6 mx-6">
+                    <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="object-cover rounded-xl border border-blue-700  w-32 h-20 relative">
+                </div>
+                <div class="w-4/6 text-sm">
+                    <h4 class="font-semibold text-white">Soft Go Live INTRANET 2.0 </h4>
+                    <p class="text-dashboard-blue-right text-xs">Senin, 27 Mei 2024| 10.00 </p>
+                </div>
+            </div>
+            <div class="flex mb-6">
+                <div class="w-2/6 mx-6">
+                    <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="object-cover rounded-xl border border-blue-700  w-32 h-20 relative">
+                </div>
+                <div class="w-4/6 text-sm">
+                    <h4 class="font-semibold text-white">Soft Go Live INTRANET 2.0 </h4>
+                    <p class="text-dashboard-blue-right text-xs">Senin, 27 Mei 2024| 10.00 </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="border border-blue-600 px-4 py-3 rounded-lg">
+            <h5 class="font-semibold mb-6">Maklumat</h5>
+            <p class="text-xs">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur facere ipsa optio, quo eaque animi assumenda ullam minima sit corporis eum totam modi dolores laborum vel, sequi iusto reiciendis? Iure veniam rem tempore explicabo corporis eius! Quibusdam deleniti eum magni, sequi exercitationem fugit consequuntur labore suscipit, sed recusandae vitae cupiditate accusamus obcaecati eos. Nobis delectus distinctio nam iure numquam incidunt.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="flex-col bg-card-dashboard border border-blue-950 mt-6 px-4 py-4 rounded-xl">
+        <div class="w-full flex justify-between text-white mb-4">
+            <h5 class="font-semibold ">Social Media ILCS</h5>
+        </div>
+        <div class="w-full flex">
+            @foreach ($data['linkSosmed'] as $sos)
+            <a href="{{ $sos->link_tujuan }}" target="_blank" class="w-2/12">
+                <img src="{{ $sos->image_path }}" alt="" class="w-3/6 rounded-full">
+            </a>
+            @endforeach
+
+        </div>
+    </div>
+
+</div>
 </div>
 
 <!-- Chart -->

@@ -3170,6 +3170,9 @@ html:has(.drawer-toggle:checked) {
 .h-36 {
   height: 9rem;
 }
+.h-\[43vh\] {
+  height: 43vh;
+}
 .max-h-\[90dvh\] {
   max-height: 90dvh;
 }
@@ -3432,6 +3435,10 @@ html:has(.drawer-toggle:checked) {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+.border-blue-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(37 99 235 / var(--tw-border-opacity));
 }
 .bg-base-100 {
   --tw-bg-opacity: 1;
