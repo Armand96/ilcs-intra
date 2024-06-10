@@ -158,10 +158,10 @@
                     <h5 class="font-semibold text-sm 2xl:text-base">Upcoming Birthday 🎉</h5>
                     <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
                 </div>
-                <div class="w-full flex-col  h-36 overflow-y-auto">
+                <div class="w-full flex-col  h-36 overflow-y-auto our-team-left">
                     @foreach ($data['upcomingBirthday'] as $birth)
                     <div class="flex mb-6 relative">
-                        <h1 class="w-1/6 text-sm 2xl:text-base font-semibold text-center text-white">
+                        <h1 class="w-1/6 text-sm font-semibold text-center text-white">
                             {{ Illuminate\Support\Carbon::createFromFormat('Y-m-d', $birth->tgl_lahir)->format('d F') }}
                         </h1>
                         <div class="w-1/6 mx-6">
@@ -169,7 +169,7 @@
                         </div>
                         <div class="w-4/6 lg:text-sm">
                             <h4 class="font-semibold text-xs text-white">{{ $birth->name }}</h4>
-                            <p class="text-dashboard-blue-right text-xs">{{ $birth->jabatan }} ({{ $birth->divisi }})</p>
+                            <p class="text-dashboard-blue-right text-xs">{{ $birth->jabatan }}</p>
                         </div>
                     </div>
                     @endforeach
@@ -182,7 +182,7 @@
 
                     <h5 class="font-semibold text-sm 2xl:text-base">Welcoming New Employee 🥳</h5>
                 </div>
-                <div class="w-full flex-col  h-36 overflow-y-auto">
+                <div class="w-full flex-col  h-36 overflow-y-auto our-team-left">
                     @foreach ($data['newEmployee'] as $emp)
                     <div class="flex mb-6 relative">
                         <div class="w-1/6 mx-6">
@@ -202,9 +202,9 @@
                 <div class="w-full flex justify-between text-white mb-4">
                     <h5 class="font-semibold text-sm 2xl:text-base">Farewell Employee 👋</h5>
                 </div>
-                <div class="w-full flex-col h-36 overflow-y-auto">
+                <div class="w-full flex-col h-36 overflow-y-auto our-team-left">
                     @foreach ($data['farewellEmployee'] as $far)
-                    <div class="flex mb-6 relative">
+                    <div class="flex mb-6 relative ">
                         <div class="w-1/6 mx-6">
                             <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700  w-8 h-8 ">
                         </div>
