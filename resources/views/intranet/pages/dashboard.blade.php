@@ -174,7 +174,7 @@
             </div>
         </div>
 
-        <div class="flex-col z-10 lg:z-0 mt-32 lg:mt-0  w-full lg:w-2/6 lg:border-l lg:pl-4">
+        <div class="flex-col z-10 lg:z-0 mt-32 lg:mt-0 lg:h-44 w-full lg:w-2/6 lg:border-l lg:pl-4">
             <div class="w-full flex justify-between text-white mb-4">
 
                 <h5 class="font-semibold text-sm 2xl:text-base">Welcoming New Employee 🥳</h5>
@@ -195,7 +195,7 @@
             </div>
         </div>
 
-        <div class="flex-col h-[21vh] lg:h-36 w-full lg:w-2/6 lg:border-l lg:pl-4 z-20 relative lg:z-0 lg:mt-0">
+        <div class="flex-col h-[21vh] lg:h-44 w-full lg:w-2/6 lg:border-l lg:pl-4 z-20 lg:z-0 lg:mt-0">
             <div class="w-full flex justify-between text-white mb-4">
                 <h5 class="font-semibold text-sm 2xl:text-base">Farewell Employee 👋</h5>
             </div>
