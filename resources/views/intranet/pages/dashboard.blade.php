@@ -49,7 +49,7 @@
 
                     @foreach ($data['linkApps'] as $app)
                     <a href="{{ $app->link_tujuan }}" target="_blank" class="w-2/6 flex mr-6 flex-col items-center">
-                        <div class="h-full w-16 py-2 px-1 bg-backoffice-icon rounded-full">
+                        <div class="h-full w-16 py-2 px-1 object-cover bg-backoffice-icon rounded-full">
                             <img src="{{ $app->image_path }}" class="mx-auto object-cover" alt="">
                         </div>
                         <p class="text-sm text-white">{{ $app->name }}</p>
@@ -151,12 +151,12 @@
     <!--  farewell ultah dll -->
     <div class="flex flex-col lg:flex-row rounded-xl gap-4  mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
 
-        <div class="flex-col w-full lg:w-2/6 h-32">
+        <div class="flex-col w-full lg:w-2/6 h-28 lg:h-36">
             <div class="flex justify-between text-white mb-4">
                 <h5 class="font-semibold text-sm 2xl:text-base">Upcoming Birthday 🎉</h5>
                 <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
             </div>
-            <div class="w-full flex-col  h-36 overflow-y-auto our-team-left">
+            <div class="w-full flex-col h-[21vh] lg:h-36 overflow-y-auto our-team-left">
                 @foreach ($data['upcomingBirthday'] as $birth)
                 <div class="flex mb-6 relative">
                     <h1 class="w-1/6 text-sm font-semibold text-center text-white">
@@ -171,16 +171,15 @@
                     </div>
                 </div>
                 @endforeach
-
             </div>
         </div>
 
-        <div class="flex-col w-full lg:w-2/6 lg:border-l lg:pl-4">
+        <div class="flex-col z-10 lg:z-0 mt-32 lg:mt-0  w-full lg:w-2/6 lg:border-l lg:pl-4">
             <div class="w-full flex justify-between text-white mb-4">
 
                 <h5 class="font-semibold text-sm 2xl:text-base">Welcoming New Employee 🥳</h5>
             </div>
-            <div class="w-full flex-col  h-36 overflow-y-auto our-team-left">
+            <div class="w-full flex-col  h-[21vh] lg:h-36 overflow-y-auto our-team-left">
                 @foreach ($data['newEmployee'] as $emp)
                 <div class="flex mb-6 relative">
                     <div class="w-1/6 mx-6">
@@ -196,7 +195,7 @@
             </div>
         </div>
 
-        <div class="flex-col w-full lg:w-2/6 lg:border-l lg:pl-4 ">
+        <div class="flex-col  h-[21vh] lg:h-36 w-full lg:w-2/6 lg:border-l lg:pl-4 z-20 lg:z-0 mt-20 lg:mt-0">
             <div class="w-full flex justify-between text-white mb-4">
                 <h5 class="font-semibold text-sm 2xl:text-base">Farewell Employee 👋</h5>
             </div>
