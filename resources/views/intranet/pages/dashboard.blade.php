@@ -17,7 +17,7 @@
     <!-- section kiri -->
     <div class="w-full lg:w-4/6 flex flex-col">
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 flex-wrap w-full gap-3">
+        <div class="grid grid-cols-1 lg:grid-cols-2 flex-wrap w-full gap-6">
 
             <div class="flex  rounded-2xl bg-onboarding items-center">
                 <div class=" flex flex-col w-3/6 2xl:w-4/6 px-4 py-4 text-white">
@@ -191,11 +191,11 @@
                     </div>
                 </div>
                 @endforeach
-
+              
             </div>
         </div>
 
-        <div class="flex-col  h-[21vh] lg:h-36 w-full lg:w-2/6 lg:border-l lg:pl-4 z-20 lg:z-0 mt-20 lg:mt-0">
+        <div class="flex-col h-[21vh] lg:h-36 w-full lg:w-2/6 lg:border-l lg:pl-4 z-20 relative lg:z-0 -mt-5 lg:mt-0">
             <div class="w-full flex justify-between text-white mb-4">
                 <h5 class="font-semibold text-sm 2xl:text-base">Farewell Employee 👋</h5>
             </div>
@@ -211,6 +211,7 @@
                     </div>
                 </div>
                 @endforeach
+             
             </div>
         </div>
 
