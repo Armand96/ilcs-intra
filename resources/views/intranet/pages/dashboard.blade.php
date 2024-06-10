@@ -508,10 +508,10 @@
                 tooltip.style.top = (info.jsEvent.pageY + 10) + 'px';
                 tooltip.innerHTML = `
                 <div class="flex items-center space-x-2">
-                    <span class="bg-red-500 text-white rounded-full px-2">${info.event.start.toLocaleDateString('id-ID', { day: 'numeric' })}</span>
-                    <span>${info.event.start.toLocaleDateString('id-ID', { month: 'long', year: 'numeric' })}</span>
+                    <span class="bg-red-500 text-white rounded-full px-2 text-xs">${info.event.start.toLocaleDateString('id-ID', { day: 'numeric' })}</span>
+                    <span class="text-xs">${info.event.start.toLocaleDateString('id-ID', { month: 'long', year: 'numeric' })}</span>
                 </div>
-                <div class="mt-2">${ info.event._def.extendedProps.desc}</div>
+                <div class="mt-2 text-xs">${ info.event._def.extendedProps.desc}</div>
             `;
 
                 document.body.appendChild(tooltip);
