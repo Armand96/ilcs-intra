@@ -33,7 +33,7 @@ trait GeneralTrait
     **/
     public function newEmployee()
     {
-        $users = User::whereBetween('tgl_masuk', [date('Y-m-01'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->limit(6)->get();
+        $users = User::whereBetween('tgl_masuk', [date('Y-m-01'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->get();
 
         foreach ($users as $key => $reg) {
             if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {
@@ -67,7 +67,7 @@ trait GeneralTrait
 
         $users = User::where($whereMonth, date('m'))->when($crossMonth, function ($qry) {
             $qry->orWhere('whereMonth', date('m', strtotime('+1 month')));
-        })->whereBetween($wherDate, [$currDate, $maxRangeDate])->orderByRaw('DATE_FORMAT(tgl_lahir, "%m-%d") asc')->limit(6)->get();
+        })->whereBetween($wherDate, [$currDate, $maxRangeDate])->orderByRaw('DATE_FORMAT(tgl_lahir, "%m-%d") asc')->get();
 
         foreach ($users as $key => $reg) {
             if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {
@@ -92,9 +92,9 @@ trait GeneralTrait
     public function farewellKaryawan()
     {
         $currentDate = date('Y-m-d');
-        $oneWeekPast = date('Y-m-d', strtotime('+1 week'));
+        $oneWeekFuture = date('Y-m-d', strtotime('+1 week'));
         // dd(User::where('tgl_keluar', [$oneWeekPast, $currentDate])->toSql());
-        $users = User::whereBetween('tgl_keluar', [$oneWeekPast, $currentDate])->limit(3)->get();
+        $users = User::whereBetween('tgl_keluar', [$currentDate, $oneWeekFuture])->get();
 
         foreach ($users as $key => $reg) {
             if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {

@@ -94,7 +94,7 @@
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Tipe</p>
-                    <select name="tipe"
+                    <select name="tipe" id="tipe"
                         class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         <option value="sosmed">Sosmed</option>
                         <option value="other">Other</option>
@@ -161,6 +161,7 @@
             $('#operation').html("Perbarui");
             axios.get('{{ route('links.index') }}/' + idLink).then(resp => {
                 resp = resp.data;
+                console.log(resp);
                 $('#name').val(resp.name);
                 $('#tipe').val(resp.tipe);
                 $('#link_tujuan').val(resp.link_tujuan);
