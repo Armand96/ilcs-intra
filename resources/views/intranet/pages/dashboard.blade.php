@@ -261,7 +261,7 @@
         <div class="border border-blue-600 px-4 py-3 rounded-lg">
             <h5 class="font-semibold mb-6">Maklumat</h5>
             <p class="text-xs">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur facere ipsa optio, quo eaque animi assumenda ullam minima sit corporis eum totam modi dolores laborum vel, sequi iusto reiciendis? Iure veniam rem tempore explicabo corporis eius! Quibusdam deleniti eum magni, sequi exercitationem fugit consequuntur labore suscipit, sed recusandae vitae cupiditate accusamus obcaecati eos. Nobis delectus distinctio nam iure numquam incidunt.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur facere ipsa optio, quo eaque animi assumenda ullam minima sit corporis eum totam modi dolores laborum
             </p>
         </div>
 
