@@ -10,9 +10,9 @@
     </div>
 </div>
 
-<div class="flex mt-6 w-11/12 mx-auto gap-4">
+<div class="flex flex-col lg:flex-row mt-6 w-11/12 mx-auto gap-4">
 
-    <div class="flex flex-col w-1/4 2xl:w-1/6 px-4 py-5 gap-5 our-regulation-background border rounded-xl border-blue-950">
+    <div class="flex flex-col w-full lg:w-1/4 2xl:w-1/6 px-4 py-5 gap-5 our-regulation-background border rounded-xl border-blue-950">
 
         @foreach ($regulations as $index => $reg)
             <div class="{{ $index == 0 ? 'bg-login-button' : '' }} text-center text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer" data-tab-target="#tab{{$index}}">
@@ -40,7 +40,7 @@
 
     </div>
 
-    <div id="tab-contents" class="w-3/4 2xl:w-5/6 our-regulation-background border rounded-xl border-blue-950 ">
+    <div id="tab-contents" class="w-full lg:w-3/4 2xl:w-5/6 our-regulation-background border rounded-xl border-blue-950 ">
 
         @foreach ($regulations as $index => $reg)
             <div class="w-full {{ $index == 0 ? "" : "hidden" }} flex flex-col px-4 py-5 text-white" id="tab{{$index}}">
