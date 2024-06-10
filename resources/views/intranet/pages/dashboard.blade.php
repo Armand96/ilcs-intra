@@ -158,9 +158,9 @@
                     <h5 class="font-semibold text-sm 2xl:text-base">Upcoming Birthday 🎉</h5>
                     <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
                 </div>
-                <div class="w-full flex-col">
+                <div class="w-full flex-col  h-36 overflow-y-auto">
                     @foreach ($data['upcomingBirthday'] as $birth)
-                    <div class="flex mb-6">
+                    <div class="flex mb-6 relative">
                         <h1 class="w-1/6 text-sm 2xl:text-base font-semibold text-center text-white">
                             {{ Illuminate\Support\Carbon::createFromFormat('Y-m-d', $birth->tgl_lahir)->format('d F') }}
                         </h1>
@@ -202,9 +202,9 @@
                 <div class="w-full flex justify-between text-white mb-4">
                     <h5 class="font-semibold text-sm 2xl:text-base">Farewell Employee 👋</h5>
                 </div>
-                <div class="w-full flex-col">
+                <div class="w-full flex-col h-36 overflow-y-auto">
                     @foreach ($data['farewellEmployee'] as $far)
-                    <div class="flex mb-6">
+                    <div class="flex mb-6 relative">
                         <div class="w-1/6 mx-6">
                             <img src="{{ asset('assets/images/users/user-3.jpg') }}" alt="" class="rounded-full object-cover border border-blue-700  w-8 h-8 ">
                         </div>
