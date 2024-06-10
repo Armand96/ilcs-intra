@@ -33,8 +33,15 @@ trait GeneralTrait
     **/
     public function newEmployee()
     {
-        $data = User::whereBetween('tgl_masuk', [date('Y-m-01'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->limit(3)->get();
-        return $data;
+        $users = User::whereBetween('tgl_masuk', [date('Y-m-01'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->limit(6)->get();
+
+        foreach ($users as $key => $reg) {
+            if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {
+                $reg->image_user = Storage::disk('public')->url('profile_picture/' . $reg->image_user);
+            }
+        }
+
+        return $users;
     }
 
     /**
@@ -58,9 +65,17 @@ trait GeneralTrait
             $crossMonth = true;
         }
 
-        return User::where($whereMonth, date('m'))->when($crossMonth, function ($qry) {
+        $users = User::where($whereMonth, date('m'))->when($crossMonth, function ($qry) {
             $qry->orWhere('whereMonth', date('m', strtotime('+1 month')));
-        })->whereBetween($wherDate, [$currDate, $maxRangeDate])->orderByRaw('DATE_FORMAT(tgl_lahir, "%m-%d") asc')->limit(3)->get();
+        })->whereBetween($wherDate, [$currDate, $maxRangeDate])->orderByRaw('DATE_FORMAT(tgl_lahir, "%m-%d") asc')->limit(6)->get();
+
+        foreach ($users as $key => $reg) {
+            if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {
+                $reg->image_user = Storage::disk('public')->url('profile_picture/' . $reg->image_user);
+            }
+        }
+
+        return $users;
     }
 
     public function getAllNilaiKaryawan()
@@ -79,7 +94,15 @@ trait GeneralTrait
         $currentDate = date('Y-m-d');
         $oneWeekPast = date('Y-m-d', strtotime('+1 week'));
         // dd(User::where('tgl_keluar', [$oneWeekPast, $currentDate])->toSql());
-        return User::whereBetween('tgl_keluar', [$oneWeekPast, $currentDate])->limit(3)->get();
+        $users = User::whereBetween('tgl_keluar', [$oneWeekPast, $currentDate])->limit(3)->get();
+
+        foreach ($users as $key => $reg) {
+            if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {
+                $reg->image_user = Storage::disk('public')->url('profile_picture/' . $reg->image_user);
+            }
+        }
+
+        return $users;
     }
 
     public function appLink()

@@ -47,11 +47,11 @@ Route::group(
     'prefix' => 'cms_admin'
 ], function() {
     Route::get('home', [CMSController::class, 'index'])->name('cms.home');
+    Route::get('user_search', [UserCMSController::class, 'userSearch'])->name('cms.user.search');
     Route::resource('users', UserCMSController::class);
     Route::resource('regulasis', RegulasiCMSController::class);
     Route::resource('links', LinkCMSController::class);
     Route::resource('leaders', LeaderCMSController::class);
-    // Route::get('users', [UserCMSController::class, 'index'])->name('cms.user');
 });
 
 /* INTRANET */

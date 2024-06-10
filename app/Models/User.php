@@ -29,6 +29,7 @@ class User extends Authenticatable
         'sub_jabatan',
         'tgl_lahir',
         'tgl_masuk',
+        'tgl_keluar',
         'image_user',
         'jabatan',
         'dept',

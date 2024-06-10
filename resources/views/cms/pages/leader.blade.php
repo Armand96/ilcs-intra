@@ -1,5 +1,13 @@
 @extends('cms.master_cms')
 
+@section('extracss')
+    <link rel="stylesheet" href="{{ asset('assets/plugins/select2/select2.min.css') }}">
+@endsection
+
+@section('extrajs')
+    <script src="{{ asset('assets/plugins/select2/select2.min.js') }}"></script>
+@endsection
+
 @section('content')
     <div class="flex flex-col w-full mt-6 bg-gray-600 p-6">
         <div class="flex flex-col mb-3">
@@ -48,7 +56,7 @@
                     <tbody>
                         @foreach ($leaders as $index => $lead)
                             <tr>
-                                <th>{{ $index+1 }}</th>
+                                <th>{{ $index + 1 }}</th>
                                 <td> {{ $lead->user->name }} </td>
                                 <td>{{ $lead->divisi }}</td>
                                 <td>
@@ -81,13 +89,9 @@
             <div class="flex flex-col mb-6">
                 <div class="mt-4">
                     <p class="text-white">User</p>
-                    <input type="text" list="users" name="user_id" id="user_id"
-                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
-                        <datalist id="users">
-                            @foreach ($users as $usr)
-                                <option value="{{ $usr->id }}">{{ $usr->name }}</option>
-                            @endforeach
-                        </datalist>
+                    <select required name="user_id" id="user_id"
+                        class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                    </select>
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Divisi</p>
@@ -120,6 +124,10 @@
     </dialog>
 
     <!-- Modal dialog -->
+    <dialog id="user_modal" class="modal">
+        <div id="user_modal_body" class="modal-box max-w-6xl bg-gray-600 text-white">
+        </div>
+    </dialog>
 
     <!-- Open the modal using ID.showModal() method -->
     <dialog id="delete_modal" class="modal">
@@ -179,5 +187,29 @@
         function closeDeleteModal() {
             $('#delete_modal').removeClass('modal-open');
         }
+
+        /* ========================================= */
+
+        function closeUserModal() {
+            $('#user_modal').removeClass('modal-open')
+        }
+
+        $(document).ready(function() {
+            $('#user_id').select2({
+                ajax: {
+                    url: "{{ route('cms.user.search') }}",
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function(data) {
+                        return {
+                            results: data
+                        };
+                    },
+                    cache: true
+                },
+                minimumInputLength: 1,
+                placeholder: 'Select an option'
+            });
+        });
     </script>
 @endsection

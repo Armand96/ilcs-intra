@@ -255,4 +255,19 @@ class UserCMSController extends Controller
             return redirect()->back()->withErrors(['notif' => $th->getMessage()]);
         }
     }
+
+    /* ========================================== */
+    public function userSearch(Request $request)
+    {
+        $query = User::query();
+
+        // Apply filters
+        if ($request->filled('term')) {
+            $query->where('name', 'like', '%' . $request->term . '%');
+        }
+
+        $users = $query->select(['id', 'name as text'])->get();
+
+        return response()->json($users);
+    }
 }
