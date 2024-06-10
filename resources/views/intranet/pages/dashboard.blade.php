@@ -153,7 +153,7 @@
         <!--  farewell ultah dll -->
         <div class="flex flex-col lg:flex-row rounded-xl gap-4  mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
 
-            <div class="flex-col w-full lg:w-2/6">
+            <div class="flex-col w-full lg:w-2/6 h-32">
                 <div class="flex justify-between text-white mb-4">
                     <h5 class="font-semibold text-sm 2xl:text-base">Upcoming Birthday 🎉</h5>
                     <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
@@ -177,14 +177,14 @@
                 </div>
             </div>
 
-            <div class="flex-col w-full lg:w-2/6 lg:border-l lg:pl-4 ">
+            <div class="flex-col w-full lg:w-2/6 lg:border-l lg:pl-4">
                 <div class="w-full flex justify-between text-white mb-4">
 
                     <h5 class="font-semibold text-sm 2xl:text-base">Welcoming New Employee 🥳</h5>
                 </div>
-                <div class="w-full flex-col">
+                <div class="w-full flex-col  h-36 overflow-y-auto">
                     @foreach ($data['newEmployee'] as $emp)
-                    <div class="flex mb-6">
+                    <div class="flex mb-6 relative">
                         <div class="w-1/6 mx-6">
                             <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
                         </div>
@@ -194,6 +194,7 @@
                         </div>
                     </div>
                     @endforeach
+
                 </div>
             </div>
 
