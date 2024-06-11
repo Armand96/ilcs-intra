@@ -300,6 +300,11 @@ html {
         display: none ;
     }
 
+    .owl-carousel.owl-loaded {
+        display: block ;
+        width: 98% ;
+    }
+
    .container-chart {
         position: relative; height:40vh; width:70vw ;
         margin: 0 auto ;
