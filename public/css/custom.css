@@ -277,7 +277,7 @@ html {
 
 .owl-carousel.owl-loaded {
     display: block ;
-    width: 99% ;
+    width: 95% ;
 }
 
 @media only screen and (min-width: 1500px ){
