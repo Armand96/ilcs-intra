@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\CMS;
+namespace App\Http\Controllers\cms;
 
 use App\Http\Controllers\Controller;
-use App\Models\Regulasi;
+use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class RegulasiCMSController extends Controller
+class NewsCMSController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,24 +17,24 @@ class RegulasiCMSController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Regulasi::query();
+        $query = News::query();
 
         if ($request->filled('judul')) {
             $query->where('judul', 'like', '%' . $request->judul . '%');
         }
 
-        $regulasis = $query->paginate(10);
+        $news = $query->paginate(10);
 
-        foreach ($regulasis as $key => $reg) {
+        foreach ($news as $key => $reg) {
             if (Storage::disk('public')->exists("regulasi/" . $reg->file_path)) {
-                $regulasis[$key]->file_size = number_format(Storage::disk('public')->size("regulasi/" . $reg->file_path) / 1000000, 2);
-                $reg->file_path = Storage::disk('public')->url('regulasi/'.$reg->file_path);
+                $news[$key]->file_size = number_format(Storage::disk('public')->size("regulasi/" . $reg->file_path) / 1000000, 2);
+                $reg->file_path = Storage::disk('public')->url('regulasi/' . $reg->file_path);
             } else {
-                $regulasis[$key]->file_size = '0.00';
+                $news[$key]->file_size = '0.00';
             }
         }
 
-        return view('cms.pages.regulasi', compact('regulasis'));
+        return view('cms.pages.news', compact('news'));
     }
 
     /**
@@ -58,27 +59,31 @@ class RegulasiCMSController extends Controller
             // dd($request->all());
             $request->validate([
                 'judul' => 'required',
-                'deskripsi' => 'required',
+                'content' => 'required',
+                'is_active' => 'required',
             ]);
 
             $data = $request->only([
                 'judul',
-                'deskripsi'
+                'content',
+                'is_active',
             ]);
 
-            if ($request->hasFile('file')) {
+            $data['posted_by'] = Auth::user()->id;
+            if($data['is_active']) $data['is_active'] = true;
+            else $data['is_active'] = false;
 
-                $fileName = time() . '.' . $request->file->extension();
-                $request->file->storeAs('public/regulasi/', $fileName);
-                $data['file_path'] = $fileName;
-            } else {
-                $data['file_path'] = "";
+            if ($request->hasFile('foto')) {
+
+                $fileName = time() . '.' . $request->foto->extension();
+                $request->foto->storeAs('public/news/', $fileName);
+                $data['image_cover'] = $fileName;
             }
 
-            Regulasi::create($data);
-            return redirect()->back()->with(['notif' => 'Regulasi telah dibuat']);
+            News::create($data);
+            return redirect()->back()->with(['notif' => 'News telah dibuat']);
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th;
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
         }
     }
@@ -89,9 +94,10 @@ class RegulasiCMSController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Regulasi $regulasi)
+    public function show(News $news)
     {
-        return response()->json($regulasi);
+        $news->load('poster');
+        return response()->json($news);
     }
 
     /**
@@ -112,31 +118,33 @@ class RegulasiCMSController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Regulasi $regulasi)
+    public function update(Request $request, News $news)
     {
         $request->validate([
             'judul' => 'required',
-            'deskripsi' => 'required',
+            'content' => 'required',
+            'is_active' => 'required',
         ]);
 
         $data = $request->only([
             'judul',
-            'deskripsi',
+            'content',
+            'is_active',
         ]);
 
         try {
-            if ($request->hasFile('file')) {
+            if ($request->hasFile('foto')) {
 
-                $isExist = Storage::disk('public')->exists("regulasi/$regulasi->file_path") ?? false;
-                if ($isExist) Storage::delete("public/regulasi/$regulasi->file_path");
+                $isExist = Storage::disk('public')->exists("news/$news->image_cover") ?? false;
+                if ($isExist) Storage::delete("public/news/$news->image_cover");
 
-                $filePath = time() . '.' . $request->file->extension();
-                $request->file->storeAs('public/regulasi/', $filePath);
-                $data['file_path'] = $filePath;
+                $fileName = time() . '.' . $request->file->extension();
+                $request->file->storeAs('public/news/', $fileName);
+                $data['image_cover'] = $fileName;
             }
 
-            $regulasi->update($data);
-            return redirect()->back()->with(['notif' => 'Regulasi telah diupdate']);
+            $news->update($data);
+            return redirect()->back()->with(['notif' => 'News telah diupdate']);
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
         }
@@ -148,18 +156,18 @@ class RegulasiCMSController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Regulasi $regulasi)
+    public function destroy(News $news)
     {
         try {
-            if ($regulasi->file_path != null) {
+            if ($news->image_cover != null) {
 
-                Storage::disk('public')->exists("regulasi/$regulasi->file_path");
-                Storage::delete("public/regulasi/$regulasi->file_path");
+                Storage::disk('public')->exists("news/$news->image_cover");
+                Storage::delete("public/news/$news->image_cover");
             }
 
-            $regulasi->delete();
+            $news->delete();
 
-            return redirect()->back()->with(['notif' => 'Regulasi telah dihapus']);
+            return redirect()->back()->with(['notif' => 'News telah dihapus']);
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors(['notif' => $th->getMessage()]);
         }
