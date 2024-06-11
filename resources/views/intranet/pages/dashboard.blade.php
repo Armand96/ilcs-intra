@@ -105,7 +105,7 @@
 
     <!-- carousel -->
     <div class="flex flex-col rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
-        <!-- <div class="flex justify-between mb-3">
+        <div class="flex justify-between mb-3">
             <div class="lg:w-2/6 2xl:w-1/6 text-white">
                 <p class="text-base lg:text-xl">ILCS News</p>
             </div>
@@ -122,13 +122,13 @@
 
                 </p>
             </div>
-        </div> -->
+        </div>
 
-        <div class="flex flex-col w-full mt-3">
+        <!-- <div class="flex flex-col w-full mt-3">
             <h1 class="text-lg font-semibold mb-4 text-white">INTRANET 2.0 COMING SOON!!</h1>
             <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full object-fill lg:h-[43vh] ml-0">
-        </div>
-        <!--
+        </div> -->
+        
         <div class="owl-carousel owl-theme w-full">
 
             <div id="slide1" class="carousel-item flex flex-col w-full mt-4">
@@ -145,7 +145,8 @@
                 </div>
             </div>
 
-        </div> -->
+        </div>
+        
     </div>
 
     <!--  farewell ultah dll -->
