@@ -77,7 +77,7 @@ Route::get("/comming-soon", function(){
     return view('comming_soon');
 }) ->name('comming_soon');
 
-Route::get("/login", [UserController::class, 'viewLogin']) ->name('login');
+Route::get("/login", [UserController::class, 'loginView']) ->name('login');
 
 Route::get('testtailwind', function() {
     return view('test_tailwind');
