@@ -3965,6 +3965,10 @@ html:has(.drawer-toggle:checked) {
     height: 43vh;
   }
 
+  .lg\:h-\[13rem\] {
+    height: 13rem;
+  }
+
   .lg\:w-1\/4 {
     width: 25%;
   }

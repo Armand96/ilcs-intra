@@ -151,7 +151,7 @@
     <!--  farewell ultah dll -->
     <div class="flex flex-col lg:flex-row rounded-xl gap-4  mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
 
-        <div class="flex-col w-full lg:w-2/6 h-28 lg:h-36">
+        <div class="flex-col w-full lg:w-2/6 h-28 lg:h-[13rem] ">
             <div class="flex justify-between text-white mb-4">
                 <h5 class="font-semibold text-sm 2xl:text-base">Upcoming Birthday 🎉</h5>
                 <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
@@ -174,7 +174,7 @@
             </div>
         </div>
 
-        <div class="flex-col z-10 lg:z-0 mt-32 lg:mt-0 lg:h-44 w-full lg:w-2/6 lg:border-l lg:pl-4">
+        <div class="flex-col z-10 lg:z-0 mt-32 lg:mt-0 lg:h-[13rem] w-full lg:w-2/6 lg:border-l lg:pl-4">
             <div class="w-full flex justify-between text-white mb-4">
 
                 <h5 class="font-semibold text-sm 2xl:text-base">Welcoming New Employee 🥳</h5>
@@ -195,7 +195,7 @@
             </div>
         </div>
 
-        <div class="flex-col h-[21vh] lg:h-44 w-full lg:w-2/6 lg:border-l lg:pl-4 z-20 lg:z-0 lg:mt-0">
+        <div class="flex-col h-[21vh] lg:h-[13rem] w-full lg:w-2/6 lg:border-l lg:pl-4 z-20 lg:z-0 lg:mt-0">
             <div class="w-full flex justify-between text-white mb-4">
                 <h5 class="font-semibold text-sm 2xl:text-base">Farewell Employee 👋</h5>
             </div>
