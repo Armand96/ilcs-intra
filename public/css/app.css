@@ -3109,6 +3109,9 @@ html:has(.drawer-toggle:checked) {
 .mt-12 {
   margin-top: 3rem;
 }
+.block {
+  display: block;
+}
 .flex {
   display: flex;
 }
@@ -4130,6 +4133,10 @@ html:has(.drawer-toggle:checked) {
 
   .xl\:h-\[25rem\] {
     height: 25rem;
+  }
+
+  .xl\:h-\[23rem\] {
+    height: 23rem;
   }
 
   .xl\:w-1\/4 {

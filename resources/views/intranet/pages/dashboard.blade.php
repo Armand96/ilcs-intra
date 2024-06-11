@@ -134,15 +134,15 @@
 
             <div id="slide1" class="carousel-item flex flex-col w-full mt-4">
                 <h1 class="text-lg font-semibold text-white">INTRANET 2.0 COMING SOON!!</h1>
-                <p class="text-white my-2 text-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, repudiandae!</p>
-                <div class="mt-6 w-full h-[8rem] lg:h-[16rem] xl:h-[25rem]">
+                <p class="text-white my-2 text-xs">ILCS Event adalah reminder/pengingat acara internal perusahaan yang diselenggarakan untuk merayakan pencapaian bersama.</p>
+                <div class="mt-6 w-full h-[8rem] lg:h-[16rem] xl:h-[23rem]">
                     <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
                 </div>
             </div>
 
             <div id="slide2" class="carousel-item flex flex-col w-full mt-4">
                 <h1 class="text-lg font-semibold text-white">INTRANET 2.0 COMING SOON!!</h1>
-                <p class="text-white my-2 text-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, repudiandae!</p>
+                <p class="text-white my-2 text-xs">ILCS Event adalah reminder/pengingat acara internal perusahaan yang diselenggarakan untuk merayakan pencapaian bersama.</p>
                 <div class="mt-6 w-full h-[8rem] lg:h-[16rem]  xl:h-[25rem]">
                     <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
                 </div>
@@ -186,7 +186,8 @@
             <div class="w-full flex-col  h-[21vh] lg:h-36 overflow-y-auto our-team-left">
                 @foreach ($data['newEmployee'] as $emp)
                 <div class="flex mb-6 relative">
-                    <div class="w-1/6 mx-6">
+                <div class="w-1/6 block lg:hidden"></div>
+                <div class="w-1/6 mx-6">
                         <img src="{{ $emp->image_user }}" alt="" onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
                     </div>
                     <div class="w-5/6 text-sm">
@@ -206,7 +207,8 @@
             <div class="w-full flex-col h-36 overflow-y-auto our-team-left">
                 @foreach ($data['farewellEmployee'] as $far)
                 <div class="flex mb-6 relative ">
-                    <div class="w-1/6 mx-6">
+                <div class="w-1/6 block lg:hidden"></div>
+                    <div class="w-1/6 mx-6 ">
                         <img src="{{ $far->image_user }}" alt="" onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'" class="rounded-full object-cover border border-blue-700  w-8 h-8 ">
                     </div>
                     <div class="w-5/6 text-sm">
