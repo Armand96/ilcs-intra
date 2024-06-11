@@ -3206,6 +3206,12 @@ html:has(.drawer-toggle:checked) {
 .h-\[8rem\] {
   height: 8rem;
 }
+.h-\[55vh\] {
+  height: 55vh;
+}
+.h-\[48vh\] {
+  height: 48vh;
+}
 .max-h-\[90dvh\] {
   max-height: 90dvh;
 }
