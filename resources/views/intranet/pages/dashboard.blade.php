@@ -258,7 +258,7 @@
             </div>
         </div>
 
-        <div class="border border-blue-600 px-4 py-3 rounded-lg">
+        <div class="border border-blue-600 px-4 py-3 rounded-lg mt-12">
             <h5 class="font-semibold mb-6">Maklumat</h5>
             <p class="text-xs">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur facere ipsa optio, quo eaque animi assumenda ullam minima sit corporis eum totam modi dolores laborum

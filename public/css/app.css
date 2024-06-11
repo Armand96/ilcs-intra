@@ -3100,6 +3100,9 @@ html:has(.drawer-toggle:checked) {
 .mt-9 {
   margin-top: 2.25rem;
 }
+.mt-12 {
+  margin-top: 3rem;
+}
 .flex {
   display: flex;
 }
