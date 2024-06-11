@@ -6,7 +6,7 @@
             <h4 class="text-lg font-semibold">
                 From The Board
             </h4>
-            <div class="flex w-full mt-5">
+            <div class="flex flex-col gap-6 lg:flex-row w-full mt-5">
                 @foreach ($divisis as $idx => $div)
                     <div class="w-full xl:w-1/4 mr-6 flex tabs tab-active justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white"
                         data-tab-target="#tab{{$idx}}">
@@ -42,7 +42,7 @@
     <div id="tab-contents" class="w-11/12 mt-9 mb-10">
 
         <!-- BOC -->
-        <div class="w-full hidden grid-cols-4 gap-4" id="tab0">
+        <div class="w-full hidden grid-cols-1 lg:grid-cols-4 gap-4" id="tab0">
 
             @foreach ($leaders['boc'] as $ld)
                 <div class="flex flex-col card-comission border border-blue-950 rounded-2xl">
@@ -157,7 +157,7 @@
 
         </div>
         <!-- BOM -->
-        <div class="w-full hidden grid-cols-4 gap-4 " id="tab2">
+        <div class="w-full hidden grid-cols-1 lg:grid-cols-4 gap-4 " id="tab2">
 
             @foreach ($leaders['bom'] as $ld)
                 <div class="flex flex-col card-comission border border-blue-950 rounded-2xl">
