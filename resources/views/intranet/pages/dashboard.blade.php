@@ -268,7 +268,6 @@
             <h5 class="font-semibold mb-6">Maklumat</h5>
             <p class="text-xs">
             ILCS Event adalah reminder/pengingat acara internal perusahaan yang diselenggarakan untuk merayakan pencapaian bersama.
-
             </p>
         </div>
 
