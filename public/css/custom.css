@@ -275,6 +275,11 @@ html {
     height: 100% ;
 }
 
+.owl-carousel.owl-loaded {
+    display: block ;
+    width: 99% ;
+}
+
 @media only screen and (min-width: 1500px ){
     .drawer-side {
         height: 100dvh !important;

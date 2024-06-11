@@ -131,7 +131,7 @@
             @foreach ($users as $usr)
             <div class="flex flex-col rounded-xl border border-blue-900 ">
                 <img src="{{ asset('assets/images/background/bg-team.svg') }}" class="rounded-t-xl " alt="">
-                <img src="{{ $usr->user_image }}" onerror="this.src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'" class="w-16 h-16 border border-white -mt-8 ml-2 rounded-full" alt="">
+                <img src="{{ $usr->user_image }}" onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'" class="w-16 h-16 border border-white -mt-8 ml-2 rounded-full" alt="">
                 <div class="px-4 py-4">
                     <h4 class="text-white text-base font-semibold">{{ $usr->name }}</h4>
                     <p class="text-xs text-dashboard-blue-right font-medium mt-2">{{ $usr->jabatan }}</p>
