@@ -1,5 +1,9 @@
 @extends('cms.master_cms')
 
+{{-- @section('extrajs')
+    <script src="{{ asset('assets/plugins/ckeditor/ckeditor.js') }}"></script>
+@endsection --}}
+
 @section('content')
     <div class="flex flex-col w-full mt-6  bg-gray-600 p-6 rounded-xl">
         <div class="flex flex-col mb-3">
@@ -48,7 +52,7 @@
                                 <td>
                                     <div class="avatar">
                                         <div class="w-10 rounded-full">
-                                            <img src="{{ url('/storage/news/'.$nws->image_cover) }}" />
+                                            <img src="{{ url('/storage/news/' . $nws->image_cover) }}" />
                                         </div>
                                     </div>
                                 </td>
@@ -63,7 +67,6 @@
                                 </td>
                             </tr>
                         @empty
-
                         @endforelse
                     </tbody>
                 </table>
@@ -89,8 +92,8 @@
                 </div>
                 <div class="mt-4">
                     <p class="text-white">content</p>
-                    <textarea name="content" id="content" cols="30" rows="10"
-                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none"></textarea>
+                    <textarea name="content" id="content" cols="30" rows="100"
+                        class="mt-3 px-4 py-2 w-full rounded-lg focus:outline-none"></textarea>
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Image Cover</p>
@@ -99,7 +102,8 @@
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Active</p>
-                    <input type="checkbox" class="bg-gray-700 mt-3 px-4 py-2 rounded-lg text-login-text focus:outline-none" name="is_active" id="is_active">
+                    <input type="checkbox" class="bg-gray-700 mt-3 px-4 py-2 rounded-lg text-login-text focus:outline-none"
+                        name="is_active" id="is_active">
                 </div>
             </div>
 
@@ -136,7 +140,14 @@
 @endsection
 
 @section('script')
+    <script src="{{ asset('assets/plugins/ckeditor/ckeditor.js') }}"></script>
     <script>
+        ClassicEditor
+            .create(document.querySelector('#content'))
+            .catch(error => {
+                console.error(error);
+            });
+
         function closeModal() {
             document.getElementById('my_modal').classList.remove('modal-open');
         }
@@ -154,7 +165,8 @@
                 resp = resp.data;
                 $('#judul').val(resp.judul);
                 $('#content').val(resp.content);
-                resp.is_active == 1 ? $('#is_active').prop('checked', true) : $('#is_active').prop('checked', false);
+                resp.is_active == 1 ? $('#is_active').prop('checked', true) : $('#is_active').prop('checked',
+                    false);
 
                 $('#news_form').prop('action', '{{ route('news.index') }}/' + idNews);
                 $('input[name="_method"]').val('PATCH');
