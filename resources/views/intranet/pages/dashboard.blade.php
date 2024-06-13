@@ -30,14 +30,14 @@
             <div class="flex justify-between w-full bg-card-dashboard border border-blue-950 rounded-xl">
 
                 <div class="flex flex-col w-3/6 2xl:w-4/6 items-center text-white">
-                    <h4 class=" text-base 2xl:text-lg text-center font-semibold mt-6">See <br /> Statistic KPI</h4>
-                    <a href="#kpi" class="mx-auto rounded-full mt-3 mb-16 2xl:mb-2 kpi-button bg-login-button p-1">
+                    <h4 class="text-sm lg:text-base 2xl:text-lg text-center font-semibold mt-2 lg:mt-6">See <br /> Statistic KPI</h4>
+                    <a href="#kpi" class="mx-auto rounded-full mt-3 mb-3 xl:mb-16 2xl:mb-2 kpi-button bg-login-button p-1">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 2xl:size-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
                         </svg>
                     </a>
                 </div>
-                <div class="flex-col w-3/6 2xl:w-2/6">
+                <div class="flex-col w-2/6 xl:w-3/6 2xl:w-2/6">
                     <img src="{{ asset('assets/images/icon/kpi-icon.svg') }}" class="w-full h-full ml-auto rounded-r-xl" alt="">
                 </div>
 
@@ -105,11 +105,12 @@
 
     <!-- carousel -->
     <div class="flex flex-col rounded-xl mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
-        <!-- <div class="flex justify-between mb-3">
+        <div class="flex justify-between mb-3">
             <div class="lg:w-2/6 2xl:w-1/6 text-white">
                 <p class="text-base lg:text-xl">ILCS News</p>
             </div>
-            <div class="w-1/6 flex text-xl nextBtn text-white">
+
+            <!-- <div class="w-1/6 flex text-xl nextBtn text-white">
                 <p class="mr-6 prevBtn cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -121,37 +122,40 @@
                     </svg>
 
                 </p>
-            </div>
-        </div> -->
+            </div> -->
+        </div>
 
-        <div class="flex flex-col w-full mt-3">
+        <!-- <div class="flex flex-col w-full mt-3">
             <h1 class="text-lg font-semibold mb-4 text-white">INTRANET 2.0 COMING SOON!!</h1>
             <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full object-fill lg:h-[43vh] ml-0">
-        </div>
-        <!--
-        <div class="owl-carousel owl-theme w-full">
+        </div> -->
+
+        <div class="owl-carousel owl-theme ">
 
             <div id="slide1" class="carousel-item flex flex-col w-full mt-4">
-                <h1 class="text-lg font-semibold text-white">PT ILCS dengan bangga berpartisipasi dalam program Mudik Gratis Bersama Pelindo Group 2024</h1>
-                <div class="mt-6 w-full h-72">
+                <h1 class="text-lg font-semibold text-white">INTRANET 2.0 COMING SOON!!</h1>
+                <p class="text-white my-2 text-xs">ILCS Event adalah reminder/pengingat acara internal perusahaan yang diselenggarakan untuk merayakan pencapaian bersama.</p>
+                <div class="mt-6 w-full h-[8rem] lg:h-[16rem] xl:h-[23rem]">
                     <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
                 </div>
             </div>
 
             <div id="slide2" class="carousel-item flex flex-col w-full mt-4">
-                <h1 class="text-lg font-semibold text-white">Slide 2</h1>
-                <div class="mt-6 w-full h-72">
+                <h1 class="text-lg font-semibold text-white">INTRANET 2.0 COMING SOON!!</h1>
+                <p class="text-white my-2 text-xs">ILCS Event adalah reminder/pengingat acara internal perusahaan yang diselenggarakan untuk merayakan pencapaian bersama.</p>
+                <div class="mt-6 w-full h-[8rem] lg:h-[16rem]  xl:h-[25rem]">
                     <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
                 </div>
             </div>
 
-        </div> -->
+        </div>
+
     </div>
 
     <!--  farewell ultah dll -->
     <div class="flex flex-col lg:flex-row rounded-xl gap-4  mt-6 bg-card-dashboard border border-blue-950 px-6 py-6">
 
-        <div class="flex-col w-full lg:w-2/6 h-28 lg:h-36">
+        <div class="flex-col w-full lg:w-2/6 h-28 lg:h-[13rem] ">
             <div class="flex justify-between text-white mb-4">
                 <h5 class="font-semibold text-sm 2xl:text-base">Upcoming Birthday 🎉</h5>
                 <p class="text-sm 2xl:text-base">{{ date('F Y') }}</p>
@@ -163,7 +167,7 @@
                         {{ Illuminate\Support\Carbon::createFromFormat('Y-m-d', $birth->tgl_lahir)->format('d F') }}
                     </h1>
                     <div class="w-1/6 mx-6">
-                        <img src="{{ $birth->image_user }}" alt="" onerror="this.src='{{asset('assets/images/dashboard/ultah/faiz.png')}}'" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
+                        <img src="{{ $birth->image_user }}" alt="" onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
                     </div>
                     <div class="w-4/6 lg:text-sm">
                         <h4 class="font-semibold text-xs text-white">{{ $birth->name }}</h4>
@@ -174,7 +178,7 @@
             </div>
         </div>
 
-        <div class="flex-col z-10 lg:z-0 mt-32 lg:mt-0 lg:h-44 w-full lg:w-2/6 lg:border-l lg:pl-4">
+        <div class="flex-col z-10 lg:z-0 mt-32 lg:mt-0 lg:h-[13rem] w-full lg:w-2/6 lg:border-l lg:pl-4">
             <div class="w-full flex justify-between text-white mb-4">
 
                 <h5 class="font-semibold text-sm 2xl:text-base">Welcoming New Employee 🥳</h5>
@@ -182,8 +186,9 @@
             <div class="w-full flex-col  h-[21vh] lg:h-36 overflow-y-auto our-team-left">
                 @foreach ($data['newEmployee'] as $emp)
                 <div class="flex mb-6 relative">
-                    <div class="w-1/6 mx-6">
-                        <img src="{{ $emp->image_user }}" alt="" onerror="this.src='{{asset('assets/images/users/user-1.jpg')}}'" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
+                <div class="w-1/6 block lg:hidden"></div>
+                <div class="w-1/6 mx-6">
+                        <img src="{{ $emp->image_user }}" alt="" onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
                     </div>
                     <div class="w-5/6 text-sm">
                         <h4 class="font-semibold text-xs text-white">{{ $emp->name }}</h4>
@@ -195,15 +200,16 @@
             </div>
         </div>
 
-        <div class="flex-col h-[21vh] lg:h-44 w-full lg:w-2/6 lg:border-l lg:pl-4 z-20 lg:z-0 lg:mt-0">
+        <div class="flex-col h-[21vh] lg:h-[13rem] w-full lg:w-2/6 lg:border-l lg:pl-4 z-20 lg:z-0 lg:mt-0">
             <div class="w-full flex justify-between text-white mb-4">
                 <h5 class="font-semibold text-sm 2xl:text-base">Farewell Employee 👋</h5>
             </div>
             <div class="w-full flex-col h-36 overflow-y-auto our-team-left">
                 @foreach ($data['farewellEmployee'] as $far)
                 <div class="flex mb-6 relative ">
-                    <div class="w-1/6 mx-6">
-                        <img src="{{ $far->image_user }}" alt="" onerror="this.src='{{asset('assets/images/users/user-3.jpg')}}'" class="rounded-full object-cover border border-blue-700  w-8 h-8 ">
+                <div class="w-1/6 block lg:hidden"></div>
+                    <div class="w-1/6 mx-6 ">
+                        <img src="{{ $far->image_user }}" alt="" onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'" class="rounded-full absolute object-cover border border-blue-700  w-8 h-8 ">
                     </div>
                     <div class="w-5/6 text-sm">
                         <h4 class="font-semibold text-xs text-white">{{ $far->name }}</h4>
@@ -220,68 +226,68 @@
 </div>
 
 <!-- section kanan -->
-<div class="w-full lg:w-2/6 flex flex-col lg:ml-6 mt-6 lg:mt-0 ">
-    <div class="flex-col bg-card-dashboard border border-blue-950 px-2 py-2 rounded-xl">
-        <div id='calendar' class="w-full text-white text-xs calendar-custom"></div>
-    </div>
-    <div class="w-full flex  bg-card-dashboard border border-blue-950 flex-col text-white mt-6  px-4 py-4 rounded-xl">
-        <h5 class="font-semibold mb-6">
-            ILCS Events
-        </h5>
-        <div class="h-[43vh] our-team-left overflow-auto">
-            <div class="flex mb-6">
-                <div class="w-2/6 mx-6">
-                    <img src="{{ asset('assets/images/dashboard/event/dmc.jpeg') }}" alt="" class="object-cover rounded-xl  border border-blue-700 w-32 h-20 relative">
+    <div class="w-full lg:w-2/6 flex flex-col lg:ml-6 mt-6 lg:mt-0 ">
+        <div class="flex-col bg-card-dashboard border border-blue-950 px-2 py-2 rounded-xl">
+            <div id='calendar' class="w-full text-white text-xs calendar-custom"></div>
+        </div>
+        <div class="w-full flex  bg-card-dashboard border border-blue-950 flex-col text-white mt-6  px-4 py-4 rounded-xl">
+            <h5 class="font-semibold mb-6">
+                ILCS Events
+            </h5>
+            <div class="h-[48vh] our-team-left overflow-auto">
+                <div class="flex mb-6">
+                    <div class="w-2/6 mx-6">
+                        <img src="{{ asset('assets/images/dashboard/event/dmc.jpeg') }}" alt="" class="object-cover rounded-xl  border border-blue-700 w-32 h-20 relative">
+                    </div>
+                    <div class="w-4/6 text-sm">
+                        <h4 class="font-semibold text-white">Launching DMDC</h4>
+                        <p class="text-dashboard-blue-right text-xs">Senin, 20 Mei 2024 </p>
+                    </div>
                 </div>
-                <div class="w-4/6 text-sm">
-                    <h4 class="font-semibold text-white">Launching DMDC</h4>
-                    <p class="text-dashboard-blue-right text-xs">Senin, 20 Mei 2024 </p>
+                <div class="flex mb-6">
+                    <div class="w-2/6 mx-6">
+                        <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="object-cover rounded-xl border border-blue-700  w-32 h-20 relative">
+                    </div>
+                    <div class="w-4/6 text-sm">
+                        <h4 class="font-semibold text-white">Soft Go Live INTRANET 2.0 </h4>
+                        <p class="text-dashboard-blue-right text-xs">Senin, 27 Mei 2024| 10.00 </p>
+                    </div>
+                </div>
+                <div class="flex mb-6">
+                    <div class="w-2/6 mx-6">
+                        <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="object-cover rounded-xl border border-blue-700  w-32 h-20 relative">
+                    </div>
+                    <div class="w-4/6 text-sm">
+                        <h4 class="font-semibold text-white">Soft Go Live INTRANET 2.0 </h4>
+                        <p class="text-dashboard-blue-right text-xs">Senin, 27 Mei 2024| 10.00 </p>
+                    </div>
                 </div>
             </div>
-            <div class="flex mb-6">
-                <div class="w-2/6 mx-6">
-                    <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="object-cover rounded-xl border border-blue-700  w-32 h-20 relative">
-                </div>
-                <div class="w-4/6 text-sm">
-                    <h4 class="font-semibold text-white">Soft Go Live INTRANET 2.0 </h4>
-                    <p class="text-dashboard-blue-right text-xs">Senin, 27 Mei 2024| 10.00 </p>
-                </div>
+
+            <div class="border border-blue-600 px-4 py-3 rounded-lg mt-12">
+                <h5 class="font-semibold mb-6">Maklumat</h5>
+                <p class="text-xs">
+                ILCS Event adalah reminder/pengingat acara internal perusahaan yang diselenggarakan untuk merayakan pencapaian bersama.
+                </p>
             </div>
-            <div class="flex mb-6">
-                <div class="w-2/6 mx-6">
-                    <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="object-cover rounded-xl border border-blue-700  w-32 h-20 relative">
-                </div>
-                <div class="w-4/6 text-sm">
-                    <h4 class="font-semibold text-white">Soft Go Live INTRANET 2.0 </h4>
-                    <p class="text-dashboard-blue-right text-xs">Senin, 27 Mei 2024| 10.00 </p>
-                </div>
-            </div>
+
         </div>
 
-        <div class="border border-blue-600 px-4 py-3 rounded-lg">
-            <h5 class="font-semibold mb-6">Maklumat</h5>
-            <p class="text-xs">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur facere ipsa optio, quo eaque animi assumenda ullam minima sit corporis eum totam modi dolores laborum
-            </p>
+        <div class="flex-col bg-card-dashboard border border-blue-950 mt-6 px-4 py-4 rounded-xl">
+            <div class="w-full flex justify-between text-white mb-4">
+                <h5 class="font-semibold ">Social Media ILCS</h5>
+            </div>
+            <div class="w-full flex">
+                @foreach ($data['linkSosmed'] as $sos)
+                <a href="{{ $sos->link_tujuan }}" target="_blank" class="w-2/12">
+                    <img src="{{ $sos->image_path }}" alt="" class="w-3/6 rounded-full">
+                </a>
+                @endforeach
+
+            </div>
         </div>
 
     </div>
-
-    <div class="flex-col bg-card-dashboard border border-blue-950 mt-6 px-4 py-4 rounded-xl">
-        <div class="w-full flex justify-between text-white mb-4">
-            <h5 class="font-semibold ">Social Media ILCS</h5>
-        </div>
-        <div class="w-full flex">
-            @foreach ($data['linkSosmed'] as $sos)
-            <a href="{{ $sos->link_tujuan }}" target="_blank" class="w-2/12">
-                <img src="{{ $sos->image_path }}" alt="" class="w-3/6 rounded-full">
-            </a>
-            @endforeach
-
-        </div>
-    </div>
-
-</div>
 </div>
 
 <!-- Chart -->
@@ -473,6 +479,9 @@
             animation: true,
             nav: false,
             items: 1,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: false
         });
 
         // Custom Button

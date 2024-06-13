@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\cms\CalendarCMSController;
 use App\Http\Controllers\CMS\LeaderCMSController;
 use App\Http\Controllers\CMS\LinkCMSController;
+use App\Http\Controllers\cms\NewsCMSController;
 use App\Http\Controllers\CMS\RegulasiCMSController;
 use App\Http\Controllers\CMS\UserCMSController;
 use App\Http\Controllers\CMSController;
@@ -14,7 +16,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RegulasiController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -52,6 +54,8 @@ Route::group(
     Route::resource('regulasis', RegulasiCMSController::class);
     Route::resource('links', LinkCMSController::class);
     Route::resource('leaders', LeaderCMSController::class);
+    Route::resource('news', NewsCMSController::class);
+    Route::resource('calendars', CalendarCMSController::class);
 });
 
 /* INTRANET */
@@ -75,9 +79,7 @@ Route::get("/comming-soon", function(){
     return view('comming_soon');
 }) ->name('comming_soon');
 
-Route::get("/login", function(){
-    return view('login');
-}) ->name('login');
+Route::get("/login", [UserController::class, 'loginView']) ->name('login');
 
 Route::get('testtailwind', function() {
     return view('test_tailwind');

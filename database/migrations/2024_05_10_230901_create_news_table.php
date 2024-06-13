@@ -19,6 +19,7 @@ class CreateNewsTable extends Migration
             $table->bigInteger('posted_by');
             $table->string('image_cover');
             $table->text('content');
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

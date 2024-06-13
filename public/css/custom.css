@@ -275,6 +275,20 @@ html {
     height: 100% ;
 }
 
+.owl-carousel.owl-loaded {
+    display: block ;
+    width: 95% ;
+    margin-left: 20px ;
+}
+
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-blurred {
+    color: #240621 !important ;
+}
+
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-focused {
+    color: #240621 !important ;
+}
+
 @media only screen and (min-width: 1500px ){
     .drawer-side {
         height: 100dvh !important;
@@ -293,6 +307,11 @@ html {
 @media only screen and (max-width: 1024px) {
     .fc-scroller-liquid-absolute::-webkit-scrollbar {
         display: none ;
+    }
+
+    .owl-carousel.owl-loaded {
+        display: block ;
+        width: 98% ;
     }
 
    .container-chart {

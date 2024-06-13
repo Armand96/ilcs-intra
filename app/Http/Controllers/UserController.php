@@ -50,6 +50,12 @@ class UserController extends Controller
 
     }
 
+    public function loginView()
+    {
+        if(Auth::user()) return redirect()->route('dashboard');
+        else return view('login');
+    }
+
     public function login(Request $request)
     {
         $request->validate([

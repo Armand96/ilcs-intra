@@ -14,5 +14,11 @@ class News extends Model
         'posted_by',
         'image_cover',
         'content',
+        'is_active'
     ];
+
+    public function poster()
+    {
+        return $this->belongsTo(User::class, 'posted_by', 'id');
+    }
 }

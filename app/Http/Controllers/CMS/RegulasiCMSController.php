@@ -71,6 +71,8 @@ class RegulasiCMSController extends Controller
                 $fileName = time() . '.' . $request->file->extension();
                 $request->file->storeAs('public/regulasi/', $fileName);
                 $data['file_path'] = $fileName;
+            } else {
+                $data['file_path'] = "";
             }
 
             Regulasi::create($data);
@@ -89,7 +91,7 @@ class RegulasiCMSController extends Controller
      */
     public function show(Regulasi $regulasi)
     {
-        return $regulasi;
+        return response()->json($regulasi);
     }
 
     /**
@@ -129,7 +131,7 @@ class RegulasiCMSController extends Controller
                 if ($isExist) Storage::delete("public/regulasi/$regulasi->file_path");
 
                 $filePath = time() . '.' . $request->file->extension();
-                $request->file->storeAs('public/regulasi', $filePath);
+                $request->file->storeAs('public/regulasi/', $filePath);
                 $data['file_path'] = $filePath;
             }
 
