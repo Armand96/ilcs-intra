@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\cms\CalendarCMSController;
 use App\Http\Controllers\CMS\LeaderCMSController;
 use App\Http\Controllers\CMS\LinkCMSController;
 use App\Http\Controllers\cms\NewsCMSController;
@@ -54,6 +55,7 @@ Route::group(
     Route::resource('links', LinkCMSController::class);
     Route::resource('leaders', LeaderCMSController::class);
     Route::resource('news', NewsCMSController::class);
+    Route::resource('calendars', CalendarCMSController::class);
 });
 
 /* INTRANET */
