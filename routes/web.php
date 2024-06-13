@@ -64,7 +64,9 @@ Route::group(['middleware' =>'auth'], function() {
     Route::get("/our-leader", [LeaderController::class, 'ourLeader'])->name('our_leader');
     Route::get("/our-team", [TeamController::class, 'teams'])->name('our_team');
     Route::get("/our-regulation", [RegulasiController::class, 'ourRegulations'])->name('our_regulation');
-
+    Route::get("/calendar", function() {
+        return view('intranet.pages.calendar');
+    })->name('intra.calendar');
 
     Route::get("/regulations", function(){
         return view('regulations');
