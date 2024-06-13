@@ -281,6 +281,14 @@ html {
     margin-left: 20px ;
 }
 
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-blurred {
+    color: #240621 !important ;
+}
+
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-focused {
+    color: #240621 !important ;
+}
+
 @media only screen and (min-width: 1500px ){
     .drawer-side {
         height: 100dvh !important;
