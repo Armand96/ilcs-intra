@@ -4,7 +4,11 @@ namespace App\Http\Controllers\cms;
 
 use App\Http\Controllers\Controller;
 use App\Models\CalendarEvent;
+use App\Models\MeetingAttendee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+use function PHPUnit\Framework\isEmpty;
 
 class CalendarCMSController extends Controller
 {
@@ -40,27 +44,58 @@ class CalendarCMSController extends Controller
             // dd($request->all());
             $request->validate([
                 'judul' => 'required',
-                'deskripsi' => 'required',
+                'description' => 'required',
+                'tgl_cal_event_start' => 'required',
+                'tgl_cal_event_end' => 'required',
+                'location' => 'required',
+                'tipe' => 'required',
             ]);
 
             $data = $request->only([
                 'judul',
-                'deskripsi'
+                'description',
+                'tgl_cal_event_start',
+                'tgl_cal_event_end',
+                'tipe',
+                'location',
+                'attendees'
             ]);
 
-            if ($request->hasFile('file')) {
+            // if ($request->hasFile('file')) {
+            //     $fileName = time() . '.' . $request->file->extension();
+            //     $request->file->storeAs('public/regulasi/', $fileName);
+            //     $data['file_path'] = $fileName;
+            // } else {
+            //     $data['file_path'] = "";
+            // }
 
-                $fileName = time() . '.' . $request->file->extension();
-                $request->file->storeAs('public/regulasi/', $fileName);
-                $data['file_path'] = $fileName;
-            } else {
-                $data['file_path'] = "";
+            /* CROSS TABLE INSERT */
+            DB::beginTransaction();
+
+            $calendarEvent = CalendarEvent::create($data);
+
+            $attendees = isEmpty($data['attendees']) ? [] : $data['attendees'];
+
+            if(count($attendees))
+            {
+                $insertAttendees = [];
+                foreach ($attendees as $key => $value) {
+                    $temp = array(
+                        'calendar_event_id' => $calendarEvent->id,
+                        'user_id' => $value,
+                        'created_at' => date('Y-m-d H:i:s')
+                    );
+
+                    array_push($insertAttendees, $temp);
+                }
+
+                MeetingAttendee::insert($insertAttendees);
             }
 
-            CalendarEvent::create($data);
-            return redirect()->back()->with(['notif' => 'Regulasi telah dibuat']);
+            DB::commit();
+            return redirect()->back()->with(['notif' => 'Calendar Event telah dibuat']);
         } catch (\Throwable $th) {
-            throw $th;
+            DB::rollBack();
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
         }
     }
@@ -71,9 +106,9 @@ class CalendarCMSController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(CalendarEvent $calendarEvent)
     {
-        //
+        return response()->json($calendarEvent->load('attendee'));
     }
 
     /**
@@ -94,9 +129,67 @@ class CalendarCMSController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, CalendarEvent $calendarEvent)
     {
-        //
+        $request->validate([
+            'judul' => 'required',
+            'description' => 'required',
+            'tgl_cal_event_start' => 'required',
+            'tgl_cal_event_end' => 'required',
+            'location' => 'required',
+            'tipe' => 'required',
+        ]);
+
+        $data = $request->only([
+            'judul',
+            'description',
+            'tgl_cal_event_start',
+            'tgl_cal_event_end',
+            'location',
+            'tipe'
+        ]);
+
+        try {
+            // if ($request->hasFile('file')) {
+
+            //     $isExist = Storage::disk('public')->exists("regulasi/$calendarEvent->file_path") ?? false;
+            //     if ($isExist) Storage::delete("public/regulasi/$calendarEvent->file_path");
+
+            //     $filePath = time() . '.' . $request->file->extension();
+            //     $request->file->storeAs('public/regulasi/', $filePath);
+            //     $data['file_path'] = $filePath;
+            // }
+
+            /* CROSS TABLE INSERT */
+            DB::beginTransaction();
+
+            $calendarEvent->update($data);
+
+            $attendees = isEmpty($data['attendees']) ? [] : $data['attendees'];
+
+            if(count($attendees))
+            {
+                MeetingAttendee::where('calendar_event_id', $calendarEvent->id)->delete();
+                $insertAttendees = [];
+                foreach ($attendees as $key => $value) {
+                    $temp = array(
+                        'calendar_event_id' => $calendarEvent->id,
+                        'user_id' => $value,
+                        'created_at' => date('Y-m-d H:i:s')
+                    );
+
+                    array_push($insertAttendees, $temp);
+                }
+
+                MeetingAttendee::insert($insertAttendees);
+            }
+
+            DB::commit();
+            return redirect()->back()->with(['notif' => 'Calendar Event telah diupdate']);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+        }
     }
 
     /**
@@ -105,8 +198,45 @@ class CalendarCMSController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CalendarEvent $calendarEvent)
     {
-        //
+        try {
+            // if ($calendarEvent->file_path != null) {
+
+            //     Storage::disk('public')->exists("regulasi/$calendarEvent->file_path");
+            //     Storage::delete("public/regulasi/$calendarEvent->file_path");
+            // }
+
+            DB::beginTransaction();
+            MeetingAttendee::where('calendar_event_id', $calendarEvent->id)->delete();
+            $calendarEvent->delete();
+            DB::commit();
+
+            return redirect()->back()->with(['notif' => 'Calendar Event telah dihapus']);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()->withErrors(['notif' => $th->getMessage()]);
+        }
+    }
+
+    /* =============================================================== */
+    public function deleteMultipleAttendee(Request $request)
+    {
+        $request->validate([
+            'calendar_event_id' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        $data = $request->only([
+            'calendar_event_id',
+            'user_id',
+        ]);
+
+        try {
+            MeetingAttendee::where('calendar_event_id', $data['calendar'])->whereIn('user_id', $data['user_id'])->delete();
+            return response()->json(['notif' => 'attendee berhasil dihapus']);
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['notif' => $th->getMessage()]);
+        }
     }
 }

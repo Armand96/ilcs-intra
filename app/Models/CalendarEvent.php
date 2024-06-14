@@ -15,6 +15,7 @@ class CalendarEvent extends Model
         'tgl_cal_event_start',
         'tgl_cal_event_end',
         'tipe',
+        'location',
     ];
 
     public function attendee()
