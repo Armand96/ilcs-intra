@@ -10,8 +10,6 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'judul',
-        'iamge_cover',
         'content',
         'posted_by',
     ];

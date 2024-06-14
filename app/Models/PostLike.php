@@ -5,20 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class PostLike extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
         'post_id',
-        'parent_comment_id',
-        'comment',
-    ];
-
-    protected $hidden = [
-        'created_at',
-        'updated_at'
+        'comment_id',
     ];
 
     public function post()
@@ -26,13 +20,13 @@ class Comment extends Model
         return $this->belongsTo(Post::class, 'post_id', 'id');
     }
 
-    public function replies()
-    {
-        return $this->belongsTo(Comment::class, 'parent_commend_id', 'id');
-    }
-
-    public function user()
+    public function userComment()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function comment()
+    {
+        return $this->belongsTo(Comment::class, 'comment_id', 'id');
     }
 }

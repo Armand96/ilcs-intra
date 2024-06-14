@@ -5,14 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ReplyComment extends Model
+class PostFile extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'reply_comment',
         'post_id',
-        'main_comment_id',
+        'path_file',
+        'tipe',
     ];
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class, 'post_id', 'id');
+    }
 }
