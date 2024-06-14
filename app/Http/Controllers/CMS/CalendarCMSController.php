@@ -93,8 +93,7 @@ class CalendarCMSController extends Controller
 
             $attendees = isEmpty($data['attendees']) ? [] : $data['attendees'];
 
-            if(count($attendees))
-            {
+            if (count($attendees)) {
                 $insertAttendees = [];
                 foreach ($attendees as $key => $value) {
                     $temp = array(
@@ -184,8 +183,7 @@ class CalendarCMSController extends Controller
 
             $attendees = isEmpty($data['attendees']) ? [] : $data['attendees'];
 
-            if(count($attendees))
-            {
+            if (count($attendees)) {
                 MeetingAttendee::where('calendar_event_id', $calendarEvent->id)->delete();
                 $insertAttendees = [];
                 foreach ($attendees as $key => $value) {
@@ -252,6 +250,41 @@ class CalendarCMSController extends Controller
         try {
             MeetingAttendee::where('calendar_event_id', $data['calendar'])->whereIn('user_id', $data['user_id'])->delete();
             return response()->json(['notif' => 'attendee berhasil dihapus']);
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['notif' => $th->getMessage()]);
+        }
+    }
+
+    public function insertMultipleAttendee(Request $request)
+    {
+        $request->validate([
+            'calendar_event_id' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        $data = $request->only([
+            'calendar_event_id',
+            'user_id',
+        ]);
+
+        try {
+
+            if (count($data['user_id'])) {
+                $insertAttendees = [];
+                foreach ($data['user_id'] as $key => $value) {
+                    $temp = array(
+                        'calendar_event_id' => $data['calendar_event_id'],
+                        'user_id' => $value,
+                        'created_at' => date('Y-m-d H:i:s')
+                    );
+
+                    array_push($insertAttendees, $temp);
+                }
+
+                MeetingAttendee::insert($insertAttendees);
+            }
+
+            return response()->json(['notif' => 'attendee berhasil ditambahkan']);
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors(['notif' => $th->getMessage()]);
         }
