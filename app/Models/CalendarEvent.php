@@ -11,6 +11,7 @@ class CalendarEvent extends Model
 
     protected $fillable = [
         'judul',
+        'image_cover',
         'description',
         'tgl_cal_event_start',
         'tgl_cal_event_end',

@@ -7,6 +7,7 @@ use App\Models\CalendarEvent;
 use App\Models\MeetingAttendee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -19,7 +20,23 @@ class CalendarCMSController extends Controller
      */
     public function index(Request $request)
     {
-        return view('cms.pages.calendar');
+        $query = CalendarEvent::query();
+
+        if ($request->filled('judul')) {
+            $query->where('judul', 'like', '%' . $request->judul . '%');
+        }
+
+        if ($request->filled('tgl_start')) {
+            $query->where('tgl_cal_event_start', '>=', $request->tgl_start);
+        }
+
+        if ($request->filled('tgl_end')) {
+            $query->where('tgl_cal_event_end', '<=', $request->tgl_end);
+        }
+
+        $calendarEvents = $query->paginate(10);
+
+        return view('cms.pages.calendar', compact('calendarEvents'));
     }
 
     /**
@@ -61,13 +78,13 @@ class CalendarCMSController extends Controller
                 'attendees'
             ]);
 
-            // if ($request->hasFile('file')) {
-            //     $fileName = time() . '.' . $request->file->extension();
-            //     $request->file->storeAs('public/regulasi/', $fileName);
-            //     $data['file_path'] = $fileName;
-            // } else {
-            //     $data['file_path'] = "";
-            // }
+            if ($request->hasFile('foto')) {
+                $fileName = time() . '.' . $request->foto->extension();
+                $request->foto->storeAs('public/calendar_event/', $fileName);
+                $data['image_cover'] = $fileName;
+            } else {
+                $data['image_cover'] = "";
+            }
 
             /* CROSS TABLE INSERT */
             DB::beginTransaction();
@@ -150,15 +167,15 @@ class CalendarCMSController extends Controller
         ]);
 
         try {
-            // if ($request->hasFile('file')) {
+            if ($request->hasFile('file')) {
 
-            //     $isExist = Storage::disk('public')->exists("regulasi/$calendarEvent->file_path") ?? false;
-            //     if ($isExist) Storage::delete("public/regulasi/$calendarEvent->file_path");
+                $isExist = Storage::disk('public')->exists("calendar_event/$calendarEvent->image_cover") ?? false;
+                if ($isExist) Storage::delete("public/calendar_event/$calendarEvent->image_cover");
 
-            //     $filePath = time() . '.' . $request->file->extension();
-            //     $request->file->storeAs('public/regulasi/', $filePath);
-            //     $data['file_path'] = $filePath;
-            // }
+                $filePath = time() . '.' . $request->file->extension();
+                $request->file->storeAs('public/calendar_event/', $filePath);
+                $data['image_cover'] = $filePath;
+            }
 
             /* CROSS TABLE INSERT */
             DB::beginTransaction();
@@ -201,11 +218,11 @@ class CalendarCMSController extends Controller
     public function destroy(CalendarEvent $calendarEvent)
     {
         try {
-            // if ($calendarEvent->file_path != null) {
+            if ($calendarEvent->image_cover != null) {
 
-            //     Storage::disk('public')->exists("regulasi/$calendarEvent->file_path");
-            //     Storage::delete("public/regulasi/$calendarEvent->file_path");
-            // }
+                Storage::disk('public')->exists("calendar_event/$calendarEvent->image_cover");
+                Storage::delete("public/calendar_event/$calendarEvent->image_cover");
+            }
 
             DB::beginTransaction();
             MeetingAttendee::where('calendar_event_id', $calendarEvent->id)->delete();

@@ -19,6 +19,7 @@ class CreateCalendarEventsTable extends Migration
             $table->text('description')->nullable(true);
             $table->datetime('tgl_cal_event_start');
             $table->datetime('tgl_cal_event_end');
+            $table->string('image_cover')->nullable();
             $table->string('location')->nullable();
             $table->enum('tipe', ['event', 'meeting', 'libur']);
             $table->timestamps();
