@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\cms;
 
 use App\Http\Controllers\Controller;
+use App\Models\CalendarEvent;
 use Illuminate\Http\Request;
 
 class CalendarCMSController extends Controller
@@ -35,7 +36,33 @@ class CalendarCMSController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            // dd($request->all());
+            $request->validate([
+                'judul' => 'required',
+                'deskripsi' => 'required',
+            ]);
+
+            $data = $request->only([
+                'judul',
+                'deskripsi'
+            ]);
+
+            if ($request->hasFile('file')) {
+
+                $fileName = time() . '.' . $request->file->extension();
+                $request->file->storeAs('public/regulasi/', $fileName);
+                $data['file_path'] = $fileName;
+            } else {
+                $data['file_path'] = "";
+            }
+
+            CalendarEvent::create($data);
+            return redirect()->back()->with(['notif' => 'Regulasi telah dibuat']);
+        } catch (\Throwable $th) {
+            throw $th;
+            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+        }
     }
 
     /**

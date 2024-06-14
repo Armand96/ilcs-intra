@@ -17,7 +17,9 @@ class CreateCalendarEventsTable extends Migration
             $table->id();
             $table->string('judul', 100);
             $table->text('description')->nullable(true);
-            $table->date('tgl_cal_event');
+            $table->datetime('tgl_cal_event_start');
+            $table->datetime('tgl_cal_event_end');
+            $table->enum('tipe', ['event', 'meeting', 'libur']);
             $table->timestamps();
         });
     }

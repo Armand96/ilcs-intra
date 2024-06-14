@@ -12,6 +12,13 @@ class CalendarEvent extends Model
     protected $fillable = [
         'judul',
         'description',
-        'tgl_cal_event',
+        'tgl_cal_event_start',
+        'tgl_cal_event_end',
+        'tipe',
     ];
+
+    public function attendee()
+    {
+        return $this->hasMany(MeetingAttendee::class, 'calendar_event_id', 'id');
+    }
 }
