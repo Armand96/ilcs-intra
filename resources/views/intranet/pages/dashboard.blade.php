@@ -131,8 +131,9 @@
         </div> -->
 
         <div class="owl-carousel owl-theme ">
+            
 
-            <div id="slide1" class="carousel-item flex flex-col w-full mt-4">
+            <div id="slide1" class="carousel-item flex flex-col w-full mt-4"  onclick="my_modal_2.showModal()">
                 <h1 class="text-lg font-semibold text-white">INTRANET 2.0 COMING SOON!!</h1>
                 <p class="text-white my-2 text-xs">ILCS Event adalah reminder/pengingat acara internal perusahaan yang diselenggarakan untuk merayakan pencapaian bersama.</p>
                 <div class="mt-6 w-full h-[8rem] lg:h-[16rem] xl:h-[23rem]">
@@ -140,13 +141,13 @@
                 </div>
             </div>
 
-            <div id="slide2" class="carousel-item flex flex-col w-full mt-4">
+            <!-- <div id="slide2" class="carousel-item flex flex-col w-full mt-4">
                 <h1 class="text-lg font-semibold text-white">INTRANET 2.0 COMING SOON!!</h1>
                 <p class="text-white my-2 text-xs">ILCS Event adalah reminder/pengingat acara internal perusahaan yang diselenggarakan untuk merayakan pencapaian bersama.</p>
                 <div class="mt-6 w-full h-[8rem] lg:h-[16rem]  xl:h-[25rem]">
                     <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
@@ -468,6 +469,9 @@
 </div>
 
 <button class="bg-login-button px-6 py-2 mx-auto text-white rounded-xl mb-12" onclick="toTop()">Back to top</button>
+
+
+@include('components.modal_news')
 
 <script>
     // owlCarousel

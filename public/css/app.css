@@ -3103,6 +3103,9 @@ html:has(.drawer-toggle:checked) {
 .mt-9 {
   margin-top: 2.25rem;
 }
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
 .block {
   display: block;
 }
@@ -3136,6 +3139,10 @@ html:has(.drawer-toggle:checked) {
 .size-8 {
   width: 2rem;
   height: 2rem;
+}
+.size-56 {
+  width: 14rem;
+  height: 14rem;
 }
 .h-16 {
   height: 4rem;
@@ -3280,6 +3287,9 @@ html:has(.drawer-toggle:checked) {
 }
 .max-w-6xl {
   max-width: 72rem;
+}
+.max-w-7xl {
+  max-width: 80rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -3518,6 +3528,10 @@ html:has(.drawer-toggle:checked) {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-\[\#283358\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(40 51 88 / var(--tw-bg-opacity));
 }
 .object-cover {
   -o-object-fit: cover;
