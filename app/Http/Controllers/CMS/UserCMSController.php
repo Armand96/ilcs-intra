@@ -141,7 +141,7 @@ class UserCMSController extends Controller
             User::create($data);
             return redirect()->back()->with(['notif' => 'User telah dibuat']);
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th;
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
         }
     }
