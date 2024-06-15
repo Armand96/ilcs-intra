@@ -68,6 +68,10 @@ Route::group(['middleware' =>'auth'], function() {
         return view('intranet.pages.calendar');
     })->name('intra.calendar');
 
+    Route::get('/employee-aspiration', function() {
+        return view('intranet.pages.employee_aspiration');
+    });
+
     Route::get("/regulations", function(){
         return view('regulations');
     });
