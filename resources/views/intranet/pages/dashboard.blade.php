@@ -220,7 +220,7 @@
 <!-- section kanan -->
     <div class="w-full lg:w-2/6 flex flex-col lg:ml-6 mt-6 lg:mt-0 ">
         <div class="flex-col bg-card-dashboard border border-blue-950 px-2 py-2 rounded-xl">
-            <div id='calendar' class="w-full text-white text-xs calendar-custom"></div>
+            <div id='calendar' class="w-full text-white text-xs calendar-custom px-4"></div>
         </div>
         <div class="w-full flex  bg-card-dashboard border border-blue-950 flex-col text-white mt-6  px-4 py-4 rounded-xl">
             <h5 class="font-semibold mb-6">
