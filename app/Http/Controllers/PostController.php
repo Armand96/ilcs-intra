@@ -115,4 +115,18 @@ class PostController extends Controller
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
         }
     }
+
+    public function deleteComment($commentId)
+    {
+        try {
+            // DB::beginTransaction();
+
+            Comment::where('comment_id', $commentId)->orWhere('parent_comment_id', $commentId)->delete();
+
+            // DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+        }
+    }
 }
