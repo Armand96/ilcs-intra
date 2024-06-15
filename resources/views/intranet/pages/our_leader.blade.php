@@ -8,7 +8,7 @@
             </h4>
             <div class="flex flex-col gap-6 justify-center lg:flex-row w-full mt-5">
                 @foreach ($divisis as $idx => $div)
-                    <div class="w-full xl:w-1/4 mr-6 flex tabs tab-active justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white"
+                    <div class="w-full xl:w-1/3 mr-6 flex tabs tab-active justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white"
                         data-tab-target="#tab{{$idx}}">
                         <img src="{{ asset('assets/images/icon/'.$div['icon']) }}" alt="img" class="w-12">
                         <p class="font-semibold text-xs lg:text-sm ml-6">
