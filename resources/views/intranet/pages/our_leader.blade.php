@@ -3,10 +3,10 @@
 @section('content')
     <div class="bg-onboarding w-11/12 rounded-lg mx-auto mt-6 px-6 py-6">
         <div class="flex flex-col  bg-blur-comission border border-white text-white rounded-lg w-full px-4 py-6">
-            <h4 class="text-lg font-semibold">
+            <h4 class="text-lg text-center font-semibold">
                 From The Board
             </h4>
-            <div class="flex flex-col gap-6 lg:flex-row w-full mt-5">
+            <div class="flex flex-col gap-6 justify-center lg:flex-row w-full mt-5">
                 @foreach ($divisis as $idx => $div)
                     <div class="w-full xl:w-1/4 mr-6 flex tabs tab-active justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white"
                         data-tab-target="#tab{{$idx}}">
