@@ -15,7 +15,7 @@ class DashboardController extends Controller
     public function home()
     {
         $data = array(
-            // 'news' => $this->latestNews(),
+            'news' => $this->latestNews(),
             // 'eom' => $this->getAllNilaiKaryawan(),
             'upcomingBirthday' => $this->getUpcomingBirthday(),
             'linkApps' => $this->appLink(),

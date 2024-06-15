@@ -22,7 +22,7 @@ trait GeneralTrait
     **/
     public function latestNews(): Collection
     {
-        $data = News::orderBy('tgl_event', 'ASC')->limit(3)->get();
+        $data = News::orderBy('created_at', 'ASC')->limit(3)->get();
         return $data;
     }
 

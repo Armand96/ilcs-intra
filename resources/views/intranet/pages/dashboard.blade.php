@@ -109,37 +109,28 @@
             <div class="lg:w-2/6 2xl:w-1/6 text-white">
                 <p class="text-base lg:text-xl">ILCS News</p>
             </div>
-
-            <!-- <div class="w-1/6 flex text-xl nextBtn text-white">
-                <p class="mr-6 prevBtn cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                    </svg>
-                </p>
-                <p class="cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                    </svg>
-
-                </p>
-            </div> -->
         </div>
 
-        <!-- <div class="flex flex-col w-full mt-3">
-            <h1 class="text-lg font-semibold mb-4 text-white">INTRANET 2.0 COMING SOON!!</h1>
-            <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full object-fill lg:h-[43vh] ml-0">
-        </div> -->
-
         <div class="owl-carousel owl-theme ">
-            
 
-            <div id="slide1" class="carousel-item flex flex-col w-full mt-4"  onclick="my_modal_2.showModal()">
+            @foreach ($data['news'] as $nws)
+                <div id="slide1" class="carousel-item flex flex-col w-full mt-4"  onclick="showModal({{$nws->id}})">
+                    <h1 class="text-lg font-semibold text-white">{{ $nws->judul }}</h1>
+                    {!! limit_html_content($nws->content, 100) !!}
+                    <div class="mt-6 w-full h-[8rem] lg:h-[16rem] xl:h-[23rem]">
+                        <img src="{{ url('storage/news/'.$nws->image_cover) }}" alt="" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                </div>
+            @endforeach
+
+{{--
+            <div id="slide2" class="carousel-item flex flex-col w-full mt-4"  onclick="my_modal_2.showModal()">
                 <h1 class="text-lg font-semibold text-white">INTRANET 2.0 COMING SOON!!</h1>
                 <p class="text-white my-2 text-xs">ILCS Event adalah reminder/pengingat acara internal perusahaan yang diselenggarakan untuk merayakan pencapaian bersama.</p>
                 <div class="mt-6 w-full h-[8rem] lg:h-[16rem] xl:h-[23rem]">
                     <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="w-full h-full object-cover rounded-xl">
                 </div>
-            </div>
+            </div> --}}
 
             <!-- <div id="slide2" class="carousel-item flex flex-col w-full mt-4">
                 <h1 class="text-lg font-semibold text-white">INTRANET 2.0 COMING SOON!!</h1>
@@ -474,6 +465,33 @@
 @include('components.modal_news')
 
 <script>
+
+    function showModal(idNews) {
+        axios.get("{{ url('news-detail') }}/"+idNews).then(resp => {
+            resp = resp.data;
+            $('#judul_news').html(resp.judul);
+            $('#created_at').html(formatDate(resp.created_at));
+            $('#poster').html(resp.poster.name);
+            $('#news_image_cover').attr('src', "{{ url('storage/news')}}/"+resp.image_cover);
+            $('#content_body').html(resp.content);
+            $('#modal_news').addClass('modal-open');
+        });
+    }
+
+    function closeModal() {
+        $('#modal_news').removeClass('modal-open');
+    }
+
+    function formatDate(dateStr){
+        // const dateStr = "2024-06-11T14:01:41.000000Z";
+
+        const date = new Date(dateStr);
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(date);
+
+        return formattedDate;
+    }
+
     // owlCarousel
     $(document).ready(function() {
         var owl = $('.owl-carousel');
@@ -539,51 +557,6 @@
                     desc: "Idul Adha",
                     start: '2024-06-16T13:00:00',
                 },
-                // {
-                //     title: 'Meeting',
-                //     start: '2023-01-13T11:00:00',
-                //     constraint: 'availableForMeeting', // defined below
-                //     color: '#257e4a'
-                // },
-                // {
-                //     title: 'Conference',
-                //     start: '2023-01-18',
-                //     end: '2023-01-20'
-                // },
-                // {
-                //     title: 'Party',
-                //     start: '2023-01-29T20:00:00'
-                // },
-
-                // // areas where "Meeting" must be dropped
-                // {
-                //     groupId: 'availableForMeeting',
-                //     start: '2023-01-11T10:00:00',
-                //     end: '2023-01-11T16:00:00',
-                //     display: 'background'
-                // },
-                // {
-                //     groupId: 'availableForMeeting',
-                //     start: '2023-01-13T10:00:00',
-                //     end: '2023-01-13T16:00:00',
-                //     display: 'background'
-                // },
-
-                // // red areas where no events can be dropped
-                // {
-                //     start: '2023-01-24',
-                //     end: '2023-01-28',
-                //     overlap: false,
-                //     display: 'background',
-                //     color: '#ff9f89'
-                // },
-                // {
-                //     start: '2023-01-06',
-                //     end: '2023-01-08',
-                //     overlap: false,
-                //     display: 'background',
-                //     color: '#ff9f89'
-                // }
             ],
 
         });

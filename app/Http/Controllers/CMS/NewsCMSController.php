@@ -70,7 +70,7 @@ class NewsCMSController extends Controller
             ]);
 
             $data['posted_by'] = Auth::user()->id;
-            if($data['is_active']) $data['is_active'] = true;
+            if ($data['is_active']) $data['is_active'] = true;
             else $data['is_active'] = false;
 
             if ($request->hasFile('foto')) {
@@ -133,6 +133,10 @@ class NewsCMSController extends Controller
         ]);
 
         try {
+
+            if ($data['is_active']) $data['is_active'] = true;
+            else $data['is_active'] = false;
+
             if ($request->hasFile('foto')) {
 
                 $isExist = Storage::disk('public')->exists("news/$news->image_cover") ?? false;

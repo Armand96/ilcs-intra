@@ -75,6 +75,9 @@ Route::group(['middleware' =>'auth'], function() {
     Route::get("/regulations", function(){
         return view('regulations');
     });
+
+    /* ================== DATA FETCH ================== */
+    Route::get('/news-detail/{news}', [NewsController::class, 'show'])->name('news.modal');
 });
 
 Route::any("*", function() {
@@ -98,7 +101,6 @@ Route::get('new_employee', [UserController::class, 'newEmployee']);
 Route::get('staff_of_the_month', [UserController::class, 'getAllNilaiKaryawan']);
 Route::get('upcoming_birthday', [UserController::class, 'getUpcomingBirthday']);
 Route::get('latest_news', [NewsController::class, 'latestNews']);
-Route::get('latest_events', [EventController::class, 'latestEvents']);
 Route::get('unread_notif', [NotificationController::class, 'unreadNotif']);
 Route::get('unread_count_notif', [NotificationController::class, 'unreadCount']);
 Route::get('unread_chat', [NotificationController::class, 'unreadChat']);

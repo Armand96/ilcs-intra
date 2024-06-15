@@ -144,6 +144,9 @@
     <script>
         ClassicEditor
             .create(document.querySelector('#content'))
+            .then(editor => {
+                window.editor = editor; // Store the editor instance globally for later use
+            })
             .catch(error => {
                 console.error(error);
             });
@@ -164,7 +167,12 @@
             axios.get('{{ route('news.index') }}/' + idNews).then(resp => {
                 resp = resp.data;
                 $('#judul').val(resp.judul);
-                $('#content').val(resp.content);
+                // $('#content').html(resp.content);
+                const editor = window.editor;
+                const content = resp.content;
+                if (editor) {
+                    editor.setData(content);
+                }
                 resp.is_active == 1 ? $('#is_active').prop('checked', true) : $('#is_active').prop('checked',
                     false);
 
