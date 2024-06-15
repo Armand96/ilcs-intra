@@ -68,9 +68,9 @@ Route::group(['middleware' =>'auth'], function() {
         return view('intranet.pages.calendar');
     })->name('intra.calendar');
 
-    Route::get('/employee-aspiration', function() {
+    Route::get('/employee-forum', function() {
         return view('intranet.pages.employee_aspiration');
-    });
+    })->name('employee.forum');
 
     Route::get("/regulations", function(){
         return view('regulations');
