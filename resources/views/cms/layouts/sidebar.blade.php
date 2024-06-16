@@ -12,7 +12,7 @@
         <img src="{{ asset('assets/images/logo/sidebar_logo.svg') }}" class=" mx-auto w-36 mb-4 mt-2 object-cover"
             alt="logo">
         <!-- Sidebar content here -->
-        <div class="flex flex-col w-full justify-center items-center">
+        <div class="flex flex-col w-full justify-center items-center" style="zoom: 90% ;">
 
             @if ($currRoleName == $superAdmin || $currRoleName == $adminSDM)
                 <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'users.index' ? 'menu-child-active' : 'menu-child' }} flex-col items-center justify-center flex mt-6 w-5/6 px-4 py-3"

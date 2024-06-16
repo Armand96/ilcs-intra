@@ -3198,6 +3198,9 @@ html:has(.drawer-toggle:checked) {
 .h-screen {
   height: 100vh;
 }
+.h-\[105vh\] {
+  height: 105vh;
+}
 .max-h-\[90dvh\] {
   max-height: 90dvh;
 }
@@ -3742,6 +3745,10 @@ html:has(.drawer-toggle:checked) {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-green-800 {
+  --tw-text-opacity: 1;
+  color: rgb(22 101 52 / var(--tw-text-opacity));
 }
 .underline {
   text-decoration-line: underline;
