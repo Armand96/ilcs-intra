@@ -10,7 +10,7 @@
             </p>
             {{-- IMAGE COVER --}}
             <img src="{{ asset('assets/images/from-board/bod-1.svg') }}" alt="img"
-                class="w-4/6 mx-auto h-72 object-cover rounded-xl" id="news_image_cover">
+                class="w-full mx-auto h-72 object-cover rounded-xl" id="news_image_cover">
             <div class="w-full mt-7 lg:mt-0  flex flex-col overflow-x-hidden h-72">
                 <div class="h-full overflow-x-auto backoffice-style" id="content_body">
                     Content
