@@ -22,6 +22,7 @@ class DashboardController extends Controller
             'linkSosmed' => $this->sosmedLink(),
             'newEmployee' => $this->newEmployee(),
             'farewellEmployee' => $this->farewellKaryawan(),
+            'calendar' => $this->calendar()
             // 'notifCount' => $this->unreadCount(1),
             // 'chatHist' => $this->allUserChat(1),
             // 'chatCount' => $this->unreadCount(1),

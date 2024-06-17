@@ -227,7 +227,22 @@
                 ILCS Events
             </h5>
             <div class="h-[48vh] our-team-left overflow-auto">
-                <div class="flex mb-6">
+                @foreach ($data['calendar'] as $item)
+                    @if ($item->color == 'blue')
+                        <div class="flex mb-6">
+                            <div class="w-2/6 mx-6">
+                                <img src="{{ url('storage/calendar_event/'.$item->image_cover) }}" alt="" class="object-cover rounded-xl  border border-blue-700 w-32 h-20 relative">
+                            </div>
+                            <div class="w-4/6 text-sm">
+                                <h4 class="font-semibold text-white">{{ $item->title }}</h4>
+                                <p class="text-dashboard-blue-right text-xs">{{ $item->start }} </p>
+                            </div>
+                        </div>
+
+                    @endif
+
+                @endforeach
+                {{-- <div class="flex mb-6">
                     <div class="w-2/6 mx-6">
                         <img src="{{ asset('assets/images/dashboard/event/dmc.jpeg') }}" alt="" class="object-cover rounded-xl  border border-blue-700 w-32 h-20 relative">
                     </div>
@@ -235,8 +250,8 @@
                         <h4 class="font-semibold text-white">Launching DMDC</h4>
                         <p class="text-dashboard-blue-right text-xs">Senin, 20 Mei 2024 </p>
                     </div>
-                </div>
-                <div class="flex mb-6">
+                </div> --}}
+                {{-- <div class="flex mb-6">
                     <div class="w-2/6 mx-6">
                         <img src="{{ asset('assets/images/dashboard/comming-soon.svg') }}" alt="" class="object-cover rounded-xl border border-blue-700  w-32 h-20 relative">
                     </div>
@@ -253,7 +268,7 @@
                         <h4 class="font-semibold text-white">Soft Go Live INTRANET 2.0 </h4>
                         <p class="text-dashboard-blue-right text-xs">Senin, 27 Mei 2024| 10.00 </p>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
             <div class="border border-blue-600 px-4 py-3 rounded-lg mt-12">
@@ -518,6 +533,7 @@
 
     // calender
     document.addEventListener('DOMContentLoaded', function() {
+        const calendars = @json($data['calendar']);
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -552,12 +568,13 @@
                     tooltip.remove();
                 });
             },
-            events: [{
-                    title: '',
-                    desc: "Idul Adha",
-                    start: '2024-06-16T13:00:00',
-                },
-            ],
+            // events: [{
+            //         title: '',
+            //         desc: "Idul Adha",
+            //         start: '2024-06-16T13:00:00',
+            //     },
+            // ],
+            events: calendars.filter(event => event.color != 'grey')
 
         });
 

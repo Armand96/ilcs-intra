@@ -171,13 +171,13 @@ class CalendarCMSController extends Controller
         ]);
 
         try {
-            if ($request->hasFile('file')) {
+            if ($request->hasFile('foto')) {
 
                 $isExist = Storage::disk('public')->exists("calendar_event/$calendar->image_cover") ?? false;
                 if ($isExist) Storage::delete("public/calendar_event/$calendar->image_cover");
 
-                $filePath = time() . '.' . $request->file->extension();
-                $request->file->storeAs('public/calendar_event/', $filePath);
+                $filePath = time() . '.' . $request->foto->extension();
+                $request->foto->storeAs('public/calendar_event/', $filePath);
                 $data['image_cover'] = $filePath;
             }
 
