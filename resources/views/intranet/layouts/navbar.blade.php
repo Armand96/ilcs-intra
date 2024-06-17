@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div> -->
-        <label for="my-drawer-2"  class="text-white w-7 lg:hidden ">
+        <label for="my-drawer-2" class="text-white w-7 lg:hidden ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
             </svg>
@@ -44,21 +44,21 @@
                     <span class="badge badge-sm bg-red-500 border-none text-white indicator-item">0</span>
                 </div>
             </div>
-            <div tabindex="0" class="mt-3 z-[1] left-0 card card-compact dropdown-content w-60 bg-base-100 shadow">
-                <h4 class=" px-4 font-semibold my-3">Notification</h4>
-                <h4 class=" px-4 text-xs text-center mb-10 mt-3">No Notification</h4>
-                <!-- <div class=" flex flex-col items-center justify-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
-                    <p class="text-sm font-semibold text-center ">User 1 Mengomentari aspirasi Anda</p>
-                    <p class="text-sm font-light text-blue-300">Klik lebih lanjut..</p>
+            <div tabindex="0" class="mt-3 z-[1]  -left-[30] card card-compact bg-[#1D2A47] dropdown-content w-80 shadow">
+                <h4 class=" px-4 font-semibold my-3 text-white bg-[#36447E] py-3 rounded-t-lg">Notification</h4>
+                <!-- <h4 class=" px-4 text-xs text-center mb-10 mt-3">No Notification</h4> -->
+                <div class="text-white gap-4 flex mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
+                    <img src="{{ asset('assets/images/sosmed/foto-profile.svg') }}" alt="profile" class="w-10 h-10">
+                    <div class="flex flex-col">
+                        <p class="text-white text-xs">
+                            Welcome Amanda Najwa on starting your new journey as UIUX Designer with ILCS!
+                        </p>
+                        <p class="text-white text-[8px]">
+                            30 Hours Ago
+                        </p>
+                    </div>
                 </div>
-                <div class="flex flex-col items-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
-                    <p class="text-sm font-semibold text-center ">User 2 Mengomentari aspirasi Anda</p>
-                    <p class="text-sm font-light text-blue-300">Klik lebih lanjut..</p>
-                </div>
-                <div class="flex flex-col mt-2 items-center mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
-                    <p class="text-sm font-semibold text-center ">User 3 Mengomentari aspirasi Anda</p>
-                    <p class="text-sm font-light text-blue-300">Klik lebih lanjut..</p>
-                </div> -->
+
             </div>
         </div>
 
@@ -78,7 +78,7 @@
 
             <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white rounded-box w-52 bg-dashboard-background border border-blue-950 ">
                 @if (Auth::user()->role->is_admin)
-                    <li><a href="{{ url('/cms_admin/home') }}">CMS</a></li>
+                <li><a href="{{ url('/cms_admin/home') }}">CMS</a></li>
                 @endif
                 <li><a>Profile</a></li>
                 <li><a href="{{ route('logout') }}">Logout</a></li>

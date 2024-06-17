@@ -4,7 +4,7 @@
 <div class="bg-[#283358] flex flex-col w-5/6 mx-auto mt-5 mb-6 px-4 py-4 border border-blue-900 rounded-xl">
     <div class="w-full flex gap-6 items-center">
         <img src="{{ asset('assets/images/sosmed/foto-profile.svg') }}" alt="profile" class="w-10 h-10">
-        <div class="w-11/12 border border-blue-900 bg-[#384478] flex px-2 py-3 justify-between rounded-md items-center">
+        <div onclick="buatPost()" class="w-11/12 border border-blue-900 bg-[#384478] flex px-2 py-3 justify-between rounded-md items-center">
             <p class="text-[#E9E9E9] text-xs">Buat postingan berbagilah sesuatu</p>
             <img src="{{ asset('assets/images/sosmed/send-icon.svg') }}" class="w-6 h-6">
         </div>
@@ -222,11 +222,43 @@
     </div>
 </dialog>
 
+<dialog id="buat-post" class="modal ">
+    <div class="modal-box bg-[#283358]">
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full" onclick="buatPost()">✕</button>
+        </form>
+        <h3 class="font-bold text-white text-lg">Create a Post</h3>
+        <div class="flex items-center gap-5 mt-8">
+            <img src="{{ asset('assets/images/sosmed/foto-profile.svg') }}" alt="profile" class="w-10 h-10">
+            <div class="flex flex-col">
+                <p class="text-white items-center text-sm">
+                    <span class="font-bold">Natal Iman Ginting</span>
+                </p>
+                <p class="text-[#37B6E1] font-light text-xs">Post to Employee Forum</p>
+            </div>
+        </div>
+        <textarea name="" id="" class="w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]"></textarea>
+        <div class="flex w-full flex-row-reverse">
+            <button class="btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl">Post</button>
+        </div>
+    </div>
+</dialog>
+
 
 
 <script>
     function balasPesan() {
         const modalPesanComp = document.querySelector("#balas-pesan")
+        if (modalPesanComp.classList.contains("modal-open")) {
+            modalPesanComp.classList.remove("modal-open")
+        } else {
+            modalPesanComp.classList.add("modal-open")
+
+        }
+    }
+
+    function buatPost() {
+        const modalPesanComp = document.querySelector("#buat-post")
         if (modalPesanComp.classList.contains("modal-open")) {
             modalPesanComp.classList.remove("modal-open")
         } else {
