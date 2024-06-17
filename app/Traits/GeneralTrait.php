@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use App\Enums\LinkTypeEnum;
+use App\Models\CalendarEvent;
 use App\Models\Chat;
 use App\Models\Link;
 use App\Models\News;
@@ -19,7 +20,7 @@ trait GeneralTrait
      * Get the latest news.
      *
      * @return Collection|News[]
-    **/
+     **/
     public function latestNews(): Collection
     {
         $data = News::orderBy('created_at', 'ASC')->limit(3)->get();
@@ -30,7 +31,7 @@ trait GeneralTrait
      * Get new employee data.
      *
      * @return Collection|User[]
-    **/
+     **/
     public function newEmployee()
     {
         $users = User::whereBetween('tgl_masuk', [date('Y-m-01'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->get();
@@ -47,7 +48,7 @@ trait GeneralTrait
     /**
      * Get upcoming birthday employee.
      * @return Collection|User[]
-    **/
+     **/
     public function getUpcomingBirthday()
     {
         $whereMonth = DB::raw('MONTH(tgl_lahir)');
@@ -110,7 +111,7 @@ trait GeneralTrait
         $data = Link::where('tipe', LinkTypeEnum::OTHER)->get();
         foreach ($data as $key => $lnk) {
             if (Storage::disk('public')->exists("link_gambar/" . $lnk->image_path)) {
-                $lnk->image_path = Storage::disk('public')->url('link_gambar/'.$lnk->image_path);
+                $lnk->image_path = Storage::disk('public')->url('link_gambar/' . $lnk->image_path);
             }
         }
         return $data;
@@ -121,7 +122,7 @@ trait GeneralTrait
         $data = Link::where('tipe', LinkTypeEnum::SOSMED)->get();
         foreach ($data as $key => $lnk) {
             if (Storage::disk('public')->exists("link_gambar/" . $lnk->image_path)) {
-                $lnk->image_path = Storage::disk('public')->url('link_gambar/'.$lnk->image_path);
+                $lnk->image_path = Storage::disk('public')->url('link_gambar/' . $lnk->image_path);
             }
         }
         return $data;
@@ -203,5 +204,15 @@ trait GeneralTrait
     {
         $count = Chat::where('to_user_id', $userId)->where('is_read', false)->count();
         return $count;
+    }
+
+    public function calendar()
+    {
+        $calendarEvents = CalendarEvent::select([
+            'id', 'judul AS title', 'tgl_cal_event_start AS start', 'tgl_cal_event_end AS end', 'description AS desc', 'image_cover',
+            DB::raw("CASE WHEN tipe = 'libur' THEN 'red' WHEN tipe = 'event' THEN 'blue' ELSE 'grey' END AS color"),
+        ])->get();
+        // dd($calendarEvents);
+        return $calendarEvents;
     }
 }

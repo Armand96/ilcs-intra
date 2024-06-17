@@ -26,15 +26,18 @@ class CalendarCMSController extends Controller
             $query->where('judul', 'like', '%' . $request->judul . '%');
         }
 
-        if ($request->filled('tgl_start')) {
-            $query->where('tgl_cal_event_start', '>=', $request->tgl_start);
+        if ($request->filled('tgl_cal_event_start')) {
+            $query->where('tgl_cal_event_start', '>=', $request->tgl_cal_event_start);
         }
 
-        if ($request->filled('tgl_end')) {
-            $query->where('tgl_cal_event_end', '<=', $request->tgl_end);
+        if ($request->filled('tgl_cal_event_end')) {
+            $query->where('tgl_cal_event_end', '<=', $request->tgl_cal_event_end);
         }
 
-        $calendarEvents = $query->paginate(10);
+        $calendarEvents = $query->select([
+            'id', 'judul AS title', 'tgl_cal_event_start AS start', 'tgl_cal_event_end AS end', 'description AS desc',
+            DB::raw("CASE WHEN tipe = 'libur' THEN 'red' WHEN tipe = 'event' THEN 'blue' ELSE 'grey' END AS color"),
+        ])->get();
 
         return view('cms.pages.calendar', compact('calendarEvents'));
     }
@@ -82,22 +85,23 @@ class CalendarCMSController extends Controller
                 $fileName = time() . '.' . $request->foto->extension();
                 $request->foto->storeAs('public/calendar_event/', $fileName);
                 $data['image_cover'] = $fileName;
-            } else {
-                $data['image_cover'] = "";
             }
 
             /* CROSS TABLE INSERT */
             DB::beginTransaction();
 
-            $calendarEvent = CalendarEvent::create($data);
+            $data['tgl_cal_event_start'] = date('Y-m-d H:i:s', strtotime($data['tgl_cal_event_start']));
+            $data['tgl_cal_event_end'] = date('Y-m-d H:i:s', strtotime($data['tgl_cal_event_end']));
 
-            $attendees = isEmpty($data['attendees']) ? [] : $data['attendees'];
+            $calendar = CalendarEvent::create($data);
+
+            $attendees = isset($data['attendees']) ? $data['attendees'] : [];
 
             if (count($attendees)) {
                 $insertAttendees = [];
                 foreach ($attendees as $key => $value) {
                     $temp = array(
-                        'calendar_event_id' => $calendarEvent->id,
+                        'calendar_event_id' => $calendar->id,
                         'user_id' => $value,
                         'created_at' => date('Y-m-d H:i:s')
                     );
@@ -122,9 +126,10 @@ class CalendarCMSController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(CalendarEvent $calendarEvent)
+    public function show(CalendarEvent $calendar)
     {
-        return response()->json($calendarEvent->load('attendee'));
+        $calendar->load('attendee');
+        return response()->json($calendar);
     }
 
     /**
@@ -145,7 +150,7 @@ class CalendarCMSController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CalendarEvent $calendarEvent)
+    public function update(Request $request, CalendarEvent $calendar)
     {
         $request->validate([
             'judul' => 'required',
@@ -166,29 +171,32 @@ class CalendarCMSController extends Controller
         ]);
 
         try {
-            if ($request->hasFile('file')) {
+            if ($request->hasFile('foto')) {
 
-                $isExist = Storage::disk('public')->exists("calendar_event/$calendarEvent->image_cover") ?? false;
-                if ($isExist) Storage::delete("public/calendar_event/$calendarEvent->image_cover");
+                $isExist = Storage::disk('public')->exists("calendar_event/$calendar->image_cover") ?? false;
+                if ($isExist) Storage::delete("public/calendar_event/$calendar->image_cover");
 
-                $filePath = time() . '.' . $request->file->extension();
-                $request->file->storeAs('public/calendar_event/', $filePath);
+                $filePath = time() . '.' . $request->foto->extension();
+                $request->foto->storeAs('public/calendar_event/', $filePath);
                 $data['image_cover'] = $filePath;
             }
 
             /* CROSS TABLE INSERT */
             DB::beginTransaction();
 
-            $calendarEvent->update($data);
+            $data['tgl_cal_event_start'] = date('Y-m-d H:i:s', strtotime($data['tgl_cal_event_start']));
+            $data['tgl_cal_event_end'] = date('Y-m-d H:i:s', strtotime($data['tgl_cal_event_end']));
 
-            $attendees = isEmpty($data['attendees']) ? [] : $data['attendees'];
+            $calendar->update($data);
+
+            $attendees = isset($data['attendees']) ? $data['attendees'] : [];
 
             if (count($attendees)) {
-                MeetingAttendee::where('calendar_event_id', $calendarEvent->id)->delete();
+                MeetingAttendee::where('calendar_event_id', $calendar->id)->delete();
                 $insertAttendees = [];
                 foreach ($attendees as $key => $value) {
                     $temp = array(
-                        'calendar_event_id' => $calendarEvent->id,
+                        'calendar_event_id' => $calendar->id,
                         'user_id' => $value,
                         'created_at' => date('Y-m-d H:i:s')
                     );
@@ -213,18 +221,18 @@ class CalendarCMSController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CalendarEvent $calendarEvent)
+    public function destroy(CalendarEvent $calendar)
     {
         try {
-            if ($calendarEvent->image_cover != null) {
+            if ($calendar->image_cover != null) {
 
-                Storage::disk('public')->exists("calendar_event/$calendarEvent->image_cover");
-                Storage::delete("public/calendar_event/$calendarEvent->image_cover");
+                Storage::disk('public')->exists("calendar_event/$calendar->image_cover");
+                Storage::delete("public/calendar_event/$calendar->image_cover");
             }
 
             DB::beginTransaction();
-            MeetingAttendee::where('calendar_event_id', $calendarEvent->id)->delete();
-            $calendarEvent->delete();
+            MeetingAttendee::where('calendar_event_id', $calendar->id)->delete();
+            $calendar->delete();
             DB::commit();
 
             return redirect()->back()->with(['notif' => 'Calendar Event telah dihapus']);

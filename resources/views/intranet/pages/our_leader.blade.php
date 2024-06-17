@@ -8,7 +8,7 @@
             </h4>
             <div class="flex flex-col gap-6 justify-center lg:flex-row w-full mt-5">
                 @foreach ($divisis as $idx => $div)
-                    <div class="w-full xl:w-1/3 mr-6 flex tabs tab-active justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white"
+                    <div class="w-full xl:w-1/3 mr-6 flex tabs {{$idx == 0 ? 'tab-active' : ''}} justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white"
                         data-tab-target="#tab{{$idx}}">
                         <img src="{{ asset('assets/images/icon/'.$div['icon']) }}" alt="img" class="w-12">
                         <p class="font-semibold text-xs lg:text-sm ml-6">
@@ -16,25 +16,6 @@
                         </p>
                     </div>
                 @endforeach
-                {{-- <div class="w-1/4 mr-6 tabs tab-active flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer " data-tab-target="#tab1">
-                    <img src="{{ asset('assets/images/icon/boc-icon.svg') }}" alt="img" class="w-12">
-                    <p class="font-semibold text-sm ml-6">
-                        Board of Commissioner
-                    </p>
-                </div>
-                <div class="w-full xl:w-1/4 mr-6 flex tabs tab-active justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white"
-                    data-tab-target="#tab2">
-                    <img src="{{ asset('assets/images/icon/bod-icon.svg') }}" alt="img" class="w-12">
-                    <p class="font-semibold text-xs lg:text-sm ml-6">
-                        Board of Directors
-                    </p>
-                </div>
-                <div class="w-1/4 mr-6 tabs flex justify-center items-center px-4 py-2 rounded-xl cursor-pointer text-white " data-tab-target="#tab3">
-                    <img src="{{ asset('assets/images/icon/bom-icon.svg') }}" alt="img" class="w-12">
-                    <p class="font-semibold text-sm ml-6">
-                        Board of Management
-                    </p>
-                </div> --}}
             </div>
         </div>
     </div>
@@ -42,7 +23,7 @@
     <div id="tab-contents" class="w-11/12 mt-9 mb-10">
 
         <!-- BOC -->
-        <div class="w-full hidden grid-cols-1 lg:grid-cols-4 gap-4" id="tab0">
+        <div class="w-full grid grid-cols-1 lg:grid-cols-4 gap-4" id="tab0">
 
             @foreach ($leaders['boc'] as $ld)
                 <div class="flex flex-col card-comission border border-blue-950 rounded-2xl">
@@ -52,55 +33,15 @@
                         <p class="text-dashboard-blue-right text-sm font-semibold">{{ $ld->user->jabatan }}</p>
                     </div>
                     <div class="flex w-full px-4 pb-4">
-                        <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
+                        <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button" onclick="openModal({{$ld->id}})">See
                             message</button>
                     </div>
                 </div>
             @endforeach
 
-            {{-- <div class="flex flex-col card-comission border border-blue-950 rounded-2xl">
-                <img src="{{ asset('assets/images/from-board/boc-1.svg') }}" alt="img" class="w-full rounded-t-2xl ">
-                <div class="flex flex-col  px-4  pt-4 h-40">
-                    <h4 class="text-white text-lg font-semibold">PRAKOSA HADI TAKARIYANTO</h4>
-                    <p class="text-dashboard-blue-right text-sm font-semibold">President Commissioner</p>
-                </div>
-                <div class="flex w-full px-4 pb-4">
-                    <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
-                        message</button>
-                </div>
-            </div>
-
-            <div class="flex flex-col card-comission border border-blue-950 rounded-2xl">
-                <img src="{{ asset('assets/images/from-board/boc-2.svg') }}" alt="img"
-                    class="w-full rounded-t-2xl mr-8">
-                <div class="flex flex-col px-4  pt-4 h-40">
-                    <h4 class="text-white text-lg font-semibold">PBUDI MANTORO</h4>
-                    <p class="text-dashboard-blue-right text-sm font-semibold">Commissioner</p>
-
-                </div>
-                <div class="flex w-full px-4 pb-4">
-                    <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
-                        message</button>
-                </div>
-            </div>
-
-            <div class="flex flex-col card-comission border border-blue-950 rounded-2xl">
-                <img src="{{ asset('assets/images/from-board/boc-3.svg') }}" alt="img"
-                    class="w-full rounded-t-2xl mr-8">
-                <div class="flex flex-col pt-4 px-4  h-40">
-                    <h4 class="text-white text-lg font-semibold">NUGROHO INDRIO</h4>
-                    <p class="text-dashboard-blue-right text-sm font-semibold">Commissioner</p>
-
-                </div>
-                <div class="flex w-full px-4 pb-4">
-                    <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
-                        message</button>
-                </div>
-            </div> --}}
-
         </div>
         <!-- BOD -->
-        <div class="w-full  grid grid-cols-1 lg:grid-cols-4 gap-4" id="tab1">
+        <div class="w-full hidden grid-cols-1 lg:grid-cols-4 gap-4" id="tab1">
 
             @foreach ($leaders['bod'] as $ld)
                 <div class="flex flex-col card-comission border border-blue-950 rounded-2xl">
@@ -110,50 +51,11 @@
                         <p class="text-dashboard-blue-right text-sm font-semibold">{{ $ld->user->jabatan }}</p>
                     </div>
                     <div class="flex w-full px-4 pb-4">
-                        <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
+                        <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button" onclick="openModal({{$ld->id}})">See
                             message</button>
                     </div>
                 </div>
             @endforeach
-            {{-- <div class=" flex flex-col card-comission border border-blue-950 rounded-2xl">
-                <img src="{{ asset('assets/images/from-board/bod-1.svg') }}" alt="img" class="w-full rounded-t-2xl ">
-                <div class="flex flex-col px-4  pt-4 h-40">
-                    <h4 class="text-white text-lg font-semibold">NATAL IMAN GINTING</h4>
-                    <p class="text-dashboard-blue-right text-sm font-semibold">Chief Executive Officer (CEO)</p>
-                </div>
-                <div class="flex w-full px-4 pb-4">
-                    <button onclick="my_modal_2.showModal()"
-                        class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
-                        message</button>
-                </div>
-            </div>
-
-            <div class=" flex flex-col card-comission border border-blue-950 rounded-2xl">
-                <img src="{{ asset('assets/images/from-board/bod-2.svg') }}" alt="img"
-                    class="w-full rounded-t-2xl mr-8">
-                <div class="flex flex-col px-4 pt-4 h-40">
-                    <h4 class="text-white text-lg font-semibold">AGUS DHARMAWAN</h4>
-                    <p class="text-dashboard-blue-right text-sm font-semibold">Chief Marketing Officer (CMO)</p>
-                </div>
-                <div class="flex w-full px-4 pb-4">
-                    <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
-                        message</button>
-                </div>
-            </div>
-
-            <div class=" flex flex-col card-comission border border-blue-950 rounded-2xl">
-                <img src="{{ asset('assets/images/from-board/bod-3.svg') }}" alt="img"
-                    class="w-full rounded-t-2xl mr-8">
-                <div class="flex flex-col px-4 pt-4 h-40">
-                    <h4 class="text-white text-lg font-semibold">JUDI GINTA IRAWAN</h4>
-                    <p class="text-dashboard-blue-right text-sm font-semibold">Chief Technology Officer (CTO) Current Chief
-                        Financial Officer (CFO)</p>
-                </div>
-                <div class="flex w-full px-4 pb-4">
-                    <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
-                        message</button>
-                </div>
-            </div> --}}
 
         </div>
         <!-- BOM -->
@@ -167,64 +69,11 @@
                         <p class="text-dashboard-blue-right text-sm font-semibold">{{ $ld->user->jabatan }}</p>
                     </div>
                     <div class="flex w-full px-4 pb-4">
-                        <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
+                        <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button" onclick="openModal({{$ld->id}})">See
                             message</button>
                     </div>
                 </div>
             @endforeach
-            {{-- <div class=" flex flex-col card-comission border border-blue-950 rounded-2xl">
-                <img src="{{ asset('assets/images/from-board/bom-1.svg') }}" alt="img" class="w-full rounded-t-2xl ">
-                <div class="flex flex-col px-4 pt-4 h-40">
-                    <h4 class="text-white text-lg font-semibold">Kamaldila Puja Yusnika</h4>
-                    <p class="text-dashboard-blue-right text-sm font-semibold">Pjs Senior Manager for Service Management</p>
-
-                </div>
-                <div class="flex w-full px-4 pb-4">
-                    <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
-                        message</button>
-                </div>
-            </div>
-
-            <div class=" flex flex-col card-comission border border-blue-950 rounded-2xl">
-                <img src="{{ asset('assets/images/from-board/bom-2.svg') }}" alt="img" class="w-full rounded-t-2xl">
-                <div class="flex flex-col px-4 pt-4 h-40">
-                    <h4 class="text-white text-lg font-semibold">Afandi Nurrahman</h4>
-                    <p class="text-dashboard-blue-right text-sm font-semibold">Senior Manager of Project Planning and
-                        Implementation</p>
-
-                </div>
-                <div class="flex w-full px-4">
-                    <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
-                        message</button>
-                </div>
-            </div>
-
-            <div class=" flex flex-col card-comission border border-blue-950 rounded-2xl">
-                <img src="{{ asset('assets/images/from-board/bom-3.svg') }}" alt="img"
-                    class="w-full rounded-t-2xl">
-                <div class="flex flex-col px-4 pt-4 h-40">
-                    <h4 class="text-white text-lg font-semibold">Frenda Rangga Aksara</h4>
-                    <p class="text-dashboard-blue-right text-sm font-semibold">Senior Manager of Product Development</p>
-
-                </div>
-                <div class="flex w-full px-4">
-                    <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
-                        message</button>
-                </div>
-            </div>
-
-            <div class=" flex flex-col card-comission border border-blue-950 rounded-2xl">
-                <img src="{{ asset('assets/images/from-board/bom-4.svg') }}" alt="img"
-                    class="w-full rounded-t-2xl">
-                <div class="flex flex-col px-4 pt-4 h-40">
-                    <h4 class="text-white text-lg font-semibold">Raden Rubiyanto</h4>
-                    <p class="text-dashboard-blue-right text-sm font-semibold">Support Services Manager</p>
-                </div>
-                <div class="flex w-full px-4">
-                    <button class="text-white ml-auto px-4 text-base py-2 rounded-2xl login-button bg-login-button">See
-                        message</button>
-                </div>
-            </div> --}}
 
         </div>
 
@@ -233,6 +82,22 @@
     @include('components.modal_leader')
 
     <script>
+
+        function openModal(idLeader) {
+            axios.get('{{ url("leader-detail") }}/'+idLeader).then(resp => {
+                resp = resp.data;
+                $('#leader_name').html(resp.user.name);
+                $('#leader_jabatan').html(resp.user.jabatan);
+                $('#leader_description').html(resp.description)
+                $('#leader_image').attr('src', resp.image_user);
+                $('#modal_leader').addClass('modal-open');
+            });
+        }
+
+        function closeModal(){
+            $('#modal_leader').removeClass('modal-open');
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             let tabs = document.querySelectorAll('[data-tab-target]');
             let tabContents = document.querySelectorAll('#tab-contents > div');

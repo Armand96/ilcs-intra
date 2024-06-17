@@ -49,4 +49,13 @@ class LeaderController extends Controller
 
         return view('intranet.pages.our_leader', compact('leaders', 'divisis'));
     }
+
+    public function show(Leader $leader)
+    {
+        $leader->load('user');
+        if (Storage::disk('public')->exists("profile_picture/" . $leader->user->image_user)) {
+            $leader->user->image_user = Storage::disk('public')->url('profile_picture/' . $leader->user->image_user);
+        }
+        return response()->json($leader);
+    }
 }

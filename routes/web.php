@@ -68,9 +68,9 @@ Route::group(['middleware' =>'auth'], function() {
         return view('intranet.pages.calendar');
     })->name('intra.calendar');
 
-    Route::get('/employee-aspiration', function() {
+    Route::get('/employee-forum', function() {
         return view('intranet.pages.employee_aspiration');
-    });
+    })->name('employee.forum');
 
     Route::get("/regulations", function(){
         return view('regulations');
@@ -78,6 +78,7 @@ Route::group(['middleware' =>'auth'], function() {
 
     /* ================== DATA FETCH ================== */
     Route::get('/news-detail/{news}', [NewsController::class, 'show'])->name('news.modal');
+    Route::get('/leader-detail/{leader}', [LeaderController::class, 'show'])->name('leader.modal');
 });
 
 Route::any("*", function() {
