@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             RoleSeeder::class,
             RegulasiSeeder::class,
-            EventSeeder::class,
-            CalendarSeeder::class,
+            // EventSeeder::class,
+            // CalendarSeeder::class,
             LeaderSeeder::class,
             LinkSeeder::class,
         ]);
