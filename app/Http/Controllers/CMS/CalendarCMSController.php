@@ -64,7 +64,6 @@ class CalendarCMSController extends Controller
             // dd($request->all());
             $request->validate([
                 'judul' => 'required',
-                'description' => 'required',
                 'tgl_cal_event_start' => 'required',
                 'tgl_cal_event_end' => 'required',
                 'location' => 'required',
@@ -154,7 +153,6 @@ class CalendarCMSController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'description' => 'required',
             'tgl_cal_event_start' => 'required',
             'tgl_cal_event_end' => 'required',
             'location' => 'required',

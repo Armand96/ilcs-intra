@@ -22,7 +22,6 @@
         </div>
     </div>
 
-
     <dialog id="modal_calendar" class="modal">
         <div class="modal-box max-w-6xl bg-gray-600 text-white">
             <form id="calendar_form" method="POST" enctype="multipart/form-data">
@@ -33,22 +32,31 @@
                 <div class="flex flex-col mb-6">
                     <div class="mt-4">
                         <p class="text-white">Judul</p>
-                        <input type="text" name="judul" id="judul"
+                        <input type="text" name="judul" id="judul" required
                             class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <div class="mt-4">
+                        <p class="text-white">Jenis Event</p>
+                        <select name="tipe" id="tipe" required
+                            class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                            <option value="event">Event</option>
+                            <option value="meeting">Meeting</option>
+                            <option value="libur">Libur</option>
+                        </select>
+                    </div>
+                    <div class="mt-4">
                         <p class="text-white">Lokasi</p>
-                        <input type="text" name="location" id="location"
+                        <input type="text" name="location" id="location" required
                             class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <div class="mt-4">
                         <p class="text-white">Tgl Event Start</p>
-                        <input type="datetime-local" id="tgl_cal_event_start" name="tgl_cal_event_start"
+                        <input type="datetime-local" id="tgl_cal_event_start" name="tgl_cal_event_start" required
                             class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <div class="mt-4">
                         <p class="text-white">Tgl Event End</p>
-                        <input type="datetime-local" id="tgl_cal_event_end" name="tgl_cal_event_end"
+                        <input type="datetime-local" id="tgl_cal_event_end" name="tgl_cal_event_end" required
                             class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
                     <div class="mt-4">
@@ -60,16 +68,6 @@
                         <p class="text-white">Foto</p>
                         <input type="file" name="foto"
                             class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
-                    </div>
-                    <div class="mt-4">
-                        <p class="text-white">Jenis Event</p>
-                        {{-- <input required type="dropdown" name="jabatan" id="jabatan" class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none"> --}}
-                        <select name="tipe" id="tipe"
-                            class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
-                            <option value="event">Event</option>
-                            <option value="meeting">Meeting</option>
-                            <option value="libur">Libur</option>
-                        </select>
                     </div>
                 </div>
                 <div class="flex flex-row">
