@@ -222,8 +222,9 @@
     </div>
 </dialog>
 
+<!-- modal buat post -->
 <dialog id="buat-post" class="modal ">
-    <div class="modal-box bg-[#283358]">
+    <div class="modal-box max-w-3xl bg-[#283358]">
         <form method="dialog">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full" onclick="togglePostModal()">✕</button>
         </form>
@@ -238,15 +239,31 @@
             </div>
         </div>
         <textarea name="" id="" class="w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]"></textarea>
-        <div class="flex w-full flex-row-reverse">
+        <div class="flex w-full">
+            <div class="w-6/12 flex mt-4 items-center justify-between gap-6">
+                <div onclick="togglePostImageModal();togglePostModal()" class="w-2/6 justify-center flex items-center gap-6 border-r border-r-[#E1E5F6]">
+                    <img src="{{ asset('assets/images/sosmed/foto-icon.svg') }}" alt="">
+                    <p class="text-white text-xs">Foto</p>
+                </div>
+                <div class="w-2/6 justify-center flex items-center gap-6 border-r border-r-[#E1E5F6]">
+                    <img src="{{ asset('assets/images/sosmed/video-icon.svg') }}" alt="">
+                    <p class="text-white text-xs">Video</p>
+                </div>
+                <div class="w-2/6 justify-center flex items-center gap-6">
+                    <img src="{{ asset('assets/images/sosmed/file-icon.svg') }}" alt="">
+                    <p class="text-white text-xs">File</p>
+                </div>
+            </div>
+            <div class="w-5/12"></div>
             <button class="btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl">Post</button>
         </div>
     </div>
 
 </dialog>
 
+<!-- modal buat post gambar -->
 <dialog id="buat-post-gambar" class="modal ">
-    <div class="modal-box bg-[#283358]">
+    <div class="modal-box max-w-3xl bg-[#283358]">
         <form method="dialog">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full" onclick="togglePostImageModal()">✕</button>
         </form>
@@ -260,12 +277,26 @@
                 <p class="text-[#37B6E1] font-light text-xs">Post to Employee Forum</p>
             </div>
         </div>
-        <div class="w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]">
 
+        <label for="file-input" id="firstFileInput" class="w-full flex flex-col mt-5 rounded-xl outline-none text-white px-4 py-5 text-xs bg-[#384478FC]">
+            <img src="{{ asset('assets/images/sosmed/image-upload-icon.svg') }}" alt="profile" class="self-center w-6 h-6">
+            <input type="file" id="file-input" accept="image/*" multiple class="hidden">
+            <h4 class="text-white font-bold text-sm self-center my-2">Upload a Picture</h4>
+            <p class="text-[#BCBCBD] font-bold text-xs self-center">Support PNG,JPG,JPEG</p>
+            <p class="text-[#BCBCBD] font-bold text-xs self-center">Maximum upload file size 10MB</p>
+            <p class="text-[#4AA5FF] font-bold text-xs self-center mt-2">Choose File..</p>
+        </label>
+        <textarea name="" id="getTextImage" class="hidden w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]"></textarea>
+        <div id="preview-image-list" class="mt-6 hidden w-full gap-6 flex-wrap">
+            <label for="file-input" class="flex flex-col w-48 h-48 bg-[#374478] rounded-md border border-blue-700 items-center justify-center ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 mb-4 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <p class="text-white font-light text-xs">Add Another Photo</p>
+            </label>
         </div>
-        <div class="flex w-full flex-row-reverse">
-            <button class="btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl">Post</button>
-        </div>
+
+        <button id="upload-button" class="btn mt-4 w-full  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl">Post</button>
     </div>
 
 </dialog>
@@ -302,5 +333,95 @@
 
         }
     }
+
+    const fileInput = document.getElementById('file-input');
+    const previewContainer = document.getElementById('preview-image-list');
+    const uploadButton = document.getElementById('upload-button');
+
+
+    fileInput.addEventListener('change', function() {
+        // previewContainer.innerHTML = ''; // Clear previous previews
+        const firstFileInput = document.getElementById('firstFileInput');
+        const textInput = document.getElementById('getTextImage')
+        previewContainer.classList.replace("hidden", 'flex')
+
+        const files = fileInput.files;
+        if (files.length !== 0) {
+            firstFileInput.classList.add("hidden")
+            textInput.classList.replace("hidden", 'flex')
+        } else {
+            firstFileInput.classList.remove("hidden")
+            textInput.classList.replace("flex", 'hidden')
+
+
+        }
+
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imgContainer = document.createElement('div');
+                    imgContainer.className = 'relative w-48 h-48 rounded-lg overflow-hidden';
+
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'object-cover w-full h-full';
+
+                    const removeButton = document.createElement('button');
+                    removeButton.innerHTML = '&times;';
+                    removeButton.className = 'absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs';
+                    removeButton.onclick = function() {
+                        previewContainer.removeChild(imgContainer);
+                        const firstFileInput = document.getElementById('firstFileInput');
+                        const imagesItemContainer = document.getElementById('preview-image-list')
+                        const textInput = document.getElementById('getTextImage')
+
+                        if (imagesItemContainer.querySelectorAll('img').length > 0) {
+                            imagesItemContainer.classList.replace("hidden", 'flex')
+                        } else {
+                            imagesItemContainer.classList.replace("flex", 'hidden')
+                        }
+
+                        if (imagesItemContainer.children.length > 1) {
+                            firstFileInput.classList.replace("flex", 'hidden')
+                            textInput.classList.replace("hidden", 'flex')
+                        } else {
+                            // firstFileInput.classList.remove("hidden")
+                            firstFileInput.classList.replace("hidden", 'flex')
+                            textInput.classList.replace("flex", 'hidden')
+                        }
+                    };
+
+                    imgContainer.appendChild(img);
+                    imgContainer.appendChild(removeButton);
+                    previewContainer.appendChild(imgContainer);
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    });
+
+    uploadButton.addEventListener('click', function() {
+        // Placeholder for the upload action
+        // alert('Post button clicked. Implement the upload functionality here.');
+
+        let dataArr = []
+        const imagesItem = document.getElementById('preview-image-list').children
+        const textInput = document.getElementById('getTextImage')
+
+        for (let i = 0; i < imagesItem.length; i++) {
+            let img = imagesItem[i].querySelector('img')
+
+            if (img !== null) {
+                dataArr.push(img.src)
+            }
+        }
+
+        console.log({
+            text: textInput.value,
+            image: dataArr
+        })
+    });
 </script>
 @endsection

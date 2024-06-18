@@ -27,8 +27,8 @@
 
             @foreach ($leaders['boc'] as $ld)
                 <div class="flex flex-col card-comission border border-blue-950 rounded-2xl">
-                    <img src="{{ $ld->user->image_user }}" alt="img" class="w-full rounded-t-2xl ">
-                    <div class="flex flex-col  px-4  pt-4 h-40">
+                    <img src="{{ $ld->user->image_user }}" alt="img" class="w-full rounded-t-2xl h-48">
+                    <div class="flex flex-col  px-4  pt-4 h-40 object-cover">
                         <h4 class="text-white text-lg font-semibold">{{ $ld->user->name }}</h4>
                         <p class="text-dashboard-blue-right text-sm font-semibold">{{ $ld->user->jabatan }}</p>
                     </div>
@@ -45,8 +45,8 @@
 
             @foreach ($leaders['bod'] as $ld)
                 <div class="flex flex-col card-comission border border-blue-950 rounded-2xl">
-                    <img src="{{ $ld->user->image_user }}" alt="img" class="w-full rounded-t-2xl ">
-                    <div class="flex flex-col  px-4  pt-4 h-40">
+                    <img src="{{ $ld->user->image_user }}" alt="img" class="w-full rounded-t-2xl h-48">
+                    <div class="flex flex-col  px-4  pt-4 h-40 object-cover">
                         <h4 class="text-white text-lg font-semibold">{{ $ld->user->name }}</h4>
                         <p class="text-dashboard-blue-right text-sm font-semibold">{{ $ld->user->jabatan }}</p>
                     </div>
@@ -63,7 +63,7 @@
 
             @foreach ($leaders['bom'] as $ld)
                 <div class="flex flex-col card-comission border border-blue-950 rounded-2xl">
-                    <img src="{{ $ld->user->image_user }}" alt="img" class="w-full rounded-t-2xl ">
+                    <img src="{{ $ld->user->image_user }}" alt="img" class="w-full rounded-t-2xl h-48">
                     <div class="flex flex-col  px-4  pt-4 h-40">
                         <h4 class="text-white text-lg font-semibold">{{ $ld->user->name }}</h4>
                         <p class="text-dashboard-blue-right text-sm font-semibold">{{ $ld->user->jabatan }}</p>

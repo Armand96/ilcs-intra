@@ -106,7 +106,6 @@
                 navLinks: false, // can click day/week names to navigate views
                 editable: true,
                 displayEventTime: false,
-                eventBackgroundColor: "red",
                 selectable: true,
                 eventMouseEnter: function(info) {
                     let tooltip = document.createElement('div');
