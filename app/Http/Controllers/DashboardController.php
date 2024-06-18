@@ -16,13 +16,18 @@ class DashboardController extends Controller
     {
         $data = array(
             'news' => $this->latestNews(),
-            // 'eom' => $this->getAllNilaiKaryawan(),
             'upcomingBirthday' => $this->getUpcomingBirthday(),
             'linkApps' => $this->appLink(),
             'linkSosmed' => $this->sosmedLink(),
             'newEmployee' => $this->newEmployee(),
             'farewellEmployee' => $this->farewellKaryawan(),
-            'calendar' => $this->calendar()
+            'calendar' => $this->calendar(),
+            'pendapatanChart' => $this->kpiChart('Pendapatan'),
+            'bebanChart' => $this->kpiChart('Beban Usaha'),
+            'ictChart' => $this->kpiChart('ICT System Implementator'),
+            'itChart' => $this->kpiChart('IT Manage Service'),
+            'digitalChart' => $this->kpiChart('Digital Seaport'),
+            'totalChart' => $this->total(),
             // 'notifCount' => $this->unreadCount(1),
             // 'chatHist' => $this->allUserChat(1),
             // 'chatCount' => $this->unreadCount(1),

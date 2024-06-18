@@ -314,7 +314,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                         </svg>
                     </div>
-                    <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">Pendapatan RP. 134,78 M, tercapai 61,27% RKAP; Growth 17,03% YoY</h4>
+                    {{-- <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">Pendapatan RP. 134,78 M, tercapai 61,27% RKAP; Growth 17,03% YoY</h4> --}}
+                    <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">@if (isset($data['pendapatanChart']['words'])) {{ $data['pendapatanChart']['words'] }} @endif</h4>
                 </div>
 
             </div>
@@ -331,7 +332,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                         </svg>
                     </div>
-                    <h4 class="font-semibold  text-sm 2xl:text-base">Beban Usaha Rp. 127,49 M, tercapai 67,67% RKAP; Growth 12,16% YoY</h4>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['bebanChart']['words'])) {{ $data['bebanChart']['words'] }} @endif</h4>
                 </div>
 
             </div>
@@ -348,36 +349,13 @@
                     <canvas id="barChart3"></canvas>
                 </div>
 
-                <!-- <div class="grid 2xl:grid-cols-2 gap-7">
-                    <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                        <div class="bg-red-600 mb-5 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
-                            </svg>
-
-                        </div>
-                        <h4 class="font-semibold 2xl:text-base text-sm">97,28 %</h4>
-                        <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs RKAP 2023</h4>
-                    </div>
-                    <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                        <div class="bg-green-600 mb-5 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                            </svg>
-                        </div>
-                        <h4 class="font-semibold 2xl:text-base text-sm">212,84 %</h4>
-                        <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs Real 2022</h4>
-                    </div>
-                </div> -->
-
-
                 <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
                     <div class="bg-green-600 mb-5 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                         </svg>
                     </div>
-                    <h4 class="font-semibold  text-sm 2xl:text-base">ICT System Implementor Rp. 81,90 M, tercapai 96,15% RKAP; Growth 48,20% YoY</h4>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['ictChart']['words'])) {{ $data['ictChart']['words'] }} @endif</h4>
                 </div>
 
 
@@ -389,34 +367,13 @@
                     <canvas id="barChart4"></canvas>
                 </div>
 
-                <!-- <div class="grid 2xl:grid-cols-2 gap-7">
-                    <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                        <div class="bg-green-600 mb-5 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                            </svg>
-                        </div>
-                        <h4 class="font-semibold text-sm 2xl:text-base">136,79 %</h4>
-                        <h4 class="font-semibold text-sm 2xl:text-base">Real 2023 vs RKAP 2023</h4>
-                    </div>
-                    <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                        <div class="bg-green-600 mb-5 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                            </svg>
-                        </div>
-                        <h4 class="font-semibold 2xl:text-base text-sm ">242,01 %</h4>
-                        <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs Real 2022</h4>
-                    </div>
-                </div> -->
-
                 <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
                     <div class="bg-green-600 mb-5 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                         </svg>
                     </div>
-                    <h4 class="font-semibold  text-sm 2xl:text-base">IT Manage Service Rp. 39,12 M, tercapai 35,42% RKAP; Growth 28,73% YoY</h4>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['itChart']['words'])) {{ $data['itChart']['words'] }} @endif</h4>
                 </div>
 
 
@@ -428,34 +385,13 @@
                     <canvas id="barChart5"></canvas>
                 </div>
 
-                <!-- <div class="grid 2xl:grid-cols-2 gap-7">
-                    <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                        <div class="bg-green-600 mb-5 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                            </svg>
-                        </div>
-                        <h4 class="font-semibold 2xl:text-base text-sm">97,28 %</h4>
-                        <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs RKAP 2023</h4>
-                    </div>
-                    <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                        <div class="bg-green-600 mb-5 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                            </svg>
-                        </div>
-                        <h4 class="font-semibold 2xl:text-base text-sm">212,84 %</h4>
-                        <h4 class="font-semibold 2xl:text-base text-sm">Real 2023 vs Real 2022</h4>
-                    </div>
-                </div> -->
-
                 <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
                     <div class=" bg-green-600 mb-5 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                         </svg>
                     </div>
-                    <h4 class="font-semibold  text-sm 2xl:text-base">Digital Seaport Rp. 13,77 M, tercapai 56,54% RKAP; Growth 173,94% YoY</h4>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['digitalChart']['words'])) {{ $data['digitalChart']['words'] }} @endif</h4>
                 </div>
 
 
@@ -466,7 +402,6 @@
                 <div class="container-chart w-full mt-8">
                     <canvas id="barChart6" class="w-4/6 mx-auto"></canvas>
                 </div>
-
 
             </div>
 
@@ -591,10 +526,15 @@
 
     var ctx = document.getElementById('barChart').getContext('2d');
 
-    const dataDumn = [
-        ['RKAP 2024', 'RKAP s.d April 2024', 'Real s.d April 2024', 'Real s.d April 2023'],
-        [620.43, 219.97, 134.78, 115.17],
-    ]
+    // const dataDumn = [
+    //     ['RKAP 2024', 'RKAP s.d April 2024', 'Real s.d April 2024', 'Real s.d April 2023'],
+    //     [620.43, 219.97, 134.78, 115.17],
+    // ]
+    @if (isset($data['pendapatanChart']['data']))
+        const dataDumn = @json($data['pendapatanChart']['data']);
+    @else
+        const dataDumn = [[],[]];
+    @endif
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -670,11 +610,17 @@
 
     var ctx2 = document.getElementById('barChart2').getContext('2d');
 
-    const dataDumn2 = [
-        ['RKAP 2024', 'RKAP s.d April 2024', 'Real s.d April 2024', 'Real s.d April 2023'],
-        [533.14, 188.59, 127.49, 133.67],
-        [85.9, 85.6, 94.6, 98.7],
-    ]
+    @if (isset($data['bebanChart']['data']))
+        const dataDumn2 = @json($data['bebanChart']['data']);
+        dataDumn2[2] = [85.9, 85.6, 94.6, 98.7];
+    @else
+        const dataDumn2 = [[],[]];
+    @endif
+    // const dataDumn2 = [
+    //     ['RKAP 2024', 'RKAP s.d April 2024', 'Real s.d April 2024', 'Real s.d April 2023'],
+    //     [533.14, 188.59, 127.49, 133.67],
+    //     [85.9, 85.6, 94.6, 98.7],
+    // ]
 
     var myChart = new Chart(ctx2, {
         type: 'bar',
@@ -783,10 +729,15 @@
 
     var ctx = document.getElementById('barChart3').getContext('2d');
 
-    const dataDumn3 = [
-        ['RKAP 2024', 'RKAP s.d April 2024', 'Real s.d April 2024', 'Real s.d April 2023'],
-        [254.996, 85.176, 81.896, 55.262],
-    ]
+    // const dataDumn3 = [
+    //     ['RKAP 2024', 'RKAP s.d April 2024', 'Real s.d April 2024', 'Real s.d April 2023'],
+    //     [254.996, 85.176, 81.896, 55.262],
+    // ]
+    @if (isset($data['ictChart']['data']))
+        const dataDumn3 = @json($data['ictChart']['data']);
+    @else
+        const dataDumn3 = [[],[]];
+    @endif
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -865,10 +816,15 @@
 
     var ctx = document.getElementById('barChart4').getContext('2d');
 
-    const dataDumn4 = [
-        ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
-        [283.529, 110.447, 39.117, 54.882],
-    ]
+    // const dataDumn4 = [
+    //     ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
+    //     [283.529, 110.447, 39.117, 54.882],
+    // ]
+    @if (isset($data['itChart']['data']))
+        const dataDumn4 = @json($data['itChart']['data']);
+    @else
+        const dataDumn4 = [[],[]];
+    @endif
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -947,10 +903,16 @@
 
     var ctx = document.getElementById('barChart5').getContext('2d');
 
-    const dataDumn5 = [
-        ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
-        [81.904, 24.3500, 13.768, 5.026],
-    ]
+    @if (isset($data['digitalChart']['data']))
+        const dataDumn5 = @json($data['digitalChart']['data']);
+    @else
+        const dataDumn5 = [[],[]];
+    @endif
+
+    // const dataDumn5 = [
+    //     ['RKAP 2024', 'RKAP s.d Mar 2024', 'Real s.d Mar 2024', 'Real s.d Mar 2023'],
+    //     [81.904, 24.3500, 13.768, 5.026],
+    // ]
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -1029,10 +991,15 @@
 
     var ctx = document.getElementById('barChart6').getContext('2d');
 
-    const dataDumn6 = [
-        ['IT Manage Service ', 'Digital Seaport', 'ICT Implementor '],
-        [29, 10, 61],
-    ]
+    @if (isset($data['totalChart']))
+        const dataDumn6 = @json($data['totalChart']);
+    @else
+        const dataDumn6 = [[],[]];
+    @endif
+    // const dataDumn6 = [
+    //     ['IT Manage Service ', 'Digital Seaport', 'ICT Implementor '],
+    //     [29, 10, 61],
+    // ]
 
     var myChart = new Chart(ctx, {
         type: 'doughnut',
