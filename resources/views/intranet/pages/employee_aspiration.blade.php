@@ -4,13 +4,13 @@
 <div class="bg-[#283358] flex flex-col w-5/6 mx-auto mt-5 mb-6 px-4 py-4 border border-blue-900 rounded-xl">
     <div class="w-full flex gap-6 items-center">
         <img src="{{ asset('assets/images/sosmed/foto-profile.svg') }}" alt="profile" class="w-10 h-10">
-        <div onclick="buatPost()" class="w-11/12 border border-blue-900 bg-[#384478] flex px-2 py-3 justify-between rounded-md items-center">
+        <div onclick="togglePostModal()" class="w-11/12 border border-blue-900 bg-[#384478] flex px-2 py-3 justify-between rounded-md items-center">
             <p class="text-[#E9E9E9] text-xs">Buat postingan berbagilah sesuatu</p>
             <img src="{{ asset('assets/images/sosmed/send-icon.svg') }}" class="w-6 h-6">
         </div>
     </div>
     <div class="w-11/12 flex mt-4 justify-between gap-6">
-        <div class="w-2/6 justify-center flex items-center gap-6 border-r border-r-white">
+        <div onclick="togglePostImageModal()" class="w-2/6 justify-center flex items-center gap-6 border-r border-r-white">
             <img src="{{ asset('assets/images/sosmed/foto-icon.svg') }}" alt="">
             <p class="text-white text-xs">Foto</p>
         </div>
@@ -54,7 +54,7 @@
             <img src="{{ asset('assets/images/sosmed/like-active.svg') }}" class="h-4 w-4" alt="like">
             <p class="text-xs mt-1 text-white">like</p>
         </div>
-        <div class="flex gap-2 cursor-pointer justify-center items-center" onclick="balasPesan()">
+        <div class="flex gap-2 cursor-pointer justify-center items-center" onclick="toggleReplyModal()">
             <img src="{{ asset('assets/images/sosmed/comment-icon.svg') }}" class="h-4 w-4" alt="like">
             <p class="text-xs mt-1 text-white">comment</p>
         </div>
@@ -112,7 +112,7 @@
                 <img src="{{ asset('assets/images/sosmed/like-active.svg') }}" class="h-4 w-4" alt="like">
                 <p class="text-xs mt-1 text-white">like</p>
             </div>
-            <div class="flex gap-2 cursor-pointer justify-center items-center" onclick="balasPesan()">
+            <div class="flex gap-2 cursor-pointer justify-center items-center" onclick="toggleReplyModal()">
                 <img src="{{ asset('assets/images/sosmed/comment-icon.svg') }}" class="h-4 w-4" alt="like">
                 <p class="text-xs mt-1 text-white">comment</p>
             </div>
@@ -212,7 +212,7 @@
 <dialog id="balas-pesan" class="modal ">
     <div class="modal-box bg-[#283358]">
         <form method="dialog">
-            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full" onclick="balasPesan()">✕</button>
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full" onclick="toggleReplyModal()">✕</button>
         </form>
         <h3 class="font-bold text-white text-lg">Balas Pesan</h3>
         <textarea name="" id="" class="w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]"></textarea>
@@ -225,7 +225,7 @@
 <dialog id="buat-post" class="modal ">
     <div class="modal-box bg-[#283358]">
         <form method="dialog">
-            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full" onclick="buatPost()">✕</button>
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full" onclick="togglePostModal()">✕</button>
         </form>
         <h3 class="font-bold text-white text-lg">Create a Post</h3>
         <div class="flex items-center gap-5 mt-8">
@@ -242,12 +242,38 @@
             <button class="btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl">Post</button>
         </div>
     </div>
+
+</dialog>
+
+<dialog id="buat-post-gambar" class="modal ">
+    <div class="modal-box bg-[#283358]">
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full" onclick="togglePostImageModal()">✕</button>
+        </form>
+        <h3 class="font-bold text-white text-lg">Upload a picture</h3>
+        <div class="flex items-center gap-5 mt-8">
+            <img src="{{ asset('assets/images/sosmed/foto-profile.svg') }}" alt="profile" class="w-10 h-10">
+            <div class="flex flex-col">
+                <p class="text-white items-center text-sm">
+                    <span class="font-bold">Natal Iman Ginting</span>
+                </p>
+                <p class="text-[#37B6E1] font-light text-xs">Post to Employee Forum</p>
+            </div>
+        </div>
+        <div class="w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]">
+
+        </div>
+        <div class="flex w-full flex-row-reverse">
+            <button class="btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl">Post</button>
+        </div>
+    </div>
+
 </dialog>
 
 
 
 <script>
-    function balasPesan() {
+    function toggleReplyModal() {
         const modalPesanComp = document.querySelector("#balas-pesan")
         if (modalPesanComp.classList.contains("modal-open")) {
             modalPesanComp.classList.remove("modal-open")
@@ -257,8 +283,18 @@
         }
     }
 
-    function buatPost() {
+    function togglePostModal() {
         const modalPesanComp = document.querySelector("#buat-post")
+        if (modalPesanComp.classList.contains("modal-open")) {
+            modalPesanComp.classList.remove("modal-open")
+        } else {
+            modalPesanComp.classList.add("modal-open")
+
+        }
+    }
+
+    function togglePostImageModal() {
+        const modalPesanComp = document.querySelector("#buat-post-gambar")
         if (modalPesanComp.classList.contains("modal-open")) {
             modalPesanComp.classList.remove("modal-open")
         } else {

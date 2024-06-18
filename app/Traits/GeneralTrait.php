@@ -236,8 +236,7 @@ trait GeneralTrait
             AND bulan <= MONTH(CURRENT_DATE) AND source = '$filter'
         GROUP BY
             month, year, plan_this_year, real_last_year
-        ORDER BY
-            bulan DESC";
+     ";
 
         $dataKPI = DB::select(DB::raw($sql));
         $data = [[],[]];
