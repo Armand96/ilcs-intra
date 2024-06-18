@@ -215,4 +215,84 @@ trait GeneralTrait
         // dd($calendarEvents);
         return $calendarEvents;
     }
+
+    /* KPI CHART */
+    public function kpiChart($filter)
+    {
+        $sql = "SELECT
+            MONTH(CURRENT_DATE) AS month,
+            YEAR(CURRENT_DATE) AS year,
+            SUM(rkap) AS cumulative_plan,
+            SUM(reals) AS cumulative_real,
+            plan_this_year,
+            real_last_year,
+            real_last_year / SUM(reals) AS achieve
+        FROM
+            k_p_i_charts,
+            (SELECT SUM(rkap) AS plan_this_year FROM k_p_i_charts WHERE tahun = YEAR(CURRENT_DATE)) AS plan_subquery,
+            (SELECT SUM(reals) AS real_last_year FROM k_p_i_charts WHERE tahun = YEAR(CURRENT_DATE) - 1 AND bulan <= MONTH(CURRENT_DATE)) AS real_subquery
+        WHERE
+            tahun = YEAR(CURRENT_DATE)
+            AND bulan <= MONTH(CURRENT_DATE) AND source = '$filter'
+        GROUP BY
+            month, year, plan_this_year, real_last_year
+        ORDER BY
+            bulan DESC";
+
+        $dataKPI = DB::select(DB::raw($sql));
+        $data = [[],[]];
+
+        if(count($dataKPI)) {
+
+            $dataKPI = $dataKPI[0];
+            $year = date('Y');
+            $month = date('F');
+            $lastYear = date('Y', strtotime('-1 year'));
+            $pembagi = 1000000000;
+            $dataCount = [$dataKPI->plan_this_year/$pembagi, $dataKPI->cumulative_plan/$pembagi, $dataKPI->cumulative_real/$pembagi, $dataKPI->real_last_year/$pembagi];
+
+            $data = array(
+                'data' => [
+                    ["RKAP $year", "RKAP s.d $month $year", "Real s.d $month $year", "Real s.d $month $lastYear"],
+                    $dataCount
+                ]
+            );
+
+            $realValue = number_format($dataKPI->cumulative_real/$pembagi, 2, ",", ".");
+            $rkapAchieve = number_format($dataKPI->cumulative_real/$dataKPI->cumulative_plan * 100, 2, ",", ".");
+            $growth = (($dataKPI->cumulative_real - $dataKPI->real_last_year)/$dataKPI->real_last_year) * 100;
+            $growth = number_format($growth, 2, ",", ".");
+            $words = "$filter Rp $realValue M, tercapai $rkapAchieve% RKAP; Growth $growth% YoY";
+            $data['words'] = $words;
+        }
+
+        return $data;
+    }
+
+    public function total()
+    {
+        $sql = "SELECT
+            (SELECT SUM( reals ) FROM k_p_i_charts WHERE source = 'ICT System Implementator' OR source = 'IT Manage Service' OR source = 'Digital Seaport') AS total,
+            (SELECT SUM( reals ) FROM k_p_i_charts WHERE source = 'ICT System Implementator') AS ict_real,
+            (SELECT SUM( reals ) FROM k_p_i_charts WHERE source = 'IT Manage Service') AS it_service,
+            (SELECT SUM( reals ) FROM k_p_i_charts WHERE source = 'Digital Seaport') AS digital_seaport
+        FROM
+            k_p_i_charts
+        WHERE
+            tahun = YEAR ( CURRENT_DATE )
+            AND bulan <= MONTH ( CURRENT_DATE )
+        GROUP BY tahun";
+
+        $data = [[],[]];
+        $dataKPI = DB::select(DB::raw($sql));
+        if(count($dataKPI)) {
+            $dt = $dataKPI[0];
+            $data = [
+                ['IT Manage Service ', 'Digital Seaport', 'ICT Implementor '],
+                [$dt->it_service / $dt->total * 100, $dt->digital_seaport / $dt->total * 100, $dt->ict_real / $dt->total * 100]
+            ];
+            // dd($data);
+        }
+        return $data;
+    }
 }

@@ -15,15 +15,21 @@ class KPICMSController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Regulasi::query();
+        $query = KPIChart::query();
 
-        if ($request->filled('judul')) {
-            $query->where('judul', 'like', '%' . $request->judul . '%');
+        if ($request->filled('source')) {
+            $query->where('source', 'like', '%' . $request->source . '%');
+        }
+        if ($request->filled('bulan')) {
+            $query->where('bulan', 'like', '%' . $request->bulan . '%');
+        }
+        if ($request->filled('tahun')) {
+            $query->where('tahun', 'like', '%' . $request->tahun . '%');
         }
 
         $kpis = $query->paginate(10);
 
-        return view('cms.pages.kpis', compact('kpis'));
+        return view('cms.pages.kpi', compact('kpis'));
     }
 
     /**
@@ -44,27 +50,58 @@ class KPICMSController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'source' => 'required',
+                'bulan' => 'required',
+                'tahun' => 'required',
+                'rkap' => 'required',
+                'reals' => 'required',
+            ]);
+
+            $data = $request->only([
+                'source',
+                'bulan',
+                'tahun',
+                'rkap',
+                'reals',
+            ]);
+
+            $kpiExists = KPIChart::where('source', $data['source'])
+                        ->where('bulan', $data['bulan'])
+                        ->where('tahun', $data['tahun'])
+                        ->first();
+
+            if($kpiExists) {
+                $kpiExists->update();
+            } else {
+                KPIChart::create($data);
+            }
+
+            return redirect()->back()->with(['notif' => 'Data KPI telah ditambahkan']);
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\KPIChart  $kPIChart
+     * @param  \App\Models\KPIChart  $kpi
      * @return \Illuminate\Http\Response
      */
-    public function show(KPIChart $kPIChart)
+    public function show(KPIChart $kpi)
     {
-        //
+        return response()->json($kpi);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\KPIChart  $kPIChart
+     * @param  \App\Models\KPIChart  $kpi
      * @return \Illuminate\Http\Response
      */
-    public function edit(KPIChart $kPIChart)
+    public function edit(KPIChart $kpi)
     {
         //
     }
@@ -73,22 +110,48 @@ class KPICMSController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\KPIChart  $kPIChart
+     * @param  \App\Models\KPIChart  $kpi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, KPIChart $kPIChart)
+    public function update(Request $request, KPIChart $kpi)
     {
-        //
+        try {
+            $request->validate([
+                'source' => 'required',
+                'bulan' => 'required',
+                'tahun' => 'required',
+                'rkap' => 'required',
+                'reals' => 'required',
+            ]);
+
+            $data = $request->only([
+                'source',
+                'bulan',
+                'tahun',
+                'rkap',
+                'reals',
+            ]);
+
+           $kpi->update($data);
+            return redirect()->back()->with(['notif' => 'Data KPI telah diperbarui']);
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\KPIChart  $kPIChart
+     * @param  \App\Models\KPIChart  $kpi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(KPIChart $kPIChart)
+    public function destroy(KPIChart $kpi)
     {
-        //
+        try {
+            $kpi->delete();
+            return redirect()->back()->with(['notif' => 'Data KPI telah dihapus']);
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+        }
     }
 }
