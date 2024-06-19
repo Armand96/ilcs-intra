@@ -23,7 +23,7 @@ trait GeneralTrait
      **/
     public function latestNews(): Collection
     {
-        $data = News::orderBy('created_at', 'ASC')->limit(3)->get();
+        $data = News::orderBy('created_at', 'ASC')->where('is_active', true)->limit(3)->get();
         return $data;
     }
 
@@ -126,42 +126,6 @@ trait GeneralTrait
             }
         }
         return $data;
-    }
-
-    /**
-     * Get upcoming all notification user.
-     * @return Collection|Notification[]
-     * @param int $userId
-     **/
-    public function userNotifAll(int $userId)
-    {
-        $data = Notification::where('notif_to_user_id', $userId)->orderBy('created_at', 'ASC')->get();
-        return $data;
-    }
-
-    /**
-     * Get unread notification user.
-     * @return Collection|Notification[]
-     * @param int $userId
-     **/
-    public function userNotifUnread(int $userId, int $limit = 5)
-    {
-        $data = Notification::where('notif_to_user_id', $userId)->where('is_read', false)->orderBy('created_at', 'ASC')->when($limit > 0, function ($qry) use ($limit) {
-            $qry->limit($limit);
-        })->get();
-        return $data;
-    }
-
-    /**
-     * Unread count notification
-     *
-     * @param  int $userId
-     * @return int
-     */
-    public function unreadCount(int $userId)
-    {
-        $notifUnreadCount = Notification::where('is_read', false)->where('notif_to_user_id', $userId)->count();
-        return $notifUnreadCount;
     }
 
     /**

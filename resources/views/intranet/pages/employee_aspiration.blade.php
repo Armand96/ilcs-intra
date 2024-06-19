@@ -233,7 +233,7 @@
             <img src="{{ asset('assets/images/sosmed/foto-profile.svg') }}" alt="profile" class="w-10 h-10">
             <div class="flex flex-col">
                 <p class="text-white items-center text-sm">
-                    <span class="font-bold">Natal Iman Ginting</span>
+                    <span class="font-bold">{{ Auth::user()->name }}</span>
                 </p>
                 <p class="text-[#37B6E1] font-light text-xs">Post to Employee Forum</p>
             </div>

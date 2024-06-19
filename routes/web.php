@@ -84,6 +84,9 @@ Route::group(['middleware' =>'auth'], function() {
     /* ================== DATA FETCH ================== */
     Route::get('/news-detail/{news}', [NewsController::class, 'show'])->name('news.modal');
     Route::get('/leader-detail/{leader}', [LeaderController::class, 'show'])->name('leader.modal');
+
+    /* EMPLOYEE FORUM */
+    // Route::get('/employee-forum');
 });
 
 Route::any("*", function() {
