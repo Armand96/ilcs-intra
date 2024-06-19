@@ -15,7 +15,7 @@ class PostController extends Controller
 {
     public function home()
     {
-        $post = Post::orderBy('created_at', 'DESC')->with(['comments.replies', 'postedBy'])->paginate(9);
+        $post = Post::orderBy('created_at', 'DESC')->with(['comments.user', 'comments.replies', 'postedBy'])->paginate(6);
         return response()->json($post);
     }
 

@@ -15,6 +15,7 @@ use App\Http\Controllers\LeaderController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegulasiController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
@@ -86,7 +87,7 @@ Route::group(['middleware' =>'auth'], function() {
     Route::get('/leader-detail/{leader}', [LeaderController::class, 'show'])->name('leader.modal');
 
     /* EMPLOYEE FORUM */
-    // Route::get('/employee-forum');
+    Route::get('/listPost', [PostController::class, 'home']);
 });
 
 Route::any("*", function() {
