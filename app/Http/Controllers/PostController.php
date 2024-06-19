@@ -15,7 +15,8 @@ class PostController extends Controller
 {
     public function home()
     {
-        $post = Post::orderBy('created_at', 'DESC')->with(['comments', 'postedBy'])->paginate(9);
+        $post = Post::orderBy('created_at', 'DESC')->with(['comments.replies', 'postedBy'])->paginate(9);
+        return response()->json($post);
     }
 
     public function makePost(Request $request)
@@ -24,7 +25,7 @@ class PostController extends Controller
             'content' => 'required',
         ]);
 
-        $data = $request->only(['content', 'tipe']);
+        $data = $request->only(['content', 'tipe', 'images']);
 
         try {
             DB::beginTransaction();
@@ -32,24 +33,48 @@ class PostController extends Controller
             $data['posted_by'] = Auth::user()->id;
             $post = Post::create($data);
 
-            if ($request->hasFile('file') && isset($data['tipe'])) {
+            if ($request->has('images') && isset($data['tipe'])) {
                 /* INSERT TO FILE POST */
-                $fileName = time() . '.' . $request->file->extension();
-                $request->file->storeAs('public/post_file/', $fileName);
-                $dataFile = array(
-                    'post_id' => $post->id,
-                    'path_file' => $fileName,
-                    'tipe' => $data['tipe'],
-                );
 
-                PostFile::create($dataFile);
+                foreach ($request->images as $key => $value) {
+                    $dataImage = $this->convertBase64ToImage($value,time());
+
+                    // Store the image in storage/app/public directory
+                    Storage::put('public/employee_forum/' . $dataImage['fileName'], $dataImage['image']);
+                    $dataFile = array(
+                        'post_id' => $post->id,
+                        'path_file' => $dataImage['fileName'],
+                        'tipe' => $data['tipe'],
+                    );
+
+                    PostFile::create($dataFile);
+                }
+
             }
 
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
-            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            return response()->json(['message' => $th->getMessage()]);
         }
+    }
+
+    private function convertBase64ToImage(string $base64String, string $fileName)
+    {
+        if (preg_match('/^data:image\/(\w+);base64,/', $base64String, $type)) {
+            $base64String = substr($base64String, strpos($base64String, ',') + 1);
+            $type = strtolower($type[1]); // jpg, png, gif, etc.
+        } else {
+            return null;
+        }
+
+        $dataArray = array(
+            'image' => base64_decode($base64String), // Decode the base64 string
+            'fileName' => $fileName.".".$type // Generate a unique file name
+        );
+
+        return $dataArray;
     }
 
     public function comment(Request $request)
@@ -69,7 +94,8 @@ class PostController extends Controller
             $data['user_id'] = Auth::user()->id;
             Comment::create($data);
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            return response()->json(['message' => $th->getMessage()]);
         }
     }
 
@@ -84,7 +110,8 @@ class PostController extends Controller
             $data['user_id'] = Auth::user()->id;
             PostLike::create($data);
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            return response()->json(['message' => $th->getMessage()]);
         }
     }
 
@@ -112,7 +139,8 @@ class PostController extends Controller
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
-            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            return response()->json(['message' => $th->getMessage()]);
         }
     }
 
@@ -126,7 +154,8 @@ class PostController extends Controller
             // DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
-            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            return response()->json(['message' => $th->getMessage()]);
         }
     }
 }
