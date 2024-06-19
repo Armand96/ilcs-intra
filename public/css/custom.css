@@ -259,10 +259,12 @@ html {
 } 
 
 .fc-daygrid-event-dot {
-    width: 10px !important;
-    height: 10px !important ;
-    background-color: red ;
+    width: 8px !important;
+    height: 8px !important ;
+    /* background-color: red ; */
     border-radius: 100% ;
+    /* padding: 10px ; */
+    background-color: #313A5B;
     margin-left: 50% !important ;
 }
 

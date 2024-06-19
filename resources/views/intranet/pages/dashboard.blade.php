@@ -469,6 +469,7 @@
     // calender
     document.addEventListener('DOMContentLoaded', function() {
         const calendars = @json($data['calendar']);
+        console.log(calendars)
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {

@@ -3305,6 +3305,9 @@ html:has(.drawer-toggle:checked) {
 .min-h-screen {
   min-height: 100vh;
 }
+.min-h-\[125vh\] {
+  min-height: 125vh;
+}
 .w-1\/6 {
   width: 16.666667%;
 }
