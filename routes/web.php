@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CKUploaderController;
 use App\Http\Controllers\cms\CalendarCMSController;
 use App\Http\Controllers\cms\KPICMSController;
 use App\Http\Controllers\CMS\LeaderCMSController;
@@ -59,6 +60,8 @@ Route::group(
     Route::resource('calendars', CalendarCMSController::class);
     Route::resource('kpis', KPICMSController::class);
 });
+
+Route::post('ckupload', [CKUploaderController::class, 'upload']);
 
 /* INTRANET */
 Route::group(['middleware' =>'auth'], function() {

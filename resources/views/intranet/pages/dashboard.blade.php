@@ -116,7 +116,7 @@
             @foreach ($data['news'] as $nws)
                 <div id="slide1" class="carousel-item flex flex-col w-full mt-4"  onclick="showModal({{$nws->id}})">
                     <h1 class="text-lg font-semibold text-white">{{ $nws->judul }}</h1>
-                    {!! limit_html_content($nws->content, 100) !!}
+                    {{-- {!! limit_html_content($nws->content, 100) !!} --}}
                     <div class="mt-6 w-full h-[8rem] lg:h-[16rem] xl:h-[23rem]">
                         <img src="{{ url('storage/news/'.$nws->image_cover) }}" alt="" class="w-full h-full object-cover rounded-xl">
                     </div>

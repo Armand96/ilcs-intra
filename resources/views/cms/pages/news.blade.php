@@ -1,8 +1,8 @@
 @extends('cms.master_cms')
 
-{{-- @section('extrajs')
-    <script src="{{ asset('assets/plugins/ckeditor/ckeditor.js') }}"></script>
-@endsection --}}
+@section('extrajs')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
 
 @section('content')
     <div class="flex flex-col w-full mt-6  bg-gray-600 p-6 rounded-xl">
@@ -141,9 +141,12 @@
 
 @section('script')
     <script src="{{ asset('assets/plugins/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('js/ckuploader.js') }}"></script>
     <script>
         ClassicEditor
-            .create(document.querySelector('#content'))
+            .create(document.querySelector('#content'), {
+                extraPlugins: [uploadAdapter]
+            })
             .then(editor => {
                 window.editor = editor; // Store the editor instance globally for later use
             })

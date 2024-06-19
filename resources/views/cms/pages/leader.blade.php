@@ -5,6 +5,7 @@
 @endsection
 
 @section('extrajs')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ asset('assets/plugins/select2/select2.min.js') }}"></script>
 @endsection
 
