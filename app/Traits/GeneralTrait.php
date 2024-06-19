@@ -212,7 +212,7 @@ trait GeneralTrait
             'id', 'judul AS desc', 'tgl_cal_event_start AS start', 'tgl_cal_event_end AS end',
             // 'description AS desc',
             'image_cover',
-            DB::raw("CASE WHEN tipe = 'libur' THEN 'red' WHEN tipe = 'event' THEN 'blue' ELSE 'grey' END AS color"),
+            DB::raw("CASE WHEN tipe = 'libur' THEN '#FFFFFF' WHEN tipe = 'event' THEN '#37B6E1' ELSE 'grey' END AS color"),
         ])->get();
         // dd($calendarEvents);
         return $calendarEvents;
