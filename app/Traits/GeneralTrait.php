@@ -209,7 +209,9 @@ trait GeneralTrait
     public function calendar()
     {
         $calendarEvents = CalendarEvent::select([
-            'id', 'judul AS title', 'tgl_cal_event_start AS start', 'tgl_cal_event_end AS end', 'description AS desc', 'image_cover',
+            'id', 'judul AS desc', 'tgl_cal_event_start AS start', 'tgl_cal_event_end AS end',
+            // 'description AS desc',
+            'image_cover',
             DB::raw("CASE WHEN tipe = 'libur' THEN 'red' WHEN tipe = 'event' THEN 'blue' ELSE 'grey' END AS color"),
         ])->get();
         // dd($calendarEvents);
@@ -288,7 +290,11 @@ trait GeneralTrait
             $dt = $dataKPI[0];
             $data = [
                 ['IT Manage Service ', 'Digital Seaport', 'ICT Implementor '],
-                [$dt->it_service / $dt->total * 100, $dt->digital_seaport / $dt->total * 100, $dt->ict_real / $dt->total * 100]
+                [
+                    $dt->total ? ($dt->it_service / $dt->total * 100) : 0,
+                    $dt->total ? ($dt->digital_seaport / $dt->total * 100) : 0,
+                    $dt->total ? ($dt->ict_real / $dt->total * 100) : 0
+                ]
             ];
             // dd($data);
         }

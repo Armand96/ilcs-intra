@@ -105,7 +105,7 @@
                 <div class="mt-4">
                     <p class="text-white">Deskripsi</p>
                     <textarea name="description" id="description" cols="30" rows="10"
-                        class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none"></textarea>
+                        class="mt-3 px-4 py-2 w-full rounded-lg focus:outline-none"></textarea>
                 </div>
                 {{-- <div class="mt-4">
                     <p class="text-white">File</p>
@@ -151,7 +151,17 @@
 @endsection
 
 @section('script')
+    <script src="{{ asset('assets/plugins/ckeditor/ckeditor.js') }}"></script>
     <script>
+        ClassicEditor
+            .create(document.querySelector('#description'))
+            .then(editor => {
+                window.editor = editor; // Store the editor instance globally for later use
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
         function closeModal() {
             document.getElementById('my_modal').classList.remove('modal-open');
         }
@@ -167,9 +177,18 @@
             $('#operation').html("Perbarui");
             axios.get('{{ route('leaders.index') }}/' + idLeader).then(resp => {
                 resp = resp.data;
-                $('#user_id').val(resp.user_id);
+
+                // Create the option element dynamically
+                var option = new Option(resp.user.name, resp.user_id, true, true);
+                $('#user_id').append(option).trigger('change');
+                // $('#user_id').val(resp.user_id).trigger('change');
                 $('#divisi').val(resp.divisi);
-                $('#description').val(resp.description);
+                // $('#description').val(resp.description);
+                const editor = window.editor;
+                const description = resp.description;
+                if (editor) {
+                    editor.setData(description);
+                }
 
                 $('#regulasi_form').prop('action', '{{ route('leaders.index') }}/' + idLeader);
                 $('input[name="_method"]').val('PATCH');

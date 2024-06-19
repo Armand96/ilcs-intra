@@ -89,7 +89,7 @@
                 $('#leader_name').html(resp.user.name);
                 $('#leader_jabatan').html(resp.user.jabatan);
                 $('#leader_description').html(resp.description)
-                $('#leader_image').attr('src', resp.image_user);
+                $('#leader_image').attr('src', resp.user.image_user);
                 $('#modal_leader').addClass('modal-open');
             });
         }
