@@ -214,7 +214,7 @@ fileInputFile.addEventListener('change', () => {
 uploadButtonFile.addEventListener('click', function () {
 
     let textFile = document.querySelector("#getTextFile")
-    textFile.classList.replace("flex","hidden")
+    textFile.classList.replace("flex", "hidden")
     fileInputFilePertama.classList.replace("hidden", "flex")
 
     tempDataFile.map((x) => {
@@ -228,17 +228,21 @@ uploadButtonFile.addEventListener('click', function () {
     previewContainerFile.innerHTML = ``
 
     console.log({
-        text: textFile.value ,
+        text: textFile.value,
         file: remakeTempData
     })
 
-    textFile.value = ""
+    // textFile.value = ""
 
     const form = new FormData();
     form.append('content', textFile.value);
-    form.append('files', remakeTempData);
+    form.append('files', remakeTempData[0]);
 
-    axios.post('http://localhost:8000/makePost ', form).then(() => {
+    axios.post('http://localhost:8000/makePost ', form, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    }).then(() => {
         togglePostFileModal()
         // function show(bgColor, message, duration = 5000){
         //     Toastify({
@@ -252,5 +256,5 @@ uploadButtonFile.addEventListener('click', function () {
         // }
     })
 
-   
+
 });
