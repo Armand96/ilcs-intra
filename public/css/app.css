@@ -3275,6 +3275,9 @@ html:has(.drawer-toggle:checked) {
 .h-\[120vh\] {
   height: 120vh;
 }
+.h-\[13rem\] {
+  height: 13rem;
+}
 .h-\[21vh\] {
   height: 21vh;
 }
@@ -3293,20 +3296,11 @@ html:has(.drawer-toggle:checked) {
 .h-screen {
   height: 100vh;
 }
-.h-\[11rem\] {
-  height: 11rem;
-}
-.h-\[13rem\] {
-  height: 13rem;
-}
 .max-h-\[90dvh\] {
   max-height: 90dvh;
 }
 .min-h-screen {
   min-height: 100vh;
-}
-.min-h-32 {
-  min-height: 8rem;
 }
 .w-1\/6 {
   width: 16.666667%;
