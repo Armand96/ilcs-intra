@@ -1,5 +1,5 @@
-[
-    {
+const list = [
+    { // single post langsung object
         "id": 1,
         "content": "Test Content",
         "posted_by": {

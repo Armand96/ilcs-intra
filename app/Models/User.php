@@ -80,6 +80,6 @@ class User extends Authenticatable
     /* SCOPE */
     public function scopeLessField(Builder $query)
     {
-        return $query->select('id', 'name', 'image_user'); // Specify the columns you want
+        return $query->select('id', 'name', 'image_user', 'jabatan'); // Specify the columns you want
     }
 }

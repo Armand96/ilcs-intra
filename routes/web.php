@@ -91,13 +91,13 @@ Route::group(['middleware' =>'auth'], function() {
     Route::get('/listPost', [PostController::class, 'listPost'])->name('list.post');
     Route::get('/listPost/{post}', [PostController::class, 'singlePost']);
     Route::post('/makePost', [PostController::class, 'makePost'])->name('make.post');
-    Route::get('/updatePost/{post}', [PostController::class, 'updatePost']);
-    Route::post('/makeComment', [PostController::class, 'comment'])->name('make.comment');
-    Route::post('/updateComment/{comment}', [PostController::class, 'editComment']);
-    Route::post('/like', [PostController::class, 'like'])->name('like');
-    Route::get('/unlike/{like}', [PostController::class, 'unlike']);
-    Route::get('/deleteComment/{commentId}', [PostController::class, 'deleteComment']);
+    Route::put('/updatePost/{post}', [PostController::class, 'updatePost']);
     Route::get('/deletePost/{postId}', [PostController::class, 'deletePost']);
+    Route::post('/makeComment', [PostController::class, 'comment'])->name('make.comment');
+    Route::put('/updateComment/{comment}', [PostController::class, 'editComment']);
+    Route::get('/deleteComment/{commentId}', [PostController::class, 'deleteComment']);
+    Route::post('/like', [PostController::class, 'like'])->name('like');
+    Route::get('/unlike/{postId}', [PostController::class, 'unlike']);
     Route::get('/seePost/{post}', [PostController::class, 'seePost']);
 });
 

@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels;
 
 class PostController extends Controller
 {
@@ -195,23 +196,36 @@ class PostController extends Controller
             $post->increment('total_like');
 
             DB::commit();
+
+            return response()->json(['message' => "Sukses Like"]);
         } catch (\Throwable $th) {
             // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
             return response()->json(['message' => $th->getMessage()]);
         }
     }
 
-    public function unlike(PostLike $like)
+    public function unlike(Request $request)
     {
         try {
+            $data = $request->only([
+                'post_id',
+                'comment_id',
+            ]);
+
             DB::beginTransaction();
 
-            $post = Post::find($like->post_id);
+            $data['user_id'] = Auth::user()->id;
 
+            $post = Post::find($data['post_id']);
             $post->decrement('total_like');
-            $like->delete();
+            PostLike::when(isset($data['post_id']), function($qry) use($data){
+                $qry->where('post_id', $data['post_id']);
+            })->when(isset($data['comment_id']), function($qry) use($data){
+                $qry->where('comment_id', $data['comment_id']);
+            })->where('user_id', $data['user_id'])->delete();
 
             DB::commit();
+            return response()->json(['message' => "Sukses Unlike"]);
         } catch (\Throwable $th) {
             //throw $th;
             return response()->json(['message' => $th->getMessage()]);
