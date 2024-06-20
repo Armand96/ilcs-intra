@@ -87,8 +87,18 @@ Route::group(['middleware' =>'auth'], function() {
     Route::get('/leader-detail/{leader}', [LeaderController::class, 'show'])->name('leader.modal');
 
     /* EMPLOYEE FORUM */
-    Route::get('/listPost', [PostController::class, 'listPost']);
-    Route::get('/allNotif', [NotificationController::class, 'allNotif']);
+    Route::get('/allNotif', [NotificationController::class, 'allNotif'])->name('allnotif');
+    Route::get('/listPost', [PostController::class, 'listPost'])->name('list.post');
+    Route::get('/listPost/{post}', [PostController::class, 'singlePost']);
+    Route::post('/makePost', [PostController::class, 'makePost'])->name('make.post');
+    Route::get('/updatePost/{post}', [PostController::class, 'updatePost']);
+    Route::post('/makeComment', [PostController::class, 'comment'])->name('make.comment');
+    Route::post('/updateComment/{comment}', [PostController::class, 'editComment']);
+    Route::post('/like', [PostController::class, 'like'])->name('like');
+    Route::get('/unlike/{like}', [PostController::class, 'unlike']);
+    Route::get('/deleteComment/{commentId}', [PostController::class, 'deleteComment']);
+    Route::get('/deletePost/{postId}', [PostController::class, 'deletePost']);
+    Route::get('/seePost/{post}', [PostController::class, 'seePost']);
 });
 
 Route::any("*", function() {

@@ -35,4 +35,9 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id')->lessField();
     }
+
+    public function likers()
+    {
+        return $this->hasMany(PostLike::class, 'comment_id', 'id');
+    }
 }

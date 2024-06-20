@@ -15,12 +15,17 @@ class PostLike extends Model
         'comment_id',
     ];
 
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
     public function post()
     {
         return $this->belongsTo(Post::class, 'post_id', 'id');
     }
 
-    public function userComment()
+    public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }

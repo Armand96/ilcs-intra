@@ -21,4 +21,10 @@ class NotificationController extends Controller
         $notifs = $this->getAllNotification();
         return response()->json($notifs);
     }
+
+    public function readNotif($notifId)
+    {
+        Notification::where('id', $notifId)->update(['is_read' => date('Y-m-d H:i:s')]);
+        return response()->json(['message' => 'Notifikasi sudah terbaca']);
+    }
 }

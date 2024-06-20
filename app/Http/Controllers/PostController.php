@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\PostFile;
 use App\Models\PostLike;
+use App\Models\PostViewer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +16,13 @@ class PostController extends Controller
 {
     public function listPost()
     {
-        $post = Post::orderBy('created_at', 'DESC')->with(['comments.user', 'comments.replies.user', 'postedBy'])->paginate(6);
+        $post = Post::orderBy('created_at', 'DESC')->with(['comments.user', 'comments.likers', 'comments.replies.user', 'postedBy', 'files', 'likers'])->paginate(6);
+        return response()->json($post);
+    }
+
+    public function singlePost(Post $post)
+    {
+        $post->load(['comments.user', 'comments.likers', 'comments.replies.user', 'postedBy', 'files', 'likers']);
         return response()->json($post);
     }
 
@@ -80,6 +87,22 @@ class PostController extends Controller
         }
     }
 
+    public function updatePost(Request $request, Post $post)
+    {
+        try {
+            $request->validate([
+                'content' => 'required',
+            ]);
+            $data = $request->only(['content']);
+            $post->update($data);
+
+            return response()->json(['message' => "Post behrasil diupdate"]);
+        } catch (\Throwable $th) {
+            //throw $th;
+            return response()->json(['message' => $th->getMessage()]);
+        }
+    }
+
     private function convertBase64ToImage(string $base64String, string $fileName)
     {
         if (preg_match('/^data:image\/(\w+);base64,/', $base64String, $type)) {
@@ -100,7 +123,6 @@ class PostController extends Controller
     public function comment(Request $request)
     {
         $request->validate([
-            'post_id' => 'required',
             'comment' => 'required',
         ]);
 
@@ -114,11 +136,47 @@ class PostController extends Controller
             $data['user_id'] = Auth::user()->id;
             $comment = Comment::create($data);
             $comment->load('user');
-            return response()->json();
+            return response()->json($comment);
         } catch (\Throwable $th) {
             // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
             return response()->json(['message' => $th->getMessage()]);
         }
+    }
+
+    public function editComment(Request $request, Comment $comment)
+    {
+
+        try {
+            $request->validate([
+                'comment' => 'required',
+            ]);
+
+            $data = $request->only([
+                'post_id',
+                'parent_comment_id',
+                'comment',
+            ]);
+
+            $comment->update($data);
+            $comment->load('user');
+
+            return response()->json($comment);
+        } catch (\Throwable $th) {
+            // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            return response()->json(['message' => $th->getMessage()]);
+        }
+    }
+
+    public function postLikers($postId)
+    {
+        $likers = PostLike::where('post_id', $postId)->get();
+        return response()->json($likers);
+    }
+
+    public function commentLikers($commentId)
+    {
+        $likers = PostLike::where('comment_id', $commentId)->get();
+        return response()->json($likers);
     }
 
     public function like(Request $request)
@@ -129,10 +187,33 @@ class PostController extends Controller
         ]);
 
         try {
+            DB::beginTransaction();
+
             $data['user_id'] = Auth::user()->id;
             PostLike::create($data);
+            $post = Post::find($data['post_id']);
+            $post->increment('total_like');
+
+            DB::commit();
         } catch (\Throwable $th) {
             // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            return response()->json(['message' => $th->getMessage()]);
+        }
+    }
+
+    public function unlike(PostLike $like)
+    {
+        try {
+            DB::beginTransaction();
+
+            $post = Post::find($like->post_id);
+
+            $post->decrement('total_like');
+            $like->delete();
+
+            DB::commit();
+        } catch (\Throwable $th) {
+            //throw $th;
             return response()->json(['message' => $th->getMessage()]);
         }
     }
@@ -171,12 +252,36 @@ class PostController extends Controller
         try {
             // DB::beginTransaction();
 
-            Comment::where('comment_id', $commentId)->orWhere('parent_comment_id', $commentId)->delete();
+            Comment::where('id', $commentId)->orWhere('parent_comment_id', $commentId)->delete();
 
             // DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
             // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+            return response()->json(['message' => $th->getMessage()]);
+        }
+    }
+
+    public function seePost(Post $post)
+    {
+        try {
+            $userId = Auth::user()->id;
+            $view = PostViewer::where('post_id', $post->id)->where('user_id', $userId)->first();
+            if(!$view) {
+                DB::beginTransaction();
+                $dataInsert = array(
+                    'post_id' => $post->id,
+                    'user_id' => $userId
+                );
+
+                PostViewer::create($dataInsert);
+                $post->increment('total_viewer');
+                DB::commit();
+            }
+            return response()->json(['message' => 'view post berhasil']);
+        } catch (\Throwable $th) {
+            //throw $th;
+            DB::rollBack();
             return response()->json(['message' => $th->getMessage()]);
         }
     }

@@ -5,23 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PostFile extends Model
+class PostViewer extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'post_id',
-        'path_file',
-        'tipe',
+        'user_id'
     ];
 
     protected $hidden = [
         'created_at',
-        'updated_at'
+        'updated-at'
     ];
-
-    public function post()
-    {
-        return $this->belongsTo(Post::class, 'post_id', 'id');
-    }
 }
