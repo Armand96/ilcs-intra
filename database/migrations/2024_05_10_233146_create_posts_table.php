@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->text('content');
             $table->bigInteger('posted_by');
             $table->integer('total_like')->default(0);
+            $table->integer('total_view')->default(0);
             $table->timestamps();
         });
     }

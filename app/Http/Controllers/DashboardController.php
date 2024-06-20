@@ -72,10 +72,4 @@ class DashboardController extends Controller
 
         return redirect()->route('login')->withErrors(['msg' => 'NIP tidak ditemukan']);
     }
-
-    public function logout()
-    {
-        Auth::logout();
-        return redirect()->route('login');
-    }
 }

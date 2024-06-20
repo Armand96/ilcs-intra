@@ -13,6 +13,7 @@ class Post extends Model
         'content',
         'posted_by',
         'total_like',
+        'total_view'
     ];
 
     public function comments()
@@ -22,6 +23,6 @@ class Post extends Model
 
     public function postedBy()
     {
-        return $this->belongsTo(User::class, 'posted_by', 'id');
+        return $this->belongsTo(User::class, 'posted_by', 'id')->lessField();
     }
 }

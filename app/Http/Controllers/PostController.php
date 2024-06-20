@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
-    public function home()
+    public function listPost()
     {
-        $post = Post::orderBy('created_at', 'DESC')->with(['comments.user', 'comments.replies', 'postedBy'])->paginate(6);
+        $post = Post::orderBy('created_at', 'DESC')->with(['comments.user', 'comments.replies.user', 'postedBy'])->paginate(6);
         return response()->json($post);
     }
 
@@ -25,7 +25,7 @@ class PostController extends Controller
             'content' => 'required',
         ]);
 
-        $data = $request->only(['content', 'tipe', 'images']);
+        $data = $request->only(['content', 'tipe', 'images', 'videos', 'files']);
 
         try {
             DB::beginTransaction();
@@ -33,11 +33,12 @@ class PostController extends Controller
             $data['posted_by'] = Auth::user()->id;
             $post = Post::create($data);
 
+            /* UPLOAD IMAGES */
             if ($request->has('images') && isset($data['tipe'])) {
                 /* INSERT TO FILE POST */
 
                 foreach ($request->images as $key => $value) {
-                    $dataImage = $this->convertBase64ToImage($value,time());
+                    $dataImage = $this->convertBase64ToImage($value, time());
 
                     // Store the image in storage/app/public directory
                     Storage::put('public/employee_forum/' . $dataImage['fileName'], $dataImage['image']);
@@ -49,10 +50,29 @@ class PostController extends Controller
 
                     PostFile::create($dataFile);
                 }
+            }
 
+            /* UPLOAD FILES */
+            if ($request->hasFile('files') && isset($data['tipe'])) {
+
+                foreach ($request->file('files') as $key => $fl) {
+                    $fileName = time() . '.' . $fl->extension();
+                    $fl->storeAs('public/employee_forum/', $fileName);
+                    // $data['path_file'] = $fileName;
+                    $dataFile = array(
+                        'post_id' => $post->id,
+                        'path_file' => $fileName,
+                        'tipe' => $data['tipe']
+                    );
+
+                    PostFile::create($dataFile);
+                }
             }
 
             DB::commit();
+
+            $post->load(['comments', 'postedBy']);
+            return response()->json($post);
         } catch (\Throwable $th) {
             DB::rollBack();
             // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
@@ -71,7 +91,7 @@ class PostController extends Controller
 
         $dataArray = array(
             'image' => base64_decode($base64String), // Decode the base64 string
-            'fileName' => $fileName.".".$type // Generate a unique file name
+            'fileName' => $fileName . "." . $type // Generate a unique file name
         );
 
         return $dataArray;
@@ -92,7 +112,9 @@ class PostController extends Controller
 
         try {
             $data['user_id'] = Auth::user()->id;
-            Comment::create($data);
+            $comment = Comment::create($data);
+            $comment->load('user');
+            return response()->json();
         } catch (\Throwable $th) {
             // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
             return response()->json(['message' => $th->getMessage()]);

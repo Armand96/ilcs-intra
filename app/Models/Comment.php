@@ -28,11 +28,11 @@ class Comment extends Model
 
     public function replies()
     {
-        return $this->hasMany(Comment::class, 'id', 'parent_comment_id');
+        return $this->hasMany(Comment::class, 'parent_comment_id', 'id');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id')->lessField();
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -60,13 +62,6 @@ class User extends Authenticatable
         return $this->hasMany(NilaiKaryawan::class, 'user_id', 'id');
     }
 
-    public static function nilaiBulanIni()
-    {
-        return static::with(['nilai' => function($qry){
-            $qry->where('tgl_penilaian', date('Y-m-d'));
-        }]);
-    }
-
     public function role()
     {
         return $this->belongsTo(Role::class, 'role_id', 'id');
@@ -80,5 +75,11 @@ class User extends Authenticatable
     public function chats()
     {
         return $this->hasMany(Chat::class, 'from_user_id', 'id');
+    }
+
+    /* SCOPE */
+    public function scopeLessField(Builder $query)
+    {
+        return $query->select('id', 'name', 'image_user'); // Specify the columns you want
     }
 }

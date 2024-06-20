@@ -87,7 +87,8 @@ Route::group(['middleware' =>'auth'], function() {
     Route::get('/leader-detail/{leader}', [LeaderController::class, 'show'])->name('leader.modal');
 
     /* EMPLOYEE FORUM */
-    Route::get('/listPost', [PostController::class, 'home']);
+    Route::get('/listPost', [PostController::class, 'listPost']);
+    Route::get('/allNotif', [NotificationController::class, 'allNotif']);
 });
 
 Route::any("*", function() {
@@ -121,4 +122,3 @@ Route::post('login_user', [UserController::class, 'login'])->name('login_user');
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('wifi_login', [DashboardController::class, 'apiRedirect']);
-Route::get('logout', [DashboardController::class, 'logout'])->name('logout');
