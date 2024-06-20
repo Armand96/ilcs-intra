@@ -18,7 +18,7 @@
             <img src="{{ asset('assets/images/sosmed/video-icon.svg') }}" alt="">
             <p class="text-white text-xs">Video</p>
         </div>
-        <div class="w-2/6 justify-center flex items-center gap-6">
+        <div onclick="togglePostFileModal()" class="w-2/6 justify-center flex items-center gap-6">
             <img src="{{ asset('assets/images/sosmed/file-icon.svg') }}" alt="">
             <p class="text-white text-xs">File</p>
         </div>
@@ -301,8 +301,50 @@
 
 </dialog>
 
+<!-- modal buat post file  -->
+<dialog id="buat-post-file" class="modal ">
+    <div class="modal-box max-w-3xl bg-[#283358]">
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full" onclick="togglePostFileModal()">✕</button>
+        </form>
+        <h3 class="font-bold text-white text-lg">Upload a Document</h3>
+        <div class="flex items-center gap-5 mt-8">
+            <img src="{{ asset('assets/images/sosmed/foto-profile.svg') }}" alt="profile" class="w-10 h-10">
+            <div class="flex flex-col">
+                <p class="text-white items-center text-sm">
+                    <span class="font-bold">Natal Iman Ginting</span>
+                </p>
+                <p class="text-[#37B6E1] font-light text-xs">Post to Employee Forum</p>
+            </div>
+        </div>
+
+        <label for="file-input-2" id="fileInput2" class="w-full flex flex-col mt-5 rounded-xl outline-none text-white px-4 py-5 text-xs bg-[#384478FC]">
+            <img src="{{ asset('assets/images/sosmed/file-upload-icon.svg') }}" alt="profile" class="self-center w-6 h-6">
+            <input type="file" id="file-input-2" multiple class="hidden">
+            <h4 class="text-white font-bold text-sm self-center my-2">Upload a Document</h4>
+            <p class="text-[#BCBCBD] font-bold text-xs self-center">Support PDF, Docx and Xlxs</p>
+            <p class="text-[#BCBCBD] font-bold text-xs self-center">Maximum upload file size 10MB</p>
+            <p class="text-[#4AA5FF] font-bold text-xs self-center mt-2">Choose File..</p>
+        </label>
+
+        <textarea name="" id="getTextFile" class="hidden w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]"></textarea>
+        <div id="preview-file-list" class="mt-6 w-full gap-6 flex-col hidden">
+
+            <label for="file-input-2" class="flex flex-col w-full py-2 bg-[#374478] rounded-md border border-blue-700 items-center justify-center ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 mb-4 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <p class="text-white font-light text-xs">Add Another File</p>
+            </label>
+
+        </div>
+
+        <button id="upload-button-file" class="btn mt-4 w-full  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl">Post</button>
+    </div>
+
+</dialog>
 
 
-<script src="{{ asset('js/employe-forum.js') }}"></script>
+<script src="{{ asset('js/employe-forum/employe-forum.js') }}"></script>
 
 @endsection

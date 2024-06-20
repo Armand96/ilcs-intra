@@ -3230,6 +3230,14 @@ html:has(.drawer-toggle:checked) {
   width: 2rem;
   height: 2rem;
 }
+.size-10 {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.size-16 {
+  width: 4rem;
+  height: 4rem;
+}
 .h-10 {
   height: 2.5rem;
 }
@@ -3472,6 +3480,9 @@ html:has(.drawer-toggle:checked) {
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.self-end {
+  align-self: flex-end;
+}
 .self-center {
   align-self: center;
 }
@@ -3685,6 +3696,12 @@ html:has(.drawer-toggle:checked) {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-\[\] {
+  background-color: ;
+}
+.bg-\[\#00000033\] {
+  background-color: #00000033;
 }
 .object-cover {
   -o-object-fit: cover;
