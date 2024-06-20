@@ -1,5 +1,7 @@
 
+// INIT
 
+renderPostPage()
 
 function toggleReplyModal() {
     const modalPesanComp = document.querySelector("#balas-pesan")
@@ -138,6 +140,40 @@ uploadButton.addEventListener('click', function () {
         }
     }
 
+    const form = new FormData();
+    form.append('content', textInput.value);
+    for (i = 0; i < dataArr.length; i++) {
+        form.append('images', dataArr[i]);
+    }
+
+    firstFileInput.classList.replace("hidden", 'flex')
+    textInput.classList.replace("flex", 'hidden')
+    previewContainer.innerHTML = `<label for="file-input" class="hidden flex-col w-48 h-48 bg-[#374478] rounded-md border border-blue-700 items-center justify-center ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 mb-4 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <p class="text-white font-light text-xs">Add Another Photo</p>
+            </label>`
+    textInput.value = ''
+
+
+    axios.post('http://localhost:8000/makePost ', form, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    }).then(() => {
+        togglePostImageModal()
+        Toastify({
+            close: true,
+            text: "post data berhasil",
+            duration: 3000,
+            style: {
+                background: "green",
+            },
+        }).showToast();
+    })
+
+
     console.log({
         text: textInput.value,
         image: dataArr
@@ -209,6 +245,9 @@ fileInputFile.addEventListener('change', () => {
     }
 
     console.log(tempDataFile)
+
+
+
 })
 
 uploadButtonFile.addEventListener('click', function () {
@@ -232,11 +271,14 @@ uploadButtonFile.addEventListener('click', function () {
         file: remakeTempData
     })
 
-    // textFile.value = ""
-
     const form = new FormData();
     form.append('content', textFile.value);
-    form.append('files', remakeTempData[0]);
+
+    for (i = 0; i < remakeTempData.length; i++) {
+        form.append('files', remakeTempData[i]);
+    }
+
+    textFile.value = ''
 
     axios.post('http://localhost:8000/makePost ', form, {
         headers: {
@@ -244,17 +286,55 @@ uploadButtonFile.addEventListener('click', function () {
         }
     }).then(() => {
         togglePostFileModal()
-        // function show(bgColor, message, duration = 5000){
-        //     Toastify({
-        //         close: true,
-        //         text: message,
-        //         duration: duration,
-        //         style: {
-        //             background: bgColor,
-        //         },
-        //     }).showToast();
-        // }
+        Toastify({
+            close: true,
+            text: "post data berhasil",
+            duration: 3000,
+            style: {
+                background: "green",
+            },
+        }).showToast();
     })
 
+});
+
+// modal post only text
+
+const uploadButtonOnlyText = document.getElementById("post-only-text")
+
+uploadButtonOnlyText.addEventListener('click', function () {
+
+
+    test()
+
+    let onlyText = document.querySelector("#onlyText")
+
+    console.log({
+        text: onlyText.value,
+    })
+
+    const form = new FormData();
+    form.append('content', onlyText.value);
+
+    onlyText.value = ''
+
+    axios.post('http://localhost:8000/makePost ', form, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    }).then(() => {
+        togglePostModal()
+        Toastify({
+            close: true,
+            text: "post data berhasil",
+            duration: 3000,
+            style: {
+                background: "green",
+            },
+        }).showToast();
+    })
 
 });
+
+let responseData = []
+

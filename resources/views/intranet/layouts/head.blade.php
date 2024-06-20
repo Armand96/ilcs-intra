@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/toast.css') }}">
     @yield('extracss')
 
     {{-- JS --}}
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/toast.js') }}"></script>
     <script src='{{ asset('js/jquery.min.js') }}'></script>
     @yield('extrajs')
 </head>
