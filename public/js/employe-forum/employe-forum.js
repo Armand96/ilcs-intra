@@ -1,8 +1,6 @@
 
 // INIT
 
-renderPostPage()
-
 function toggleReplyModal() {
     const modalPesanComp = document.querySelector("#balas-pesan")
     if (modalPesanComp.classList.contains("modal-open")) {
@@ -143,7 +141,7 @@ uploadButton.addEventListener('click', function () {
     const form = new FormData();
     form.append('content', textInput.value);
     for (i = 0; i < dataArr.length; i++) {
-        form.append('images', dataArr[i]);
+        form.append('images[]', dataArr[i]);
     }
 
     firstFileInput.classList.replace("hidden", 'flex')
@@ -275,7 +273,7 @@ uploadButtonFile.addEventListener('click', function () {
     form.append('content', textFile.value);
 
     for (i = 0; i < remakeTempData.length; i++) {
-        form.append('files', remakeTempData[i]);
+        form.append('files[]', remakeTempData[i]);
     }
 
     textFile.value = ''
