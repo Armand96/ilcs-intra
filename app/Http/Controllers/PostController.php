@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+    function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[random_int(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
     public function listPost()
     {
         $post = Post::orderBy('created_at', 'DESC')->with(['comments.user', 'comments.likers', 'comments.replies.user', 'postedBy', 'files', 'likers'])->paginate(6);
@@ -46,15 +56,16 @@ class PostController extends Controller
             if ($request->has('images')) {
                 /* INSERT TO FILE POST */
 
+                // dd($request->images);
                 foreach ($request->images as $key => $value) {
-                    $dataImage = $this->convertBase64ToImage($value, time());
+                    $dataImage = $this->convertBase64ToImage($value,$this->generateRandomString());
 
                     // Store the image in storage/app/public directory
                     Storage::put('public/employee_forum/' . $dataImage['fileName'], $dataImage['image']);
                     $dataFile = array(
                         'post_id' => $post->id,
                         'path_file' => $dataImage['fileName'],
-                        'tipe' => 'image',
+                        'tipe' => 'gambar',
                     );
 
                     PostFile::create($dataFile);
@@ -65,7 +76,7 @@ class PostController extends Controller
             if ($request->hasFile('files')) {
 
                 foreach ($request->file('files') as $key => $fl) {
-                    $fileName = time() . '.' . $fl->extension();
+                    $fileName = $this->generateRandomString() . '.' . $fl->extension();
                     $fl->storeAs('public/employee_forum/', $fileName);
                     // $data['path_file'] = $fileName;
                     $dataFile = array(
