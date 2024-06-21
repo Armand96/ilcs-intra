@@ -152,7 +152,6 @@ uploadButton.addEventListener('click', function () {
                 </svg>
                 <p class="text-white font-light text-xs">Add Another Photo</p>
             </label>`
-    textInput.value = ''
 
 
     axios.post('http://localhost:8000/makePost ', form, {
@@ -169,6 +168,9 @@ uploadButton.addEventListener('click', function () {
                 background: "green",
             },
         }).showToast();
+    }).catch((err) => {
+        togglePostImageModal()
+        console.log(err)
     })
 
 
@@ -292,6 +294,10 @@ uploadButtonFile.addEventListener('click', function () {
                 background: "green",
             },
         }).showToast();
+        
+    }).catch((err) => {
+        togglePostImageModal()
+        console.log(err)
     })
 
 });
