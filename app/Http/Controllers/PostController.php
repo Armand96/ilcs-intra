@@ -32,6 +32,8 @@ class PostController extends Controller
             'content' => 'required',
         ]);
 
+        // dd($request->all());
+
         $data = $request->only(['content', 'tipe', 'images', 'videos', 'files']);
 
         try {
@@ -41,7 +43,7 @@ class PostController extends Controller
             $post = Post::create($data);
 
             /* UPLOAD IMAGES */
-            if ($request->has('images') && isset($data['tipe'])) {
+            if ($request->has('images')) {
                 /* INSERT TO FILE POST */
 
                 foreach ($request->images as $key => $value) {
@@ -52,7 +54,7 @@ class PostController extends Controller
                     $dataFile = array(
                         'post_id' => $post->id,
                         'path_file' => $dataImage['fileName'],
-                        'tipe' => $data['tipe'],
+                        'tipe' => 'image',
                     );
 
                     PostFile::create($dataFile);
@@ -60,7 +62,7 @@ class PostController extends Controller
             }
 
             /* UPLOAD FILES */
-            if ($request->hasFile('files') && isset($data['tipe'])) {
+            if ($request->hasFile('files')) {
 
                 foreach ($request->file('files') as $key => $fl) {
                     $fileName = time() . '.' . $fl->extension();
@@ -69,7 +71,7 @@ class PostController extends Controller
                     $dataFile = array(
                         'post_id' => $post->id,
                         'path_file' => $fileName,
-                        'tipe' => $data['tipe']
+                        'tipe' => 'file'
                     );
 
                     PostFile::create($dataFile);
