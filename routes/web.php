@@ -100,7 +100,7 @@ Route::group(['middleware' =>'auth'], function() {
     Route::put('/updateComment/{comment}', [PostController::class, 'editComment']);
     Route::get('/deleteComment/{commentId}', [PostController::class, 'deleteComment']);
     Route::post('/like', [PostController::class, 'like'])->name('like');
-    Route::get('/unlike/{postId}', [PostController::class, 'unlike']);
+    Route::post('/unlike', [PostController::class, 'unlike']);
     Route::get('/seePost/{post}', [PostController::class, 'seePost']);
 });
 
