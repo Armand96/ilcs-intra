@@ -1,10 +1,10 @@
 @extends('intranet.master_intranet')
 
 @section('content')
-    <div id="example">
-        <example-component></example-component>
+    <div id="example" class="w-full">
+       
     </div>
-    Test
+    
 @endsection
 
 @section('reactjsscript')
