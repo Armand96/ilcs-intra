@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    public function currentUser(){
+        $user = Auth::user();
+        $user->load(['role']);
+
+        return response()->json($user);
+    }
+
     /* ======================================================================== */
     public function getAllNilaiKaryawan()
     {

@@ -66,6 +66,9 @@ Route::post('ckupload', [CKUploaderController::class, 'upload']);
 
 /* INTRANET */
 Route::group(['middleware' =>'auth'], function() {
+    // GET CURRENT USER
+    Route::get('/currentUser', [UserController::class, 'currentUser'])->name('curr.user');
+
     Route::get("/dashboard", [DashboardController::class, 'home'])->name('dashboard');
     Route::get("/our-leader", [LeaderController::class, 'ourLeader'])->name('our_leader');
     Route::get("/our-team", [TeamController::class, 'teams'])->name('our_team');
