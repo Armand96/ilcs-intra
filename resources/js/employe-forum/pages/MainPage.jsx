@@ -27,7 +27,7 @@ const MainPage = () => {
             <InputPostArticle  />
             <div className="py-5 w-full flex flex-col gap-6 post-container" >
               {
-               getPostData?.data?.map((item,index) => (
+               getPostData && getPostData?.data?.map((item,index) => (
                     <PostArticle obj={item} key={index} getProfile={getProfile}/>
                 ))
               }

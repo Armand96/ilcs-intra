@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useProfileStore from './stores/ProfileStore';
 import { GetProfileCurrentUser } from './services/Api';
+import { DetailPage } from './pages/DetailPage';
 
 function App() {
   const setProfile = useProfileStore((state) => state.updateData)
@@ -26,7 +27,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/employee-forum" element={<MainPage />} />
-          <Route path="/employee-forum/detail/:id" element={<MainPage />} />
+          <Route path="/employee-forum/detail/:id" element={<DetailPage />} />
         </Routes>
       </Router>
     </>

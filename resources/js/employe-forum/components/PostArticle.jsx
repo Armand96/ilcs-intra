@@ -24,6 +24,10 @@ export const PostArticle = ({ obj, getProfile }) => {
         }
     }, [getProfile])
 
+    useEffect(() => {
+        setDetailData(obj)
+    },[obj])
+
     const handleLike = () => {
         setIsLike(!isLike)
 
@@ -98,10 +102,6 @@ export const PostArticle = ({ obj, getProfile }) => {
     }
 
 
-
-
-
-
     return (
         <>
             {
@@ -122,7 +122,7 @@ export const PostArticle = ({ obj, getProfile }) => {
 
                 <div className="flex flex-col mt-5">
                     <p className="text-sm text-white">
-                        {detailData?.content}
+                        {detailData && detailData?.content}
                     </p>
                     {/* <img src="../../assets/images/background/login-right-image.svg" className="w-full mt-6 top-3 h-[26rem] rounded-lg detailDataect-cover" /> */}
                 </div>

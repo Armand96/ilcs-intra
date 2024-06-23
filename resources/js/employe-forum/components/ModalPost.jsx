@@ -20,7 +20,6 @@ export const ModalPost = ({ toggle, show, }) => {
                 toast.success(`success make a post`)
                 setPostData(resp.data)
                 toggle()
-                setTimeout(() => {window.location.reload()}, 2000)
             })
         }).catch((err) => {
             toast.error(`err ${err.error}`)

@@ -6667,14 +6667,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _pages_mainPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/mainPage */ "./resources/js/employe-forum/pages/mainPage.jsx");
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
 /* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
 /* harmony import */ var _stores_ProfileStore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./stores/ProfileStore */ "./resources/js/employe-forum/stores/ProfileStore.js");
 /* harmony import */ var _services_Api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/Api */ "./resources/js/employe-forum/services/Api.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_DetailPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/DetailPage */ "./resources/js/employe-forum/pages/DetailPage.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -6697,8 +6699,8 @@ function App() {
       react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error("err ".concat(err.message));
     });
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_toastify__WEBPACK_IMPORTED_MODULE_2__.ToastContainer, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_toastify__WEBPACK_IMPORTED_MODULE_2__.ToastContainer, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -6708,14 +6710,14 @@ function App() {
       pauseOnFocusLoss: true,
       draggable: true,
       pauseOnHover: true
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Routes, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
           path: "/employee-forum",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_mainPage__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_mainPage__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
           path: "/employee-forum/detail/:id",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_mainPage__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_DetailPage__WEBPACK_IMPORTED_MODULE_6__.DetailPage, {})
         })]
       })
     })]
@@ -7281,9 +7283,6 @@ var ModalPost = function ModalPost(_ref) {
         react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.success("success make a post");
         setPostData(resp.data);
         toggle();
-        setTimeout(function () {
-          window.location.reload();
-        }, 2000);
       });
     })["catch"](function (err) {
       react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error("err ".concat(err.error));
@@ -7457,6 +7456,9 @@ var PostArticle = function PostArticle(_ref) {
       setIsLike(true);
     }
   }, [getProfile]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setDetailData(obj);
+  }, [obj]);
   var handleLike = function handleLike() {
     setIsLike(!isLike);
     if (isLike) {
@@ -7581,7 +7583,7 @@ var PostArticle = function PostArticle(_ref) {
         className: "flex flex-col mt-5",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
           className: "text-sm text-white",
-          children: detailData === null || detailData === void 0 ? void 0 : detailData.content
+          children: detailData && (detailData === null || detailData === void 0 ? void 0 : detailData.content)
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "flex gap-5 mt-5 border-b border-gray-[#E1E5F6] pb-4",
@@ -7686,6 +7688,33 @@ var PostArticle = function PostArticle(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/employe-forum/pages/DetailPage.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/employe-forum/pages/DetailPage.jsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   DetailPage: () => (/* binding */ DetailPage)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var DetailPage = function DetailPage() {
+  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useParams)();
+  console.log(params);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: "DetailPage"
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/employe-forum/pages/mainPage.jsx":
 /*!*******************************************************!*\
   !*** ./resources/js/employe-forum/pages/mainPage.jsx ***!
@@ -7733,12 +7762,12 @@ var MainPage = function MainPage() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_InputPostArticle__WEBPACK_IMPORTED_MODULE_2__.InputPostArticle, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "py-5 w-full flex flex-col gap-6 post-container",
-      children: getPostData === null || getPostData === void 0 || (_getPostData$data = getPostData.data) === null || _getPostData$data === void 0 ? void 0 : _getPostData$data.map(function (item, index) {
+      children: getPostData && (getPostData === null || getPostData === void 0 || (_getPostData$data = getPostData.data) === null || _getPostData$data === void 0 ? void 0 : _getPostData$data.map(function (item, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_PostArticle__WEBPACK_IMPORTED_MODULE_1__.PostArticle, {
           obj: item,
           getProfile: getProfile
         }, index);
-      })
+      }))
     })]
   });
 };
