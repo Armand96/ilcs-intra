@@ -40,4 +40,9 @@ class Comment extends Model
     {
         return $this->hasMany(PostLike::class, 'comment_id', 'id');
     }
+
+    public function scopeNotRepeat(Builder $query)
+    {
+        return $query->where('parent_comment_id', null); // filter
+    }
 }
