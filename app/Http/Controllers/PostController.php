@@ -7,13 +7,17 @@ use App\Models\Post;
 use App\Models\PostFile;
 use App\Models\PostLike;
 use App\Models\PostViewer;
+use App\Traits\NotificationTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+    use NotificationTrait;
+
     function generateRandomString($length = 10) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -94,6 +98,7 @@ class PostController extends Controller
             $post->load(['comments', 'postedBy']);
             return response()->json($post);
         } catch (\Throwable $th) {
+            Log::error($th->getMessage());
             DB::rollBack();
             // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
             return response()->json(['message' => $th->getMessage()]);
@@ -111,6 +116,7 @@ class PostController extends Controller
 
             return response()->json(['message' => "Post behrasil diupdate"]);
         } catch (\Throwable $th) {
+            Log::error($th->getMessage());
             //throw $th;
             return response()->json(['message' => $th->getMessage()]);
         }
@@ -146,12 +152,52 @@ class PostController extends Controller
         ]);
 
         try {
+            $url = "";
             $data['user_id'] = Auth::user()->id;
-            if(!isset($data['post_id'])) $data['post_id'] = 0;
             $comment = Comment::create($data);
+            $senderId = Auth::user()->id;
+
+            if(!isset($data['post_id'])) {
+                /* REPLIES */
+                $data['post_id'] = 0;
+                $parentComment = Comment::find($data['parent_comment_id']);
+                $postData = Post::with(['comments'])->find($parentComment->post_id);
+                if($postData && count($postData->comments)) {
+                    $userListNotif = [];
+
+                    if($postData->posted_by != Auth::user()->id) array_push($userListNotif, $postData->posted_by);
+
+                    foreach ($postData->comments as $key => $value) {
+                        if($value->user_id == Auth::user()->id) continue;
+                        if(!array_key_exists($value->user_id, $userListNotif)) array_push($userListNotif, $value->user_id);
+                    }
+
+                    /* SEND NOTIF */
+                    $this->massNotification($userListNotif, $senderId, $url, 0, $parentComment->id, 'comment');
+                }
+            }
+            else {
+                /* POST */
+                $postData = Post::with(['comments'])->find($data['post_id']);
+                if($postData && count($postData->comments)) {
+                    $userListNotif = [];
+
+                    if($postData->posted_by != Auth::user()->id) array_push($userListNotif, $postData->posted_by);
+
+                    foreach ($postData->comments as $key => $value) {
+                        if($value->user_id == Auth::user()->id) continue;
+                        if(!array_key_exists($value->user_id, $userListNotif)) array_push($userListNotif, $value->user_id);
+                    }
+
+                    /* SEND NOTIF */
+                    $this->massNotification($userListNotif, $senderId, $url, $postData->id, 0, 'comment');
+                }
+            }
+
             $comment->load('user');
             return response()->json($comment);
         } catch (\Throwable $th) {
+            Log::error($th->getMessage());
             // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
             return response()->json(['message' => $th->getMessage()]);
         }
@@ -176,6 +222,7 @@ class PostController extends Controller
 
             return response()->json($comment);
         } catch (\Throwable $th) {
+            Log::error($th->getMessage());
             // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
             return response()->json(['message' => $th->getMessage()]);
         }
@@ -205,13 +252,29 @@ class PostController extends Controller
 
             $data['user_id'] = Auth::user()->id;
             PostLike::create($data);
-            $post = Post::find($data['post_id']);
-            $post->increment('total_like');
+            $url = "";
+            $senderId = Auth::user()->id;
+
+            if(!isset($data['comment_id'])) {
+                /* POST */
+                $post = Post::with(['comments'])->find($data['post_id']);
+                $post->increment('total_like');
+                $userListNotif = [];
+                if($post->posted_by != Auth::user()->id) array_push($userListNotif, $post->posted_by);
+                $this->massNotification($userListNotif, $senderId, $url, $post->id, 0, 'like');
+            } else {
+                /* LIKE */
+                $currentComment = Comment::find($data['comment_id']);
+                $userListNotif = [];
+                if($currentComment->user_id != Auth::user()->id) array_push($userListNotif, $currentComment->user_id);
+                $this->massNotification($userListNotif, $senderId,  $url, 0, $currentComment->id, 'like');
+            }
 
             DB::commit();
 
             return response()->json(['message' => "Sukses Like"]);
         } catch (\Throwable $th) {
+            Log::error($th->getMessage());
             // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
             return response()->json(['message' => $th->getMessage()]);
         }
@@ -240,6 +303,7 @@ class PostController extends Controller
             DB::commit();
             return response()->json(['message' => "Sukses Unlike"]);
         } catch (\Throwable $th) {
+            Log::error($th->getMessage());
             //throw $th;
             return response()->json(['message' => $th->getMessage()]);
         }
@@ -268,6 +332,7 @@ class PostController extends Controller
 
             DB::commit();
         } catch (\Throwable $th) {
+            Log::error($th->getMessage());
             DB::rollBack();
             // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
             return response()->json(['message' => $th->getMessage()]);
@@ -283,6 +348,7 @@ class PostController extends Controller
 
             // DB::commit();
         } catch (\Throwable $th) {
+            Log::error($th->getMessage());
             DB::rollBack();
             // return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
             return response()->json(['message' => $th->getMessage()]);
@@ -307,6 +373,7 @@ class PostController extends Controller
             }
             return response()->json(['message' => 'view post berhasil']);
         } catch (\Throwable $th) {
+            Log::error($th->getMessage());
             //throw $th;
             DB::rollBack();
             return response()->json(['message' => $th->getMessage()]);

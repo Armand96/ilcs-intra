@@ -10,6 +10,7 @@ class Notification extends Model
     use HasFactory;
 
     protected $fillable = [
+        'notif_from_user_id',
         'notif_to_user_id',
         'notif_title',
         'notif_description',
@@ -17,8 +18,13 @@ class Notification extends Model
         'link',
     ];
 
-    public function user()
+    public function userSent()
     {
-        return $this->belongsTo(User::class, 'notif_to_user_id', 'id');
+        return $this->belongsTo(User::class, 'notif_to_user_id', 'id')->lessField();
+    }
+
+    public function userFrom()
+    {
+        return $this->belongsTo(User::class, 'notif_from_user_id', 'id')->lessField();
     }
 }

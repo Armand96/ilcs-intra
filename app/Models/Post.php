@@ -33,7 +33,7 @@ class Post extends Model
 
     public function likers()
     {
-        return $this->hasMany(PostLike::class, 'post_id', 'id');
+        return $this->hasMany(PostLike::class, 'post_id', 'id')->PostLikers();
     }
 
     public function viewer()
