@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import useProfileStore from '../stores/ProfileStore'
 
-export const Comment2 = ({obj}) => {
+export const Comment2 = ({ obj, handleLike }) => {
+    const getProfile = useProfileStore((state) => state.profile)
+    const [likeToggle, setLikeToggle] = useState(false)
+   
+    useEffect(() => {
+        if (obj?.likers?.filter((x) => x.user_id === getProfile.id)?.length > 0) {
+            setLikeToggle(true)
+        }
+    }, [getProfile, obj])
+
+    const submitLike = () => {
+        if (likeToggle) {
+            obj.isLike = true
+            handleLike(obj)
+        } else {
+            obj.isLike = false
+            handleLike(obj)
+        }
+        setLikeToggle(!likeToggle)
+    }
+
     return (
         <div className="flex flex-col gap-4 pl-4 border-l py-3 border-blue-900">
-           <div className="flex justify-between">
+            <div className="flex justify-between">
                 <div className="flex items-center gap-5 ">
-                    <img src={obj?.user?.image_user ? obj?.user?.image_user : "../../assets/images/sosmed/foto-profile.svg"} alt="profile"className="w-8 h-8 rounded-full" />
+                    <img src={obj?.user?.image_user ? obj?.user?.image_user : "../../assets/images/sosmed/foto-profile.svg"} alt="profile" className="w-8 h-8 rounded-full" />
                     <div className="flex flex-col">
                         <p className="text-white items-center text-sm">
                             <span className="font-bold">{obj?.user?.name}</span>
@@ -28,11 +49,11 @@ export const Comment2 = ({obj}) => {
                 </div>
             </div>
             <p className="text-white text-sm">
-               {obj?.comment}
+                {obj?.comment}
             </p>
-            <div className="flex gap-3 pb-4">
-                <div className="flex gap-2 cursor-pointer justify-center items-center">
-                    <img src="../../assets/images/sosmed/like.svg" className="h-4 w-4" alt="like" />
+            <div className="flex ">
+                <div className="flex gap-2 cursor-pointer justify-center items-center" onClick={submitLike}>
+                    <img src={likeToggle ? "../../assets/images/sosmed/like-active.svg" : "../../assets/images/sosmed/like.svg"} className="h-4 w-4" alt="like" />
                     <p className="text-xs mt-1 text-white">like</p>
                 </div>
             </div>

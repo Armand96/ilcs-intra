@@ -26,6 +26,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/employee-forum" element={<MainPage />} />
+          <Route path="/employee-forum/detail/:id" element={<MainPage />} />
         </Routes>
       </Router>
     </>

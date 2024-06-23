@@ -6,6 +6,7 @@ export const Comment = ({ obj, handleReplies, handleLike }) => {
     const getProfile = useProfileStore((state) => state.profile)
     const [toggleComment, setToggleComment] = useState(false)
     const [likeToggle, setLikeToggle] = useState(false)
+    
     useEffect(() => {
         if(obj?.likers?.filter((x) => x.user_id === getProfile.id)?.length > 0){
             setLikeToggle(true)
@@ -69,7 +70,7 @@ export const Comment = ({ obj, handleReplies, handleLike }) => {
                     <div className={toggleComment ? "flex flex-col gap-3" : "hidden"}>
                         {
                             obj?.replies?.map((x) => (
-                                <Comment2 obj={x} />
+                                <Comment2 obj={x} handleLike={handleLike} />
                             ))
                         }
                     </div>
