@@ -81,6 +81,16 @@ Route::group(['middleware' =>'auth'], function() {
         return view('intranet.pages.employee_forum_reactjs');
     })->name('employee.forum');
 
+    Route::get('/employee-forum/detail', function() {
+        return view('intranet.pages.employee_forum_reactjs');
+    })->name('employee.forum.detail');
+
+    Route::get('/employee-forum/detail/{id}', function() {
+        return view('intranet.pages.employee_forum_reactjs');
+    })->name('navigate.post');
+
+    Route::get('/notifRead/{notifId}', [NotificationController::class, 'readNotif'])->name('notif.read');
+
     Route::get("/regulations", function(){
         return view('regulations');
     });

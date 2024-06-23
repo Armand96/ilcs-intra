@@ -29,7 +29,7 @@
                 <!-- <h4 class=" px-4 text-xs text-center mb-10 mt-3">No Notification</h4> -->
 
                 @foreach ($notifs as $item)
-                    <div class="text-white gap-4 flex mx-auto px-2 py-1 cursor-pointer border-b border-blue-950">
+                    <a class="text-white gap-4 flex mx-auto px-2 py-1 cursor-pointer border-b border-blue-950 {{ $item->read_at == null ? 'udah dibaca' : 'blm dibaca' }}" href="{{ route('notif.read', $item->id) }}">
                         <img src="{{ strpos($item->userFrom->image_user, 'http') !== false ? $item->userFrom->image_user : url('storage/profile_picture/'.$item->userFrom->image_user) }}" alt="profile" class="w-10 h-10">
                         <div class="flex flex-col">
                             <p class="text-white text-xs">
@@ -39,7 +39,7 @@
                                 {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $item->created_at)->diffForHumans() }}
                             </p>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
 
             </div>

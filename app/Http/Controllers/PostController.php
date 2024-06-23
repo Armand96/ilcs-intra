@@ -164,7 +164,7 @@ class PostController extends Controller
                 $postData = Post::with(['comments'])->find($parentComment->post_id);
                 if($postData && count($postData->comments)) {
                     $userListNotif = [];
-
+                    $url = $postData->id;
                     if($postData->posted_by != Auth::user()->id) array_push($userListNotif, $postData->posted_by);
 
                     foreach ($postData->comments as $key => $value) {
@@ -181,7 +181,7 @@ class PostController extends Controller
                 $postData = Post::with(['comments'])->find($data['post_id']);
                 if($postData && count($postData->comments)) {
                     $userListNotif = [];
-
+                    $url = $postData->id;
                     if($postData->posted_by != Auth::user()->id) array_push($userListNotif, $postData->posted_by);
 
                     foreach ($postData->comments as $key => $value) {
@@ -258,6 +258,7 @@ class PostController extends Controller
             if(!isset($data['comment_id'])) {
                 /* POST */
                 $post = Post::with(['comments'])->find($data['post_id']);
+                $url = $post->id;
                 $post->increment('total_like');
                 $userListNotif = [];
                 if($post->posted_by != Auth::user()->id) array_push($userListNotif, $post->posted_by);
@@ -265,6 +266,13 @@ class PostController extends Controller
             } else {
                 /* LIKE */
                 $currentComment = Comment::find($data['comment_id']);
+                if(!$currentComment->post_id) {
+                    $post = Post::find($currentComment->post_id);
+                } else {
+                    $parentComment = Comment::find($currentComment->parent_comment_id);
+                    $url = $parentComment->post_id;
+                }
+
                 $userListNotif = [];
                 if($currentComment->user_id != Auth::user()->id) array_push($userListNotif, $currentComment->user_id);
                 $this->massNotification($userListNotif, $senderId,  $url, 0, $currentComment->id, 'like');
@@ -322,7 +330,6 @@ class PostController extends Controller
             PostFile::where('post_id', $postId)->delete();
 
             /* DELETE FILE */
-
             if ($postFiles) {
                 foreach ($postFiles as $key => $pf) {
                     Storage::disk('public')->exists("profile_picture/$pf->path_file");

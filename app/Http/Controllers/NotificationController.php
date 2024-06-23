@@ -24,7 +24,8 @@ class NotificationController extends Controller
 
     public function readNotif($notifId)
     {
-        Notification::where('id', $notifId)->update(['is_read' => date('Y-m-d H:i:s')]);
-        return response()->json(['message' => 'Notifikasi sudah terbaca']);
+        $notif = Notification::find($notifId);
+        $notif->update(['read_at' => date('Y-m-d H:i:s')]);
+        return response()->redirectToRoute('navigate.post', $notif->link);
     }
 }
