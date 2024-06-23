@@ -66,7 +66,7 @@
                 <p class="text-semibold  text-white mx-4">{{ explode(' ', Auth::user()->name)[0] }}</p>
                 <div class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        <img alt="Tailwind CSS Navbar component" src="{{ strpos(Auth::user()->image_user, 'http') !== false ? Auth::user()->image_user : url('storage/profile_picture/'.Auth::user()->image_user) }}" onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'" />
                     </div>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white ml-2 mr-5">

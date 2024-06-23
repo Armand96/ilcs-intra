@@ -147,6 +147,7 @@ class PostController extends Controller
 
         try {
             $data['user_id'] = Auth::user()->id;
+            if(!isset($data['post_id'])) $data['post_id'] = 0;
             $comment = Comment::create($data);
             $comment->load('user');
             return response()->json($comment);
