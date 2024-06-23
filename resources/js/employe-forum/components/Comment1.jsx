@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Comment2 } from './Comment2'
 import useProfileStore from '../stores/ProfileStore'
 
-export const Comment = ({ obj, handleReplies, handleLike }) => {
+export const Comment = ({ obj, handleReplies, handleLike, handleEdit, handleDelete }) => {
     const getProfile = useProfileStore((state) => state.profile)
     const [toggleComment, setToggleComment] = useState(false)
     const [likeToggle, setLikeToggle] = useState(false)
-    
+
     useEffect(() => {
         if(obj?.likers?.filter((x) => x.user_id === getProfile.id)?.length > 0){
             setLikeToggle(true)
@@ -24,11 +24,20 @@ export const Comment = ({ obj, handleReplies, handleLike }) => {
         setLikeToggle(!likeToggle)
     }
 
+    const handlePrepareEdit = () => {
+        obj.isEdit = true
+        handleEdit(obj)
+    }
+
+    const handlePrepareDelete = () => {
+        handleDelete(obj)
+    }
+
     return (
         <div className="flex flex-col gap-4  px-4 py-2 rounded-xl border-blue-900">
             <div className="flex justify-between">
                 <div className="flex items-center gap-5 ">
-                <img src={obj?.user?.image_user ? obj?.user?.image_user : "../../assets/images/sosmed/foto-profile.svg"} alt="profile" className="w-8 h-8 rounded-full" />
+                <img src={obj?.user?.image_user ? obj?.user?.image_user?.includes("http") ?  obj?.user?.image_user : `../../storage/profile_picture/${obj?.user?.image_user}` : "../../assets/images/sosmed/foto-profile.svg"} alt="profile" className="w-8 h-8 rounded-full" />
                 <div className="flex flex-col">
                         <p className="text-white items-center text-sm">
                             <span className="font-bold">{obj?.user?.name}</span>
@@ -36,7 +45,7 @@ export const Comment = ({ obj, handleReplies, handleLike }) => {
                         <p className="text-white font-light text-xs">{moment(obj?.created_at).fromNow()}</p>
                     </div>
                 </div>
-                <div className="flex-reverse-row flex">
+                <div className={obj?.user_id === getProfile?.id ? "flex-reverse-row flex" : "hidden"} >
                     <div className="dropdown dropdown-end ">
                         <div className="flex items-center" tabindex="0" role="button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 text-white">
@@ -44,8 +53,8 @@ export const Comment = ({ obj, handleReplies, handleLike }) => {
                             </svg>
                         </div>
                         <ul tabindex="0" className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white rounded-box w-52 bg-dashboard-background border border-blue-950 ">
-                            <li><a>Delete</a></li>
-                            <li><a>Edit</a></li>
+                            <li><a onClick={handlePrepareDelete}>Delete</a></li>
+                            <li><a onClick={handlePrepareEdit}>Edit</a></li>
                         </ul>
                     </div>
                 </div>
@@ -61,7 +70,7 @@ export const Comment = ({ obj, handleReplies, handleLike }) => {
                     <p className="text-xs mt-1 text-white">like</p>
                 </div>
                 <div className="flex gap-2 cursor-pointer justify-center items-center" onClick={() => handleReplies(obj)}>
-                    <img src="../../assets/images/sosmed/comment-icon.svg" className="h-4 w-4" alt="like" />
+                    <img src="../../assets/images/sosmed/comment-icon.svg" className="h-4 w-4" alt="like"  />
                     <p className="text-sm mt-1 text-white">comment</p>
                 </div>
             </div>
@@ -70,7 +79,7 @@ export const Comment = ({ obj, handleReplies, handleLike }) => {
                     <div className={toggleComment ? "flex flex-col gap-3" : "hidden"}>
                         {
                             obj?.replies?.map((x) => (
-                                <Comment2 obj={x} handleLike={handleLike} />
+                                <Comment2 handleEdit={handleEdit} obj={x} handleLike={handleLike} />
                             ))
                         }
                     </div>

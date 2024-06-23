@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import useProfileStore from '../stores/ProfileStore'
 
-export const Comment2 = ({ obj, handleLike }) => {
+export const Comment2 = ({ obj, handleLike, handleEdit }) => {
     const getProfile = useProfileStore((state) => state.profile)
     const [likeToggle, setLikeToggle] = useState(false)
    
@@ -22,11 +22,18 @@ export const Comment2 = ({ obj, handleLike }) => {
         setLikeToggle(!likeToggle)
     }
 
+    const handlePrepareEdit = () => {
+        obj.level = 2
+        obj.isEdit = true
+        handleEdit(obj)
+    }
+
+
     return (
         <div className="flex flex-col gap-4 pl-4 border-l py-3 border-blue-900">
             <div className="flex justify-between">
                 <div className="flex items-center gap-5 ">
-                    <img src={obj?.user?.image_user ? obj?.user?.image_user : "../../assets/images/sosmed/foto-profile.svg"} alt="profile" className="w-8 h-8 rounded-full" />
+                <img src={obj?.user?.image_user ? obj?.user?.image_user?.includes("http") ?  obj?.user?.image_user : `../../storage/profile_picture/${obj?.user?.image_user}` : "../../assets/images/sosmed/foto-profile.svg"} alt="profile" className="w-8 h-8 rounded-full" />
                     <div className="flex flex-col">
                         <p className="text-white items-center text-sm">
                             <span className="font-bold">{obj?.user?.name}</span>
@@ -34,7 +41,7 @@ export const Comment2 = ({ obj, handleLike }) => {
                         <p className="text-white font-light text-xs">{moment(obj?.created_at).fromNow()}</p>
                     </div>
                 </div>
-                <div className="flex-reverse-row flex">
+                <div className={obj?.user_id === getProfile?.id ? "flex-reverse-row flex" : "hidden"} >
                     <div className="dropdown dropdown-end ">
                         <div className="flex items-center" tabindex="0" role="button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 text-white">
@@ -43,7 +50,7 @@ export const Comment2 = ({ obj, handleLike }) => {
                         </div>
                         <ul tabindex="0" className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white rounded-box w-52 bg-dashboard-background border border-blue-950 ">
                             <li><a>Delete</a></li>
-                            <li><a>Edit</a></li>
+                            <li><a onClick={handlePrepareEdit}>Edit</a></li>
                         </ul>
                     </div>
                 </div>

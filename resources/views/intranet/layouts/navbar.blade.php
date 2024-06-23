@@ -24,12 +24,12 @@
                     <span class="badge badge-sm bg-red-500 border-none text-white indicator-item">{{ $notifsUnread }}</span>
                 </div>
             </div>
-            <div tabindex="0" class="mt-3 z-[1]  -left-[30] card card-compact bg-[#1D2A47] dropdown-content w-80 shadow">
+            <div tabindex="0" class="mt-3 z-[1] bg-[#1D2A47] -left-[30] card card-compact  dropdown-content w-80 shadow">
                 <h4 class=" px-4 font-semibold my-3 text-white bg-[#36447E] py-3 rounded-t-lg">Notification</h4>
                 <!-- <h4 class=" px-4 text-xs text-center mb-10 mt-3">No Notification</h4> -->
 
                 @foreach ($notifs as $item)
-                    <a class="text-white gap-4 flex mx-auto px-2 py-1 cursor-pointer border-b border-blue-950 {{ $item->read_at == null ? 'udah dibaca' : 'blm dibaca' }}" href="{{ route('notif.read', $item->id) }}">
+                    <a class="text-white gap-4 flex mx-auto px-2 py-1 cursor-pointer border-b border-blue-950 {{ $item->read_at == null ? 'bg-[#384478]' : 'bg-[#1D2A47]'  }}" href="{{ route('notif.read', $item->id) }}">
                         <img src="{{ strpos($item->userFrom->image_user, 'http') !== false ? $item->userFrom->image_user : url('storage/profile_picture/'.$item->userFrom->image_user) }}" alt="profile" class="w-10 h-10">
                         <div class="flex flex-col">
                             <p class="text-white text-xs">
@@ -49,8 +49,8 @@
             <div class="flex items-center" tabindex="0" role="button">
                 <p class="text-semibold  text-white mx-4">{{ explode(' ', Auth::user()->name)[0] }}</p>
                 <div class="btn btn-ghost btn-circle avatar">
-                    <div class="w-10 rounded-full">
-                        <img alt="Tailwind CSS Navbar component" src="{{ strpos(Auth::user()->image_user, 'http') !== false ? Auth::user()->image_user : url('storage/profile_picture/'.Auth::user()->image_user) }}" onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'"/>
+                    <div class="w-10 ">
+                        <img alt="profile" class="rounded-full"  src="{{ strpos(Auth::user()->image_user, 'http') !== false ? Auth::user()->image_user : url('storage/profile_picture/'.Auth::user()->image_user) }} " onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'"/>
                     </div>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white ml-2 mr-5">
@@ -59,7 +59,7 @@
 
             </div>
 
-            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white rounded-box w-52 bg-dashboard-background border border-blue-950 ">
+            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 absolute z-[300] p-2 shadow text-white rounded-box w-52 bg-black border border-blue-950 ">
                 @if (Auth::user()->role->is_admin)
                 <li><a href="{{ url('/cms_admin/home') }}">CMS</a></li>
                 @endif

@@ -3053,6 +3053,9 @@ html:has(.drawer-toggle:checked) {
 .z-\[1\] {
   z-index: 1;
 }
+.z-\[300\] {
+  z-index: 300;
+}
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;

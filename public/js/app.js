@@ -6753,10 +6753,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Comment = function Comment(_ref) {
-  var _obj$user, _obj$user2, _obj$user3, _obj$replies, _obj$replies2;
+  var _obj$user, _obj$user2, _obj$user3, _obj$user4, _obj$user5, _obj$replies, _obj$replies2;
   var obj = _ref.obj,
     handleReplies = _ref.handleReplies,
-    handleLike = _ref.handleLike;
+    handleLike = _ref.handleLike,
+    handleEdit = _ref.handleEdit,
+    handleDelete = _ref.handleDelete;
   var getProfile = (0,_stores_ProfileStore__WEBPACK_IMPORTED_MODULE_2__["default"])(function (state) {
     return state.profile;
   });
@@ -6786,6 +6788,13 @@ var Comment = function Comment(_ref) {
     }
     setLikeToggle(!likeToggle);
   };
+  var handlePrepareEdit = function handlePrepareEdit() {
+    obj.isEdit = true;
+    handleEdit(obj);
+  };
+  var handlePrepareDelete = function handlePrepareDelete() {
+    handleDelete(obj);
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "flex flex-col gap-4  px-4 py-2 rounded-xl border-blue-900",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -6793,7 +6802,7 @@ var Comment = function Comment(_ref) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "flex items-center gap-5 ",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-          src: obj !== null && obj !== void 0 && (_obj$user = obj.user) !== null && _obj$user !== void 0 && _obj$user.image_user ? obj === null || obj === void 0 || (_obj$user2 = obj.user) === null || _obj$user2 === void 0 ? void 0 : _obj$user2.image_user : "../../assets/images/sosmed/foto-profile.svg",
+          src: obj !== null && obj !== void 0 && (_obj$user = obj.user) !== null && _obj$user !== void 0 && _obj$user.image_user ? obj !== null && obj !== void 0 && (_obj$user2 = obj.user) !== null && _obj$user2 !== void 0 && (_obj$user2 = _obj$user2.image_user) !== null && _obj$user2 !== void 0 && _obj$user2.includes("http") ? obj === null || obj === void 0 || (_obj$user3 = obj.user) === null || _obj$user3 === void 0 ? void 0 : _obj$user3.image_user : "../../storage/profile_picture/".concat(obj === null || obj === void 0 || (_obj$user4 = obj.user) === null || _obj$user4 === void 0 ? void 0 : _obj$user4.image_user) : "../../assets/images/sosmed/foto-profile.svg",
           alt: "profile",
           className: "w-8 h-8 rounded-full"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -6802,7 +6811,7 @@ var Comment = function Comment(_ref) {
             className: "text-white items-center text-sm",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               className: "font-bold",
-              children: obj === null || obj === void 0 || (_obj$user3 = obj.user) === null || _obj$user3 === void 0 ? void 0 : _obj$user3.name
+              children: obj === null || obj === void 0 || (_obj$user5 = obj.user) === null || _obj$user5 === void 0 ? void 0 : _obj$user5.name
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
             className: "text-white font-light text-xs",
@@ -6810,7 +6819,7 @@ var Comment = function Comment(_ref) {
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "flex-reverse-row flex",
+        className: (obj === null || obj === void 0 ? void 0 : obj.user_id) === (getProfile === null || getProfile === void 0 ? void 0 : getProfile.id) ? "flex-reverse-row flex" : "hidden",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "dropdown dropdown-end ",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -6835,10 +6844,12 @@ var Comment = function Comment(_ref) {
             className: "menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white rounded-box w-52 bg-dashboard-background border border-blue-950 ",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                onClick: handlePrepareDelete,
                 children: "Delete"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                onClick: handlePrepareEdit,
                 children: "Edit"
               })
             })]
@@ -6880,6 +6891,7 @@ var Comment = function Comment(_ref) {
         className: toggleComment ? "flex flex-col gap-3" : "hidden",
         children: obj === null || obj === void 0 || (_obj$replies2 = obj.replies) === null || _obj$replies2 === void 0 ? void 0 : _obj$replies2.map(function (x) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Comment2__WEBPACK_IMPORTED_MODULE_1__.Comment2, {
+            handleEdit: handleEdit,
             obj: x,
             handleLike: handleLike
           });
@@ -6945,9 +6957,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Comment2 = function Comment2(_ref) {
-  var _obj$user, _obj$user2, _obj$user3;
+  var _obj$user, _obj$user2, _obj$user3, _obj$user4, _obj$user5;
   var obj = _ref.obj,
-    handleLike = _ref.handleLike;
+    handleLike = _ref.handleLike,
+    handleEdit = _ref.handleEdit;
   var getProfile = (0,_stores_ProfileStore__WEBPACK_IMPORTED_MODULE_1__["default"])(function (state) {
     return state.profile;
   });
@@ -6973,6 +6986,11 @@ var Comment2 = function Comment2(_ref) {
     }
     setLikeToggle(!likeToggle);
   };
+  var handlePrepareEdit = function handlePrepareEdit() {
+    obj.level = 2;
+    obj.isEdit = true;
+    handleEdit(obj);
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "flex flex-col gap-4 pl-4 border-l py-3 border-blue-900",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -6980,7 +6998,7 @@ var Comment2 = function Comment2(_ref) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "flex items-center gap-5 ",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-          src: obj !== null && obj !== void 0 && (_obj$user = obj.user) !== null && _obj$user !== void 0 && _obj$user.image_user ? obj === null || obj === void 0 || (_obj$user2 = obj.user) === null || _obj$user2 === void 0 ? void 0 : _obj$user2.image_user : "../../assets/images/sosmed/foto-profile.svg",
+          src: obj !== null && obj !== void 0 && (_obj$user = obj.user) !== null && _obj$user !== void 0 && _obj$user.image_user ? obj !== null && obj !== void 0 && (_obj$user2 = obj.user) !== null && _obj$user2 !== void 0 && (_obj$user2 = _obj$user2.image_user) !== null && _obj$user2 !== void 0 && _obj$user2.includes("http") ? obj === null || obj === void 0 || (_obj$user3 = obj.user) === null || _obj$user3 === void 0 ? void 0 : _obj$user3.image_user : "../../storage/profile_picture/".concat(obj === null || obj === void 0 || (_obj$user4 = obj.user) === null || _obj$user4 === void 0 ? void 0 : _obj$user4.image_user) : "../../assets/images/sosmed/foto-profile.svg",
           alt: "profile",
           className: "w-8 h-8 rounded-full"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -6989,7 +7007,7 @@ var Comment2 = function Comment2(_ref) {
             className: "text-white items-center text-sm",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               className: "font-bold",
-              children: obj === null || obj === void 0 || (_obj$user3 = obj.user) === null || _obj$user3 === void 0 ? void 0 : _obj$user3.name
+              children: obj === null || obj === void 0 || (_obj$user5 = obj.user) === null || _obj$user5 === void 0 ? void 0 : _obj$user5.name
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
             className: "text-white font-light text-xs",
@@ -6997,7 +7015,7 @@ var Comment2 = function Comment2(_ref) {
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "flex-reverse-row flex",
+        className: (obj === null || obj === void 0 ? void 0 : obj.user_id) === (getProfile === null || getProfile === void 0 ? void 0 : getProfile.id) ? "flex-reverse-row flex" : "hidden",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "dropdown dropdown-end ",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -7026,6 +7044,7 @@ var Comment2 = function Comment2(_ref) {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                onClick: handlePrepareEdit,
                 children: "Edit"
               })
             })]
@@ -7184,12 +7203,28 @@ var ModalComment = function ModalComment(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     formData = _useState2[0],
     setFormData = _useState2[1];
+  console.log("edit", obj);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (obj !== null && obj !== void 0 && obj.isEdit) {
+      setFormData(obj === null || obj === void 0 ? void 0 : obj.comment);
+    }
+  }, []);
   var handleSubmit = function handleSubmit() {
-    submit({
-      comment: formData,
-      post_id: obj.level === 2 ? "" : obj === null || obj === void 0 ? void 0 : obj.id,
-      parent_comment_id: obj.level === 2 ? obj === null || obj === void 0 ? void 0 : obj.id : ""
-    });
+    if (obj !== null && obj !== void 0 && obj.isEdit) {
+      submit({
+        comment: formData,
+        comment_id: obj === null || obj === void 0 ? void 0 : obj.id,
+        isEdit: true,
+        post_id: obj.level === 2 ? "" : obj === null || obj === void 0 ? void 0 : obj.post_id,
+        parent_comment_id: obj.level === 2 ? obj === null || obj === void 0 ? void 0 : obj.parent_comment_id : ""
+      });
+    } else {
+      submit({
+        comment: formData,
+        post_id: obj.level === 2 ? "" : obj === null || obj === void 0 ? void 0 : obj.id,
+        parent_comment_id: obj.level === 2 ? obj === null || obj === void 0 ? void 0 : obj.id : ""
+      });
+    }
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("dialog", {
     id: "buat-post",
@@ -7205,8 +7240,9 @@ var ModalComment = function ModalComment(_ref) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
         "class": "font-bold text-white text-lg",
-        children: "Balas Pesan"
+        children: "Reply post"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
+        defaultValue: formData,
         onChange: function onChange(v) {
           return setFormData(v.target.value);
         },
@@ -7262,7 +7298,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var ModalPost = function ModalPost(_ref) {
   var toggle = _ref.toggle,
-    show = _ref.show;
+    show = _ref.show,
+    handleEditPost = _ref.handleEditPost,
+    obj = _ref.obj;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       content: ""
     }),
@@ -7289,6 +7327,16 @@ var ModalPost = function ModalPost(_ref) {
       toggle();
     });
   };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setContentData(_objectSpread(_objectSpread({}, contentData), {}, {
+      content: obj === null || obj === void 0 ? void 0 : obj.content
+    }));
+  }, []);
+  var handleEditPostPrepare = function handleEditPostPrepare() {
+    var formData = new FormData();
+    formData.append('content', contentData.content);
+    handleEditPost(formData);
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("dialog", {
     id: "buat-post",
     "class": show ? "modal modal-open" : "modal",
@@ -7304,13 +7352,13 @@ var ModalPost = function ModalPost(_ref) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
         "class": "font-bold text-white text-lg",
-        children: "Create a Post"
+        children: obj ? "Edit a Post" : "Create a Post"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         "class": "flex items-center gap-5 mt-8",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-          src: getProfile !== null && getProfile !== void 0 && getProfile.image_user ? getProfile === null || getProfile === void 0 ? void 0 : getProfile.image_user : "../../assets/images/sosmed/foto-profile.svg",
+          src: getProfile !== null && getProfile !== void 0 && getProfile.image_user ? getProfile !== null && getProfile !== void 0 && getProfile.image_user.includes("http") ? getProfile === null || getProfile === void 0 ? void 0 : getProfile.image_user : "../../storage/profile_picture/".concat(getProfile === null || getProfile === void 0 ? void 0 : getProfile.image_user) : "../../assets/images/sosmed/foto-profile.svg",
           alt: "profile",
-          "class": "w-10 h-10 rounded-full"
+          className: "w-8 h-8 rounded-full"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           "class": "flex flex-col",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
@@ -7325,6 +7373,7 @@ var ModalPost = function ModalPost(_ref) {
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
+        value: contentData.content,
         name: "",
         onChange: function onChange(v) {
           return setContentData(_objectSpread(_objectSpread({}, contentData), {}, {
@@ -7369,7 +7418,12 @@ var ModalPost = function ModalPost(_ref) {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           "class": "w-5/12"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+        }), obj ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+          id: "post-only-text",
+          "class": "btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl",
+          onClick: handleEditPostPrepare,
+          children: "Update"
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
           id: "post-only-text",
           "class": "btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl",
           onClick: PostData,
@@ -7401,7 +7455,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stores_PostStore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../stores/PostStore */ "./resources/js/employe-forum/stores/PostStore.js");
 /* harmony import */ var _ModalComment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ModalComment */ "./resources/js/employe-forum/components/ModalComment.jsx");
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _ModalPost__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ModalPost */ "./resources/js/employe-forum/components/ModalPost.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -7416,8 +7471,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var PostArticle = function PostArticle(_ref) {
-  var _detailData$posted_by, _detailData$posted_by2, _detailData$posted_by3, _detailData$posted_by4, _detailData$likers, _detailData$likers2, _detailData$likers$, _detailData$likers$2, _detailData$likers$0$, _detailData$likers3, _detailData$comments, _detailData$comments2;
+  var _detailData$posted_by, _detailData$posted_by2, _detailData$posted_by3, _detailData$posted_by4, _detailData$posted_by5, _detailData$posted_by6, _detailData$posted_by7, _detailData$likers, _detailData$likers2, _detailData$likers$, _detailData$likers$2, _detailData$likers$0$, _detailData$likers3, _detailData$comments, _detailData$comments2;
   var obj = _ref.obj,
     getProfile = _ref.getProfile;
   var setPostData = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_4__["default"])(function (state) {
@@ -7446,6 +7502,14 @@ var PostArticle = function PostArticle(_ref) {
     _useState10 = _slicedToArray(_useState9, 2),
     detailDataComment = _useState10[0],
     setDetailDataComment = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState12 = _slicedToArray(_useState11, 2),
+    toggleModalEdit = _useState12[0],
+    setToggleModalEdit = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState14 = _slicedToArray(_useState13, 2),
+    toggleModalDelete = _useState14[0],
+    setToggleModalDelete = _useState14[1];
   console.log("profle", getProfile === null || getProfile === void 0 ? void 0 : getProfile.id);
   console.log("obj", obj);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -7500,38 +7564,46 @@ var PostArticle = function PostArticle(_ref) {
     setToggleModalComment(true);
     setDetailDataComment(obj);
   };
-  var handleSubmitComment = function handleSubmitComment(data) {
-    (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostCommentArticle)(data).then(function (res) {
-      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(obj === null || obj === void 0 ? void 0 : obj.id)).then(function (resp) {
-        var _getPostData$data3;
-        var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data3 = getPostData.data) === null || _getPostData$data3 === void 0 ? void 0 : _getPostData$data3.findIndex(function (x) {
-          return (x === null || x === void 0 ? void 0 : x.id) === (obj === null || obj === void 0 ? void 0 : obj.id);
-        });
-        setDetailData(resp.data);
-        getPostData.data[currentIndex] = resp.data;
-        setPostData(getPostData);
-      });
-      setToggleModalComment(!toggleModalComment);
-    });
+  var handleEdit = function handleEdit(obj) {
+    setToggleModalComment(true);
+    setDetailDataComment(obj);
   };
-  var handleLikeComment = function handleLikeComment(obj) {
-    if (obj !== null && obj !== void 0 && obj.isLike) {
-      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostDisLike)({
-        'post_id': detailData === null || detailData === void 0 ? void 0 : detailData.id,
-        'comment_id': obj === null || obj === void 0 ? void 0 : obj.id
-      }).then(function (res) {
+  var handleSubmitComment = function handleSubmitComment(data) {
+    if (data.isEdit) {
+      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostEditComment)(data, "/".concat(data.comment_id)).then(function (res) {
         (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
-          var _getPostData$data4;
-          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data4 = getPostData.data) === null || _getPostData$data4 === void 0 ? void 0 : _getPostData$data4.findIndex(function (x) {
-            return (x === null || x === void 0 ? void 0 : x.id) === (obj === null || obj === void 0 ? void 0 : obj.id);
+          var _getPostData$data3;
+          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data3 = getPostData.data) === null || _getPostData$data3 === void 0 ? void 0 : _getPostData$data3.findIndex(function (x) {
+            return (x === null || x === void 0 ? void 0 : x.id) === (detailData === null || detailData === void 0 ? void 0 : detailData.id);
           });
           setDetailData(resp.data);
           getPostData.data[currentIndex] = resp.data;
           setPostData(getPostData);
         });
+        setToggleModalComment(!toggleModalComment);
+      })["catch"](function (err) {
+        react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("err ".concat(err.error));
       });
     } else {
-      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostLike)({
+      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostCommentArticle)(data).then(function (res) {
+        (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
+          var _getPostData$data4;
+          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data4 = getPostData.data) === null || _getPostData$data4 === void 0 ? void 0 : _getPostData$data4.findIndex(function (x) {
+            return (x === null || x === void 0 ? void 0 : x.id) === (detailData === null || detailData === void 0 ? void 0 : detailData.id);
+          });
+          setDetailData(resp.data);
+          getPostData.data[currentIndex] = resp.data;
+          setPostData(getPostData);
+        });
+        setToggleModalComment(!toggleModalComment);
+      })["catch"](function (err) {
+        react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("err ".concat(err.error));
+      });
+    }
+  };
+  var handleLikeComment = function handleLikeComment(obj) {
+    if (obj !== null && obj !== void 0 && obj.isLike) {
+      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostDisLike)({
         'post_id': detailData === null || detailData === void 0 ? void 0 : detailData.id,
         'comment_id': obj === null || obj === void 0 ? void 0 : obj.id
       }).then(function (res) {
@@ -7544,137 +7616,288 @@ var PostArticle = function PostArticle(_ref) {
           getPostData.data[currentIndex] = resp.data;
           setPostData(getPostData);
         });
+      })["catch"](function (err) {
+        react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("err ".concat(err.error));
+      });
+    } else {
+      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostLike)({
+        'post_id': detailData === null || detailData === void 0 ? void 0 : detailData.id,
+        'comment_id': obj === null || obj === void 0 ? void 0 : obj.id
+      }).then(function (res) {
+        (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
+          var _getPostData$data6;
+          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data6 = getPostData.data) === null || _getPostData$data6 === void 0 ? void 0 : _getPostData$data6.findIndex(function (x) {
+            return (x === null || x === void 0 ? void 0 : x.id) === (obj === null || obj === void 0 ? void 0 : obj.id);
+          });
+          setDetailData(resp.data);
+          getPostData.data[currentIndex] = resp.data;
+          setPostData(getPostData);
+        });
+      })["catch"](function (err) {
+        react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("err ".concat(err.error));
       });
     }
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: [toggleModalComment && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ModalComment__WEBPACK_IMPORTED_MODULE_5__.ModalComment, {
+  var handleDelete = function handleDelete(obj) {
+    (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetDeleteComment)("/".concat(obj.id)).then(function (res) {
+      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
+        var _getPostData$data7;
+        var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data7 = getPostData.data) === null || _getPostData$data7 === void 0 ? void 0 : _getPostData$data7.findIndex(function (x) {
+          return (x === null || x === void 0 ? void 0 : x.id) === (detailData === null || detailData === void 0 ? void 0 : detailData.id);
+        });
+        setDetailData(resp.data);
+        getPostData.data[currentIndex] = resp.data;
+        setPostData(getPostData);
+      });
+      react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.success("Delete comment success");
+    })["catch"](function (err) {
+      react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("err ".concat(err.error));
+    });
+  };
+  var handleEditPost = function handleEditPost(data) {
+    (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostEditArticle)(data, "/".concat(detailData.id)).then(function (res) {
+      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
+        var _getPostData$data8;
+        var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data8 = getPostData.data) === null || _getPostData$data8 === void 0 ? void 0 : _getPostData$data8.findIndex(function (x) {
+          return (x === null || x === void 0 ? void 0 : x.id) === (detailData === null || detailData === void 0 ? void 0 : detailData.id);
+        });
+        setDetailData(resp.data);
+        getPostData.data[currentIndex] = resp.data;
+        setPostData(getPostData);
+      });
+      setToggleModalEdit(!toggleModalEdit);
+      react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.success("success update a post");
+    })["catch"](function (err) {
+      react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("err ".concat(err.error));
+    });
+  };
+  var handleDeletePost = function handleDeletePost() {
+    (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetDeletePost)("/".concat(detailData.id)).then(function (res) {
+      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("").then(function (resp) {
+        setPostData(resp.data);
+        setToggleModalDelete(false);
+        react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.success("success delete a post");
+      });
+    })["catch"](function (err) {
+      react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("err ".concat(err.error));
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+    children: [toggleModalEdit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ModalPost__WEBPACK_IMPORTED_MODULE_7__.ModalPost, {
+      obj: detailData,
+      toggle: function toggle() {
+        return setToggleModalEdit(!toggleModalEdit);
+      },
+      show: toggleModalEdit,
+      handleEditPost: handleEditPost
+    }), toggleModalComment && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ModalComment__WEBPACK_IMPORTED_MODULE_5__.ModalComment, {
       obj: detailDataComment,
       toggle: function toggle() {
         return setToggleModalComment(!toggleModalComment);
       },
       show: toggleModalComment,
       submit: handleSubmitComment
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-      className: "bg-[#283358] flex flex-col w-5/6 mx-auto px-4 py-4 border border-blue-900 rounded-xl",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "flex items-center gap-5",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
-          src: !(detailData !== null && detailData !== void 0 && (_detailData$posted_by = detailData.posted_by) !== null && _detailData$posted_by !== void 0 && _detailData$posted_by.image_user) ? "../../assets/images/sosmed/foto-profile.svg" : detailData === null || detailData === void 0 || (_detailData$posted_by2 = detailData.posted_by) === null || _detailData$posted_by2 === void 0 ? void 0 : _detailData$posted_by2.image_user,
-          alt: "profile",
-          className: "w-10 h-10 rounded-full"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          className: "flex flex-col",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
-            className: "text-white items-center text-sm",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-              className: "font-bold",
-              children: detailData === null || detailData === void 0 || (_detailData$posted_by3 = detailData.posted_by) === null || _detailData$posted_by3 === void 0 ? void 0 : _detailData$posted_by3.name
-            }), " | ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
-              className: "font-light",
-              children: [" ", detailData === null || detailData === void 0 || (_detailData$posted_by4 = detailData.posted_by) === null || _detailData$posted_by4 === void 0 ? void 0 : _detailData$posted_by4.jabatan]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-            className: "text-white font-light text-xs",
-            children: moment__WEBPACK_IMPORTED_MODULE_2___default()(detailData === null || detailData === void 0 ? void 0 : detailData.created_at).fromNow()
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("dialog", {
+      id: "buat-post",
+      "class": toggleModalDelete ? "modal modal-open" : "modal",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        "class": "modal-box max-w-3xl bg-[#283358]",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("form", {
+          method: "dialog",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+            onClick: function onClick() {
+              return setToggleModalDelete(false);
+            },
+            "class": "btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full",
+            onclick: "togglePostModal()",
+            children: "\u2715"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+          "class": "font-bold text-white text-lg",
+          children: "Are you sure to delete a post ?"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          className: "row",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+            id: "post-only-text",
+            "class": "btn mt-4  text-white bg-red-600 px-4 py-2 rounded-xl mr-2",
+            onClick: function onClick() {
+              return setToggleModalDelete(false);
+            },
+            children: "cancel"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+            id: "post-only-text",
+            "class": "btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl",
+            onClick: handleDeletePost,
+            children: "Submit"
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      className: "bg-[#283358] flex flex-col  w-5/6 mx-auto px-4 py-4 border border-blue-900 rounded-xl",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        className: "flex items-center justify-between",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          className: "flex items-center gap-5",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+            src: detailData !== null && detailData !== void 0 && (_detailData$posted_by = detailData.posted_by) !== null && _detailData$posted_by !== void 0 && _detailData$posted_by.image_user ? detailData !== null && detailData !== void 0 && (_detailData$posted_by2 = detailData.posted_by) !== null && _detailData$posted_by2 !== void 0 && _detailData$posted_by2.image_user.includes("http") ? detailData === null || detailData === void 0 || (_detailData$posted_by3 = detailData.posted_by) === null || _detailData$posted_by3 === void 0 ? void 0 : _detailData$posted_by3.image_user : "../../storage/profile_picture/".concat(detailData === null || detailData === void 0 || (_detailData$posted_by4 = detailData.posted_by) === null || _detailData$posted_by4 === void 0 ? void 0 : _detailData$posted_by4.image_user) : "../../assets/images/sosmed/foto-profile.svg",
+            alt: "profile",
+            className: "w-8 h-8 rounded-full"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            className: "flex flex-col",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
+              className: "text-white items-center text-sm",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                className: "font-bold",
+                children: detailData === null || detailData === void 0 || (_detailData$posted_by5 = detailData.posted_by) === null || _detailData$posted_by5 === void 0 ? void 0 : _detailData$posted_by5.name
+              }), " | ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
+                className: "font-light",
+                children: [" ", detailData === null || detailData === void 0 || (_detailData$posted_by6 = detailData.posted_by) === null || _detailData$posted_by6 === void 0 ? void 0 : _detailData$posted_by6.jabatan]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+              className: "text-white font-light text-xs",
+              children: moment__WEBPACK_IMPORTED_MODULE_2___default()(detailData === null || detailData === void 0 ? void 0 : detailData.created_at).fromNow()
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          className: (detailData === null || detailData === void 0 || (_detailData$posted_by7 = detailData.posted_by) === null || _detailData$posted_by7 === void 0 ? void 0 : _detailData$posted_by7.id) === (getProfile === null || getProfile === void 0 ? void 0 : getProfile.id) ? "flex-reverse-row flex" : "hidden",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            className: "dropdown dropdown-end ",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+              className: "flex items-center",
+              tabindex: "0",
+              role: "button",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("svg", {
+                xmlns: "http://www.w3.org/2000/svg",
+                fill: "none",
+                viewBox: "0 0 24 24",
+                "stroke-width": "1.5",
+                stroke: "currentColor",
+                className: "size-6 text-white",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                  "stroke-linecap": "round",
+                  "stroke-linejoin": "round",
+                  d: "M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
+                })
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("ul", {
+              tabindex: "0",
+              className: "menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white rounded-box w-52 bg-dashboard-background border border-blue-950 ",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+                  onClick: function onClick() {
+                    return setToggleModalDelete(true);
+                  },
+                  children: "Delete"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+                  onClick: function onClick() {
+                    return setToggleModalEdit(true);
+                  },
+                  children: "Edit"
+                })
+              })]
+            })]
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: "flex flex-col mt-5",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
           className: "text-sm text-white",
           children: detailData && (detailData === null || detailData === void 0 ? void 0 : detailData.content)
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "flex gap-5 mt-5 border-b border-gray-[#E1E5F6] pb-4",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "flex gap-2 cursor-pointer justify-center items-center",
           onClick: handleLike,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
             src: isLike ? "../../assets/images/sosmed/like-active.svg" : "../../assets/images/sosmed/like.svg",
             className: "h-4 w-4",
             alt: "like"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
             className: "text-xs mt-1 text-white",
             children: "like"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "flex gap-2 cursor-pointer justify-center items-center",
           onClick: handleComment,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
             src: "../../assets/images/sosmed/comment-icon.svg",
             className: "h-4 w-4",
             alt: "like"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
             className: "text-xs mt-1 text-white",
             children: "comment"
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "flex mt-2 justify-between w-full",
-        children: [(detailData === null || detailData === void 0 || (_detailData$likers = detailData.likers) === null || _detailData$likers === void 0 ? void 0 : _detailData$likers.length) > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        children: [(detailData === null || detailData === void 0 || (_detailData$likers = detailData.likers) === null || _detailData$likers === void 0 ? void 0 : _detailData$likers.length) > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "w-2/6 items-center flex gap-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
             src: "../../assets/images/sosmed/like-stat-icon.svg",
             className: "h-7 w-7",
             alt: "like"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
             className: "text-xs font-light mt-1 text-white",
             children: [(detailData === null || detailData === void 0 || (_detailData$likers2 = detailData.likers) === null || _detailData$likers2 === void 0 ? void 0 : _detailData$likers2.length) === 1 ? (detailData === null || detailData === void 0 || (_detailData$likers$ = detailData.likers[0]) === null || _detailData$likers$ === void 0 ? void 0 : _detailData$likers$.user_id) === getProfile.id ? "Anda menyukai postingan ini" : detailData === null || detailData === void 0 || (_detailData$likers$2 = detailData.likers[0]) === null || _detailData$likers$2 === void 0 || (_detailData$likers$2 = _detailData$likers$2.user) === null || _detailData$likers$2 === void 0 ? void 0 : _detailData$likers$2.name : " ".concat(detailData === null || detailData === void 0 || (_detailData$likers$0$ = detailData.likers[0].user) === null || _detailData$likers$0$ === void 0 ? void 0 : _detailData$likers$0$.name, " and ").concat((detailData === null || detailData === void 0 || (_detailData$likers3 = detailData.likers) === null || _detailData$likers3 === void 0 ? void 0 : _detailData$likers3.length) - 1, " other"), " "]
           })]
-        }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: isLike ? "w-2/6 flex items-center flex-row-reverse gap-3" : "w-full flex items-center flex-row-reverse gap-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
             className: "text-xs font-light mt-1 text-white",
             children: detailData === null || detailData === void 0 ? void 0 : detailData.total_like
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
             src: "../../assets/images/sosmed/eye-icon.svg",
             className: "h-4 w-4",
             alt: "like"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
             className: "text-xs font-light mt-1 text-white",
             children: detailData === null || detailData === void 0 ? void 0 : detailData.total_view
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
             src: "../../assets/images/sosmed/comment-icon.svg",
             className: "h-4 w-4",
             alt: "like"
           })]
         })]
-      }), (detailData === null || detailData === void 0 || (_detailData$comments = detailData.comments) === null || _detailData$comments === void 0 ? void 0 : _detailData$comments.length) > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      }), (detailData === null || detailData === void 0 || (_detailData$comments = detailData.comments) === null || _detailData$comments === void 0 ? void 0 : _detailData$comments.length) > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: toggleComment ? "flex flex-col gap-3" : "hidden",
           children: detailData && (detailData === null || detailData === void 0 || (_detailData$comments2 = detailData.comments) === null || _detailData$comments2 === void 0 ? void 0 : _detailData$comments2.map(function (item) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Comment1__WEBPACK_IMPORTED_MODULE_1__.Comment, {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Comment1__WEBPACK_IMPORTED_MODULE_1__.Comment, {
+              handleDelete: handleDelete,
+              handleEdit: handleEdit,
               handleLike: handleLikeComment,
               handleReplies: handleReplies,
               obj: item
             });
           }))
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
           onClick: function onClick() {
             return setToggleComment(!toggleComment);
           },
           className: "text-[#4AA5FF] text-xs cursor-pointer flex mt-4 items-center",
-          children: [toggleComment ? "close replies" : "see replies", toggleComment ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("svg", {
+          children: [toggleComment ? "close replies" : "see replies", toggleComment ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("svg", {
             xmlns: "http://www.w3.org/2000/svg",
             fill: "none",
             viewBox: "0 0 24 24",
             "stroke-width": "1.5",
             stroke: "currentColor",
             className: "size-4 ml-4 ",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
               "stroke-linecap": "round",
               "stroke-linejoin": "round",
               d: "m19.5 8.25-7.5 7.5-7.5-7.5"
             })
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("svg", {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("svg", {
             xmlns: "http://www.w3.org/2000/svg",
             fill: "none",
             viewBox: "0 0 24 24",
             "stroke-width": "1.5",
             stroke: "currentColor",
             className: "size-4 ml-4",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
               "stroke-linecap": "round",
               "stroke-linejoin": "round",
               d: "m19.5 8.25-7.5 7.5-7.5-7.5"
@@ -7700,16 +7923,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   DetailPage: () => (/* binding */ DetailPage)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _components_PostArticle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/PostArticle */ "./resources/js/employe-forum/components/PostArticle.jsx");
+/* harmony import */ var _services_Api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/Api */ "./resources/js/employe-forum/services/Api.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
 var DetailPage = function DetailPage() {
-  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useParams)();
+  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)();
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState2 = _slicedToArray(_useState, 2),
+    data = _useState2[0],
+    setData = _useState2[1];
   console.log(params);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "DetailPage"
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    (0,_services_Api__WEBPACK_IMPORTED_MODULE_2__.GetPostList)("/".concat(params === null || params === void 0 ? void 0 : params.id)).then(function (res) {
+      setData(res.data);
+    });
+  }, [params]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "flex flex-col mt-5",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_PostArticle__WEBPACK_IMPORTED_MODULE_1__.PostArticle, {
+        obj: data
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        "class": "bg-login-button px-6 mt-5 py-2 mx-auto text-white rounded-xl",
+        onClick: function onClick() {
+          return window.location.replace("/employee-forum");
+        },
+        children: "Back to home"
+      })]
+    })
   });
 };
 
@@ -7784,11 +8037,15 @@ var MainPage = function MainPage() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   GetDeleteComment: () => (/* binding */ GetDeleteComment),
+/* harmony export */   GetDeletePost: () => (/* binding */ GetDeletePost),
 /* harmony export */   GetPostList: () => (/* binding */ GetPostList),
 /* harmony export */   GetProfileCurrentUser: () => (/* binding */ GetProfileCurrentUser),
 /* harmony export */   PostArticleData: () => (/* binding */ PostArticleData),
 /* harmony export */   PostCommentArticle: () => (/* binding */ PostCommentArticle),
 /* harmony export */   PostDisLike: () => (/* binding */ PostDisLike),
+/* harmony export */   PostEditArticle: () => (/* binding */ PostEditArticle),
+/* harmony export */   PostEditComment: () => (/* binding */ PostEditComment),
 /* harmony export */   PostLike: () => (/* binding */ PostLike)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -7999,6 +8256,142 @@ var PostCommentArticle = /*#__PURE__*/function () {
   }));
   return function PostCommentArticle(_x5) {
     return _ref6.apply(this, arguments);
+  };
+}();
+var PostEditComment = /*#__PURE__*/function () {
+  var _ref7 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7(body, params) {
+    var _yield$axios$post5, data;
+    return _regeneratorRuntime().wrap(function _callee7$(_context7) {
+      while (1) switch (_context7.prev = _context7.next) {
+        case 0:
+          _context7.prev = 0;
+          _context7.next = 3;
+          return axios__WEBPACK_IMPORTED_MODULE_0___default().post("/updateComment".concat(params), body);
+        case 3:
+          _yield$axios$post5 = _context7.sent;
+          data = _yield$axios$post5.data;
+          return _context7.abrupt("return", {
+            success: true,
+            data: data
+          });
+        case 8:
+          _context7.prev = 8;
+          _context7.t0 = _context7["catch"](0);
+          console.log(_context7.t0.toJSON());
+          throw {
+            success: false,
+            error: _context7.t0.message
+          };
+        case 12:
+        case "end":
+          return _context7.stop();
+      }
+    }, _callee7, null, [[0, 8]]);
+  }));
+  return function PostEditComment(_x6, _x7) {
+    return _ref7.apply(this, arguments);
+  };
+}();
+var GetDeleteComment = /*#__PURE__*/function () {
+  var _ref8 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(params) {
+    var _yield$axios$get3, data;
+    return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+      while (1) switch (_context8.prev = _context8.next) {
+        case 0:
+          _context8.prev = 0;
+          _context8.next = 3;
+          return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/deleteComment".concat(params));
+        case 3:
+          _yield$axios$get3 = _context8.sent;
+          data = _yield$axios$get3.data;
+          return _context8.abrupt("return", {
+            success: true,
+            data: data
+          });
+        case 8:
+          _context8.prev = 8;
+          _context8.t0 = _context8["catch"](0);
+          console.log(_context8.t0.toJSON());
+          throw {
+            success: false,
+            error: _context8.t0.message
+          };
+        case 12:
+        case "end":
+          return _context8.stop();
+      }
+    }, _callee8, null, [[0, 8]]);
+  }));
+  return function GetDeleteComment(_x8) {
+    return _ref8.apply(this, arguments);
+  };
+}();
+var PostEditArticle = /*#__PURE__*/function () {
+  var _ref9 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9(body, params) {
+    var _yield$axios$post6, data;
+    return _regeneratorRuntime().wrap(function _callee9$(_context9) {
+      while (1) switch (_context9.prev = _context9.next) {
+        case 0:
+          _context9.prev = 0;
+          _context9.next = 3;
+          return axios__WEBPACK_IMPORTED_MODULE_0___default().post("/updatePost".concat(params), body);
+        case 3:
+          _yield$axios$post6 = _context9.sent;
+          data = _yield$axios$post6.data;
+          return _context9.abrupt("return", {
+            success: true,
+            data: data
+          });
+        case 8:
+          _context9.prev = 8;
+          _context9.t0 = _context9["catch"](0);
+          console.log(_context9.t0.toJSON());
+          throw {
+            success: false,
+            error: _context9.t0.message
+          };
+        case 12:
+        case "end":
+          return _context9.stop();
+      }
+    }, _callee9, null, [[0, 8]]);
+  }));
+  return function PostEditArticle(_x9, _x10) {
+    return _ref9.apply(this, arguments);
+  };
+}();
+var GetDeletePost = /*#__PURE__*/function () {
+  var _ref10 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10(params) {
+    var _yield$axios$get4, data;
+    return _regeneratorRuntime().wrap(function _callee10$(_context10) {
+      while (1) switch (_context10.prev = _context10.next) {
+        case 0:
+          _context10.prev = 0;
+          _context10.next = 3;
+          return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/deletePost".concat(params));
+        case 3:
+          _yield$axios$get4 = _context10.sent;
+          data = _yield$axios$get4.data;
+          return _context10.abrupt("return", {
+            success: true,
+            data: data
+          });
+        case 8:
+          _context10.prev = 8;
+          _context10.t0 = _context10["catch"](0);
+          console.log(_context10.t0.toJSON());
+          throw {
+            success: false,
+            error: _context10.t0.message
+          };
+        case 12:
+        case "end":
+          return _context10.stop();
+      }
+    }, _callee10, null, [[0, 8]]);
+  }));
+  return function GetDeletePost(_x11) {
+    return _ref10.apply(this, arguments);
   };
 }();
 

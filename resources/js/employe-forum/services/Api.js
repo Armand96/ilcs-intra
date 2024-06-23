@@ -59,3 +59,44 @@ export const PostCommentArticle = async (body) => {
         throw { success: false, error: error.message };
     }
 }
+
+
+export const PostEditComment = async (body, params) => {
+    try {
+        const { data } = await axios.post(`/updateComment${params}`, body);
+        return { success: true, data };
+    } catch (error) {
+        console.log(error.toJSON());
+        throw { success: false, error: error.message };
+    }
+}
+
+export const GetDeleteComment = async (params) => {
+    try {
+        const { data } = await axios.get(`/deleteComment${params}`);
+        return { success: true, data };
+    } catch (error) {
+        console.log(error.toJSON());
+        throw { success: false, error: error.message };
+    }
+}
+
+export const PostEditArticle = async (body, params) => {
+    try {
+        const { data } = await axios.post(`/updatePost${params}`, body);
+        return { success: true, data };
+    } catch (error) {
+        console.log(error.toJSON());
+        throw { success: false, error: error.message };
+    }
+}
+
+export const GetDeletePost = async (params) => {
+    try {
+        const { data } = await axios.get(`/deletePost${params}`);
+        return { success: true, data };
+    } catch (error) {
+        console.log(error.toJSON());
+        throw { success: false, error: error.message };
+    }
+}
