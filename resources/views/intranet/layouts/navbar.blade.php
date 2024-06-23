@@ -1,5 +1,5 @@
 @php
-    $notifs = App\Models\Notification::with(['userFrom'])->where('notif_to_user_id', Auth::user()->id)->limit(3)->get();
+    $notifs = App\Models\Notification::with(['userFrom'])->where('notif_to_user_id', Auth::user()->id)->limit(3)->orderBy('id', 'desc')->get();
     $notifsUnread = App\Models\Notification::where('notif_to_user_id', Auth::user()->id)->where('read_at', null)->count();
 @endphp
 
