@@ -266,8 +266,10 @@ class PostController extends Controller
             } else {
                 /* LIKE */
                 $currentComment = Comment::find($data['comment_id']);
-                if(!$currentComment->post_id) {
+
+                if($currentComment->post_id) {
                     $post = Post::find($currentComment->post_id);
+                    $url = $post->id;
                 } else {
                     $parentComment = Comment::find($currentComment->parent_comment_id);
                     $url = $parentComment->post_id;
