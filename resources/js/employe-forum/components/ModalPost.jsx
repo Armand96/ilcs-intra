@@ -10,6 +10,7 @@ export const ModalPost = ({ toggle, show, handleEditPost, obj}) => {
     })
     const getProfile = useProfileStore((state) => state.profile)
     const setPostData = usePostStore((state) => state.updatePostData)
+    const setResetPaginate = usePostStore((state) => state.setResetPaginate)
 
     const PostData = () => {
         let formData = new FormData
@@ -20,6 +21,7 @@ export const ModalPost = ({ toggle, show, handleEditPost, obj}) => {
                 toast.success(`success make a post`)
                 setPostData(resp.data)
                 toggle()
+                setResetPaginate(true)
             })
         }).catch((err) => {
             toast.error(`err ${err.error}`)

@@ -7313,6 +7313,9 @@ var ModalPost = function ModalPost(_ref) {
   var setPostData = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_4__["default"])(function (state) {
     return state.updatePostData;
   });
+  var setResetPaginate = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_4__["default"])(function (state) {
+    return state.setResetPaginate;
+  });
   var PostData = function PostData() {
     var formData = new FormData();
     formData.append('content', contentData.content);
@@ -7321,6 +7324,7 @@ var ModalPost = function ModalPost(_ref) {
         react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.success("success make a post");
         setPostData(resp.data);
         toggle();
+        setResetPaginate(true);
       });
     })["catch"](function (err) {
       react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error("err ".concat(err.error));
@@ -7490,7 +7494,7 @@ var PostArticle = function PostArticle(_ref) {
     _useState4 = _slicedToArray(_useState3, 2),
     isLike = _useState4[0],
     setIsLike = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(obj),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState6 = _slicedToArray(_useState5, 2),
     detailData = _useState6[0],
     setDetailData = _useState6[1];
@@ -7510,8 +7514,13 @@ var PostArticle = function PostArticle(_ref) {
     _useState14 = _slicedToArray(_useState13, 2),
     toggleModalDelete = _useState14[0],
     setToggleModalDelete = _useState14[1];
-  console.log("profle", getProfile === null || getProfile === void 0 ? void 0 : getProfile.id);
-  console.log("obj", obj);
+  var setResetPaginate = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_4__["default"])(function (state) {
+    return state.setResetPaginate;
+  });
+
+  // console.log("profle", getProfile?.id)
+  // console.log("obj", obj)
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var _obj$likers;
     if ((obj === null || obj === void 0 || (_obj$likers = obj.likers) === null || _obj$likers === void 0 ? void 0 : _obj$likers.filter(function (x) {
@@ -7675,6 +7684,7 @@ var PostArticle = function PostArticle(_ref) {
     (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetDeletePost)("/".concat(detailData.id)).then(function (res) {
       (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("").then(function (resp) {
         setPostData(resp.data);
+        setResetPaginate(true);
         setToggleModalDelete(false);
         react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.success("success delete a post");
       });
@@ -7985,7 +7995,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stores_PostStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../stores/PostStore */ "./resources/js/employe-forum/stores/PostStore.js");
 /* harmony import */ var _services_Api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/Api */ "./resources/js/employe-forum/services/Api.js");
 /* harmony import */ var _stores_ProfileStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../stores/ProfileStore */ "./resources/js/employe-forum/stores/ProfileStore.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -7994,7 +8016,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var MainPage = function MainPage() {
-  var _getPostData$data;
+  var _getPostData$data2;
   var getPostData = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_3__["default"])(function (state) {
     return state.postData;
   });
@@ -8004,22 +8026,76 @@ var MainPage = function MainPage() {
   var getProfile = (0,_stores_ProfileStore__WEBPACK_IMPORTED_MODULE_5__["default"])(function (state) {
     return state.profile;
   });
+  var setResetPaginate = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_3__["default"])(function (state) {
+    return state.setResetPaginate;
+  });
+  var resetPaginate = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_3__["default"])(function (state) {
+    return state.resetPaginate;
+  });
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState2 = _slicedToArray(_useState, 2),
+    page = _useState2[0],
+    setPage = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState4 = _slicedToArray(_useState3, 2),
+    hasMore = _useState4[0],
+    setHasMore = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    loading = _useState6[0],
+    setLoading = _useState6[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    (0,_services_Api__WEBPACK_IMPORTED_MODULE_4__.GetPostList)().then(function (res) {
-      setPostData(res.data);
-    })["catch"](function (err) {
-      toast.error("err ".concat(err.error));
-    });
-  }, []);
-  console.log("data", getPostData);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_InputPostArticle__WEBPACK_IMPORTED_MODULE_2__.InputPostArticle, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    if (resetPaginate) {
+      setResetPaginate(false);
+      setHasMore(true);
+      setPage(1);
+    }
+  }, [resetPaginate]);
+  var loadItems = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
+    setLoading(true);
+    setTimeout(function () {
+      setLoading(true);
+      (0,_services_Api__WEBPACK_IMPORTED_MODULE_4__.GetPostList)("?page=".concat(page)).then(function (res) {
+        var _getPostData$data;
+        if ((getPostData === null || getPostData === void 0 || (_getPostData$data = getPostData.data) === null || _getPostData$data === void 0 ? void 0 : _getPostData$data.length) > 0) {
+          var _res$data;
+          res.data.data = [].concat(_toConsumableArray(getPostData === null || getPostData === void 0 ? void 0 : getPostData.data), _toConsumableArray((_res$data = res.data) === null || _res$data === void 0 ? void 0 : _res$data.data));
+          setHasMore(res.data.last_page !== page);
+          setPostData(res.data);
+        } else {
+          setPostData(res.data);
+        }
+        setLoading(false);
+      })["catch"](function (err) {
+        react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("err ".concat(err.error));
+      });
+    }, 1000);
+  }, [page]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    loadItems();
+  }, [page, loadItems]);
+  console.log(getPostData);
+  var handleScroll = function handleScroll() {
+    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 1 && hasMore && !loading) {
+      setPage(function (prevPage) {
+        return prevPage + 1;
+      });
+    }
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    window.addEventListener('scroll', handleScroll);
+    return function () {
+      return window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_InputPostArticle__WEBPACK_IMPORTED_MODULE_2__.InputPostArticle, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       className: "py-5 w-full flex flex-col gap-6 post-container",
-      children: getPostData && (getPostData === null || getPostData === void 0 || (_getPostData$data = getPostData.data) === null || _getPostData$data === void 0 ? void 0 : _getPostData$data.map(function (item, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_PostArticle__WEBPACK_IMPORTED_MODULE_1__.PostArticle, {
+      children: getPostData && (getPostData === null || getPostData === void 0 || (_getPostData$data2 = getPostData.data) === null || _getPostData$data2 === void 0 ? void 0 : _getPostData$data2.map(function (item) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_PostArticle__WEBPACK_IMPORTED_MODULE_1__.PostArticle, {
           obj: item,
           getProfile: getProfile
-        }, index);
+        });
       }))
     })]
   });
@@ -8413,6 +8489,14 @@ __webpack_require__.r(__webpack_exports__);
 var usePostStore = (0,zustand__WEBPACK_IMPORTED_MODULE_0__.create)(function (set) {
   return {
     postData: {},
+    resetPaginate: false,
+    setResetPaginate: function setResetPaginate(data) {
+      return set(function () {
+        return {
+          resetPaginate: data
+        };
+      });
+    },
     updatePostData: function updatePostData(data) {
       return set(function () {
         return {

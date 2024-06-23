@@ -12,14 +12,15 @@ export const PostArticle = ({ obj, getProfile }) => {
     const getPostData = usePostStore((state) => state.postData)
     const [toggleComment, setToggleComment] = useState(false)
     const [isLike, setIsLike] = useState(false)
-    const [detailData, setDetailData] = useState(obj)
+    const [detailData, setDetailData] = useState(null)
     const [toggleModalComment, setToggleModalComment] = useState(false)
     const [detailDataComment, setDetailDataComment] = useState(null)
     const [toggleModalEdit, setToggleModalEdit] = useState(false)
     const [toggleModalDelete, setToggleModalDelete] = useState(false)
+    const setResetPaginate = usePostStore((state) => state.setResetPaginate)
 
-    console.log("profle", getProfile?.id)
-    console.log("obj", obj)
+    // console.log("profle", getProfile?.id)
+    // console.log("obj", obj)
 
     useEffect(() => {
         if (obj?.likers?.filter((x) => x.user_id == getProfile?.id).length > 0) {
@@ -163,6 +164,7 @@ export const PostArticle = ({ obj, getProfile }) => {
         GetDeletePost(`/${detailData.id}`).then((res) => {
             GetPostList(``).then((resp) => {
                 setPostData(resp.data)
+                setResetPaginate(true)
                 setToggleModalDelete(false)
                 toast.success("success delete a post")
             })
