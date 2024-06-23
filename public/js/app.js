@@ -7476,7 +7476,7 @@ var PostArticle = function PostArticle(_ref) {
   var handleLikeComment = function handleLikeComment(obj) {
     if (obj !== null && obj !== void 0 && obj.isLike) {
       (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostDisLike)({
-        'post_id': obj === null || obj === void 0 ? void 0 : obj.id,
+        'post_id': detailData === null || detailData === void 0 ? void 0 : detailData.id,
         'comment_id': obj === null || obj === void 0 ? void 0 : obj.id
       }).then(function (res) {
         (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {

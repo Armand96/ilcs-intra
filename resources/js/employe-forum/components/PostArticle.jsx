@@ -77,7 +77,7 @@ export const PostArticle = ({ obj, getProfile }) => {
 
     const handleLikeComment = (obj) => {
         if (obj?.isLike) {
-            PostDisLike({ 'post_id': obj?.id, 'comment_id': obj?.id }).then((res) => {
+            PostDisLike({ 'post_id': detailData?.id, 'comment_id': obj?.id }).then((res) => {
                 GetPostList(`/${detailData?.id}`).then((resp) => {
                     let currentIndex = getPostData?.data?.findIndex((x) => x?.id === obj?.id);
                     setDetailData(resp.data)
