@@ -7528,7 +7528,7 @@ var PostArticle = function PostArticle(_ref) {
     }).length) > 0) {
       setIsLike(true);
     }
-  }, [getProfile]);
+  }, [getProfile, obj]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     setDetailData(obj);
   }, [obj]);
@@ -7822,7 +7822,7 @@ var PostArticle = function PostArticle(_ref) {
           className: "flex gap-2 cursor-pointer justify-center items-center",
           onClick: handleLike,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
-            src: isLike ? "../../assets/images/sosmed/like-active.svg" : "../../assets/images/sosmed/like.svg",
+            src: isLike && isLike ? "../../assets/images/sosmed/like-active.svg" : "../../assets/images/sosmed/like.svg",
             className: "h-4 w-4",
             alt: "like"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {

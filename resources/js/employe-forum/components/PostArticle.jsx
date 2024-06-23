@@ -26,7 +26,7 @@ export const PostArticle = ({ obj, getProfile }) => {
         if (obj?.likers?.filter((x) => x.user_id == getProfile?.id).length > 0) {
             setIsLike(true)
         }
-    }, [getProfile])
+    }, [getProfile, obj])
 
     useEffect(() => {
         setDetailData(obj)
@@ -236,7 +236,7 @@ export const PostArticle = ({ obj, getProfile }) => {
 
                 <div className="flex gap-5 mt-5 border-b border-gray-[#E1E5F6] pb-4">
                     <div className="flex gap-2 cursor-pointer justify-center items-center" onClick={handleLike}>
-                        <img src={isLike ? "../../assets/images/sosmed/like-active.svg" : "../../assets/images/sosmed/like.svg"} className="h-4 w-4" alt="like" />
+                        <img src={isLike && isLike ? "../../assets/images/sosmed/like-active.svg" : "../../assets/images/sosmed/like.svg"} className="h-4 w-4" alt="like" />
                         <p className="text-xs mt-1 text-white">like</p>
                     </div>
                     <div className="flex gap-2 cursor-pointer justify-center items-center" onClick={handleComment}>
