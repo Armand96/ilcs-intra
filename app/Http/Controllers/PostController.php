@@ -30,13 +30,13 @@ class PostController extends Controller
 
     public function listPost()
     {
-        $post = Post::orderBy('created_at', 'DESC')->with(['comments.user', 'comments.likers', 'comments.replies.user', 'postedBy', 'files', 'likers.user'])->paginate(6);
+        $post = Post::orderBy('created_at', 'DESC')->with(['comments.user', 'comments.likers', 'comments.replies.user', 'comments.replies.likers', 'postedBy', 'files', 'likers.user'])->paginate(6);
         return response()->json($post);
     }
 
     public function singlePost(Post $post)
     {
-        $post->load(['comments.user', 'comments.likers', 'comments.replies.user', 'postedBy', 'files', 'likers.user']);
+        $post->load(['comments.user', 'comments.likers', 'comments.replies.user', 'comments.replies.likers', 'postedBy', 'files', 'likers.user']);
         return response()->json($post);
     }
 
