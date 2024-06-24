@@ -19,14 +19,15 @@ export const PostArticle = ({ obj, getProfile }) => {
     const [toggleModalDelete, setToggleModalDelete] = useState(false)
     const setResetPaginate = usePostStore((state) => state.setResetPaginate)
 
-    // console.log("profle", getProfile?.id)
-    // console.log("obj", obj)
+    // console.log()
 
     useEffect(() => {
-        if (obj?.likers?.filter((x) => x.user_id == getProfile?.id).length > 0) {
+        if (obj?.likers?.filter((x) => x?.user_id == getProfile?.id).length > 0) {
             setIsLike(true)
         }
     }, [getProfile, obj])
+
+    // console.log("LIKE",isLike,"obj", obj?.likers, "profle", getProfile?.id)
 
     useEffect(() => {
         setDetailData(obj)
@@ -251,7 +252,7 @@ export const PostArticle = ({ obj, getProfile }) => {
                         detailData?.likers?.length > 0 ? <div className="w-2/6 items-center flex gap-3">
                             <img src="../../assets/images/sosmed/like-stat-icon.svg" className="h-7 w-7" alt="like" />
                             <p className="text-xs font-light mt-1 text-white">{
-                                detailData?.likers?.length === 1 ? detailData?.likers[0]?.user_id === getProfile.id ? "Anda menyukai postingan ini" : detailData?.likers[0]?.user?.name
+                                detailData?.likers?.length === 1 ? detailData?.likers[0]?.user_id === getProfile?.id ? "Anda menyukai postingan ini" : detailData?.likers[0]?.user?.name
                                     : ` ${detailData?.likers[0].user?.name} and ${detailData?.likers?.length - 1} other`
                             } </p>
                         </div> : ""

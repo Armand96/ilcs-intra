@@ -6891,6 +6891,7 @@ var Comment = function Comment(_ref) {
         className: toggleComment ? "flex flex-col gap-3" : "hidden",
         children: obj === null || obj === void 0 || (_obj$replies2 = obj.replies) === null || _obj$replies2 === void 0 ? void 0 : _obj$replies2.map(function (x) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Comment2__WEBPACK_IMPORTED_MODULE_1__.Comment2, {
+            handleDelete: handleDelete,
             handleEdit: handleEdit,
             obj: x,
             handleLike: handleLike
@@ -6960,7 +6961,8 @@ var Comment2 = function Comment2(_ref) {
   var _obj$user, _obj$user2, _obj$user3, _obj$user4, _obj$user5;
   var obj = _ref.obj,
     handleLike = _ref.handleLike,
-    handleEdit = _ref.handleEdit;
+    handleEdit = _ref.handleEdit,
+    handleDelete = _ref.handleDelete;
   var getProfile = (0,_stores_ProfileStore__WEBPACK_IMPORTED_MODULE_1__["default"])(function (state) {
     return state.profile;
   });
@@ -6990,6 +6992,9 @@ var Comment2 = function Comment2(_ref) {
     obj.level = 2;
     obj.isEdit = true;
     handleEdit(obj);
+  };
+  var handlePrepareDelete = function handlePrepareDelete() {
+    handleDelete(obj);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "flex flex-col gap-4 pl-4 border-l py-3 border-blue-900",
@@ -7040,6 +7045,7 @@ var Comment2 = function Comment2(_ref) {
             className: "menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white rounded-box w-52 bg-dashboard-background border border-blue-950 ",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                onClick: handlePrepareDelete,
                 children: "Delete"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
@@ -7242,6 +7248,7 @@ var ModalComment = function ModalComment(_ref) {
         "class": "font-bold text-white text-lg",
         children: "Reply post"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
+        autoFocus: true,
         defaultValue: formData,
         onChange: function onChange(v) {
           return setFormData(v.target.value);
@@ -7377,6 +7384,7 @@ var ModalPost = function ModalPost(_ref) {
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
+        autoFocus: true,
         value: contentData.content,
         name: "",
         onChange: function onChange(v) {
@@ -7518,17 +7526,19 @@ var PostArticle = function PostArticle(_ref) {
     return state.setResetPaginate;
   });
 
-  // console.log("profle", getProfile?.id)
-  // console.log("obj", obj)
+  // console.log()
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var _obj$likers;
     if ((obj === null || obj === void 0 || (_obj$likers = obj.likers) === null || _obj$likers === void 0 ? void 0 : _obj$likers.filter(function (x) {
-      return x.user_id == (getProfile === null || getProfile === void 0 ? void 0 : getProfile.id);
+      return (x === null || x === void 0 ? void 0 : x.user_id) == (getProfile === null || getProfile === void 0 ? void 0 : getProfile.id);
     }).length) > 0) {
       setIsLike(true);
     }
   }, [getProfile, obj]);
+
+  // console.log("LIKE",isLike,"obj", obj?.likers, "profle", getProfile?.id)
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     setDetailData(obj);
   }, [obj]);
@@ -7851,7 +7861,7 @@ var PostArticle = function PostArticle(_ref) {
             alt: "like"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
             className: "text-xs font-light mt-1 text-white",
-            children: [(detailData === null || detailData === void 0 || (_detailData$likers2 = detailData.likers) === null || _detailData$likers2 === void 0 ? void 0 : _detailData$likers2.length) === 1 ? (detailData === null || detailData === void 0 || (_detailData$likers$ = detailData.likers[0]) === null || _detailData$likers$ === void 0 ? void 0 : _detailData$likers$.user_id) === getProfile.id ? "Anda menyukai postingan ini" : detailData === null || detailData === void 0 || (_detailData$likers$2 = detailData.likers[0]) === null || _detailData$likers$2 === void 0 || (_detailData$likers$2 = _detailData$likers$2.user) === null || _detailData$likers$2 === void 0 ? void 0 : _detailData$likers$2.name : " ".concat(detailData === null || detailData === void 0 || (_detailData$likers$0$ = detailData.likers[0].user) === null || _detailData$likers$0$ === void 0 ? void 0 : _detailData$likers$0$.name, " and ").concat((detailData === null || detailData === void 0 || (_detailData$likers3 = detailData.likers) === null || _detailData$likers3 === void 0 ? void 0 : _detailData$likers3.length) - 1, " other"), " "]
+            children: [(detailData === null || detailData === void 0 || (_detailData$likers2 = detailData.likers) === null || _detailData$likers2 === void 0 ? void 0 : _detailData$likers2.length) === 1 ? (detailData === null || detailData === void 0 || (_detailData$likers$ = detailData.likers[0]) === null || _detailData$likers$ === void 0 ? void 0 : _detailData$likers$.user_id) === (getProfile === null || getProfile === void 0 ? void 0 : getProfile.id) ? "Anda menyukai postingan ini" : detailData === null || detailData === void 0 || (_detailData$likers$2 = detailData.likers[0]) === null || _detailData$likers$2 === void 0 || (_detailData$likers$2 = _detailData$likers$2.user) === null || _detailData$likers$2 === void 0 ? void 0 : _detailData$likers$2.name : " ".concat(detailData === null || detailData === void 0 || (_detailData$likers$0$ = detailData.likers[0].user) === null || _detailData$likers$0$ === void 0 ? void 0 : _detailData$likers$0$.name, " and ").concat((detailData === null || detailData === void 0 || (_detailData$likers3 = detailData.likers) === null || _detailData$likers3 === void 0 ? void 0 : _detailData$likers3.length) - 1, " other"), " "]
           })]
         }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: isLike ? "w-2/6 flex items-center flex-row-reverse gap-3" : "w-full flex items-center flex-row-reverse gap-3",
@@ -7933,10 +7943,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   DetailPage: () => (/* binding */ DetailPage)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _components_PostArticle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/PostArticle */ "./resources/js/employe-forum/components/PostArticle.jsx");
 /* harmony import */ var _services_Api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/Api */ "./resources/js/employe-forum/services/Api.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _stores_ProfileStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../stores/ProfileStore */ "./resources/js/employe-forum/stores/ProfileStore.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -7948,24 +7959,28 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var DetailPage = function DetailPage() {
-  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)();
+  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState2 = _slicedToArray(_useState, 2),
     data = _useState2[0],
     setData = _useState2[1];
-  console.log(params);
+  var getProfile = (0,_stores_ProfileStore__WEBPACK_IMPORTED_MODULE_3__["default"])(function (state) {
+    return state.profile;
+  });
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     (0,_services_Api__WEBPACK_IMPORTED_MODULE_2__.GetPostList)("/".concat(params === null || params === void 0 ? void 0 : params.id)).then(function (res) {
       setData(res.data);
     });
   }, [params]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "flex flex-col mt-5",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_PostArticle__WEBPACK_IMPORTED_MODULE_1__.PostArticle, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_PostArticle__WEBPACK_IMPORTED_MODULE_1__.PostArticle, {
+        getProfile: getProfile,
         obj: data
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         "class": "bg-login-button px-6 mt-5 py-2 mx-auto text-white rounded-xl",
         onClick: function onClick() {
           return window.location.replace("/employee-forum");

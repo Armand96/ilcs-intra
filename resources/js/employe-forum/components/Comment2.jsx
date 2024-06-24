@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import useProfileStore from '../stores/ProfileStore'
 
-export const Comment2 = ({ obj, handleLike, handleEdit }) => {
+export const Comment2 = ({ obj, handleLike, handleEdit, handleDelete }) => {
     const getProfile = useProfileStore((state) => state.profile)
     const [likeToggle, setLikeToggle] = useState(false)
    
@@ -28,6 +28,9 @@ export const Comment2 = ({ obj, handleLike, handleEdit }) => {
         handleEdit(obj)
     }
 
+    const handlePrepareDelete = () => {
+        handleDelete(obj)
+    }
 
     return (
         <div className="flex flex-col gap-4 pl-4 border-l py-3 border-blue-900">
@@ -49,7 +52,7 @@ export const Comment2 = ({ obj, handleLike, handleEdit }) => {
                             </svg>
                         </div>
                         <ul tabindex="0" className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white rounded-box w-52 bg-dashboard-background border border-blue-950 ">
-                            <li><a>Delete</a></li>
+                            <li><a onClick={handlePrepareDelete}>Delete</a></li>
                             <li><a onClick={handlePrepareEdit}>Edit</a></li>
                         </ul>
                     </div>

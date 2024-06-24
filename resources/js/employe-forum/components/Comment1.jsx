@@ -79,7 +79,7 @@ export const Comment = ({ obj, handleReplies, handleLike, handleEdit, handleDele
                     <div className={toggleComment ? "flex flex-col gap-3" : "hidden"}>
                         {
                             obj?.replies?.map((x) => (
-                                <Comment2 handleEdit={handleEdit} obj={x} handleLike={handleLike} />
+                                <Comment2 handleDelete={handleDelete} handleEdit={handleEdit} obj={x} handleLike={handleLike} />
                             ))
                         }
                     </div>

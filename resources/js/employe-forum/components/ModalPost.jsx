@@ -57,7 +57,7 @@ export const ModalPost = ({ toggle, show, handleEditPost, obj}) => {
                         <p class="text-[#37B6E1] font-light text-xs">Post to Employee Forum</p>
                     </div>
                 </div>
-                <textarea value={contentData.content} name="" onChange={(v) => setContentData({...contentData, content: v.target.value})} id="onlyText" class="w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]"></textarea>
+                <textarea autoFocus value={contentData.content} name="" onChange={(v) => setContentData({...contentData, content: v.target.value})} id="onlyText" class="w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]"></textarea>
                 <div class="flex w-full">
                     <div class="w-6/12 flex mt-4 items-center justify-between gap-6">
                         <div onclick="togglePostImageModal();togglePostModal()" class="w-2/6 justify-center flex items-center gap-6 border-r border-r-[#E1E5F6]">

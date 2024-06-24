@@ -9,7 +9,6 @@ import { DetailPage } from './pages/DetailPage';
 
 function App() {
   const setProfile = useProfileStore((state) => state.updateData)
-  const getProfile = useProfileStore((state) => state.profile)
 
 
   useEffect(() => {    

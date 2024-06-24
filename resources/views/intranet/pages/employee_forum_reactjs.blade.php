@@ -1,7 +1,7 @@
 @extends('intranet.master_intranet')
 
 @section('content')
-    <div id="example" class="w-full">
+    <div id="example" class="w-full ">
        
     </div>
     
