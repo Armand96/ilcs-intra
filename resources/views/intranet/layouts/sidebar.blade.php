@@ -55,13 +55,13 @@
                 <p class="mt-2 text-xs 2xl:text-sm text-center w-full">Laporan Rapat Management</p>
             </a>
 
-            <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'our_team' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
+            <!-- <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'our_team' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
                 href="{{route('intra.calendar')}}" target="_blank">
                 <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'our_regulation' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/calendar-icon.svg') }}" alt="">
                 </div>
                 <p class="mt-2 text-xs 2xl:text-sm text-center">Meeting Calendar</p>
-            </a>
+            </a> -->
 
             <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'our_regulation' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
                 href="{{route('our_regulation')}}">
