@@ -51,24 +51,36 @@ trait GeneralTrait
      **/
     public function getUpcomingBirthday()
     {
-        $whereMonth = DB::raw('MONTH(tgl_lahir)');
-        $wherDate = DB::raw('DAY(tgl_lahir)');
-        $currDate = date('d');
-        $maxDate = date('t');
-        $crossMonth = false;
-        $maxRangeDate = "";
+        // $whereMonth = DB::raw('MONTH(tgl_lahir)');
+        // $wherDate = DB::raw('DAY(tgl_lahir)');
+        // $currDate = date('d');
+        // $maxDate = date('t');
+        // $crossMonth = false;
+        // $maxRangeDate = "";
 
-        if ($currDate + 5 <= $maxDate) {
-            $maxRangeDate = $currDate + 5;
-            $crossMonth = false;
-        } else {
-            $maxRangeDate = $currDate + 5 - $maxDate;
-            $crossMonth = true;
-        }
+        // if ($currDate + 5 <= $maxDate) {
+        //     $maxRangeDate = $currDate + 5;
+        //     $crossMonth = false;
+        // } else {
+        //     $maxRangeDate = $currDate + 5 - $maxDate;
+        //     $crossMonth = true;
+        // }
 
-        $users = User::where($whereMonth, date('m'))->when($crossMonth, function ($qry) {
-            $qry->orWhere('whereMonth', date('m', strtotime('+1 month')));
-        })->whereBetween($wherDate, [$currDate, $maxRangeDate])->where('is_active', true)->orderByRaw('DATE_FORMAT(tgl_lahir, "%m-%d") asc')->get();
+        // $users = User::where($whereMonth, date('m'))->when($crossMonth, function ($qry) {
+        //     $qry->orWhere('whereMonth', date('m', strtotime('+1 month')));
+        // })->whereBetween($wherDate, [$currDate, $maxRangeDate])->where('is_active', true)->orderByRaw('DATE_FORMAT(tgl_lahir, "%m-%d") asc')->get();
+
+        $sql = "SELECT *
+            FROM users
+            WHERE
+            (
+                (MONTH(tgl_lahir) = MONTH(CURDATE()) AND DAY(tgl_lahir) >= DAY(CURDATE()))
+                OR
+                (MONTH(tgl_lahir) = MONTH(CURDATE() + INTERVAL 7 DAY) AND DAY(tgl_lahir) <= DAY(CURDATE() + INTERVAL 7 DAY))
+            )
+            ORDER BY DATE_FORMAT(tgl_lahir, \"%m-%d\") asc";
+
+        $users = DB::select(DB::raw($sql));
 
         foreach ($users as $key => $reg) {
             if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {
