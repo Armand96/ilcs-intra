@@ -34,7 +34,7 @@ trait GeneralTrait
      **/
     public function newEmployee()
     {
-        $users = User::whereBetween('tgl_masuk', [date('Y-m-01'), date('Y-m-t')])->orderBy('tgl_masuk', 'ASC')->get();
+        $users = User::whereBetween('tgl_masuk', [date('Y-m-01'), date('Y-m-t')])->where('is_active', true)->orderBy('tgl_masuk', 'ASC')->get();
 
         foreach ($users as $key => $reg) {
             if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {
@@ -68,7 +68,7 @@ trait GeneralTrait
 
         $users = User::where($whereMonth, date('m'))->when($crossMonth, function ($qry) {
             $qry->orWhere('whereMonth', date('m', strtotime('+1 month')));
-        })->whereBetween($wherDate, [$currDate, $maxRangeDate])->orderByRaw('DATE_FORMAT(tgl_lahir, "%m-%d") asc')->get();
+        })->whereBetween($wherDate, [$currDate, $maxRangeDate])->where('is_active', true)->orderByRaw('DATE_FORMAT(tgl_lahir, "%m-%d") asc')->get();
 
         foreach ($users as $key => $reg) {
             if (Storage::disk('public')->exists("profile_picture/" . $reg->image_user)) {
@@ -177,7 +177,7 @@ trait GeneralTrait
             'description AS text',
             'image_cover',
             DB::raw("CASE WHEN tipe = 'libur' THEN '#D42121' WHEN tipe = 'event' THEN '#37B6E1' ELSE 'grey' END AS color"),
-        ])->get();
+        ])->where('tgl_cal_event_start', '>=', date('Y-m-d H:i:s'))->get();
         // dd($calendarEvents);
         return $calendarEvents;
     }
@@ -195,8 +195,8 @@ trait GeneralTrait
             real_last_year / SUM(reals) AS achieve
         FROM
             k_p_i_charts,
-            (SELECT SUM(rkap) AS plan_this_year FROM k_p_i_charts WHERE tahun = YEAR(CURRENT_DATE)) AS plan_subquery,
-            (SELECT SUM(reals) AS real_last_year FROM k_p_i_charts WHERE tahun = YEAR(CURRENT_DATE) - 1 AND bulan <= MONTH(CURRENT_DATE)) AS real_subquery
+            (SELECT SUM(rkap) AS plan_this_year FROM k_p_i_charts WHERE tahun = YEAR(CURRENT_DATE) AND source = '$filter') AS plan_subquery,
+            (SELECT SUM(reals) AS real_last_year FROM k_p_i_charts WHERE tahun = YEAR(CURRENT_DATE) - 1 AND bulan <= MONTH(CURRENT_DATE) AND source = '$filter') AS real_subquery
         WHERE
             tahun = YEAR(CURRENT_DATE)
             AND bulan <= MONTH(CURRENT_DATE) AND source = '$filter'
