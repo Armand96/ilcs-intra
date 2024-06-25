@@ -58,7 +58,7 @@ class UserCMSController extends Controller
             });
         }
 
-        $users = $query->orderBy('id', 'asc')->orderBy('is_active', 'DESC')->paginate(10);
+        $users = $query->orderBy('is_active', 'DESC')->orderBy('id', 'ASC')->paginate(10);
         $roles = Role::select(['id', 'role_name'])->get();
         $jabatans = User::select('jabatan')->distinct('jabatan')->get();
         $divisis = User::select('divisi')->distinct('divisi')->get();
@@ -124,7 +124,7 @@ class UserCMSController extends Controller
                 'is_active'
             ]);
 
-            if ($data['is_active']) $data['is_active'] = true;
+            if (isset($data['is_active'])) $data['is_active'] = true;
             else $data['is_active'] = false;
 
             $data['sub_jabatan'] = $data['jabatan'];
@@ -218,7 +218,7 @@ class UserCMSController extends Controller
         if ($data['password'] == null) unset($data['password']);
         else $data['password'] = Hash::make($data['password']);
 
-        if ($data['is_active']) $data['is_active'] = true;
+        if (isset($data['is_active'])) $data['is_active'] = true;
         else $data['is_active'] = false;
 
         $data['sub_jabatan'] = $data['jabatan'];

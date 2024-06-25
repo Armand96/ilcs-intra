@@ -68,7 +68,7 @@
                     </thead>
                     <tbody>
                         @foreach ($users as $index => $usr)
-                            <tr>
+                            <tr class="{{ !$usr->is_active ? 'bg-orange-600' : '' }}">
                                 <th>{{ $usr->id }}</th>
                                 <td class="w-1/6 text-wrap"> {{ $usr->username }} </td>
                                 <td> {{ $usr->name }} </td>
@@ -92,9 +92,11 @@
                                         <button class="btn btn-primary" onclick="edit({{ $usr->id }})">
                                             Edit
                                         </button>
-                                        <button class="btn btn-danger" onclick="deleteModal({{ $usr->id }})">
-                                            Delete
-                                        </button>
+                                        @if ($usr->is_active)
+                                            <button class="btn btn-danger" onclick="deleteModal({{ $usr->id }})">
+                                                Delete
+                                            </button>
+                                        @endif
                                     @endif
                                 </td>
                             </tr>
