@@ -228,7 +228,7 @@
             </h5>
             <div class="h-[48vh] our-team-left overflow-auto">
                 @foreach ($data['calendar'] as $item)
-                    @if ($item->color == 'blue')
+                    @if ($item->color == '#37B6E1')
                         <div class="flex mb-6">
                             <div class="w-2/6 mx-6">
                                 <img src="{{ url('storage/calendar_event/'.$item->image_cover) }}" alt="" class="object-cover rounded-xl  border border-blue-700 w-32 h-20 relative">
