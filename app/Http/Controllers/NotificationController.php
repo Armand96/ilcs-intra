@@ -24,8 +24,8 @@ class NotificationController extends Controller
 
     public function readNotif($notifId)
     {
-        $notif = Notification::find($notifId);
-        $notif->update(['read_at' => date('Y-m-d H:i:s')]);
+        $notif = Notification::findOrFail($notifId);
+        Notification::where('notif_to_user_id', $notif->notif_to_user_id)->where('link', $notif->link)->update(['read_at' => date('Y-m-d H:i:s')]);
         return response()->redirectToRoute('navigate.post', $notif->link);
     }
 }

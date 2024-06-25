@@ -92,6 +92,9 @@
                                         <button class="btn btn-primary" onclick="edit({{ $usr->id }})">
                                             Edit
                                         </button>
+                                        <button class="btn btn-danger" onclick="deleteModal({{ $usr->id }})">
+                                            Delete
+                                        </button>
                                     @endif
                                 </td>
                             </tr>
@@ -197,6 +200,11 @@
                     <input type="file" name="foto"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
+                <div class="mt-4">
+                    <p class="text-white">Active</p>
+                    <input type="checkbox" class="bg-gray-700 mt-3 px-4 py-2 rounded-lg text-login-text focus:outline-none"
+                        name="is_active" id="is_active">
+                </div>
 
             </div>
 
@@ -217,12 +225,14 @@
             <h3 class="font-bold text-lg">Perhatian !</h3>
             <p class="py-4">Anda Yakin ingin menghapus data ini ??</p>
             <div class="modal-action">
-                <form method="dialog">
+                <form id="delete_form" method="POST" action="">
+                    @csrf
+                    <input type="hidden" name="_method" value="DELETE">
                     <!-- if there is a button in form, it will close the modal -->
-                    <form method="dialog">
-                        <button onclick="delete_modal.closeModal()" class="btn btn-neutral mr-3">cancel</button>
-                    </form>
-                    <button class="btn btn-primary" onclick="delete_modal.closeModal()">ya</button>
+                    <span method="dialog">
+                        <button type="button" onclick="closeDeleteModal()" class="btn btn-neutral mr-3">cancel</button>
+                    </span>
+                    <button type="submit" class="btn btn-primary">ya</button>
 
                 </form>
             </div>
@@ -261,12 +271,23 @@
                 $('#divisi').val(resp.divisi);
                 $('#dept').val(resp.dept);
 
+                resp.is_active == 1 ? $('#is_active').prop('checked', true) : $('#is_active').prop('checked', false);
+
                 $('#user_form').prop('action', '{{ route("users.index") }}/' + idUser);
                 $('input[name="_method"]').val('PATCH');
 
                 document.getElementById('my_modal').classList.add('modal-open');
             })
 
+        }
+
+        function deleteModal(idUser) {
+            $('#delete_form').prop('action', '{{ route('users.index') }}/' + idUser)
+            $('#delete_modal').addClass('modal-open');
+        }
+
+        function closeDeleteModal() {
+            $('#delete_modal').removeClass('modal-open');
         }
     </script>
 @endsection

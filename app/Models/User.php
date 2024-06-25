@@ -36,6 +36,7 @@ class User extends Authenticatable
         'jabatan',
         'dept',
         'divisi',
+        'is_active'
     ];
 
     /**

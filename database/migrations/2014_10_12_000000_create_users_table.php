@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('image_user');
             $table->string('dept')->nullable();
             $table->string('divisi')->nullable();
+            $table->boolean('is_active');
             // $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
