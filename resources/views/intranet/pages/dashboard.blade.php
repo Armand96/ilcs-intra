@@ -310,11 +310,19 @@
                 </div>
 
                 <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                    <div class="bg-green-600 mb-5 rounded-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                        </svg>
-                    </div>
+                    @if ($data['pendapatanChart']['growth'] > 0)
+                        <div class=" bg-green-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                            </svg>
+                        </div>
+                    @else
+                        <div class="bg-orange-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
+                            </svg>
+                        </div>
+                    @endif
                     {{-- <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">Pendapatan RP. 134,78 M, tercapai 61,27% RKAP; Growth 17,03% YoY</h4> --}}
                     <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">@if (isset($data['pendapatanChart']['words'])) {{ $data['pendapatanChart']['words'] }} @endif</h4>
                 </div>
@@ -328,11 +336,19 @@
                 </div>
 
                 <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                    <div class="bg-green-600 mb-5 rounded-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                        </svg>
-                    </div>
+                    @if ($data['bebanChart']['growth'] > 0)
+                        <div class=" bg-green-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                            </svg>
+                        </div>
+                    @else
+                        <div class="bg-orange-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
+                            </svg>
+                        </div>
+                    @endif
                     <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['bebanChart']['words'])) {{ $data['bebanChart']['words'] }} @endif</h4>
                 </div>
 
@@ -351,11 +367,19 @@
                 </div>
 
                 <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                    <div class="bg-green-600 mb-5 rounded-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                        </svg>
-                    </div>
+                    @if ($data['ictChart']['growth'] > 0)
+                        <div class=" bg-green-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                            </svg>
+                        </div>
+                    @else
+                        <div class="bg-orange-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
+                            </svg>
+                        </div>
+                    @endif
                     <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['ictChart']['words'])) {{ $data['ictChart']['words'] }} @endif</h4>
                 </div>
 
@@ -369,11 +393,19 @@
                 </div>
 
                 <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                    <div class="bg-green-600 mb-5 rounded-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                        </svg>
-                    </div>
+                    @if ($data['itChart']['growth'] > 0)
+                        <div class=" bg-green-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                            </svg>
+                        </div>
+                    @else
+                        <div class="bg-orange-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
+                            </svg>
+                        </div>
+                    @endif
                     <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['itChart']['words'])) {{ $data['itChart']['words'] }} @endif</h4>
                 </div>
 
@@ -387,11 +419,19 @@
                 </div>
 
                 <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
-                    <div class=" bg-green-600 mb-5 rounded-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                        </svg>
-                    </div>
+                    @if ($data['digitalChart']['growth'] > 0)
+                        <div class=" bg-green-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                            </svg>
+                        </div>
+                    @else
+                        <div class="bg-orange-600 mb-5 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
+                            </svg>
+                        </div>
+                    @endif
                     <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['digitalChart']['words'])) {{ $data['digitalChart']['words'] }} @endif</h4>
                 </div>
 

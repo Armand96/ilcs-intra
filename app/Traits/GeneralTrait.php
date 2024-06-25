@@ -228,6 +228,7 @@ trait GeneralTrait
             $growth = number_format($growth, 2, ",", ".");
             $words = "$filter Rp $realValue M, tercapai $rkapAchieve% RKAP; Growth $growth% YoY";
             $data['words'] = $words;
+            $data['growth'] = $growth;
         }
 
         return $data;
