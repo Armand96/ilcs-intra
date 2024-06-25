@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-axios.defaults.baseURL = document.querySelector("#url_host").value
+axios.defaults.baseURL = window.location.origin
 
 
 export const PostArticleData = async (body) => {
