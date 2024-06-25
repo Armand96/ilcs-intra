@@ -234,8 +234,9 @@
                                 <img src="{{ url('storage/calendar_event/'.$item->image_cover) }}" alt="" class="object-cover rounded-xl  border border-blue-700 w-32 h-20 relative">
                             </div>
                             <div class="w-4/6 text-sm">
-                                <h4 class="font-semibold text-white">{{ $item->title }}</h4>
+                                <h4 class="font-semibold text-white">{{ $item->desc }}</h4>
                                 <p class="text-dashboard-blue-right text-xs">{{ $item->start }} </p>
+                                <p class="text-dashboard-blue-white text-xs">{{ $item->text }} </p>
                             </div>
                         </div>
 

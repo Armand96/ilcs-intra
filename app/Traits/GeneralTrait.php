@@ -174,7 +174,7 @@ trait GeneralTrait
     {
         $calendarEvents = CalendarEvent::select([
             'id', 'judul AS desc', 'tgl_cal_event_start AS start', 'tgl_cal_event_end AS end',
-            // 'description AS desc',
+            'description AS text',
             'image_cover',
             DB::raw("CASE WHEN tipe = 'libur' THEN '#D42121' WHEN tipe = 'event' THEN '#37B6E1' ELSE 'grey' END AS color"),
         ])->get();
