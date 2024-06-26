@@ -48,7 +48,7 @@ Route::group(['middleware' => 'role.access'], function() {
 /* ROUTE UNTUK ADMIN CMS */
 Route::group(
     [
-    'middleware' => ['admin', 'auth'],
+    'middleware' => ['admin', 'auth', 'checkz'],
     'prefix' => 'cms_admin'
 ], function() {
     Route::get('home', [CMSController::class, 'index'])->name('cms.home');
@@ -65,7 +65,7 @@ Route::group(
 Route::post('ckupload', [CKUploaderController::class, 'upload']);
 
 /* INTRANET */
-Route::group(['middleware' =>'auth'], function() {
+Route::group(['middleware' =>['auth', 'checkz']], function() {
     // GET CURRENT USER
     Route::get('/currentUser', [UserController::class, 'currentUser'])->name('curr.user');
 
