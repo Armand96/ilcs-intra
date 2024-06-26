@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -42,8 +43,8 @@ class GenerateQuery extends Command
         echo "READ DATA \n";
         $users = $this->readFile();
         if(count($users)) {
-            echo "INSERTING DATA.... \n";
-            DB::table('users')->insert($users);
+            // echo "INSERTING DATA.... \n";
+            // DB::table('users')->insert($users);
         } else {
             echo "DATA KOSONG \n";
         }
@@ -89,6 +90,10 @@ class GenerateQuery extends Command
 
             // echo $tempUser['name'].$tempUser['nip']."\n";
             array_push($users, $tempUser);
+            $isExist = User::where('nip', $tempUser['nip'])->exists();
+            if(!$isExist) {
+                User::create($tempUser);
+            }
             // $this->info($tempUser['name']);
         }
 
