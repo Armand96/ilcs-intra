@@ -7,9 +7,21 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+    public function currentUser(){
+        $user = Auth::user();
+        $user->load(['role']);
+
+        if (Storage::disk('public')->exists("profile_picture/" . $user->image_user)) {
+            $user->image_user = Storage::disk('public')->url('profile_picture/' . $user->image_user);
+        }
+
+        return response()->json($user);
+    }
+
     /* ======================================================================== */
     public function getAllNilaiKaryawan()
     {

@@ -22,9 +22,11 @@
             </div>
 
         </div>
-
+        
+        <input type="hidden" id="url_host" value="{{ url('/') }}">
         @include('intranet.layouts.sidebar')
 
+        @yield('reactjsscript')
     </div>
 </body>
 

@@ -40,7 +40,7 @@
                         <select name="tipe" id="tipe" required
                             class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                             <option value="event">Event</option>
-                            <option value="meeting">Meeting</option>
+                            {{-- <option value="meeting">Meeting</option> --}}
                             <option value="libur">Libur</option>
                         </select>
                     </div>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\CMS;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
-use DateTime;
+// use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -42,6 +42,12 @@ class UserCMSController extends Controller
             $query->where('nip', 'like', '%' . $request->nip . '%');
         }
 
+        if ($request->filled('is_active')) {
+            $isActive = false;
+            if($request->is_active == "on")  $isActive = true;
+            $query->where('is_active', $isActive);
+        }
+
         if ($request->filled('jabatan')) {
             $query->where('jabatan', 'like', '%' . $request->jabatan . '%')->orWhere('sub_jabatan', 'like', '%' . $request->jabatan . '%');
         }
@@ -52,7 +58,7 @@ class UserCMSController extends Controller
             });
         }
 
-        $users = $query->paginate(10);
+        $users = $query->orderBy('is_active', 'DESC')->orderBy('id', 'ASC')->paginate(10);
         $roles = Role::select(['id', 'role_name'])->get();
         $jabatans = User::select('jabatan')->distinct('jabatan')->get();
         $divisis = User::select('divisi')->distinct('divisi')->get();
@@ -114,8 +120,12 @@ class UserCMSController extends Controller
                 'dept',
                 'tgl_lahir',
                 'tgl_masuk',
-                'tgl_keluar'
+                'tgl_keluar',
+                'is_active'
             ]);
+
+            if (isset($data['is_active'])) $data['is_active'] = true;
+            else $data['is_active'] = false;
 
             $data['sub_jabatan'] = $data['jabatan'];
             $data['tgl_lahir'] = date('Y-m-d', strtotime($data['tgl_lahir']));
@@ -201,11 +211,15 @@ class UserCMSController extends Controller
             'dept',
             'tgl_lahir',
             'tgl_masuk',
-            'tgl_keluar'
+            'tgl_keluar',
+            'is_active'
         ]);
 
         if ($data['password'] == null) unset($data['password']);
         else $data['password'] = Hash::make($data['password']);
+
+        if (isset($data['is_active'])) $data['is_active'] = true;
+        else $data['is_active'] = false;
 
         $data['sub_jabatan'] = $data['jabatan'];
         $data['tgl_lahir'] = date('Y-m-d', strtotime($data['tgl_lahir']));
@@ -242,15 +256,17 @@ class UserCMSController extends Controller
     public function destroy(User $user)
     {
         try {
-            if ($user->image_user != null) {
+            $user->update(['is_active' => false]);
+            // if ($user->image_user != null) {
 
-                Storage::disk('public')->exists("profile_picture/$user->image_user");
-                Storage::delete("public/profile_picture/$user->image_user");
-            }
+            //     Storage::disk('public')->exists("profile_picture/$user->image_user");
+            //     Storage::delete("public/profile_picture/$user->image_user");
+            // }
 
-            $user->delete();
+            // $user->delete();
+            // dd($user);
 
-            return redirect()->back()->with(['notif' => 'User telah dihapus']);
+            return redirect()->back()->with(['notif' => 'User telah dinonaktifkan']);
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors(['notif' => $th->getMessage()]);
         }

@@ -3053,6 +3053,9 @@ html:has(.drawer-toggle:checked) {
 .z-\[1\] {
   z-index: 1;
 }
+.z-\[300\] {
+  z-index: 300;
+}
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -3685,6 +3688,10 @@ html:has(.drawer-toggle:checked) {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-orange-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
 }
 .object-cover {
   -o-object-fit: cover;

@@ -15,7 +15,7 @@ class CreateKPIChartsTable extends Migration
     {
         Schema::create('k_p_i_charts', function (Blueprint $table) {
             $table->id();
-            $table->enum('source',['Pendapatan', 'Beban Usaha', 'ICT System Implementator', 'IT Manage Service', 'Digital Seaport']);
+            $table->string('source', 100);
             $table->integer('bulan');
             $table->integer('tahun');
             $table->double('rkap');

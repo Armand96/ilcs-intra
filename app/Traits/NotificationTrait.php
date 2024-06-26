@@ -47,7 +47,7 @@ trait NotificationTrait
 
     /* ====================================================== */
     /* $action = 'like' atau 'comment' */
-    public function singleNotification(int $userId, string $url = '', int $postId = 0, int $commentId = 0, string $action = 'like')
+    public function singleNotification(int $userId, int $senderId, string $url = '', int $postId = 0, int $commentId = 0, string $action = 'like')
     {
         try {
             $userSource = Auth::user();
@@ -70,9 +70,11 @@ trait NotificationTrait
 
             $data = array(
                 'notif_to_user_id' => $userId,
+                'notif_from_user_id' => $senderId,
                 'notif_title' => "Employee Forum - $titleAction",
                 'notif_description' => $userSource->name . " $words $jenis Anda",
-                'link' => $url == '' ? null : $url
+                'link' => $url == '' ? null : $url,
+                'created_at' => date('Y-m-d H:i:s')
             );
 
             Notification::create($data);
@@ -86,7 +88,7 @@ trait NotificationTrait
     }
 
     /* $action = 'like' atau 'comment' */
-    public function massNotification(array $userIds, string $url = '', int $postId = 0, int $commentId, string $action = 'like')
+    public function massNotification(array $userIds, int $senderId, string $url = '', int $postId = 0, int $commentId = 0, string $action = 'like')
     {
         try {
             $userSource = Auth::user();
@@ -113,9 +115,11 @@ trait NotificationTrait
                 foreach ($userIds as $key => $value) {
                     $temp = array(
                         'notif_to_user_id' => $value,
+                        'notif_from_user_id' => $senderId,
                         'notif_title' => "Employee Forum - $titleAction",
                         'notif_description' => $userSource->name . " $words $jenis Anda",
-                        'link' => $url == '' ? null : $url
+                        'link' => $url == '' ? null : $url,
+                        'created_at' => date('Y-m-d H:i:s')
                     );
 
                     array_push($data, $temp);

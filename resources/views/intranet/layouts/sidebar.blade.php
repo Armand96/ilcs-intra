@@ -39,29 +39,29 @@
                 <p class="mt-2 text-xs 2xl:text-sm text-center">Employee Forum</p>
             </a>
 
-            <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
-                href="https://integrasilogistik-my.sharepoint.com/personal/nadin_integrasilogistik_onmicrosoft_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fnadin%5Fintegrasilogistik%5Fonmicrosoft%5Fcom%2FDocuments%2FKNOWLEDGE%20MANAGEMENT&ga=1" target="_blank">
-                <div class="p-2 rounded-xl mt-2 hex-icon">
+            <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'knowledge.management' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
+                href="{{route('knowledge.management')}}">
+                <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'knowledge.management' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/book-icon.svg') }}" alt="">
                 </div>
                 <p class="mt-2 text-xs 2xl:text-sm text-center w-full">Knowledge Management</p>
             </a>
 
-            <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
-                href="https://integrasilogistik-my.sharepoint.com/personal/nadin_integrasilogistik_onmicrosoft_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fnadin%5Fintegrasilogistik%5Fonmicrosoft%5Fcom%2FDocuments%2FLaporan%20Rapat%20Management&ga=1" target="_blank">
-                <div class="p-2 rounded-xl mt-2 hex-icon">
+            <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'laporan.management' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
+                href="{{route('laporan.management')}}">
+                <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'laporan.management' ? 'menu-child-active border border-blue-950' : 'menu-child' }}">
                     <img src="{{ asset('assets/images/icon/book-icon.svg') }}" alt="">
                 </div>
                 <p class="mt-2 text-xs 2xl:text-sm text-center w-full">Laporan Rapat Management</p>
             </a>
 
-            <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'our_team' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
+            <!-- <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'our_team' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
                 href="{{route('intra.calendar')}}" target="_blank">
                 <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'our_regulation' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/calendar-icon.svg') }}" alt="">
                 </div>
                 <p class="mt-2 text-xs 2xl:text-sm text-center">Meeting Calendar</p>
-            </a>
+            </a> -->
 
             <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'our_regulation' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
                 href="{{route('our_regulation')}}">

@@ -48,7 +48,7 @@ Route::group(['middleware' => 'role.access'], function() {
 /* ROUTE UNTUK ADMIN CMS */
 Route::group(
     [
-    'middleware' => ['admin', 'auth'],
+    'middleware' => ['admin', 'auth', 'checkz'],
     'prefix' => 'cms_admin'
 ], function() {
     Route::get('home', [CMSController::class, 'index'])->name('cms.home');
@@ -65,7 +65,11 @@ Route::group(
 Route::post('ckupload', [CKUploaderController::class, 'upload']);
 
 /* INTRANET */
-Route::group(['middleware' =>'auth'], function() {
+Route::group(['middleware' =>['auth', 'checkz']], function() {
+    // GET CURRENT USER
+    Route::get('/currentUser', [UserController::class, 'currentUser'])->name('curr.user');
+
+    /* PAGES */
     Route::get("/dashboard", [DashboardController::class, 'home'])->name('dashboard');
     Route::get("/our-leader", [LeaderController::class, 'ourLeader'])->name('our_leader');
     Route::get("/our-team", [TeamController::class, 'teams'])->name('our_team');
@@ -75,13 +79,30 @@ Route::group(['middleware' =>'auth'], function() {
     })->name('intra.calendar');
 
     Route::get('/employee-forum', function() {
-        return view('intranet.pages.employee_aspiration');
+        return view('intranet.pages.employee_forum_reactjs');
     })->name('employee.forum');
 
-    Route::get("/regulations", function(){
-        return view('regulations');
-    });
+    Route::get('/employee-forum/detail', function() {
+        return view('intranet.pages.employee_forum_reactjs');
+    })->name('employee.forum.detail');
 
+    Route::get('/employee-forum/detail/{id}', function() {
+        return view('intranet.pages.employee_forum_reactjs');
+    })->name('navigate.post');
+
+    // Route::get("/regulations", function(){
+    //     return view('regulations');
+    // });
+
+    Route::get('/knowledge-management', function() {
+        return view('intranet.pages.knowledge_management');
+    })->name('knowledge.management');
+
+    Route::get('/laporan-management', function() {
+        return view('intranet.pages.laporan_management');
+    })->name('laporan.management');
+
+    Route::get('/notifRead/{notifId}', [NotificationController::class, 'readNotif'])->name('notif.read');
     /* ================== DATA FETCH ================== */
     Route::get('/news-detail/{news}', [NewsController::class, 'show'])->name('news.modal');
     Route::get('/leader-detail/{leader}', [LeaderController::class, 'show'])->name('leader.modal');
@@ -91,13 +112,13 @@ Route::group(['middleware' =>'auth'], function() {
     Route::get('/listPost', [PostController::class, 'listPost'])->name('list.post');
     Route::get('/listPost/{post}', [PostController::class, 'singlePost']);
     Route::post('/makePost', [PostController::class, 'makePost'])->name('make.post');
-    Route::put('/updatePost/{post}', [PostController::class, 'updatePost']);
+    Route::post('/updatePost/{post}', [PostController::class, 'updatePost']);
     Route::get('/deletePost/{postId}', [PostController::class, 'deletePost']);
     Route::post('/makeComment', [PostController::class, 'comment'])->name('make.comment');
-    Route::put('/updateComment/{comment}', [PostController::class, 'editComment']);
+    Route::post('/updateComment/{comment}', [PostController::class, 'editComment']);
     Route::get('/deleteComment/{commentId}', [PostController::class, 'deleteComment']);
     Route::post('/like', [PostController::class, 'like'])->name('like');
-    Route::get('/unlike/{postId}', [PostController::class, 'unlike']);
+    Route::post('/unlike', [PostController::class, 'unlike']);
     Route::get('/seePost/{post}', [PostController::class, 'seePost']);
 });
 

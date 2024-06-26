@@ -291,6 +291,11 @@ html {
     color: #240621 !important ;
 }
 
+.dropdown-content {
+    z-index: 300 !important ;
+    position: absolute !important ;
+}
+
 @media only screen and (min-width: 1500px ){
     .drawer-side {
         height: 100dvh !important;

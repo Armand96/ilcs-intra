@@ -24,6 +24,7 @@ class DashboardController extends Controller
             'calendar' => $this->calendar(),
             'pendapatanChart' => $this->kpiChart('Pendapatan'),
             'bebanChart' => $this->kpiChart('Beban Usaha'),
+            'Chart' => $this->kpiChart('Beban Usaha'),
             'ictChart' => $this->kpiChart('ICT System Implementator'),
             'itChart' => $this->kpiChart('IT Manage Service'),
             'digitalChart' => $this->kpiChart('Digital Seaport'),
@@ -32,6 +33,15 @@ class DashboardController extends Controller
             // 'chatHist' => $this->allUserChat(1),
             // 'chatCount' => $this->unreadCount(1),
         );
+
+        $orChart = [ "data" => [] ];
+
+        foreach ($data['bebanChart']['data'][1] as $key => $value) {
+            $percentage = number_format($value / $data['pendapatanChart']['data'][1][$key] * 100, 2);
+            array_push($orChart['data'], $percentage);
+        }
+
+        $data['orChart'] = $orChart;
 
         return view('intranet.pages.dashboard', compact('data'));
     }
