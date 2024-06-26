@@ -36,9 +36,11 @@ class DashboardController extends Controller
 
         $orChart = [ "data" => [] ];
 
-        foreach ($data['bebanChart']['data'][1] as $key => $value) {
-            $percentage = number_format($value / $data['pendapatanChart']['data'][1][$key] * 100, 2);
-            array_push($orChart['data'], $percentage);
+        if(count($data['bebanChart']['data'])) {
+            foreach ($data['bebanChart']['data'][1] as $key => $value) {
+                $percentage = number_format($value / $data['pendapatanChart']['data'][1][$key] * 100, 2);
+                array_push($orChart['data'], $percentage);
+            }
         }
 
         $data['orChart'] = $orChart;
