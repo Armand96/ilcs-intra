@@ -160,7 +160,7 @@
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Role</p>
-                    <select required name="role_id"
+                    <select required name="role_id" id="role_id"
                         class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         @foreach ($roles as $rl)
                             <option value="{{ $rl->id }}">{{ $rl->role_name }}</option>
@@ -261,6 +261,7 @@
             axios.get('{{ route('users.index') }}/' + idUser).then(resp => {
                 resp = resp.data;
                 $('#operation').html("Perbarui");
+                $('#role_id').val(resp.role_id);
                 $('#username').val(resp.username);
                 $('#name').val(resp.name);
                 $('#email').val(resp.email);
