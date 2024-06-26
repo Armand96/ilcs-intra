@@ -20,7 +20,7 @@ class TeamController extends Controller
             $query->where('name', 'like', '%' . $request->name . '%');
         }
 
-        $users = $query->orderBy('name')->paginate(12);
+        $users = $query->orderBy('name')->where('is_active', true)->paginate(12);
         $divisi = User::where('divisi', '!=', '')->orderBy('divisi', 'asc')->select('divisi')->distinct('divisi')->get();
 
         foreach ($users as $key => $reg) {
