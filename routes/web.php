@@ -69,6 +69,7 @@ Route::group(['middleware' =>['auth', 'checkz']], function() {
     // GET CURRENT USER
     Route::get('/currentUser', [UserController::class, 'currentUser'])->name('curr.user');
 
+    /* PAGES */
     Route::get("/dashboard", [DashboardController::class, 'home'])->name('dashboard');
     Route::get("/our-leader", [LeaderController::class, 'ourLeader'])->name('our_leader');
     Route::get("/our-team", [TeamController::class, 'teams'])->name('our_team');
@@ -89,12 +90,19 @@ Route::group(['middleware' =>['auth', 'checkz']], function() {
         return view('intranet.pages.employee_forum_reactjs');
     })->name('navigate.post');
 
+    // Route::get("/regulations", function(){
+    //     return view('regulations');
+    // });
+
+    Route::get('/knowledge-management', function() {
+        return view('intranet.pages.knowledge_management');
+    })->name('knowledge.management');
+
+    Route::get('/laporan-management', function() {
+        return view('intranet.pages.laporan_management');
+    })->name('laporan.management');
+
     Route::get('/notifRead/{notifId}', [NotificationController::class, 'readNotif'])->name('notif.read');
-
-    Route::get("/regulations", function(){
-        return view('regulations');
-    });
-
     /* ================== DATA FETCH ================== */
     Route::get('/news-detail/{news}', [NewsController::class, 'show'])->name('news.modal');
     Route::get('/leader-detail/{leader}', [LeaderController::class, 'show'])->name('leader.modal');
