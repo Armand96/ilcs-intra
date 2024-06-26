@@ -654,7 +654,7 @@
 
     @if (isset($data['bebanChart']['data']))
         const dataDumn2 = @json($data['bebanChart']['data']);
-        dataDumn2[2] = [85.9, 85.6, 94.6, 98.7];
+        dataDumn2[2] =  @json($data['orChart']['data']); //[85.9, 85.6, 94.6, 98.7];
     @else
         const dataDumn2 = [[],[]];
     @endif

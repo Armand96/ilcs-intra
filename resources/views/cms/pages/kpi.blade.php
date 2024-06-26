@@ -94,6 +94,7 @@
                         class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                         <option value="Pendapatan">Pendapatan</option>
                         <option value="Beban Usaha">Beban Usaha</option>
+                        <option value="OR">OR</option>
                         <option value="ICT System Implementator">ICT System Implementator</option>
                         <option value="IT Manage Service">IT Manage Service</option>
                         <option value="Digital Seaport">Digital Seaport</option>
@@ -102,6 +103,7 @@
                     <datalist id="list_source">
                         <option value="Pendapatan">Pendapatan</option>
                         <option value="Beban Usaha">Beban Usaha</option>
+                        <option value="OR">OR</option>
                         <option value="ICT System Implementator">ICT System Implementator</option>
                         <option value="IT Manage Service">IT Manage Service</option>
                         <option value="Digital Seaport">Digital Seaport</option>

@@ -216,7 +216,11 @@ trait GeneralTrait
             month, year, plan_this_year, real_last_year";
 
         $dataKPI = DB::select(DB::raw($sql));
-        $data = [[],[]];
+        $data = [
+            "data" => [],
+            "words" => "",
+            "growth" => 0
+        ];
 
         if(count($dataKPI)) {
 
