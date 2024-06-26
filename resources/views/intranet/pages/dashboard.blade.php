@@ -273,7 +273,7 @@
             </div>
 
             <div class="border border-blue-600 px-4 py-3 rounded-lg mt-12">
-                <h5 class="font-semibold mb-6">Maklumat</h5>
+                <!-- <h5 class="font-semibold mb-6">Maklumat</h5> -->
                 <p class="text-xs">
                 ILCS Event adalah reminder/pengingat acara internal perusahaan yang diselenggarakan untuk merayakan pencapaian bersama.
                 </p>
