@@ -189,7 +189,11 @@ trait GeneralTrait
             'description AS text',
             'image_cover',
             DB::raw("CASE WHEN tipe = 'libur' THEN '#D42121' WHEN tipe = 'event' THEN '#37B6E1' ELSE 'grey' END AS color"),
-        ])->where('tgl_cal_event_start', '>=', date('Y-m-d H:i:s'))->get();
+        ])->where(function ($qry) {
+            $qry->where('tipe', 'event')->where('tgl_cal_event_start', '>=', date('Y-m-d H:i:s'));
+        })->orWhere(function ($qry) {
+            $qry->where('tipe', 'libur');
+        })->get();
         // dd($calendarEvents);
         return $calendarEvents;
     }
