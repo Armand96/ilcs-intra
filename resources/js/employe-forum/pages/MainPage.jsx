@@ -5,6 +5,7 @@ import usePostStore from '../stores/PostStore'
 import { GetPostList } from '../services/Api'
 import useProfileStore from '../stores/ProfileStore'
 import { toast } from 'react-toastify'
+import { v4 as uuidv4 } from 'uuid';
 
 const MainPage = () => {
     const getPostData = usePostStore((state) => state.postData)
@@ -51,12 +52,6 @@ const MainPage = () => {
         loadItems();
     }, [page, loadItems]);
 
-
-
-
-
-
-
     console.log(getPostData)
 
     const handleScroll = () => {
@@ -75,8 +70,8 @@ const MainPage = () => {
             <InputPostArticle />
             <div className="py-5 w-full flex flex-col gap-6 post-container" >
                 {
-                    getPostData && getPostData?.data?.map((item) => (
-                        <PostArticle obj={item}  getProfile={getProfile} />
+                 getProfile && getPostData && getPostData?.data?.map((item) => (
+                        <PostArticle obj={item} key={uuidv4()} getProfile={getProfile} />
                     ))
                 }
             </div>

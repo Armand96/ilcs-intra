@@ -7528,11 +7528,11 @@ var PostArticle = function PostArticle(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var _obj$likers;
     if ((obj === null || obj === void 0 || (_obj$likers = obj.likers) === null || _obj$likers === void 0 ? void 0 : _obj$likers.filter(function (x) {
-      return (x === null || x === void 0 ? void 0 : x.user_id) == (getProfile === null || getProfile === void 0 ? void 0 : getProfile.id);
+      return x.user_id == (getProfile === null || getProfile === void 0 ? void 0 : getProfile.id);
     }).length) > 0) {
       setIsLike(true);
     }
-  }, [getProfile, obj]);
+  }, [getProfile]);
 
   // console.log("LIKE",isLike,"obj", obj?.likers, "profle", getProfile?.id)
 
@@ -7540,8 +7540,8 @@ var PostArticle = function PostArticle(_ref) {
     setDetailData(obj);
   }, [obj]);
   var handleLike = function handleLike() {
-    setIsLike(!isLike);
     if (isLike) {
+      setIsLike(!isLike);
       (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostDisLike)({
         'post_id': obj === null || obj === void 0 ? void 0 : obj.id
       }).then(function (res) {
@@ -7556,6 +7556,7 @@ var PostArticle = function PostArticle(_ref) {
         });
       });
     } else {
+      setIsLike(!isLike);
       (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostLike)({
         'post_id': obj === null || obj === void 0 ? void 0 : obj.id
       }).then(function (res) {
@@ -7655,26 +7656,24 @@ var PostArticle = function PostArticle(_ref) {
     }
   };
   var handleDelete = function handleDelete(obj) {
-    (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetDeleteComment)("/".concat(obj.id)).then(function (res) {
-      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
-        var _getPostData$data7;
-        var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data7 = getPostData.data) === null || _getPostData$data7 === void 0 ? void 0 : _getPostData$data7.findIndex(function (x) {
-          return (x === null || x === void 0 ? void 0 : x.id) === (detailData === null || detailData === void 0 ? void 0 : detailData.id);
-        });
-        setDetailData(resp.data);
-        getPostData.data[currentIndex] = resp.data;
-        setPostData(getPostData);
-      });
-      react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.success("Delete comment success");
-    })["catch"](function (err) {
-      react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("err ".concat(err.error));
-    });
+    console.log("LOCATION", window.location.href);
+    // GetDeleteComment(`/${obj.id}`).then((res) => {
+    //     GetPostList(`/${detailData?.id}`).then((resp) => {
+    //         let currentIndex = getPostData?.data?.findIndex((x) => x?.id === detailData?.id);
+    //         setDetailData(resp.data)
+    //         getPostData.data[currentIndex] = resp.data
+    //         setPostData(getPostData)
+    //     })
+    //     toast.success("Delete comment success")
+    // }).catch((err) => {
+    //     toast.error(`err ${err.error}`)
+    // })
   };
   var handleEditPost = function handleEditPost(data) {
     (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostEditArticle)(data, "/".concat(detailData.id)).then(function (res) {
       (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
-        var _getPostData$data8;
-        var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data8 = getPostData.data) === null || _getPostData$data8 === void 0 ? void 0 : _getPostData$data8.findIndex(function (x) {
+        var _getPostData$data7;
+        var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data7 = getPostData.data) === null || _getPostData$data7 === void 0 ? void 0 : _getPostData$data7.findIndex(function (x) {
           return (x === null || x === void 0 ? void 0 : x.id) === (detailData === null || detailData === void 0 ? void 0 : detailData.id);
         });
         setDetailData(resp.data);
@@ -7694,6 +7693,9 @@ var PostArticle = function PostArticle(_ref) {
         setResetPaginate(true);
         setToggleModalDelete(false);
         react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.success("success delete a post");
+        if (window.location.href.includes("detail")) {
+          window.location.replace("/employee-forum");
+        }
       });
     })["catch"](function (err) {
       react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("err ".concat(err.error));
@@ -8008,6 +8010,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_Api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/Api */ "./resources/js/employe-forum/services/Api.js");
 /* harmony import */ var _stores_ProfileStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../stores/ProfileStore */ "./resources/js/employe-forum/stores/ProfileStore.js");
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -8019,6 +8022,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -8103,11 +8107,11 @@ var MainPage = function MainPage() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_InputPostArticle__WEBPACK_IMPORTED_MODULE_2__.InputPostArticle, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       className: "py-5 w-full flex flex-col gap-6 post-container",
-      children: getPostData && (getPostData === null || getPostData === void 0 || (_getPostData$data2 = getPostData.data) === null || _getPostData$data2 === void 0 ? void 0 : _getPostData$data2.map(function (item) {
+      children: getProfile && getPostData && (getPostData === null || getPostData === void 0 || (_getPostData$data2 = getPostData.data) === null || _getPostData$data2 === void 0 ? void 0 : _getPostData$data2.map(function (item) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_PostArticle__WEBPACK_IMPORTED_MODULE_1__.PostArticle, {
           obj: item,
           getProfile: getProfile
-        });
+        }, (0,uuid__WEBPACK_IMPORTED_MODULE_8__["default"])());
       }))
     })]
   });
@@ -85594,6 +85598,179 @@ function version(uuid) {
   return parseInt(uuid.slice(14, 15), 16);
 }
 var _default = exports["default"] = version;
+
+/***/ }),
+
+/***/ "./node_modules/uuid/dist/esm-browser/native.js":
+/*!******************************************************!*\
+  !*** ./node_modules/uuid/dist/esm-browser/native.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var randomUUID = typeof crypto !== 'undefined' && crypto.randomUUID && crypto.randomUUID.bind(crypto);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  randomUUID
+});
+
+/***/ }),
+
+/***/ "./node_modules/uuid/dist/esm-browser/regex.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/uuid/dist/esm-browser/regex.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/i);
+
+/***/ }),
+
+/***/ "./node_modules/uuid/dist/esm-browser/rng.js":
+/*!***************************************************!*\
+  !*** ./node_modules/uuid/dist/esm-browser/rng.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ rng)
+/* harmony export */ });
+// Unique ID creation requires a high quality random # generator. In the browser we therefore
+// require the crypto API and do not support built-in fallback to lower quality random number
+// generators (like Math.random()).
+
+var getRandomValues;
+var rnds8 = new Uint8Array(16);
+function rng() {
+  // lazy load so that environments that need to polyfill have a chance to do so
+  if (!getRandomValues) {
+    // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation.
+    getRandomValues = typeof crypto !== 'undefined' && crypto.getRandomValues && crypto.getRandomValues.bind(crypto);
+    if (!getRandomValues) {
+      throw new Error('crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported');
+    }
+  }
+  return getRandomValues(rnds8);
+}
+
+/***/ }),
+
+/***/ "./node_modules/uuid/dist/esm-browser/stringify.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/uuid/dist/esm-browser/stringify.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   unsafeStringify: () => (/* binding */ unsafeStringify)
+/* harmony export */ });
+/* harmony import */ var _validate_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./validate.js */ "./node_modules/uuid/dist/esm-browser/validate.js");
+
+
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */
+var byteToHex = [];
+for (var i = 0; i < 256; ++i) {
+  byteToHex.push((i + 0x100).toString(16).slice(1));
+}
+function unsafeStringify(arr, offset = 0) {
+  // Note: Be careful editing this code!  It's been tuned for performance
+  // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
+  //
+  // Note to future-self: No, you can't remove the `toLowerCase()` call.
+  // REF: https://github.com/uuidjs/uuid/pull/677#issuecomment-1757351351
+  return (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase();
+}
+function stringify(arr, offset = 0) {
+  var uuid = unsafeStringify(arr, offset);
+  // Consistency check for valid UUID.  If this throws, it's likely due to one
+  // of the following:
+  // - One or more input array values don't map to a hex octet (leading to
+  // "undefined" in the uuid)
+  // - Invalid input values for the RFC `version` or `variant` fields
+  if (!(0,_validate_js__WEBPACK_IMPORTED_MODULE_0__["default"])(uuid)) {
+    throw TypeError('Stringified UUID is invalid');
+  }
+  return uuid;
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (stringify);
+
+/***/ }),
+
+/***/ "./node_modules/uuid/dist/esm-browser/v4.js":
+/*!**************************************************!*\
+  !*** ./node_modules/uuid/dist/esm-browser/v4.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _native_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./native.js */ "./node_modules/uuid/dist/esm-browser/native.js");
+/* harmony import */ var _rng_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./rng.js */ "./node_modules/uuid/dist/esm-browser/rng.js");
+/* harmony import */ var _stringify_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./stringify.js */ "./node_modules/uuid/dist/esm-browser/stringify.js");
+
+
+
+function v4(options, buf, offset) {
+  if (_native_js__WEBPACK_IMPORTED_MODULE_0__["default"].randomUUID && !buf && !options) {
+    return _native_js__WEBPACK_IMPORTED_MODULE_0__["default"].randomUUID();
+  }
+  options = options || {};
+  var rnds = options.random || (options.rng || _rng_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+
+  // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+  rnds[6] = rnds[6] & 0x0f | 0x40;
+  rnds[8] = rnds[8] & 0x3f | 0x80;
+
+  // Copy bytes to buffer, if provided
+  if (buf) {
+    offset = offset || 0;
+    for (var i = 0; i < 16; ++i) {
+      buf[offset + i] = rnds[i];
+    }
+    return buf;
+  }
+  return (0,_stringify_js__WEBPACK_IMPORTED_MODULE_2__.unsafeStringify)(rnds);
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (v4);
+
+/***/ }),
+
+/***/ "./node_modules/uuid/dist/esm-browser/validate.js":
+/*!********************************************************!*\
+  !*** ./node_modules/uuid/dist/esm-browser/validate.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _regex_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./regex.js */ "./node_modules/uuid/dist/esm-browser/regex.js");
+
+function validate(uuid) {
+  return typeof uuid === 'string' && _regex_js__WEBPACK_IMPORTED_MODULE_0__["default"].test(uuid);
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (validate);
 
 /***/ }),
 

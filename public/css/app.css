@@ -3056,6 +3056,12 @@ html:has(.drawer-toggle:checked) {
 .z-\[300\] {
   z-index: 300;
 }
+.order-1 {
+  order: 1;
+}
+.order-2 {
+  order: 2;
+}
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -3299,8 +3305,17 @@ html:has(.drawer-toggle:checked) {
 .h-screen {
   height: 100vh;
 }
+.h-\[70vh\] {
+  height: 70vh;
+}
+.h-\[30vh\] {
+  height: 30vh;
+}
 .max-h-\[90dvh\] {
   max-height: 90dvh;
+}
+.max-h-\[70vh\] {
+  max-height: 70vh;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -3389,6 +3404,9 @@ html:has(.drawer-toggle:checked) {
 .w-full {
   width: 100%;
 }
+.w-1\/4 {
+  width: 25%;
+}
 .max-w-3xl {
   max-width: 48rem;
 }
@@ -3400,6 +3418,9 @@ html:has(.drawer-toggle:checked) {
 }
 .max-w-7xl {
   max-width: 80rem;
+}
+.max-w-xs {
+  max-width: 20rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -3424,6 +3445,12 @@ html:has(.drawer-toggle:checked) {
 }
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.grid-rows-4 {
+  grid-template-rows: repeat(4, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
@@ -3693,6 +3720,17 @@ html:has(.drawer-toggle:checked) {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.bg-\[\#\] {
+  background-color: #;
+}
+.bg-\[\#FFFFFF\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-\[\#5d5b6c\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(93 91 108 / var(--tw-bg-opacity));
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -3712,6 +3750,9 @@ html:has(.drawer-toggle:checked) {
 }
 .p-6 {
   padding: 1.5rem;
+}
+.p-4 {
+  padding: 1rem;
 }
 .px-1 {
   padding-left: 0.25rem;
@@ -4181,6 +4222,10 @@ html:has(.drawer-toggle:checked) {
     height: 16rem;
   }
 
+  .lg\:h-\[30vh\] {
+    height: 30vh;
+  }
+
   .lg\:w-1\/4 {
     width: 25%;
   }
@@ -4211,6 +4256,10 @@ html:has(.drawer-toggle:checked) {
 
   .lg\:w-5\/6 {
     width: 83.333333%;
+  }
+
+  .lg\:w-full {
+    width: 100%;
   }
 
   .lg\:flex-1 {

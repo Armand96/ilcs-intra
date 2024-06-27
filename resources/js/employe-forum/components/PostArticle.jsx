@@ -22,10 +22,11 @@ export const PostArticle = ({ obj, getProfile }) => {
     // console.log()
 
     useEffect(() => {
-        if (obj?.likers?.filter((x) => x?.user_id == getProfile?.id).length > 0) {
+        if (obj?.likers?.filter((x) => x.user_id == getProfile?.id).length > 0) {
+
             setIsLike(true)
         }
-    }, [getProfile, obj])
+    }, [getProfile])
 
     // console.log("LIKE",isLike,"obj", obj?.likers, "profle", getProfile?.id)
 
@@ -34,9 +35,9 @@ export const PostArticle = ({ obj, getProfile }) => {
     }, [obj])
 
     const handleLike = () => {
-        setIsLike(!isLike)
 
         if (isLike) {
+            setIsLike(!isLike)
             PostDisLike({ 'post_id': obj?.id }).then((res) => {
                 GetPostList(`/${obj?.id}`).then((resp) => {
                     let currentIndex = getPostData?.data?.findIndex((x) => x?.id === obj?.id);
@@ -46,6 +47,7 @@ export const PostArticle = ({ obj, getProfile }) => {
                 })
             })
         } else {
+            setIsLike(!isLike)
             PostLike({ 'post_id': obj?.id }).then((res) => {
                 GetPostList(`/${obj?.id}`).then((resp) => {
                     let currentIndex = getPostData?.data?.findIndex((x) => x?.id === obj?.id);
@@ -132,17 +134,18 @@ export const PostArticle = ({ obj, getProfile }) => {
     }
 
     const handleDelete = (obj) => {
-        GetDeleteComment(`/${obj.id}`).then((res) => {
-            GetPostList(`/${detailData?.id}`).then((resp) => {
-                let currentIndex = getPostData?.data?.findIndex((x) => x?.id === detailData?.id);
-                setDetailData(resp.data)
-                getPostData.data[currentIndex] = resp.data
-                setPostData(getPostData)
-            })
-            toast.success("Delete comment success")
-        }).catch((err) => {
-            toast.error(`err ${err.error}`)
-        })
+        console.log("LOCATION",window.location.href)
+        // GetDeleteComment(`/${obj.id}`).then((res) => {
+        //     GetPostList(`/${detailData?.id}`).then((resp) => {
+        //         let currentIndex = getPostData?.data?.findIndex((x) => x?.id === detailData?.id);
+        //         setDetailData(resp.data)
+        //         getPostData.data[currentIndex] = resp.data
+        //         setPostData(getPostData)
+        //     })
+        //     toast.success("Delete comment success")
+        // }).catch((err) => {
+        //     toast.error(`err ${err.error}`)
+        // })
     }
 
     const handleEditPost = (data) => {
@@ -162,12 +165,16 @@ export const PostArticle = ({ obj, getProfile }) => {
 
 
     const handleDeletePost = () => {
+      
         GetDeletePost(`/${detailData.id}`).then((res) => {
             GetPostList(``).then((resp) => {
                 setPostData(resp.data)
                 setResetPaginate(true)
                 setToggleModalDelete(false)
                 toast.success("success delete a post")
+                if(window.location.href.includes("detail")){
+                    window.location.replace("/employee-forum")
+                }
             })
         }).catch((err) => {
             toast.error(`err ${err.error}`)

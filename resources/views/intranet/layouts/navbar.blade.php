@@ -29,9 +29,9 @@
                 <!-- <h4 class=" px-4 text-xs text-center mb-10 mt-3">No Notification</h4> -->
 
                 @foreach ($notifs as $item)
-                    <a class="text-white gap-4 flex mx-auto px-2 py-1 cursor-pointer border-b border-blue-950 {{ $item->read_at == null ? 'bg-[#384478]' : 'bg-[#1D2A47]'  }}" href="{{ route('notif.read', $item->id) }}">
+                    <a class="text-white gap-4 flex px-2 py-1 cursor-pointer border-b border-blue-950 {{ $item->read_at == null ? 'bg-[#384478]' : 'bg-[#1D2A47]'  }}" href="{{ route('notif.read', $item->id) }}">
                         <img src="{{ strpos($item->userFrom->image_user, 'http') !== false ? $item->userFrom->image_user : url('storage/profile_picture/'.$item->userFrom->image_user) }}" alt="profile" class="w-10 h-10 rounded-full">
-                        <div class="flex flex-col">
+                        <div class="flex flex-col w-5/6">
                             <p class="text-white text-xs">
                                 {{ $item->notif_description }}
                             </p>
