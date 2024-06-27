@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div tabindex="0" class="mt-3 z-[1] bg-[#1D2A47] -left-[30] card card-compact  dropdown-content w-80 shadow">
-                <h4 class=" px-4 font-semibold my-3 text-white bg-[#36447E] py-3 rounded-t-lg">Notification</h4>
+                <h4 class=" px-4 font-semibold text-white bg-[#36447E] py-3 rounded-t-lg">Notification</h4>
                 <!-- <h4 class=" px-4 text-xs text-center mb-10 mt-3">No Notification</h4> -->
 
                 @foreach ($notifs as $item)
@@ -50,7 +50,7 @@
                 <p class="text-semibold  text-white mx-4">{{ explode(' ', Auth::user()->name)[0] }}</p>
                 <div class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 ">
-                        <img alt="profile" class="rounded-full"  src="{{ strpos(Auth::user()->image_user, 'http') !== false ? Auth::user()->image_user : url('storage/profile_picture/'.Auth::user()->image_user) }} " onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'"/>
+                        <img alt="profile" class="rounded-full"  src="{{ strpos(Auth::user()->image_user, 'http') !== false ? Auth::user()->image_user : url('storage/profile_picture/'.Auth::user()->image_user) }} " onerror="this.src='{{ asset('assets/images/default-profile.png') }}'"/>
                     </div>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white ml-2 mr-5">

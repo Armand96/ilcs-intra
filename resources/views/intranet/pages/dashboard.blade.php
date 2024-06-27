@@ -159,7 +159,7 @@
                         {{ Illuminate\Support\Carbon::createFromFormat('Y-m-d', $birth->tgl_lahir)->format('d F') }}
                     </h1>
                     <div class="w-1/6 mx-6">
-                        <img src="{{ $birth->image_user }}" alt="" onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
+                        <img src="{{ $birth->image_user }}" alt="" onerror="this.src='{{ asset('assets/images/default-profile.png') }}'" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
                     </div>
                     <div class="w-4/6 lg:text-sm">
                         <h4 class="font-semibold text-xs text-white">{{ $birth->name }}</h4>
@@ -180,7 +180,7 @@
                 <div class="flex mb-6 relative">
                 <div class="w-1/6 block lg:hidden"></div>
                 <div class="w-1/6 mx-6">
-                        <img src="{{ $emp->image_user }}" alt="" onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
+                        <img src="{{ $emp->image_user }}" alt="" onerror="this.src='{{ asset('assets/images/default-profile.png') }}'" class="rounded-full object-cover absolute border border-blue-700  w-8 h-8 ">
                     </div>
                     <div class="w-5/6 text-sm">
                         <h4 class="font-semibold text-xs text-white">{{ $emp->name }}</h4>
@@ -201,7 +201,7 @@
                 <div class="flex mb-6 relative ">
                 <div class="w-1/6 block lg:hidden"></div>
                     <div class="w-1/6 mx-6 ">
-                        <img src="{{ $far->image_user }}" alt="" onerror="this.src='{{ asset('assets/images/default-profile.svg') }}'" class="rounded-full absolute object-cover border border-blue-700  w-8 h-8 ">
+                        <img src="{{ $far->image_user }}" alt="" onerror="this.src='{{ asset('assets/images/default-profile.png') }}'" class="rounded-full absolute object-cover border border-blue-700  w-8 h-8 ">
                     </div>
                     <div class="w-5/6 text-sm">
                         <h4 class="font-semibold text-xs text-white">{{ $far->name }}</h4>
