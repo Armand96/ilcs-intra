@@ -68,7 +68,7 @@
                     </thead>
                     <tbody>
                         @foreach ($users as $index => $usr)
-                            <tr class="{{ !$usr->is_active ? 'bg-orange-600' : '' }}">
+                            <tr class="{{ !$usr->is_active ? 'bg-gray-900' : '' }}">
                                 <th>{{ $usr->id }}</th>
                                 <td class="w-1/6 text-wrap"> {{ $usr->username }} </td>
                                 <td> {{ $usr->name }} </td>

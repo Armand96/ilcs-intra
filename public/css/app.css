@@ -3765,6 +3765,10 @@ html:has(.drawer-toggle:checked) {
 .bg-\[\#5d5b6c\]\/\[20\%\] {
   background-color: rgb(93 91 108 / 20%);
 }
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -4296,6 +4300,10 @@ html:has(.drawer-toggle:checked) {
     width: 100%;
   }
 
+  .lg\:w-1\/12 {
+    width: 8.333333%;
+  }
+
   .lg\:flex-1 {
     flex: 1 1 0%;
   }
@@ -4310,6 +4318,10 @@ html:has(.drawer-toggle:checked) {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lg\:flex-row {
