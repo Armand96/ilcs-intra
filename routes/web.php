@@ -98,6 +98,10 @@ Route::group(['middleware' =>['auth', 'checkz']], function() {
         return view('intranet.pages.knowledge_management');
     })->name('knowledge.management');
 
+    Route::get('/profile', function() {
+        return view('intranet.pages.profile');
+    })->name('profile');
+
     Route::get('/laporan-management', function() {
         return view('intranet.pages.laporan_management');
     })->name('laporan.management');
