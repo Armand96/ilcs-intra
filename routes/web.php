@@ -13,6 +13,7 @@ use App\Http\Controllers\CMS\UserCMSController;
 use App\Http\Controllers\CMSController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KnowledgeController;
+use App\Http\Controllers\LaporanRapatController;
 // use App\Http\Controllers\EventController;
 use App\Http\Controllers\LeaderController;
 use App\Http\Controllers\LinkController;
@@ -105,9 +106,7 @@ Route::group(['middleware' =>['auth', 'checkz']], function() {
         return view('intranet.pages.profile');
     })->name('profile');
 
-    Route::get('/laporan-management', function() {
-        return view('intranet.pages.laporan_management');
-    })->name('laporan.management');
+    Route::get('/laporan-management', [LaporanRapatController::class, 'laporanRapat'])->name('laporan.management');
 
     Route::get('/notifRead/{notifId}', [NotificationController::class, 'readNotif'])->name('notif.read');
     /* ================== DATA FETCH ================== */
