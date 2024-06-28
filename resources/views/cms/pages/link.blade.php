@@ -131,7 +131,7 @@
             <div class="modal-action">
                 <form id="delete_form" method="POST" action="">
                     @csrf
-                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_method" value="DELETE" id="delete_method">
                     <!-- if there is a button in form, it will close the modal -->
                     <span method="dialog">
                         <button type="button" onclick="closeDeleteModal()" class="btn btn-neutral mr-3">cancel</button>
@@ -175,6 +175,7 @@
         }
 
         function deleteModal(idLink) {
+            $('#delete_method').val("DELETE");
             $('#delete_form').prop('action', '{{ route('links.index') }}/' + idLink)
             $('#delete_modal').addClass('modal-open');
         }
