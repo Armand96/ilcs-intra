@@ -7122,6 +7122,9 @@ var InputPostArticle = function InputPostArticle() {
         "class": "w-full flex gap-6 items-center",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
           src: getProfile !== null && getProfile !== void 0 && getProfile.image_user ? getProfile === null || getProfile === void 0 ? void 0 : getProfile.image_user : "../../assets/images/sosmed/foto-profile.svg",
+          onError: function onError(e) {
+            return e.target.src = window.location.origin + "/assets/images/sosmed/foto-profile.svg";
+          },
           alt: "profile",
           "class": "w-10 h-10 rounded-full"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {

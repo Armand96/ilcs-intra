@@ -10,10 +10,10 @@ export const InputPostArticle = () => {
     return (
         <>
 
-           {toggleModalPost && <ModalPost show={toggleModalPost} toggle={() => setToggleModalPost(!toggleModalPost)} /> }  
+           {toggleModalPost && <ModalPost show={toggleModalPost} toggle={() => setToggleModalPost(!toggleModalPost)} /> }
             <div class="bg-[#283358] flex flex-col w-5/6 mx-auto mt-5 mb-6 px-4 py-4 border border-blue-900 rounded-xl">
                 <div class="w-full flex gap-6 items-center">
-                    <img src={getProfile?.image_user ? getProfile?.image_user : "../../assets/images/sosmed/foto-profile.svg"} alt="profile" class="w-10 h-10 rounded-full" />
+                    <img src={getProfile?.image_user ? getProfile?.image_user : "../../assets/images/sosmed/foto-profile.svg"} onError={(e) => e.target.src = window.location.origin + "/assets/images/sosmed/foto-profile.svg"} alt="profile" class="w-10 h-10 rounded-full" />
                     <div onClick={() => setToggleModalPost(!toggleModalPost)} class="w-11/12 border border-blue-900 bg-[#384478] flex px-2 py-3 justify-between rounded-md items-center">
                         <p class="text-[#E9E9E9] text-xs">Buat postingan berbagilah sesuatu</p>
                         <img src="../../assets/images/sosmed/send-icon.svg" class="w-6 h-6" />
