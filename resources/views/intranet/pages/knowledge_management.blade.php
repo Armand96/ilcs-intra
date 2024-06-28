@@ -22,7 +22,7 @@
     <div class="flex flex-col w-full lg:w-1/4 2xl:w-1/6 px-4 py-5 gap-5 our-regulation-background border rounded-xl border-blue-950">
 
         @foreach ($knowledges as $index => $know)
-            <div class="text-center bg-login-button text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer " data-tab-target="#tab{{$index}}">
+            <div class="text-center {{ $index == 0 ? "bg-login-button" : "" }} text-white login-button flex justify-center items-center px-3 py-2 rounded-xl cursor-pointer " data-tab-target="#tab{{$index}}">
                 <p class="font-semibold text-base">
                     {{$know->judul}}
                 </p>
@@ -50,7 +50,7 @@
     <div id="tab-contents" class="w-full lg:w-3/4 2xl:w-5/6 our-regulation-background border rounded-xl border-blue-950 ">
 
         @foreach ($knowledges as $index => $know)
-            <div class="w-full flex flex-col px-4 py-5 text-white" id="tab{{$index}}">
+            <div class="w-full {{$index == 0 ? "flex" : "hidden"}} flex-col px-4 py-5 text-white" id="tab{{$index}}">
                 <h1 class="text-2xl font-semibold">{{ $know->judul }}</h1>
                 <p class="text-sm mt-4">
                     {!! $know->description !!}
