@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,5 +23,10 @@ class DatabaseSeeder extends Seeder
             LeaderSeeder::class,
             LinkSeeder::class,
         ]);
+
+        // Artisan::call('generate:query');
+        // Artisan::call('generate:sangfor');
+        // Artisan::call('user:addcol');
+        // Artisan::call('adjust:role');
     }
 }

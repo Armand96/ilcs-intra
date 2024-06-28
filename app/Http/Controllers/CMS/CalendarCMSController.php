@@ -36,8 +36,8 @@ class CalendarCMSController extends Controller
 
         $calendarEvents = $query->select([
             'id', 'judul AS title', 'tgl_cal_event_start AS start', 'tgl_cal_event_end AS end', 'description AS desc',
-            DB::raw("CASE WHEN tipe = 'libur' THEN 'red' WHEN tipe = 'event' THEN 'blue' ELSE 'grey' END AS color"),
-        ])->get();
+            DB::raw("CASE WHEN tipe = 'libur' THEN '#D42121' WHEN tipe = 'event' THEN '#37B6E1' ELSE 'grey' END AS color"),
+        ])->whereIn('event', ['libur', 'event'])->get();
 
         return view('cms.pages.calendar', compact('calendarEvents'));
     }

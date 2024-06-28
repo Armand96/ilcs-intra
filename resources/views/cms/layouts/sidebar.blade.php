@@ -82,6 +82,13 @@
                     </div>
                     <p class="mt-2 text-sm">Event</p>
                 </a>
+                <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'knowledges.index' ? 'menu-child-active' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
+                    href="{{ route('knowledges.index') }}">
+                    <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'knowledges.index' ? 'hex-icon-active' : 'hex-icon' }}">
+                        <img src="{{ asset('assets/images/icon/calendar-icon.svg') }}" alt="">
+                    </div>
+                    <p class="mt-2 text-sm">Knowledge</p>
+                </a>
                 <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'kpis.index' ? 'menu-child-active' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
                     href="{{ route('kpis.index') }}">
                     <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'kpis.index' ? 'hex-icon-active' : 'hex-icon' }}">

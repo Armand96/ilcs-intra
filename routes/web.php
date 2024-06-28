@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CKUploaderController;
 use App\Http\Controllers\cms\CalendarCMSController;
+use App\Http\Controllers\cms\KnowledgeCMSController;
 use App\Http\Controllers\cms\KPICMSController;
 use App\Http\Controllers\CMS\LeaderCMSController;
 use App\Http\Controllers\CMS\LinkCMSController;
@@ -10,7 +11,7 @@ use App\Http\Controllers\CMS\RegulasiCMSController;
 use App\Http\Controllers\CMS\UserCMSController;
 use App\Http\Controllers\CMSController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\EventController;
+// use App\Http\Controllers\EventController;
 use App\Http\Controllers\LeaderController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\NewsController;
@@ -60,6 +61,7 @@ Route::group(
     Route::resource('news', NewsCMSController::class);
     Route::resource('calendars', CalendarCMSController::class);
     Route::resource('kpis', KPICMSController::class);
+    Route::resource('knowledges', KnowledgeCMSController::class);
 });
 
 Route::post('ckupload', [CKUploaderController::class, 'upload']);
