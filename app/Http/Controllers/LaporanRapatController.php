@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LaporanRapat;
 use App\Models\LaporanRapatKategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class LaporanRapatController extends Controller
@@ -13,6 +14,7 @@ class LaporanRapatController extends Controller
     {
         $kategoris = LaporanRapatKategori::all();
         $laporans = LaporanRapat::orderBy('kategori_id', 'ASC')->get();
+        $year = DB::select(DB::raw("SELECT YEAR(tgl_laporan) as tahun_laporan FROM laporan_rapats GROUP BY tahun_laporan"));
 
         foreach ($laporans as $key => $reg) {
             if (Storage::disk('public')->exists("laporan_rapat/" . $reg->file_path)) {
@@ -23,6 +25,6 @@ class LaporanRapatController extends Controller
             }
         }
 
-        return view('intranet.pages.laporan_management', compact('kategoris', 'laporans'));
+        return view('intranet.pages.laporan_management', compact('kategoris', 'laporans', 'year'));
     }
 }
