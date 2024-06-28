@@ -11,6 +11,7 @@ use App\Http\Controllers\CMS\RegulasiCMSController;
 use App\Http\Controllers\CMS\UserCMSController;
 use App\Http\Controllers\CMSController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KnowledgeController;
 // use App\Http\Controllers\EventController;
 use App\Http\Controllers\LeaderController;
 use App\Http\Controllers\LinkController;
@@ -96,9 +97,7 @@ Route::group(['middleware' =>['auth', 'checkz']], function() {
     //     return view('regulations');
     // });
 
-    Route::get('/knowledge-management', function() {
-        return view('intranet.pages.knowledge_management');
-    })->name('knowledge.management');
+    Route::get('/knowledge-management', [KnowledgeController::class, 'knowledge'])->name('knowledge.management');
 
     Route::get('/profile', function() {
         return view('intranet.pages.profile');
