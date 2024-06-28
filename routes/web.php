@@ -4,6 +4,7 @@ use App\Http\Controllers\CKUploaderController;
 use App\Http\Controllers\cms\CalendarCMSController;
 use App\Http\Controllers\cms\KnowledgeCMSController;
 use App\Http\Controllers\cms\KPICMSController;
+use App\Http\Controllers\CMS\LaporanRapatCMSController;
 use App\Http\Controllers\CMS\LeaderCMSController;
 use App\Http\Controllers\CMS\LinkCMSController;
 use App\Http\Controllers\cms\NewsCMSController;
@@ -63,6 +64,7 @@ Route::group(
     Route::resource('calendars', CalendarCMSController::class);
     Route::resource('kpis', KPICMSController::class);
     Route::resource('knowledges', KnowledgeCMSController::class);
+    Route::resource('laporans', LaporanRapatCMSController::class);
 });
 
 Route::post('ckupload', [CKUploaderController::class, 'upload']);
