@@ -25,7 +25,7 @@ import ImageGallery from "react-image-gallery";
   return (
    <div className="mt-4 container">
    
-    <ImageGallery items={imageContent} showNav={false} showBullets showPlayButton={false} />
+    <ImageGallery items={imageContent} showNav={window.innerWidth > 1000 ? true : false} showBullets showPlayButton={false} />
    </div>
   )
 }
