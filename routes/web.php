@@ -102,9 +102,12 @@ Route::group(['middleware' =>['auth', 'checkz']], function() {
 
     Route::get('/knowledge-management', [KnowledgeController::class, 'knowledge'])->name('knowledge.management');
 
+    /* PROFILE */
     Route::get('/profile', function() {
         return view('intranet.pages.profile');
     })->name('profile');
+
+    Route::put('/updateProfile', [UserController::class, 'update'])->name('update.profile');
 
     Route::get('/laporan-management', [LaporanRapatController::class, 'laporanRapat'])->name('laporan.management');
 
