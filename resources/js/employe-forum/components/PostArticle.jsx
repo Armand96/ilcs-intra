@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Comment } from './Comment1'
 import moment from 'moment'
-import { GetDeleteComment, GetDeletePost, GetPostList, PostCommentArticle, PostDisLike, PostEditArticle, PostEditComment, PostLike } from '../services/Api'
+import { GetDeleteComment, GetDeletePost, GetPostList, PostCommentArticle, PostDisLike, PostEditArticle, PostEditComment, PostLike, PostView } from '../services/Api'
 import usePostStore from '../stores/PostStore'
 import { ModalComment } from './ModalComment'
 import { toast } from 'react-toastify'
 import { ModalPost } from './ModalPost'
+import { useInView } from 'react-intersection-observer'
 
 export const PostArticle = ({ obj, getProfile }) => {
     const setPostData = usePostStore((state) => state.updatePostData)
@@ -18,7 +19,11 @@ export const PostArticle = ({ obj, getProfile }) => {
     const [toggleModalEdit, setToggleModalEdit] = useState(false)
     const [toggleModalDelete, setToggleModalDelete] = useState(false)
     const setResetPaginate = usePostStore((state) => state.setResetPaginate)
-
+    const { ref, inView } = useInView({
+        triggerOnce: true, // Hanya trigger sekali ketika pertama kali masuk viewport
+        threshold: 0.5, // Komponen dianggap terlihat jika 50% dari komponen sudah masuk viewport
+      });
+    
     // console.log()
 
     useEffect(() => {
@@ -28,11 +33,29 @@ export const PostArticle = ({ obj, getProfile }) => {
         }
     }, [getProfile])
 
+
+
     // console.log("LIKE",isLike,"obj", obj?.likers, "profle", getProfile?.id)
 
     useEffect(() => {
         setDetailData(obj)
     }, [obj])
+
+    useEffect(() => {
+        if (inView) {
+          // Fungsi untuk mengirim data ketika komponen terlihat
+          PostView(`/${obj?.id}`).then((res) => {
+            GetPostList(`/${obj?.id}`).then((resp) => {
+                let currentIndex = getPostData?.data?.findIndex((x) => x?.id === obj?.id);
+                setDetailData(resp.data)
+                getPostData.data[currentIndex] = resp.data
+                setPostData(getPostData)
+            })
+        })
+          };
+    
+         
+      }, [inView]);
 
     const handleLike = () => {
 
@@ -109,7 +132,7 @@ export const PostArticle = ({ obj, getProfile }) => {
 
     const handleLikeComment = (obj) => {
         if (obj?.isLike) {
-            PostDisLike({ 'post_id': detailData?.id, 'comment_id': obj?.id }).then((res) => {
+            PostDisLike({ 'comment_id': obj?.id }).then((res) => {
                 GetPostList(`/${detailData?.id}`).then((resp) => {
                     let currentIndex = getPostData?.data?.findIndex((x) => x?.id === obj?.id);
                     setDetailData(resp.data)
@@ -120,7 +143,7 @@ export const PostArticle = ({ obj, getProfile }) => {
                 toast.error(`err ${err.error}`)
             })
         } else {
-            PostLike({ 'post_id': detailData?.id, 'comment_id': obj?.id }).then((res) => {
+            PostLike({ 'comment_id': obj?.id }).then((res) => {
                 GetPostList(`/${detailData?.id}`).then((resp) => {
                     let currentIndex = getPostData?.data?.findIndex((x) => x?.id === obj?.id);
                     setDetailData(resp.data)
@@ -134,7 +157,7 @@ export const PostArticle = ({ obj, getProfile }) => {
     }
 
     const handleDelete = (obj) => {
-        console.log("LOCATION",window.location.href)
+        console.log("LOCATION", window.location.href)
         // GetDeleteComment(`/${obj.id}`).then((res) => {
         //     GetPostList(`/${detailData?.id}`).then((resp) => {
         //         let currentIndex = getPostData?.data?.findIndex((x) => x?.id === detailData?.id);
@@ -165,14 +188,14 @@ export const PostArticle = ({ obj, getProfile }) => {
 
 
     const handleDeletePost = () => {
-      
+
         GetDeletePost(`/${detailData.id}`).then((res) => {
             GetPostList(``).then((resp) => {
                 setPostData(resp.data)
                 setResetPaginate(true)
                 setToggleModalDelete(false)
                 toast.success("success delete a post")
-                if(window.location.href.includes("detail")){
+                if (window.location.href.includes("detail")) {
                     window.location.replace("/employee-forum")
                 }
             })
@@ -206,11 +229,11 @@ export const PostArticle = ({ obj, getProfile }) => {
             </dialog>
 
 
-            <div className="bg-[#283358] flex flex-col  w-5/6 mx-auto px-4 py-4 border border-blue-900 rounded-xl">
+            <div className="bg-[#283358] flex flex-col  w-5/6 mx-auto px-4 py-4 border border-blue-900 rounded-xl" ref={ref}>
 
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-5">
-                        <img src={detailData?.posted_by?.image_user ? detailData?.posted_by?.image_user.includes("http") ?  detailData?.posted_by?.image_user : `../../storage/profile_picture/${detailData?.posted_by?.image_user}` : "../../assets/images/sosmed/foto-profile.svg"} alt="profile" className="w-8 h-8 rounded-full" />
+                        <img src={detailData?.posted_by?.image_user ? detailData?.posted_by?.image_user.includes("http") ? detailData?.posted_by?.image_user : `../../storage/profile_picture/${detailData?.posted_by?.image_user}` : "../../assets/images/sosmed/foto-profile.svg"} onError={(e) => e.target.src = window.location.origin + "/assets/images/sosmed/foto-profile.svg"} alt="profile" className="w-8 h-8 rounded-full" />
                         <div className="flex flex-col">
                             <p className="text-white items-center text-sm">
                                 <span className="font-bold">{detailData?.posted_by?.name}</span> | <span className="font-light"> {detailData?.posted_by?.jabatan}</span>
@@ -239,6 +262,26 @@ export const PostArticle = ({ obj, getProfile }) => {
                     <p className="text-sm text-white">
                         {detailData && detailData?.content}
                     </p>
+                    <div className="w-full flex flex-col">
+                        {detailData?.files[0]?.tipe === "gambar" ? detailData?.files?.map((image, index) => (
+                            <div key={index} className='w-5/6'>
+                                <img src={`../../storage/employee_forum/${image?.path_file}`} alt={`Slide ${index}`} className='w-full mt-5 h-36 object-cover' />
+                            </div>
+                        )) : detailData?.files?.map((file, index) => (
+                            <a target='_blank' href={`../../storage/employee_forum/${file?.path_file}`} className="flex border border-blue-800 rounded-xl mt-5 w-full items-center gap-6 data-file" key={index}>
+                                <div className="w-1/6 flex items-center justify-center ">
+                                    <img src="../../assets/images/sosmed/file-upload-icon.svg" alt="pdf icon" className="size-24  bg-[#00000033] rounded-full p-3" />
+                                </div>
+                                <div className="flex flex-col w-4/6">
+                                    <p className="text-white text-sm mb-2">
+                                        {file?.path_file?.replace("_", " ")}
+                                    </p>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+
+
                     {/* <img src="../../assets/images/background/login-right-image.svg" className="w-full mt-6 top-3 h-[26rem] rounded-lg detailDataect-cover" /> */}
                 </div>
 
@@ -267,7 +310,7 @@ export const PostArticle = ({ obj, getProfile }) => {
                     <div className={isLike ? "w-2/6 flex items-center flex-row-reverse gap-3" : "w-full flex items-center flex-row-reverse gap-3"}>
                         <p className="text-xs font-light mt-1 text-white">{detailData?.total_like}</p>
                         <img src="../../assets/images/sosmed/eye-icon.svg" className="h-4 w-4" alt="like" />
-                        <p className="text-xs font-light mt-1 text-white">{detailData?.total_view}</p>
+                        <p className="text-xs font-light mt-1 text-white">{detailData?.total_comments}</p>
                         <img src="../../assets/images/sosmed/comment-icon.svg" className="h-4 w-4" alt="like" />
                     </div>
                 </div>

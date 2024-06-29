@@ -7091,7 +7091,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _ModalPost__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ModalPost */ "./resources/js/employe-forum/components/ModalPost.jsx");
 /* harmony import */ var _stores_ProfileStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../stores/ProfileStore */ "./resources/js/employe-forum/stores/ProfileStore.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _ModalPostFoto__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ModalPostFoto */ "./resources/js/employe-forum/components/ModalPostFoto.jsx");
+/* harmony import */ var _ModalPostFile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ModalPostFile */ "./resources/js/employe-forum/components/ModalPostFile.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -7102,72 +7104,104 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 var InputPostArticle = function InputPostArticle() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     toggleModalPost = _useState2[0],
     setToggleModalPost = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    toggleModalPostFoto = _useState4[0],
+    setToggleModalPostFoto = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    toggleModalPostFile = _useState6[0],
+    setToggleModalPostFile = _useState6[1];
   var getProfile = (0,_stores_ProfileStore__WEBPACK_IMPORTED_MODULE_2__["default"])(function (state) {
     return state.profile;
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [toggleModalPost && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_ModalPost__WEBPACK_IMPORTED_MODULE_1__.ModalPost, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [toggleModalPost && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ModalPost__WEBPACK_IMPORTED_MODULE_1__.ModalPost, {
+      toggleModalFoto: function toggleModalFoto() {
+        setToggleModalPost(!toggleModalPost);
+        setToggleModalPostFoto(!toggleModalPostFoto);
+      },
+      toggleModalFile: function toggleModalFile() {
+        setToggleModalPost(!toggleModalPost);
+        setToggleModalPostFile(!toggleModalPostFile);
+      },
       show: toggleModalPost,
       toggle: function toggle() {
         return setToggleModalPost(!toggleModalPost);
       }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), toggleModalPostFile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ModalPostFile__WEBPACK_IMPORTED_MODULE_4__.ModalPostFile, {
+      show: toggleModalPostFile,
+      toggle: function toggle() {
+        return setToggleModalPostFile(!toggleModalPostFile);
+      }
+    }), toggleModalPostFoto && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ModalPostFoto__WEBPACK_IMPORTED_MODULE_3__.ModalPostFoto, {
+      show: toggleModalPostFoto,
+      toggle: function toggle() {
+        return setToggleModalPostFoto(!toggleModalPostFoto);
+      }
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       "class": "bg-[#283358] flex flex-col w-5/6 mx-auto mt-5 mb-6 px-4 py-4 border border-blue-900 rounded-xl",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         "class": "w-full flex gap-6 items-center",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
           src: getProfile !== null && getProfile !== void 0 && getProfile.image_user ? getProfile === null || getProfile === void 0 ? void 0 : getProfile.image_user : "../../assets/images/sosmed/foto-profile.svg",
           onError: function onError(e) {
             return e.target.src = window.location.origin + "/assets/images/sosmed/foto-profile.svg";
           },
           alt: "profile",
           "class": "w-10 h-10 rounded-full"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           onClick: function onClick() {
             return setToggleModalPost(!toggleModalPost);
           },
           "class": "w-11/12 border border-blue-900 bg-[#384478] flex px-2 py-3 justify-between rounded-md items-center",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
             "class": "text-[#E9E9E9] text-xs",
             children: "Buat postingan berbagilah sesuatu"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             src: "../../assets/images/sosmed/send-icon.svg",
             "class": "w-6 h-6"
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         "class": "w-11/12 flex mt-4 justify-between gap-6",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          onclick: "togglePostImageModal()",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          onClick: function onClick() {
+            return setToggleModalPostFoto(true);
+          },
           "class": "w-2/6 justify-center flex items-center gap-6 border-r border-r-white",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             src: "../../assets/images/sosmed/foto-icon.svg",
             alt: ""
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
             "class": "text-white text-xs",
             children: "Foto"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           "class": "w-2/6 justify-center flex items-center gap-6 border-r border-r-white",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             src: "../../assets/images/sosmed/video-icon.svg",
             alt: ""
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
             "class": "text-white text-xs",
             children: "Video"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          onclick: "togglePostFileModal()",
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          onClick: function onClick() {
+            return setToggleModalPostFile(true);
+          },
           "class": "w-2/6 justify-center flex items-center gap-6",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             src: "../../assets/images/sosmed/file-icon.svg",
             alt: ""
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
             "class": "text-white text-xs",
             children: "File"
           })]
@@ -7307,6 +7341,8 @@ var ModalPost = function ModalPost(_ref) {
   var toggle = _ref.toggle,
     show = _ref.show,
     handleEditPost = _ref.handleEditPost,
+    toggleModalFoto = _ref.toggleModalFoto,
+    toggleModalFile = _ref.toggleModalFile,
     obj = _ref.obj;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       content: ""
@@ -7369,7 +7405,10 @@ var ModalPost = function ModalPost(_ref) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
           src: getProfile !== null && getProfile !== void 0 && getProfile.image_user ? getProfile !== null && getProfile !== void 0 && getProfile.image_user.includes("http") ? getProfile === null || getProfile === void 0 ? void 0 : getProfile.image_user : "../../storage/profile_picture/".concat(getProfile === null || getProfile === void 0 ? void 0 : getProfile.image_user) : "../../assets/images/sosmed/foto-profile.svg",
           alt: "profile",
-          className: "w-8 h-8 rounded-full"
+          className: "w-8 h-8 rounded-full",
+          onError: function onError(e) {
+            return e.target.src = window.location.origin + "/assets/images/sosmed/foto-profile.svg";
+          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           "class": "flex flex-col",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
@@ -7399,7 +7438,7 @@ var ModalPost = function ModalPost(_ref) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           "class": "w-6/12 flex mt-4 items-center justify-between gap-6",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            onclick: "togglePostImageModal();togglePostModal()",
+            onClick: toggleModalFoto,
             "class": "w-2/6 justify-center flex items-center gap-6 border-r border-r-[#E1E5F6]",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
               src: "../../assets/images/sosmed/foto-icon.svg",
@@ -7418,6 +7457,7 @@ var ModalPost = function ModalPost(_ref) {
               children: "Video"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            onClick: toggleModalFile,
             "class": "w-2/6 justify-center flex items-center gap-6",
             onclick: "togglePostFileModal();togglePostModal()",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
@@ -7448,6 +7488,576 @@ var ModalPost = function ModalPost(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/employe-forum/components/ModalPostFile.jsx":
+/*!*****************************************************************!*\
+  !*** ./resources/js/employe-forum/components/ModalPostFile.jsx ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModalPostFile: () => (/* binding */ ModalPostFile)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _stores_PostStore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stores/PostStore */ "./resources/js/employe-forum/stores/PostStore.js");
+/* harmony import */ var _stores_ProfileStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../stores/ProfileStore */ "./resources/js/employe-forum/stores/ProfileStore.js");
+/* harmony import */ var _services_Api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/Api */ "./resources/js/employe-forum/services/Api.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var ModalPostFile = function ModalPostFile(_ref) {
+  var _contentData$files;
+  var toggle = _ref.toggle,
+    show = _ref.show,
+    handleEditPost = _ref.handleEditPost,
+    obj = _ref.obj;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      content: "",
+      files: []
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    contentData = _useState2[0],
+    setContentData = _useState2[1];
+  var getProfile = (0,_stores_ProfileStore__WEBPACK_IMPORTED_MODULE_2__["default"])(function (state) {
+    return state.profile;
+  });
+  var setPostData = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_1__["default"])(function (state) {
+    return state.updatePostData;
+  });
+  var setResetPaginate = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_1__["default"])(function (state) {
+    return state.setResetPaginate;
+  });
+  var PostData = function PostData() {
+    var formData = new FormData();
+    formData.append('content', contentData.content);
+    contentData.files.forEach(function (image, index) {
+      formData.append("files[".concat(index, "]"), image);
+    });
+    (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostArticleData)(formData).then(function (res) {
+      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("").then(function (resp) {
+        react_toastify__WEBPACK_IMPORTED_MODULE_4__.toast.success("success make a post");
+        setPostData(resp.data);
+        toggle();
+        setResetPaginate(true);
+      });
+    })["catch"](function (err) {
+      react_toastify__WEBPACK_IMPORTED_MODULE_4__.toast.error("err ".concat(err.error));
+      toggle();
+    });
+  };
+  var handleAdd = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
+      var filesRaw;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            filesRaw = _toConsumableArray(e.target.files);
+            if (filesRaw) {
+              setContentData(_objectSpread(_objectSpread({}, contentData), {}, {
+                files: [].concat(_toConsumableArray(contentData.files), _toConsumableArray(filesRaw))
+              }));
+            }
+            e.target.value = '';
+          case 3:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee);
+    }));
+    return function handleAdd(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  var handleDelete = function handleDelete(index) {
+    var updateFiles = contentData.files.filter(function (_, i) {
+      return i !== index;
+    });
+    setContentData(_objectSpread(_objectSpread({}, contentData), {}, {
+      files: updateFiles
+    }));
+    console.log(updateFiles);
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setContentData(_objectSpread(_objectSpread({}, contentData), {}, {
+      content: (obj === null || obj === void 0 ? void 0 : obj.content) || ""
+    }));
+  }, [obj]);
+  var handleEditPostPrepare = function handleEditPostPrepare() {
+    var formData = new FormData();
+    formData.append('content', contentData.content);
+    contentData.files.forEach(function (image, index) {
+      formData.append("files[".concat(index, "]"), image);
+    });
+    handleEditPost(formData);
+  };
+  var formatFileSize = function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    var k = 1024;
+    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB'];
+    var i = Math.floor(Math.log(bytes) / Math.log(k));
+    return "".concat(parseFloat((bytes / Math.pow(k, i)).toFixed(2)), " ").concat(sizes[i]);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("dialog", {
+      id: "buat-post",
+      className: show ? "modal modal-open" : "modal",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "modal-box max-w-3xl bg-[#283358]",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("form", {
+          method: "dialog",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+            onClick: toggle,
+            className: "btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full",
+            children: "\u2715"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+          className: "font-bold text-white text-lg",
+          children: obj ? "Edit a Post" : "Create a Post"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "flex items-center gap-5 mt-8",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+            src: getProfile !== null && getProfile !== void 0 && getProfile.image_user ? getProfile !== null && getProfile !== void 0 && getProfile.image_user.includes("http") ? getProfile === null || getProfile === void 0 ? void 0 : getProfile.image_user : "../../storage/profile_picture/".concat(getProfile === null || getProfile === void 0 ? void 0 : getProfile.image_user) : "../../assets/images/sosmed/foto-profile.svg",
+            alt: "profile",
+            className: "w-8 h-8 rounded-full",
+            onError: function onError(e) {
+              return e.target.src = window.location.origin + "/assets/images/sosmed/foto-profile.svg";
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "flex flex-col",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              className: "text-white items-center text-sm",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                className: "font-bold",
+                children: getProfile === null || getProfile === void 0 ? void 0 : getProfile.name
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              className: "text-[#37B6E1] font-light text-xs",
+              children: "Post to Employee Forum"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("label", {
+          htmlFor: "file-input-2",
+          id: "firstFileInput",
+          className: "w-full ".concat(contentData.files.length > 0 ? "hidden" : "flex", " flex-col mt-5 rounded-xl outline-none text-white px-4 py-5 text-xs bg-[#384478FC]"),
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+            src: "../../assets/images/sosmed/file-upload-icon.svg",
+            alt: "profile",
+            "class": "self-center w-6 h-6"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+            type: "file",
+            id: "file-input-2",
+            className: "hidden",
+            multiple: true,
+            onChange: handleAdd
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
+            "class": "text-white font-bold text-sm self-center my-2",
+            children: "Upload a Document"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+            "class": "text-[#BCBCBD] font-bold text-xs self-center",
+            children: "Support PDF, Docx and Xlxs"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+            "class": "text-[#BCBCBD] font-bold text-xs self-center",
+            children: "Maximum upload file size 10MB"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+            "class": "text-[#4AA5FF] font-bold text-xs self-center mt-2",
+            children: "Choose File.."
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
+          onChange: function onChange(v) {
+            return setContentData(_objectSpread(_objectSpread({}, contentData), {}, {
+              content: v.target.value
+            }));
+          },
+          value: contentData.content,
+          className: "".concat(contentData.files.length > 0 ? "flex" : "hidden", " w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]")
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          id: "preview-image-list",
+          className: "mt-6 ".concat(contentData.files.length > 0 ? "flex" : "hidden", " w-full gap-6 flex-wrap"),
+          children: [contentData === null || contentData === void 0 || (_contentData$files = contentData.files) === null || _contentData$files === void 0 ? void 0 : _contentData$files.map(function (file, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "flex w-full items-center gap-6 border-b data-file pb-4",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "w-1/6 flex items-center justify-center",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                  src: "../../assets/images/sosmed/file-upload-icon.svg",
+                  alt: "pdf icon",
+                  className: "size-16 bg-[#00000033] rounded-full p-3"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "flex flex-col w-4/6",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  className: "text-white text-sm mb-2",
+                  children: file === null || file === void 0 ? void 0 : file.name
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  className: "text-white text-sm",
+                  children: formatFileSize(file === null || file === void 0 ? void 0 : file.size)
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "flex w-1/6 items-center justify-center",
+                onClick: function onClick() {
+                  return handleDelete(index);
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("svg", {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  fill: "none",
+                  viewBox: "0 0 24 24",
+                  "stroke-width": "1.5",
+                  stroke: "currentColor",
+                  "class": "size-8 text-white",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round",
+                    d: "M6 18 18 6M6 6l12 12"
+                  })
+                })
+              })]
+            }, index);
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("label", {
+            "for": "file-input-2",
+            "class": "".concat(contentData.files.length > 0 ? "flex" : "hidden", " flex-col w-full py-2 bg-[#374478] rounded-md border border-blue-700 items-center justify-center "),
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              fill: "none",
+              viewBox: "0 0 24 24",
+              "stroke-width": "1.5",
+              stroke: "currentColor",
+              "class": "size-8 mb-4 text-white",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round",
+                d: "M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              "class": "text-white font-light text-xs",
+              children: "Add Another File"
+            })]
+          })]
+        }), obj ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+          id: "post-only-text",
+          className: "btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl",
+          onClick: handleEditPostPrepare,
+          children: "Update"
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+          id: "post-only-text",
+          className: "btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl",
+          onClick: PostData,
+          children: "Post"
+        })]
+      })
+    })
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/employe-forum/components/ModalPostFoto.jsx":
+/*!*****************************************************************!*\
+  !*** ./resources/js/employe-forum/components/ModalPostFoto.jsx ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ModalPostFoto: () => (/* binding */ ModalPostFoto)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _stores_PostStore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stores/PostStore */ "./resources/js/employe-forum/stores/PostStore.js");
+/* harmony import */ var _stores_ProfileStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../stores/ProfileStore */ "./resources/js/employe-forum/stores/ProfileStore.js");
+/* harmony import */ var _services_Api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/Api */ "./resources/js/employe-forum/services/Api.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var ModalPostFoto = function ModalPostFoto(_ref) {
+  var toggle = _ref.toggle,
+    show = _ref.show,
+    handleEditPost = _ref.handleEditPost,
+    obj = _ref.obj;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      content: "",
+      images: []
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    contentData = _useState2[0],
+    setContentData = _useState2[1];
+  var getProfile = (0,_stores_ProfileStore__WEBPACK_IMPORTED_MODULE_2__["default"])(function (state) {
+    return state.profile;
+  });
+  var setPostData = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_1__["default"])(function (state) {
+    return state.updatePostData;
+  });
+  var setResetPaginate = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_1__["default"])(function (state) {
+    return state.setResetPaginate;
+  });
+  var PostData = function PostData() {
+    var formData = new FormData();
+    formData.append('content', contentData.content);
+    contentData.images.forEach(function (image, index) {
+      formData.append("images[".concat(index, "]"), image);
+    });
+    (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostArticleData)(formData).then(function (res) {
+      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("").then(function (resp) {
+        react_toastify__WEBPACK_IMPORTED_MODULE_4__.toast.success("success make a post");
+        setPostData(resp.data);
+        toggle();
+        setResetPaginate(true);
+      });
+    })["catch"](function (err) {
+      react_toastify__WEBPACK_IMPORTED_MODULE_4__.toast.error("err ".concat(err.error));
+      toggle();
+    });
+  };
+  var handleAdd = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
+      var file, base64;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            file = e.target.files[0];
+            if (!file) {
+              _context.next = 6;
+              break;
+            }
+            _context.next = 4;
+            return convertToBase64(file);
+          case 4:
+            base64 = _context.sent;
+            setContentData(_objectSpread(_objectSpread({}, contentData), {}, {
+              images: [].concat(_toConsumableArray(contentData.images), [base64])
+            }));
+          case 6:
+            e.target.value = '';
+          case 7:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee);
+    }));
+    return function handleAdd(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  var handleDelete = function handleDelete(index) {
+    var updatedImages = contentData.images.filter(function (_, i) {
+      return i !== index;
+    });
+    setContentData(_objectSpread(_objectSpread({}, contentData), {}, {
+      images: updatedImages
+    }));
+  };
+  var convertToBase64 = function convertToBase64(file) {
+    return new Promise(function (resolve, reject) {
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        return resolve(reader.result);
+      };
+      reader.onerror = function (error) {
+        return reject(error);
+      };
+    });
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setContentData(_objectSpread(_objectSpread({}, contentData), {}, {
+      content: (obj === null || obj === void 0 ? void 0 : obj.content) || ""
+    }));
+  }, [obj]);
+  var handleEditPostPrepare = function handleEditPostPrepare() {
+    var formData = new FormData();
+    formData.append('content', contentData.content);
+    contentData.images.forEach(function (image, index) {
+      formData.append("images[".concat(index, "]"), image);
+    });
+    handleEditPost(formData);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("dialog", {
+      id: "buat-post",
+      className: show ? "modal modal-open" : "modal",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "modal-box max-w-3xl bg-[#283358]",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("form", {
+          method: "dialog",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+            onClick: toggle,
+            className: "btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full",
+            children: "\u2715"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+          className: "font-bold text-white text-lg",
+          children: obj ? "Edit a Post" : "Create a Post"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "flex items-center gap-5 mt-8",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+            src: getProfile !== null && getProfile !== void 0 && getProfile.image_user ? getProfile !== null && getProfile !== void 0 && getProfile.image_user.includes("http") ? getProfile === null || getProfile === void 0 ? void 0 : getProfile.image_user : "../../storage/profile_picture/".concat(getProfile === null || getProfile === void 0 ? void 0 : getProfile.image_user) : "../../assets/images/sosmed/foto-profile.svg",
+            alt: "profile",
+            className: "w-8 h-8 rounded-full",
+            onError: function onError(e) {
+              return e.target.src = window.location.origin + "/assets/images/sosmed/foto-profile.svg";
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "flex flex-col",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              className: "text-white items-center text-sm",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                className: "font-bold",
+                children: getProfile === null || getProfile === void 0 ? void 0 : getProfile.name
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              className: "text-[#37B6E1] font-light text-xs",
+              children: "Post to Employee Forum"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("label", {
+          htmlFor: "file-input",
+          id: "firstFileInput",
+          className: "w-full ".concat(contentData.images.length > 0 ? "hidden" : "flex", " flex-col mt-5 rounded-xl outline-none text-white px-4 py-5 text-xs bg-[#384478FC]"),
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+            src: "../../assets/images/sosmed/image-upload-icon.svg",
+            alt: "profile",
+            className: "self-center w-6 h-6"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+            type: "file",
+            id: "file-input",
+            accept: "image/*",
+            multiple: true,
+            className: "hidden",
+            onChange: handleAdd
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
+            className: "text-white font-bold text-sm self-center my-2",
+            children: "Upload a Picture"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+            className: "text-[#BCBCBD] font-bold text-xs self-center",
+            children: "Support PNG,JPG,JPEG"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+            className: "text-[#BCBCBD] font-bold text-xs self-center",
+            children: "Maximum upload file size 10MB"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+            className: "text-[#4AA5FF] font-bold text-xs self-center mt-2",
+            children: "Choose File.."
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
+          onChange: function onChange(v) {
+            return setContentData(_objectSpread(_objectSpread({}, contentData), {}, {
+              content: v.target.value
+            }));
+          },
+          value: contentData.content,
+          className: "".concat(contentData.images.length > 0 ? "flex" : "hidden", " w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]")
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          id: "preview-image-list",
+          className: "mt-6 ".concat(contentData.images.length > 0 ? "flex" : "hidden", " w-full gap-6 flex-wrap"),
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("label", {
+            htmlFor: "file-input",
+            className: "flex flex-col w-48 h-48 bg-[#374478] rounded-md border border-blue-700 items-center justify-center cursor-pointer",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              fill: "none",
+              viewBox: "0 0 24 24",
+              strokeWidth: "1.5",
+              stroke: "currentColor",
+              className: "size-8 mb-4 text-white",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                d: "M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              className: "text-white font-light text-xs",
+              children: "Add Another Photo"
+            })]
+          }), contentData.images.map(function (image, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "w-48 h-48 rounded-xl relative border border-blue-700",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                src: image,
+                className: "w-full",
+                alt: ""
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("svg", {
+                xmlns: "http://www.w3.org/2000/svg",
+                fill: "none",
+                viewBox: "0 0 24 24",
+                strokeWidth: "1.5",
+                stroke: "currentColor",
+                className: "size-6 absolute z-[2] top-0 right-0 bg-blue-800 text-white cursor-pointer",
+                onClick: function onClick() {
+                  return handleDelete(index);
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round",
+                  d: "M6 18 18 6M6 6l12 12"
+                })
+              })]
+            }, index);
+          })]
+        }), obj ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+          id: "post-only-text",
+          className: "btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl",
+          onClick: handleEditPostPrepare,
+          children: "Update"
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+          id: "post-only-text",
+          className: "btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl",
+          onClick: PostData,
+          children: "Post"
+        })]
+      })
+    })
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/employe-forum/components/PostArticle.jsx":
 /*!***************************************************************!*\
   !*** ./resources/js/employe-forum/components/PostArticle.jsx ***!
@@ -7468,6 +8078,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ModalComment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ModalComment */ "./resources/js/employe-forum/components/ModalComment.jsx");
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
 /* harmony import */ var _ModalPost__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ModalPost */ "./resources/js/employe-forum/components/ModalPost.jsx");
+/* harmony import */ var react_intersection_observer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-intersection-observer */ "./node_modules/react-intersection-observer/index.mjs");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -7484,8 +8095,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var PostArticle = function PostArticle(_ref) {
-  var _detailData$posted_by, _detailData$posted_by2, _detailData$posted_by3, _detailData$posted_by4, _detailData$posted_by5, _detailData$posted_by6, _detailData$posted_by7, _detailData$likers, _detailData$likers2, _detailData$likers$, _detailData$likers$2, _detailData$likers$0$, _detailData$likers3, _detailData$comments, _detailData$comments2;
+  var _detailData$posted_by, _detailData$posted_by2, _detailData$posted_by3, _detailData$posted_by4, _detailData$posted_by5, _detailData$posted_by6, _detailData$posted_by7, _detailData$files$, _detailData$files, _detailData$files2, _detailData$likers, _detailData$likers2, _detailData$likers$, _detailData$likers$2, _detailData$likers$0$, _detailData$likers3, _detailData$comments, _detailData$comments2;
   var obj = _ref.obj,
     getProfile = _ref.getProfile;
   var setPostData = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_4__["default"])(function (state) {
@@ -7525,6 +8137,13 @@ var PostArticle = function PostArticle(_ref) {
   var setResetPaginate = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_4__["default"])(function (state) {
     return state.setResetPaginate;
   });
+  var _useInView = (0,react_intersection_observer__WEBPACK_IMPORTED_MODULE_9__.useInView)({
+      triggerOnce: true,
+      // Hanya trigger sekali ketika pertama kali masuk viewport
+      threshold: 0.5 // Komponen dianggap terlihat jika 50% dari komponen sudah masuk viewport
+    }),
+    ref = _useInView.ref,
+    inView = _useInView.inView;
 
   // console.log()
 
@@ -7542,6 +8161,23 @@ var PostArticle = function PostArticle(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     setDetailData(obj);
   }, [obj]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (inView) {
+      // Fungsi untuk mengirim data ketika komponen terlihat
+      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostView)("/".concat(obj === null || obj === void 0 ? void 0 : obj.id)).then(function (res) {
+        (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(obj === null || obj === void 0 ? void 0 : obj.id)).then(function (resp) {
+          var _getPostData$data;
+          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data = getPostData.data) === null || _getPostData$data === void 0 ? void 0 : _getPostData$data.findIndex(function (x) {
+            return (x === null || x === void 0 ? void 0 : x.id) === (obj === null || obj === void 0 ? void 0 : obj.id);
+          });
+          setDetailData(resp.data);
+          getPostData.data[currentIndex] = resp.data;
+          setPostData(getPostData);
+        });
+      });
+    }
+    ;
+  }, [inView]);
   var handleLike = function handleLike() {
     if (isLike) {
       setIsLike(!isLike);
@@ -7549,8 +8185,8 @@ var PostArticle = function PostArticle(_ref) {
         'post_id': obj === null || obj === void 0 ? void 0 : obj.id
       }).then(function (res) {
         (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(obj === null || obj === void 0 ? void 0 : obj.id)).then(function (resp) {
-          var _getPostData$data;
-          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data = getPostData.data) === null || _getPostData$data === void 0 ? void 0 : _getPostData$data.findIndex(function (x) {
+          var _getPostData$data2;
+          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data2 = getPostData.data) === null || _getPostData$data2 === void 0 ? void 0 : _getPostData$data2.findIndex(function (x) {
             return (x === null || x === void 0 ? void 0 : x.id) === (obj === null || obj === void 0 ? void 0 : obj.id);
           });
           setDetailData(resp.data);
@@ -7564,8 +8200,8 @@ var PostArticle = function PostArticle(_ref) {
         'post_id': obj === null || obj === void 0 ? void 0 : obj.id
       }).then(function (res) {
         (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(obj === null || obj === void 0 ? void 0 : obj.id)).then(function (resp) {
-          var _getPostData$data2;
-          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data2 = getPostData.data) === null || _getPostData$data2 === void 0 ? void 0 : _getPostData$data2.findIndex(function (x) {
+          var _getPostData$data3;
+          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data3 = getPostData.data) === null || _getPostData$data3 === void 0 ? void 0 : _getPostData$data3.findIndex(function (x) {
             return (x === null || x === void 0 ? void 0 : x.id) === (obj === null || obj === void 0 ? void 0 : obj.id);
           });
           setDetailData(resp.data);
@@ -7592,8 +8228,8 @@ var PostArticle = function PostArticle(_ref) {
     if (data.isEdit) {
       (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostEditComment)(data, "/".concat(data.comment_id)).then(function (res) {
         (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
-          var _getPostData$data3;
-          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data3 = getPostData.data) === null || _getPostData$data3 === void 0 ? void 0 : _getPostData$data3.findIndex(function (x) {
+          var _getPostData$data4;
+          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data4 = getPostData.data) === null || _getPostData$data4 === void 0 ? void 0 : _getPostData$data4.findIndex(function (x) {
             return (x === null || x === void 0 ? void 0 : x.id) === (detailData === null || detailData === void 0 ? void 0 : detailData.id);
           });
           setDetailData(resp.data);
@@ -7607,8 +8243,8 @@ var PostArticle = function PostArticle(_ref) {
     } else {
       (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostCommentArticle)(data).then(function (res) {
         (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
-          var _getPostData$data4;
-          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data4 = getPostData.data) === null || _getPostData$data4 === void 0 ? void 0 : _getPostData$data4.findIndex(function (x) {
+          var _getPostData$data5;
+          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data5 = getPostData.data) === null || _getPostData$data5 === void 0 ? void 0 : _getPostData$data5.findIndex(function (x) {
             return (x === null || x === void 0 ? void 0 : x.id) === (detailData === null || detailData === void 0 ? void 0 : detailData.id);
           });
           setDetailData(resp.data);
@@ -7624,12 +8260,11 @@ var PostArticle = function PostArticle(_ref) {
   var handleLikeComment = function handleLikeComment(obj) {
     if (obj !== null && obj !== void 0 && obj.isLike) {
       (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostDisLike)({
-        'post_id': detailData === null || detailData === void 0 ? void 0 : detailData.id,
         'comment_id': obj === null || obj === void 0 ? void 0 : obj.id
       }).then(function (res) {
         (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
-          var _getPostData$data5;
-          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data5 = getPostData.data) === null || _getPostData$data5 === void 0 ? void 0 : _getPostData$data5.findIndex(function (x) {
+          var _getPostData$data6;
+          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data6 = getPostData.data) === null || _getPostData$data6 === void 0 ? void 0 : _getPostData$data6.findIndex(function (x) {
             return (x === null || x === void 0 ? void 0 : x.id) === (obj === null || obj === void 0 ? void 0 : obj.id);
           });
           setDetailData(resp.data);
@@ -7641,12 +8276,11 @@ var PostArticle = function PostArticle(_ref) {
       });
     } else {
       (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostLike)({
-        'post_id': detailData === null || detailData === void 0 ? void 0 : detailData.id,
         'comment_id': obj === null || obj === void 0 ? void 0 : obj.id
       }).then(function (res) {
         (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
-          var _getPostData$data6;
-          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data6 = getPostData.data) === null || _getPostData$data6 === void 0 ? void 0 : _getPostData$data6.findIndex(function (x) {
+          var _getPostData$data7;
+          var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data7 = getPostData.data) === null || _getPostData$data7 === void 0 ? void 0 : _getPostData$data7.findIndex(function (x) {
             return (x === null || x === void 0 ? void 0 : x.id) === (obj === null || obj === void 0 ? void 0 : obj.id);
           });
           setDetailData(resp.data);
@@ -7675,8 +8309,8 @@ var PostArticle = function PostArticle(_ref) {
   var handleEditPost = function handleEditPost(data) {
     (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostEditArticle)(data, "/".concat(detailData.id)).then(function (res) {
       (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
-        var _getPostData$data7;
-        var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data7 = getPostData.data) === null || _getPostData$data7 === void 0 ? void 0 : _getPostData$data7.findIndex(function (x) {
+        var _getPostData$data8;
+        var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data8 = getPostData.data) === null || _getPostData$data8 === void 0 ? void 0 : _getPostData$data8.findIndex(function (x) {
           return (x === null || x === void 0 ? void 0 : x.id) === (detailData === null || detailData === void 0 ? void 0 : detailData.id);
         });
         setDetailData(resp.data);
@@ -7756,12 +8390,16 @@ var PostArticle = function PostArticle(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
       className: "bg-[#283358] flex flex-col  w-5/6 mx-auto px-4 py-4 border border-blue-900 rounded-xl",
+      ref: ref,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "flex items-center justify-between",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "flex items-center gap-5",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
             src: detailData !== null && detailData !== void 0 && (_detailData$posted_by = detailData.posted_by) !== null && _detailData$posted_by !== void 0 && _detailData$posted_by.image_user ? detailData !== null && detailData !== void 0 && (_detailData$posted_by2 = detailData.posted_by) !== null && _detailData$posted_by2 !== void 0 && _detailData$posted_by2.image_user.includes("http") ? detailData === null || detailData === void 0 || (_detailData$posted_by3 = detailData.posted_by) === null || _detailData$posted_by3 === void 0 ? void 0 : _detailData$posted_by3.image_user : "../../storage/profile_picture/".concat(detailData === null || detailData === void 0 || (_detailData$posted_by4 = detailData.posted_by) === null || _detailData$posted_by4 === void 0 ? void 0 : _detailData$posted_by4.image_user) : "../../assets/images/sosmed/foto-profile.svg",
+            onError: function onError(e) {
+              return e.target.src = window.location.origin + "/assets/images/sosmed/foto-profile.svg";
+            },
             alt: "profile",
             className: "w-8 h-8 rounded-full"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
@@ -7822,12 +8460,45 @@ var PostArticle = function PostArticle(_ref) {
             })]
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "flex flex-col mt-5",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
           className: "text-sm text-white",
           children: detailData && (detailData === null || detailData === void 0 ? void 0 : detailData.content)
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          className: "w-full flex flex-col",
+          children: (detailData === null || detailData === void 0 || (_detailData$files$ = detailData.files[0]) === null || _detailData$files$ === void 0 ? void 0 : _detailData$files$.tipe) === "gambar" ? detailData === null || detailData === void 0 || (_detailData$files = detailData.files) === null || _detailData$files === void 0 ? void 0 : _detailData$files.map(function (image, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+              className: "w-5/6",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                src: "../../storage/employee_forum/".concat(image === null || image === void 0 ? void 0 : image.path_file),
+                alt: "Slide ".concat(index),
+                className: "w-full mt-5 h-36 object-cover"
+              })
+            }, index);
+          }) : detailData === null || detailData === void 0 || (_detailData$files2 = detailData.files) === null || _detailData$files2 === void 0 ? void 0 : _detailData$files2.map(function (file, index) {
+            var _file$path_file;
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("a", {
+              target: "_blank",
+              href: "../../storage/employee_forum/".concat(file === null || file === void 0 ? void 0 : file.path_file),
+              className: "flex border border-blue-800 rounded-xl mt-5 w-full items-center gap-6 data-file",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                className: "w-1/6 flex items-center justify-center ",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  src: "../../assets/images/sosmed/file-upload-icon.svg",
+                  alt: "pdf icon",
+                  className: "size-24  bg-[#00000033] rounded-full p-3"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                className: "flex flex-col w-4/6",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+                  className: "text-white text-sm mb-2",
+                  children: file === null || file === void 0 || (_file$path_file = file.path_file) === null || _file$path_file === void 0 ? void 0 : _file$path_file.replace("_", " ")
+                })
+              })]
+            }, index);
+          })
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "flex gap-5 mt-5 border-b border-gray-[#E1E5F6] pb-4",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
@@ -7876,7 +8547,7 @@ var PostArticle = function PostArticle(_ref) {
             alt: "like"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
             className: "text-xs font-light mt-1 text-white",
-            children: detailData === null || detailData === void 0 ? void 0 : detailData.total_view
+            children: detailData === null || detailData === void 0 ? void 0 : detailData.total_comments
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
             src: "../../assets/images/sosmed/comment-icon.svg",
             className: "h-4 w-4",
@@ -8070,7 +8741,9 @@ var MainPage = function MainPage() {
       setPage(1);
     }
   }, [resetPaginate]);
+  console.log(hasMore);
   var loadItems = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
+    if (!hasMore) return;
     setLoading(true);
     setTimeout(function () {
       setLoading(true);
@@ -8079,7 +8752,7 @@ var MainPage = function MainPage() {
         if ((getPostData === null || getPostData === void 0 || (_getPostData$data = getPostData.data) === null || _getPostData$data === void 0 ? void 0 : _getPostData$data.length) > 0) {
           var _res$data;
           res.data.data = [].concat(_toConsumableArray(getPostData === null || getPostData === void 0 ? void 0 : getPostData.data), _toConsumableArray((_res$data = res.data) === null || _res$data === void 0 ? void 0 : _res$data.data));
-          setHasMore(res.data.last_page !== page);
+          setHasMore(res.data.last_page >= page);
           setPostData(res.data);
         } else {
           setPostData(res.data);
@@ -8095,7 +8768,7 @@ var MainPage = function MainPage() {
   }, [page, loadItems]);
   console.log(getPostData);
   var handleScroll = function handleScroll() {
-    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 1 && hasMore && !loading) {
+    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 19 && hasMore && !loading) {
       setPage(function (prevPage) {
         return prevPage + 1;
       });
@@ -8109,7 +8782,7 @@ var MainPage = function MainPage() {
   }, [handleScroll]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_InputPostArticle__WEBPACK_IMPORTED_MODULE_2__.InputPostArticle, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      className: "py-5 w-full flex flex-col gap-6 post-container",
+      className: "py-5 w-full flex flex-col gap-6 post-container min-h-screen",
       children: getProfile && getPostData && (getPostData === null || getPostData === void 0 || (_getPostData$data2 = getPostData.data) === null || _getPostData$data2 === void 0 ? void 0 : _getPostData$data2.map(function (item) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_PostArticle__WEBPACK_IMPORTED_MODULE_1__.PostArticle, {
           obj: item,
@@ -8141,7 +8814,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   PostDisLike: () => (/* binding */ PostDisLike),
 /* harmony export */   PostEditArticle: () => (/* binding */ PostEditArticle),
 /* harmony export */   PostEditComment: () => (/* binding */ PostEditComment),
-/* harmony export */   PostLike: () => (/* binding */ PostLike)
+/* harmony export */   PostLike: () => (/* binding */ PostLike),
+/* harmony export */   PostView: () => (/* binding */ PostView)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
@@ -8487,6 +9161,40 @@ var GetDeletePost = /*#__PURE__*/function () {
   }));
   return function GetDeletePost(_x11) {
     return _ref10.apply(this, arguments);
+  };
+}();
+var PostView = /*#__PURE__*/function () {
+  var _ref11 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee11(params) {
+    var _yield$axios$get5, data;
+    return _regeneratorRuntime().wrap(function _callee11$(_context11) {
+      while (1) switch (_context11.prev = _context11.next) {
+        case 0:
+          _context11.prev = 0;
+          _context11.next = 3;
+          return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/seePost".concat(params));
+        case 3:
+          _yield$axios$get5 = _context11.sent;
+          data = _yield$axios$get5.data;
+          return _context11.abrupt("return", {
+            success: true,
+            data: data
+          });
+        case 8:
+          _context11.prev = 8;
+          _context11.t0 = _context11["catch"](0);
+          console.log(_context11.t0.toJSON());
+          throw {
+            success: false,
+            error: _context11.t0.message
+          };
+        case 12:
+        case "end":
+          return _context11.stop();
+      }
+    }, _callee11, null, [[0, 8]]);
+  }));
+  return function PostView(_x12) {
+    return _ref11.apply(this, arguments);
   };
 }();
 
@@ -85774,6 +86482,320 @@ function validate(uuid) {
   return typeof uuid === 'string' && _regex_js__WEBPACK_IMPORTED_MODULE_0__["default"].test(uuid);
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (validate);
+
+/***/ }),
+
+/***/ "./node_modules/react-intersection-observer/index.mjs":
+/*!************************************************************!*\
+  !*** ./node_modules/react-intersection-observer/index.mjs ***!
+  \************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   InView: () => (/* binding */ InView),
+/* harmony export */   defaultFallbackInView: () => (/* binding */ defaultFallbackInView),
+/* harmony export */   observe: () => (/* binding */ observe),
+/* harmony export */   useInView: () => (/* binding */ useInView)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+"use client";
+var __defProp = Object.defineProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => {
+  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+  return value;
+};
+
+// src/InView.tsx
+
+
+// src/observe.ts
+var observerMap = /* @__PURE__ */ new Map();
+var RootIds = /* @__PURE__ */ new WeakMap();
+var rootId = 0;
+var unsupportedValue = void 0;
+function defaultFallbackInView(inView) {
+  unsupportedValue = inView;
+}
+function getRootId(root) {
+  if (!root)
+    return "0";
+  if (RootIds.has(root))
+    return RootIds.get(root);
+  rootId += 1;
+  RootIds.set(root, rootId.toString());
+  return RootIds.get(root);
+}
+function optionsToId(options) {
+  return Object.keys(options).sort().filter(
+    (key) => options[key] !== void 0
+  ).map((key) => {
+    return `${key}_${key === "root" ? getRootId(options.root) : options[key]}`;
+  }).toString();
+}
+function createObserver(options) {
+  const id = optionsToId(options);
+  let instance = observerMap.get(id);
+  if (!instance) {
+    const elements = /* @__PURE__ */ new Map();
+    let thresholds;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        var _a;
+        const inView = entry.isIntersecting && thresholds.some((threshold) => entry.intersectionRatio >= threshold);
+        if (options.trackVisibility && typeof entry.isVisible === "undefined") {
+          entry.isVisible = inView;
+        }
+        (_a = elements.get(entry.target)) == null ? void 0 : _a.forEach((callback) => {
+          callback(inView, entry);
+        });
+      });
+    }, options);
+    thresholds = observer.thresholds || (Array.isArray(options.threshold) ? options.threshold : [options.threshold || 0]);
+    instance = {
+      id,
+      observer,
+      elements
+    };
+    observerMap.set(id, instance);
+  }
+  return instance;
+}
+function observe(element, callback, options = {}, fallbackInView = unsupportedValue) {
+  if (typeof window.IntersectionObserver === "undefined" && fallbackInView !== void 0) {
+    const bounds = element.getBoundingClientRect();
+    callback(fallbackInView, {
+      isIntersecting: fallbackInView,
+      target: element,
+      intersectionRatio: typeof options.threshold === "number" ? options.threshold : 0,
+      time: 0,
+      boundingClientRect: bounds,
+      intersectionRect: bounds,
+      rootBounds: bounds
+    });
+    return () => {
+    };
+  }
+  const { id, observer, elements } = createObserver(options);
+  const callbacks = elements.get(element) || [];
+  if (!elements.has(element)) {
+    elements.set(element, callbacks);
+  }
+  callbacks.push(callback);
+  observer.observe(element);
+  return function unobserve() {
+    callbacks.splice(callbacks.indexOf(callback), 1);
+    if (callbacks.length === 0) {
+      elements.delete(element);
+      observer.unobserve(element);
+    }
+    if (elements.size === 0) {
+      observer.disconnect();
+      observerMap.delete(id);
+    }
+  };
+}
+
+// src/InView.tsx
+function isPlainChildren(props) {
+  return typeof props.children !== "function";
+}
+var InView = class extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+  constructor(props) {
+    super(props);
+    __publicField(this, "node", null);
+    __publicField(this, "_unobserveCb", null);
+    __publicField(this, "handleNode", (node) => {
+      if (this.node) {
+        this.unobserve();
+        if (!node && !this.props.triggerOnce && !this.props.skip) {
+          this.setState({ inView: !!this.props.initialInView, entry: void 0 });
+        }
+      }
+      this.node = node ? node : null;
+      this.observeNode();
+    });
+    __publicField(this, "handleChange", (inView, entry) => {
+      if (inView && this.props.triggerOnce) {
+        this.unobserve();
+      }
+      if (!isPlainChildren(this.props)) {
+        this.setState({ inView, entry });
+      }
+      if (this.props.onChange) {
+        this.props.onChange(inView, entry);
+      }
+    });
+    this.state = {
+      inView: !!props.initialInView,
+      entry: void 0
+    };
+  }
+  componentDidMount() {
+    this.unobserve();
+    this.observeNode();
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.rootMargin !== this.props.rootMargin || prevProps.root !== this.props.root || prevProps.threshold !== this.props.threshold || prevProps.skip !== this.props.skip || prevProps.trackVisibility !== this.props.trackVisibility || prevProps.delay !== this.props.delay) {
+      this.unobserve();
+      this.observeNode();
+    }
+  }
+  componentWillUnmount() {
+    this.unobserve();
+  }
+  observeNode() {
+    if (!this.node || this.props.skip)
+      return;
+    const {
+      threshold,
+      root,
+      rootMargin,
+      trackVisibility,
+      delay,
+      fallbackInView
+    } = this.props;
+    this._unobserveCb = observe(
+      this.node,
+      this.handleChange,
+      {
+        threshold,
+        root,
+        rootMargin,
+        // @ts-ignore
+        trackVisibility,
+        // @ts-ignore
+        delay
+      },
+      fallbackInView
+    );
+  }
+  unobserve() {
+    if (this._unobserveCb) {
+      this._unobserveCb();
+      this._unobserveCb = null;
+    }
+  }
+  render() {
+    const { children } = this.props;
+    if (typeof children === "function") {
+      const { inView, entry } = this.state;
+      return children({ inView, entry, ref: this.handleNode });
+    }
+    const {
+      as,
+      triggerOnce,
+      threshold,
+      root,
+      rootMargin,
+      onChange,
+      skip,
+      trackVisibility,
+      delay,
+      initialInView,
+      fallbackInView,
+      ...props
+    } = this.props;
+    return react__WEBPACK_IMPORTED_MODULE_0__.createElement(
+      as || "div",
+      { ref: this.handleNode, ...props },
+      children
+    );
+  }
+};
+
+// src/useInView.tsx
+
+function useInView({
+  threshold,
+  delay,
+  trackVisibility,
+  rootMargin,
+  root,
+  triggerOnce,
+  skip,
+  initialInView,
+  fallbackInView,
+  onChange
+} = {}) {
+  var _a;
+  const [ref, setRef] = react__WEBPACK_IMPORTED_MODULE_0__.useState(null);
+  const callback = react__WEBPACK_IMPORTED_MODULE_0__.useRef();
+  const [state, setState] = react__WEBPACK_IMPORTED_MODULE_0__.useState({
+    inView: !!initialInView,
+    entry: void 0
+  });
+  callback.current = onChange;
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(
+    () => {
+      if (skip || !ref)
+        return;
+      let unobserve;
+      unobserve = observe(
+        ref,
+        (inView, entry) => {
+          setState({
+            inView,
+            entry
+          });
+          if (callback.current)
+            callback.current(inView, entry);
+          if (entry.isIntersecting && triggerOnce && unobserve) {
+            unobserve();
+            unobserve = void 0;
+          }
+        },
+        {
+          root,
+          rootMargin,
+          threshold,
+          // @ts-ignore
+          trackVisibility,
+          // @ts-ignore
+          delay
+        },
+        fallbackInView
+      );
+      return () => {
+        if (unobserve) {
+          unobserve();
+        }
+      };
+    },
+    // We break the rule here, because we aren't including the actual `threshold` variable
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [
+      // If the threshold is an array, convert it to a string, so it won't change between renders.
+      Array.isArray(threshold) ? threshold.toString() : threshold,
+      ref,
+      root,
+      rootMargin,
+      triggerOnce,
+      skip,
+      trackVisibility,
+      fallbackInView,
+      delay
+    ]
+  );
+  const entryTarget = (_a = state.entry) == null ? void 0 : _a.target;
+  const previousEntryTarget = react__WEBPACK_IMPORTED_MODULE_0__.useRef();
+  if (!ref && entryTarget && !triggerOnce && !skip && previousEntryTarget.current !== entryTarget) {
+    previousEntryTarget.current = entryTarget;
+    setState({
+      inView: !!initialInView,
+      entry: void 0
+    });
+  }
+  const result = [setRef, state.inView, state.entry];
+  result.ref = result[0];
+  result.inView = result[1];
+  result.entry = result[2];
+  return result;
+}
+
+//# sourceMappingURL=index.mjs.map
 
 /***/ }),
 

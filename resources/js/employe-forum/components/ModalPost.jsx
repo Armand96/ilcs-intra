@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import useProfileStore from '../stores/ProfileStore'
 import usePostStore from '../stores/PostStore'
 
-export const ModalPost = ({ toggle, show, handleEditPost, obj}) => {
+export const ModalPost = ({ toggle, show, handleEditPost,toggleModalFoto,toggleModalFile, obj}) => {
     const [contentData, setContentData] = useState({
         content : ""
     })
@@ -48,7 +48,7 @@ export const ModalPost = ({ toggle, show, handleEditPost, obj}) => {
                 </form>
                 <h3 class="font-bold text-white text-lg">{obj ? "Edit a Post" : "Create a Post"}</h3>
                 <div class="flex items-center gap-5 mt-8">
-                    <img src={getProfile?.image_user ? getProfile?.image_user.includes("http") ? getProfile?.image_user : `../../storage/profile_picture/${getProfile?.image_user}` : "../../assets/images/sosmed/foto-profile.svg"} alt="profile" className="w-8 h-8 rounded-full" />
+                    <img src={getProfile?.image_user ? getProfile?.image_user.includes("http") ? getProfile?.image_user : `../../storage/profile_picture/${getProfile?.image_user}` : "../../assets/images/sosmed/foto-profile.svg"} alt="profile" className="w-8 h-8 rounded-full" onError={(e) => e.target.src = window.location.origin + "/assets/images/sosmed/foto-profile.svg"} />
 
                     <div class="flex flex-col">
                         <p class="text-white items-center text-sm">
@@ -60,7 +60,7 @@ export const ModalPost = ({ toggle, show, handleEditPost, obj}) => {
                 <textarea autoFocus value={contentData.content} name="" onChange={(v) => setContentData({...contentData, content: v.target.value})} id="onlyText" class="w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]"></textarea>
                 <div class="flex w-full">
                     <div class="w-6/12 flex mt-4 items-center justify-between gap-6">
-                        <div onclick="togglePostImageModal();togglePostModal()" class="w-2/6 justify-center flex items-center gap-6 border-r border-r-[#E1E5F6]">
+                        <div onClick={toggleModalFoto} class="w-2/6 justify-center flex items-center gap-6 border-r border-r-[#E1E5F6]">
                             <img src='../../assets/images/sosmed/foto-icon.svg' alt="" />
                             <p class="text-white text-xs">Foto</p>
                         </div>
@@ -68,7 +68,7 @@ export const ModalPost = ({ toggle, show, handleEditPost, obj}) => {
                             <img src='../../assets/images/sosmed/video-icon.svg' alt="" />
                             <p class="text-white text-xs">Video</p>
                         </div>
-                        <div class="w-2/6 justify-center flex items-center gap-6" onclick="togglePostFileModal();togglePostModal()">
+                        <div onClick={toggleModalFile} class="w-2/6 justify-center flex items-center gap-6" onclick="togglePostFileModal();togglePostModal()">
                             <img src='../../assets/images/sosmed/file-icon.svg' alt="" />
                             <p class="text-white text-xs">File</p>
                         </div>

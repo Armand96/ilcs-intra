@@ -3377,9 +3377,6 @@ html:has(.drawer-toggle:checked) {
 .w-6\/12 {
   width: 50%;
 }
-.w-60 {
-  width: 15rem;
-}
 .w-64 {
   width: 16rem;
 }
@@ -3897,10 +3894,6 @@ html:has(.drawer-toggle:checked) {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-.text-blue-300 {
-  --tw-text-opacity: 1;
-  color: rgb(147 197 253 / var(--tw-text-opacity));
 }
 .text-dashboard-blue-right {
   --tw-text-opacity: 1;

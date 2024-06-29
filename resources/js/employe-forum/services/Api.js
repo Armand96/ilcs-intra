@@ -102,3 +102,13 @@ export const GetDeletePost = async (params) => {
         throw { success: false, error: error.message };
     }
 }
+
+export const PostView = async (params) => {
+    try {
+        const { data } = await axios.get(`/seePost${params}`);
+        return { success: true, data };
+    } catch (error) {
+        console.log(error.toJSON());
+        throw { success: false, error: error.message };
+    }
+}

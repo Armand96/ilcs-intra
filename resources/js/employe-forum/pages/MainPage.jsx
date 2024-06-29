@@ -28,15 +28,18 @@ const MainPage = () => {
         }
     },[resetPaginate])
 
+    console.log(hasMore)
+
 
     const loadItems = useCallback(() => {
+        if(!hasMore) return 
         setLoading(true);
         setTimeout(() => { 
             setLoading(true);
             GetPostList(`?page=${page}`).then((res) => {
                 if (getPostData?.data?.length > 0) {
                     res.data.data = [...getPostData?.data, ...res.data?.data]
-                    setHasMore(res.data.last_page !== page);
+                    setHasMore(res.data.last_page >= page);
                     setPostData(res.data)
                 } else {
                     setPostData(res.data)
@@ -55,7 +58,7 @@ const MainPage = () => {
     console.log(getPostData)
 
     const handleScroll = () => {
-        if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 1 && hasMore && !loading) {
+        if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 19 && hasMore && !loading) {
             setPage(prevPage => prevPage + 1);
         }
     };
@@ -68,7 +71,7 @@ const MainPage = () => {
     return (
         <>
             <InputPostArticle />
-            <div className="py-5 w-full flex flex-col gap-6 post-container" >
+            <div className="py-5 w-full flex flex-col gap-6 post-container min-h-screen" >
                 {
                  getProfile && getPostData && getPostData?.data?.map((item) => (
                         <PostArticle obj={item} key={uuidv4()} getProfile={getProfile} />
