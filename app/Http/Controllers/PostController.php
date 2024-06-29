@@ -30,13 +30,29 @@ class PostController extends Controller
 
     public function listPost()
     {
-        $post = Post::orderBy('created_at', 'DESC')->with(['comments.user', 'comments.likers', 'comments.replies.user', 'comments.replies.likers', 'postedBy', 'files', 'likers.user'])->paginate(6);
+        $post = Post::orderBy('created_at', 'DESC')
+                ->with(['comments.user', 'comments.likers', 'comments.replies.user', 'comments.replies.likers', 'postedBy', 'files', 'likers.user'])
+                ->withCount(['comments as total_comments' => function($query) {
+                    $query->orWhereIn('parent_comment_id', function($subQuery) {
+                        $subQuery->select('id')
+                                 ->from('comments')
+                                 ->whereColumn('comments.post_id', 'posts.id');
+                    });
+                }])
+                ->paginate(6);
         return response()->json($post);
     }
 
     public function singlePost(Post $post)
     {
-        $post->load(['comments.user', 'comments.likers', 'comments.replies.user', 'comments.replies.likers', 'postedBy', 'files', 'likers.user']);
+        $post->load(['comments.user', 'comments.likers', 'comments.replies.user', 'comments.replies.likers', 'postedBy', 'files', 'likers.user'])
+        ->loadCount(['comments as total_comments' => function($query) use ($post) {
+            $query->orWhereIn('parent_comment_id', function($subQuery) use ($post) {
+                $subQuery->select('id')
+                         ->from('comments')
+                         ->where('post_id', $post->id);
+            });
+        }]);
         return response()->json($post);
     }
 
