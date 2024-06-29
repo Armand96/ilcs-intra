@@ -7,6 +7,7 @@ import { ModalComment } from './ModalComment'
 import { toast } from 'react-toastify'
 import { ModalPost } from './ModalPost'
 import { useInView } from 'react-intersection-observer'
+import ImageContent from './ImageContent'
 
 export const PostArticle = ({ obj, getProfile }) => {
     const setPostData = usePostStore((state) => state.updatePostData)
@@ -263,11 +264,9 @@ export const PostArticle = ({ obj, getProfile }) => {
                         {detailData && detailData?.content}
                     </p>
                     <div className="w-full flex flex-col">
-                        {detailData?.files[0]?.tipe === "gambar" ? detailData?.files?.map((image, index) => (
-                            <div key={index} className='w-5/6'>
-                                <img src={`../../storage/employee_forum/${image?.path_file}`} alt={`Slide ${index}`} className='w-full mt-5 h-36 object-cover' />
-                            </div>
-                        )) : detailData?.files?.map((file, index) => (
+                        {detailData?.files[0]?.tipe === "gambar" ? 
+                            <ImageContent image={detailData?.files} />
+                        : detailData?.files?.map((file, index) => (
                             <a target='_blank' href={`../../storage/employee_forum/${file?.path_file}`} className="flex border border-blue-800 rounded-xl mt-5 w-full items-center gap-6 data-file" key={index}>
                                 <div className="w-1/6 flex items-center justify-center ">
                                     <img src="../../assets/images/sosmed/file-upload-icon.svg" alt="pdf icon" className="size-24  bg-[#00000033] rounded-full p-3" />

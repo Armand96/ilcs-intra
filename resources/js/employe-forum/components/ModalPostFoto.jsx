@@ -3,6 +3,7 @@ import usePostStore from '../stores/PostStore'
 import useProfileStore from '../stores/ProfileStore'
 import { GetPostList, PostArticleData } from '../services/Api'
 import { toast } from 'react-toastify'
+import Resizer from 'react-image-file-resizer';
 
 export const ModalPostFoto = ({ toggle, show, handleEditPost, obj }) => {
 
@@ -14,6 +15,9 @@ export const ModalPostFoto = ({ toggle, show, handleEditPost, obj }) => {
     const setPostData = usePostStore((state) => state.updatePostData)
     const setResetPaginate = usePostStore((state) => state.setResetPaginate)
     
+
+  
+
     const PostData = () => {
         let formData = new FormData()
         formData.append('content', contentData.content)
@@ -34,18 +38,36 @@ export const ModalPostFoto = ({ toggle, show, handleEditPost, obj }) => {
         })
     }
 
+
+
     const handleAdd = async (e) => {
-        const files = [...e.target.files]
+        const files = [...e.target.files];
         if (files) {
-            const base64Promises = files.map(async (file) => {
-                return await convertToBase64(file);
-            });
-            const base64Files = await Promise.all(base64Promises);
-            setContentData({ ...contentData, images: [...contentData.images, ...base64Files] });
+          const imagePromises = files.map(file => resizeFile(file));
+          const base64Files = await Promise.all(imagePromises);
+    
+          console.log("base64", base64Files);
+          setContentData({ ...contentData, images: [...contentData.images, ...base64Files] });
         }
-        
-        e.target.value = '' 
-    }
+    
+        e.target.value = '';
+      };
+    
+      const resizeFile = (file) =>
+        new Promise((resolve) => {
+          Resizer.imageFileResizer(
+            file,
+            400, // lebar baru
+            400, // tinggi baru
+            'png', // format file
+            100, // kualitas (0-100)
+            0, // derajat rotasi
+            (uri) => {
+              resolve(uri);
+            },
+            'base64' // output type (data URL atau file)
+          );
+        });
 
     const handleDelete = (index) => {
         const updatedImages = contentData.images.filter((_, i) => i !== index)
@@ -60,6 +82,8 @@ export const ModalPostFoto = ({ toggle, show, handleEditPost, obj }) => {
             reader.onerror = error => reject(error)
         })
     }
+
+    
 
     useEffect(() => {
         setContentData({ ...contentData, content: obj?.content || "" })
