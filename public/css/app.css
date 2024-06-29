@@ -3317,6 +3317,12 @@ html:has(.drawer-toggle:checked) {
 .h-24 {
   height: 6rem;
 }
+.h-44 {
+  height: 11rem;
+}
+.h-64 {
+  height: 16rem;
+}
 .max-h-\[90dvh\] {
   max-height: 90dvh;
 }
@@ -4229,6 +4235,10 @@ html:has(.drawer-toggle:checked) {
 
   .lg\:h-\[30vh\] {
     height: 30vh;
+  }
+
+  .lg\:h-44 {
+    height: 11rem;
   }
 
   .lg\:w-1\/12 {

@@ -21,7 +21,7 @@ $user = Auth::user();
 
 
     <div class="w-full flex flex-col lg:flex-row">
-        <div class="grid w-full order-2 mt-4 lg:mt-0 lg:order-1 lg:w-4/6 lg:grid-cols-3">
+        <div class="grid w-full lg:h-44 order-2 mt-4 lg:mt-0 lg:order-1 lg:w-4/6 lg:grid-cols-3">
             <div class="flex flex-col">
                 <p class="my-3 text-sm text-white">Nama</p>
                 <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl lg:w-5/6">
@@ -60,7 +60,7 @@ $user = Auth::user();
                 @csrf
                 <div class="flex flex-col">
                     <p class="my-3 text-sm text-white">Ganti Profile</p>
-                    <input name="foto" type="file" class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl" accept="image/png, image/gif, image/jpeg"/>
+                    <input name="foto" type="file" class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl" accept="image/png, image/gif, image/jpeg" />
                 </div>
                 <button class="bg-login-button text-white px-3 py-2 text-sm rounded-xl">update profile</button>
             </form>
@@ -68,11 +68,11 @@ $user = Auth::user();
 
     </div>
 
-    <a href="{{ route('logout') }}" class="cursor-pointer text-white px-4 mt-6 text-xs py-2 rounded-6xl flex items-center bg-[#DD4D4D]/[40%] border rounded-xl lg:w-1/12">
+    <a href="{{ route('logout') }}" class="cursor-pointer text-white px-4 mt-6 lg:mt-0 py-2 rounded-6xl flex items-center bg-[#DD4D4D]/[40%] border rounded-xl lg:w-1/12">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 mr-2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
         </svg>
-        <p class="font-bold">Logout</p>
+        <p class="font-bold text-sm">Logout</p>
     </a>
 </div>
 
