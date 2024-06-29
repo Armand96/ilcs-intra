@@ -308,7 +308,7 @@ export const PostArticle = ({ obj, getProfile }) => {
                         </div> : ""
                     }
                     <div className={isLike ? "w-2/6 flex items-center flex-row-reverse gap-3" : "w-full flex items-center flex-row-reverse gap-3"}>
-                        <p className="text-xs font-light mt-1 text-white">{detailData?.total_like}</p>
+                        <p className="text-xs font-light mt-1 text-white">{detailData?.total_view}</p>
                         <img src="../../assets/images/sosmed/eye-icon.svg" className="h-4 w-4" alt="like" />
                         <p className="text-xs font-light mt-1 text-white">{detailData?.total_comments}</p>
                         <img src="../../assets/images/sosmed/comment-icon.svg" className="h-4 w-4" alt="like" />

@@ -8540,7 +8540,7 @@ var PostArticle = function PostArticle(_ref) {
           className: isLike ? "w-2/6 flex items-center flex-row-reverse gap-3" : "w-full flex items-center flex-row-reverse gap-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
             className: "text-xs font-light mt-1 text-white",
-            children: detailData === null || detailData === void 0 ? void 0 : detailData.total_like
+            children: detailData === null || detailData === void 0 ? void 0 : detailData.total_view
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
             src: "../../assets/images/sosmed/eye-icon.svg",
             className: "h-4 w-4",
