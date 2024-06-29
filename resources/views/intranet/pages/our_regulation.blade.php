@@ -43,7 +43,7 @@
     <div id="tab-contents" class="w-full lg:w-3/4 2xl:w-5/6 our-regulation-background border rounded-xl border-blue-950 ">
 
         @foreach ($regulations as $index => $reg)
-            <div class='w-full {{ $index == 0 ? "" : "hidden" }}' flex flex-col px-4 py-5 text-white" id="tab{{$index}}">
+            <div class='w-full {{ $index == 0 ? "flex" : "hidden" }} flex flex-col px-4 py-5 text-white' id="tab{{$index}}">
                 <h1 class="text-2xl font-semibold">{{ $reg->judul }}</h1>
                 <p class="text-sm mt-4">
                     {{$reg->deskripsi}}
