@@ -96,7 +96,7 @@ class PostController extends Controller
             if ($request->hasFile('files')) {
 
                 foreach ($request->file('files') as $key => $fl) {
-                    $fileName = str_replace(" ", "_", $fl->getClientOriginalName()) . '.' . $fl->extension();
+                    $fileName = str_replace(" ", "_", $fl->getClientOriginalName());
                     $fl->storeAs('public/employee_forum/', $fileName);
                     // $data['path_file'] = $fileName;
                     $dataFile = array(
