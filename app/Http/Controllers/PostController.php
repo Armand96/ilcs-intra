@@ -395,7 +395,7 @@ class PostController extends Controller
                 );
 
                 PostViewer::create($dataInsert);
-                $post->increment('total_viewer');
+                $post->increment('total_view');
                 DB::commit();
             }
             return response()->json(['message' => 'view post berhasil']);

@@ -16,6 +16,6 @@ class PostViewer extends Model
 
     protected $hidden = [
         'created_at',
-        'updated-at'
+        'updated_at'
     ];
 }
