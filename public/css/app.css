@@ -3064,6 +3064,9 @@ html:has(.drawer-toggle:checked) {
 .order-2 {
   order: 2;
 }
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;

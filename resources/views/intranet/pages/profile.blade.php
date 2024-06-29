@@ -28,15 +28,15 @@ $user = Auth::user();
                     <p class="font-bold text-sm">{{ $user->name }}</p>
                 </div>
             </div>
-            <div class="flex flex-col">
-                <p class="my-3 text-sm text-white">Departemen</p>
+            <div class="flex flex-col ">
+                <p class="my-3 text-sm  text-white">Departemen</p>
                 <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl lg:w-4/6">
                     <p class="font-bold">{!! $user->dept == "" || $user->dept == null ? "&nbsp;" : $user->dept !!}</p>
                 </div>
             </div>
             <div class="flex flex-col">
                 <p class="my-3 text-xs text-white">Tanggal Lahir</p>
-                <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl  lg:w-3/6">
+                <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl  lg:w-4/6">
                     <p class="font-bold">{{ \Carbon\Carbon::parse($user->tgl_lahir)->translatedFormat('d F Y') }}</p>
                 </div>
             </div>
@@ -46,9 +46,9 @@ $user = Auth::user();
                     <p class="font-bold text-sm">{{ $user->nip }}</p>
                 </div>
             </div>
-            <div class="flex flex-col">
+            <div class="flex flex-col col-span-2">
                 <p class="my-3 text-sm text-white">Jabatan</p>
-                <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl lg:w-4/6">
+                <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl lg:w-5/6">
                     <p class="font-bold">{{ $user->jabatan }}</p>
                 </div>
             </div>
