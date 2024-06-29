@@ -7122,7 +7122,7 @@ var ImageContent = function ImageContent(_ref) {
     className: "mt-4 container",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)((react_image_gallery__WEBPACK_IMPORTED_MODULE_1___default()), {
       items: imageContent,
-      showNav: false,
+      showNav: window.innerWidth > 1000 ? true : false,
       showBullets: true,
       showPlayButton: false
     })
@@ -7204,7 +7204,7 @@ var InputPostArticle = function InputPostArticle() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       "class": "bg-[#283358] flex flex-col w-5/6 mx-auto mt-5 mb-6 px-4 py-4 border border-blue-900 rounded-xl",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        "class": "w-full flex gap-6 items-center",
+        "class": "w-full flex gap-6 items-center cursor-pointer",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
           src: getProfile !== null && getProfile !== void 0 && getProfile.image_user ? getProfile === null || getProfile === void 0 ? void 0 : getProfile.image_user : "../../assets/images/sosmed/foto-profile.svg",
           onError: function onError(e) {
@@ -7231,7 +7231,7 @@ var InputPostArticle = function InputPostArticle() {
           onClick: function onClick() {
             return setToggleModalPostFoto(true);
           },
-          "class": "w-2/6 justify-center flex items-center gap-6 border-r border-r-white",
+          "class": "w-2/6 cursor-pointer justify-center flex items-center gap-6 border-r border-r-white",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             src: "../../assets/images/sosmed/foto-icon.svg",
             alt: ""
@@ -7240,7 +7240,7 @@ var InputPostArticle = function InputPostArticle() {
             children: "Foto"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          "class": "w-2/6 justify-center flex items-center gap-6 border-r border-r-white",
+          "class": "w-2/6 justify-center flex items-center gap-6 border-r cursor-pointer border-r-white",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             src: "../../assets/images/sosmed/video-icon.svg",
             alt: ""
@@ -7252,7 +7252,7 @@ var InputPostArticle = function InputPostArticle() {
           onClick: function onClick() {
             return setToggleModalPostFile(true);
           },
-          "class": "w-2/6 justify-center flex items-center gap-6",
+          "class": "w-2/6 cursor-pointer justify-center flex items-center gap-6",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             src: "../../assets/images/sosmed/file-icon.svg",
             alt: ""
