@@ -56,10 +56,11 @@ $user = Auth::user();
 
         <div class="flex w-2/6 flex-col justify-center items-center mt-4">
             <img src="{{ strpos($user->image_user, 'http') !== false ? $user->image_user : url('storage/profile_picture/'.$user->image_user) }}" class="h-24 w-24 mt-3" alt="profile" onerror="this.src='{{ asset('assets/images/default-profile.png') }}'">
-            <form action="" class="flex flex-col gap-6">
+            <form action="{{route('update.profile')}}" class="flex flex-col gap-6" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="flex flex-col">
                     <p class="my-3 text-sm text-white">Ganti Profile</p>
-                    <input type="file" class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl" />
+                    <input name="foto" type="file" class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl" accept="image/png, image/gif, image/jpeg"/>
                 </div>
                 <button class="bg-login-button text-white px-3 py-3 rounded-xl">update profile</button>
             </form>

@@ -107,7 +107,7 @@ Route::group(['middleware' =>['auth', 'checkz']], function() {
         return view('intranet.pages.profile');
     })->name('profile');
 
-    Route::put('/updateProfile', [UserController::class, 'update'])->name('update.profile');
+    Route::post('/updateProfile', [UserController::class, 'update'])->name('update.profile');
 
     Route::get('/laporan-management', [LaporanRapatController::class, 'laporanRapat'])->name('laporan.management');
 
