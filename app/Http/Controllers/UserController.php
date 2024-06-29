@@ -23,10 +23,30 @@ class UserController extends Controller
     }
 
     /* ======================================================================== */
-    public function getAllNilaiKaryawan()
+    public function update(Request $request)
     {
-        return NilaiKaryawan::with('karyawan')->where(DB::raw('MONTH(tgl_penilaian)'),  date('m'))->orderBy('nilai', 'ASC')->limit(5)->get();
-        // return User::nilaiBulanIni()->orderBy()->limit(5);
+        $user = Auth::user();
+
+        $data = [];
+
+        try {
+            if ($request->hasFile('foto')) {
+
+                $isExist = Storage::disk('public')->exists("profile_picture/$user->image_user") ?? false;
+                if ($isExist) Storage::delete("public/profile_picture/$user->image_user");
+
+                $imageName = time() . '.' . $request->foto->extension();
+                $request->foto->storeAs('public/profile_picture', $imageName);
+                $data['image_user'] = $imageName;
+                $user->update($data);
+            } else {
+                return redirect()->back()->with(['notif' => "Tidak ada file yang diupload"]);
+            }
+
+            return redirect()->back()->with(['notif' => 'User telah diupdate']);
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+        }
     }
 
     public function getUpcomingBirthday()
