@@ -1,55 +1,71 @@
 @extends('intranet.master_intranet')
 
 @php
-    \Carbon\Carbon::setLocale('id');
-    $user = Auth::user();
+\Carbon\Carbon::setLocale('id');
+$user = Auth::user();
 @endphp
 
 @section('content')
 <div class="bg-onboarding w-11/12  mx-auto mt-6 px-6 py-6">
-    <div class="flex flex-col   bg-blur-comission border border-white text-white rounded-lg w-full px-4 py-6">
+    <div class="flex flex-col bg-blur-comission border border-white text-white rounded-lg w-full px-4 py-6">
         <h4 class="text-sm">Profile Information</h4>
         <div class="flex items-center">
-            <img src="{{ strpos($user->image_user, 'http') !== false ? $user->image_user : url('storage/profile_picture/'.$user->image_user) }}" class="h-12 w-12 mt-6" alt="profile" onerror="this.src='{{ asset('assets/images/default-profile.png') }}'">
+            <!-- <img src="{{ strpos($user->image_user, 'http') !== false ? $user->image_user : url('storage/profile_picture/'.$user->image_user) }}" class="h-12 w-12 mt-6" alt="profile" onerror="this.src='{{ asset('assets/images/default-profile.png') }}'"> -->
             <h4 class="text-lg ml-3 mt-3 font-bold">{{ $user->name }}</h4>
         </div>
     </div>
 </div>
 
 <div class="flex flex-col gap-8 mt-6 w-11/12 mx-auto  rounded-xl our-regulation-background px-4 py-6 border border-blue-950 ">
-    <div class="grid lg:grid-cols-3">
-        <div class="flex flex-col">
-            <p class="my-3 text-xs text-white">Nama</p>
-            <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl lg:w-5/6">
-                <p class="font-bold text-sm">{{ $user->name }}</p>
-            </div>
-        </div>
-        <div class="flex flex-col">
-            <p class="my-3 text-xs text-white">Departemen</p>
-            <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl lg:w-4/6">
-                <p class="font-bold">{!! $user->dept == "" || $user->dept == null ? "&nbsp;" : $user->dept !!}</p>
-            </div>
-        </div>
-        <div class="flex flex-col">
-            <p class="my-3 text-xs text-white">Tanggal Lahir</p>
-            <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl  lg:w-3/6">
-                <p class="font-bold">{{ \Carbon\Carbon::parse($user->tgl_lahir)->translatedFormat('d F Y') }}</p>
-            </div>
-        </div>
-        <div class="flex flex-col">
-            <p class="my-3 text-xs text-white">Nomor Induk Pegawai</p>
-            <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl lg:w-2/6">
-                <p class="font-bold text-sm">{{ $user->nip }}</p>
-            </div>
-        </div>
-        <div class="flex flex-col">
-            <p class="my-3 text-xs text-white">Jabatan</p>
-            <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl lg:w-4/6">
-                <p class="font-bold">{{ $user->jabatan }}</p>
-            </div>
-        </div>
-    </div>
 
+
+
+    <div class="w-full flex">
+        <div class="grid w-4/6 lg:grid-cols-3">
+            <div class="flex flex-col">
+                <p class="my-3 text-xs text-white">Nama</p>
+                <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl lg:w-5/6">
+                    <p class="font-bold text-sm">{{ $user->name }}</p>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <p class="my-3 text-xs text-white">Departemen</p>
+                <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl lg:w-4/6">
+                    <p class="font-bold">{!! $user->dept == "" || $user->dept == null ? "&nbsp;" : $user->dept !!}</p>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <p class="my-3 text-xs text-white">Tanggal Lahir</p>
+                <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl  lg:w-3/6">
+                    <p class="font-bold">{{ \Carbon\Carbon::parse($user->tgl_lahir)->translatedFormat('d F Y') }}</p>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <p class="my-3 text-xs text-white">Nomor Induk Pegawai</p>
+                <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl lg:w-2/6">
+                    <p class="font-bold text-sm">{{ $user->nip }}</p>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <p class="my-3 text-xs text-white">Jabatan</p>
+                <div class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl lg:w-4/6">
+                    <p class="font-bold">{{ $user->jabatan }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex w-2/6 flex-col justify-center items-center mt-4">
+            <img src="{{ strpos($user->image_user, 'http') !== false ? $user->image_user : url('storage/profile_picture/'.$user->image_user) }}" class="h-24 w-24 mt-3" alt="profile" onerror="this.src='{{ asset('assets/images/default-profile.png') }}'">
+            <form action="" class="flex flex-col gap-6">
+                <div class="flex flex-col">
+                    <p class="my-3 text-sm text-white">Ganti Profile</p>
+                    <input type="file" class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl" />
+                </div>
+                <button class="bg-login-button text-white px-3 py-3 rounded-xl">update profile</button>
+            </form>
+        </div>
+
+    </div>
 
     <a href="{{ route('logout') }}" class="cursor-pointer text-white px-4 mt-6 text-xs py-2 rounded-6xl flex items-center bg-[#DD4D4D]/[40%] border rounded-xl lg:w-1/12">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 mr-2">
@@ -64,6 +80,10 @@
 
 
 <script>
+    function editProfile() {
+        console.log("tests")
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         let tabs = document.querySelectorAll('[data-tab-target]');
         let tabContents = document.querySelectorAll('#tab-contents > div');
