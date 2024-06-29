@@ -60,7 +60,7 @@ $user = Auth::user();
                 @csrf
                 <div class="flex flex-col">
                     <p class="my-3 text-sm text-white">Ganti Profile</p>
-                    <input name="foto" type="file" class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl" accept="image/png, image/gif, image/jpeg" />
+                    <input name="foto" type="file"  accept="image/*"  class="text-white px-4 text-sm py-2 rounded-6xl flex items-center bg-[#5d5b6c] border rounded-xl" accept="image/png, image/gif, image/jpeg" />
                 </div>
                 <button class="bg-login-button text-white px-3 py-2 text-sm rounded-xl">update profile</button>
             </form>
