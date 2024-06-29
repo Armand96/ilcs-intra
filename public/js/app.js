@@ -7491,7 +7491,7 @@ var ModalPost = function ModalPost(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         "class": "flex w-full",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          "class": "w-6/12 flex mt-4 items-center justify-between gap-6",
+          "class": "w-6/12 ".concat(obj ? 'hidden' : 'flex', " mt-4 items-center justify-between gap-6"),
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             onClick: toggleModalFoto,
             "class": "w-2/6 justify-center flex items-center gap-6 border-r border-r-[#E1E5F6]",

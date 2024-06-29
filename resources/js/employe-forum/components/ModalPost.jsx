@@ -59,7 +59,8 @@ export const ModalPost = ({ toggle, show, handleEditPost,toggleModalFoto,toggleM
                 </div>
                 <textarea autoFocus value={contentData.content} name="" onChange={(v) => setContentData({...contentData, content: v.target.value})} id="onlyText" class="w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]"></textarea>
                 <div class="flex w-full">
-                    <div class="w-6/12 flex mt-4 items-center justify-between gap-6">
+                   
+                    <div class={`w-6/12 ${obj ? 'hidden' : 'flex'} mt-4 items-center justify-between gap-6`}>
                         <div onClick={toggleModalFoto} class="w-2/6 justify-center flex items-center gap-6 border-r border-r-[#E1E5F6]">
                             <img src='../../assets/images/sosmed/foto-icon.svg' alt="" />
                             <p class="text-white text-xs">Foto</p>
@@ -73,6 +74,7 @@ export const ModalPost = ({ toggle, show, handleEditPost,toggleModalFoto,toggleM
                             <p class="text-white text-xs">File</p>
                         </div>
                     </div>
+
                     <div class="w-5/12"></div>
                     {
                         obj ? <button id="post-only-text" class="btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl" onClick={handleEditPostPrepare} >Update</button> :  <button id="post-only-text" class="btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl" onClick={ PostData} >Post</button>
