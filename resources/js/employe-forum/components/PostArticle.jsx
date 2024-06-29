@@ -45,12 +45,12 @@ export const PostArticle = ({ obj, getProfile }) => {
         if (inView) {
           // Fungsi untuk mengirim data ketika komponen terlihat
           PostView(`/${obj?.id}`).then((res) => {
-            GetPostList(`/${obj?.id}`).then((resp) => {
-                let currentIndex = getPostData?.data?.findIndex((x) => x?.id === obj?.id);
-                setDetailData(resp.data)
-                getPostData.data[currentIndex] = resp.data
-                setPostData(getPostData)
-            })
+            // GetPostList(`/${obj?.id}`).then((resp) => {
+            //     let currentIndex = getPostData?.data?.findIndex((x) => x?.id === obj?.id);
+            //     setDetailData(resp.data)
+            //     getPostData.data[currentIndex] = resp.data
+            //     setPostData(getPostData)
+            // })
         })
           };
     

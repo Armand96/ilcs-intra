@@ -35,11 +35,15 @@ export const ModalPostFoto = ({ toggle, show, handleEditPost, obj }) => {
     }
 
     const handleAdd = async (e) => {
-        const file = e.target.files[0]
-        if (file) {
-            const base64 = await convertToBase64(file)
-            setContentData({ ...contentData, images: [...contentData.images, base64] })
+        const files = [...e.target.files]
+        if (files) {
+            const base64Promises = files.map(async (file) => {
+                return await convertToBase64(file);
+            });
+            const base64Files = await Promise.all(base64Promises);
+            setContentData({ ...contentData, images: [...contentData.images, ...base64Files] });
         }
+        
         e.target.value = '' 
     }
 
