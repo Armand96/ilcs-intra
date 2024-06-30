@@ -12,7 +12,7 @@ import ImageGallery from "react-image-gallery";
     let items = image.map((x) => {
       return {
       original: `../../storage/employee_forum/${x?.path_file}`,
-      originalClass: "w-full h-64",
+      originalClass: "w-full",
       originalWidth: 300,
       originalHeight: 300
       }

@@ -301,8 +301,8 @@ export const PostArticle = ({ obj, getProfile }) => {
                         detailData?.likers?.length > 0 ? <div className="w-2/6 items-center flex gap-3">
                             <img src="../../assets/images/sosmed/like-stat-icon.svg" className="h-7 w-7" alt="like" />
                             <p className="text-xs font-light mt-1 text-white">{
-                                detailData?.likers?.length === 1 ? detailData?.likers[0]?.user_id === getProfile?.id ? "Anda menyukai postingan ini" : detailData?.likers[0]?.user?.name
-                                    : ` ${detailData?.likers[0].user?.name} and ${detailData?.likers?.length - 1} other`
+                                detailData?.likers?.length === 1 ? detailData?.likers[0]?.user_id === getProfile?.id ? "Anda menyukai postingan ini" :  detailData?.likers[0]?.user?.name
+                                    : detailData?.likers[0]?.user_id === getProfile?.id ? ` Anda ${ detailData.total_like > 2 ? `dan ${detailData?.likers[1].user?.name}` : ""} dan ${detailData?.total_like - 2 } lain nya`  :  ` ${detailData?.likers[0].user?.name} dan ${detailData?.total_like - 1 } lain nya`
                             } </p>
                         </div> : ""
                     }

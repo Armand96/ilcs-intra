@@ -7111,7 +7111,7 @@ var ImageContent = function ImageContent(_ref) {
     var items = image.map(function (x) {
       return {
         original: "../../storage/employee_forum/".concat(x === null || x === void 0 ? void 0 : x.path_file),
-        originalClass: "w-full h-64",
+        originalClass: "w-full",
         originalWidth: 300,
         originalHeight: 300
       };
@@ -8173,7 +8173,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var PostArticle = function PostArticle(_ref) {
-  var _detailData$posted_by, _detailData$posted_by2, _detailData$posted_by3, _detailData$posted_by4, _detailData$posted_by5, _detailData$posted_by6, _detailData$posted_by7, _detailData$files$, _detailData$files, _detailData$likers, _detailData$likers2, _detailData$likers$, _detailData$likers$2, _detailData$likers$0$, _detailData$likers3, _detailData$comments, _detailData$comments2;
+  var _detailData$posted_by, _detailData$posted_by2, _detailData$posted_by3, _detailData$posted_by4, _detailData$posted_by5, _detailData$posted_by6, _detailData$posted_by7, _detailData$files$, _detailData$files, _detailData$likers, _detailData$likers2, _detailData$likers$, _detailData$likers$2, _detailData$likers$3, _detailData$likers$1$, _detailData$likers$0$, _detailData$comments, _detailData$comments2;
   var obj = _ref.obj,
     getProfile = _ref.getProfile;
   var setPostData = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_4__["default"])(function (state) {
@@ -8600,7 +8600,7 @@ var PostArticle = function PostArticle(_ref) {
             alt: "like"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("p", {
             className: "text-xs font-light mt-1 text-white",
-            children: [(detailData === null || detailData === void 0 || (_detailData$likers2 = detailData.likers) === null || _detailData$likers2 === void 0 ? void 0 : _detailData$likers2.length) === 1 ? (detailData === null || detailData === void 0 || (_detailData$likers$ = detailData.likers[0]) === null || _detailData$likers$ === void 0 ? void 0 : _detailData$likers$.user_id) === (getProfile === null || getProfile === void 0 ? void 0 : getProfile.id) ? "Anda menyukai postingan ini" : detailData === null || detailData === void 0 || (_detailData$likers$2 = detailData.likers[0]) === null || _detailData$likers$2 === void 0 || (_detailData$likers$2 = _detailData$likers$2.user) === null || _detailData$likers$2 === void 0 ? void 0 : _detailData$likers$2.name : " ".concat(detailData === null || detailData === void 0 || (_detailData$likers$0$ = detailData.likers[0].user) === null || _detailData$likers$0$ === void 0 ? void 0 : _detailData$likers$0$.name, " and ").concat((detailData === null || detailData === void 0 || (_detailData$likers3 = detailData.likers) === null || _detailData$likers3 === void 0 ? void 0 : _detailData$likers3.length) - 1, " other"), " "]
+            children: [(detailData === null || detailData === void 0 || (_detailData$likers2 = detailData.likers) === null || _detailData$likers2 === void 0 ? void 0 : _detailData$likers2.length) === 1 ? (detailData === null || detailData === void 0 || (_detailData$likers$ = detailData.likers[0]) === null || _detailData$likers$ === void 0 ? void 0 : _detailData$likers$.user_id) === (getProfile === null || getProfile === void 0 ? void 0 : getProfile.id) ? "Anda menyukai postingan ini" : detailData === null || detailData === void 0 || (_detailData$likers$2 = detailData.likers[0]) === null || _detailData$likers$2 === void 0 || (_detailData$likers$2 = _detailData$likers$2.user) === null || _detailData$likers$2 === void 0 ? void 0 : _detailData$likers$2.name : (detailData === null || detailData === void 0 || (_detailData$likers$3 = detailData.likers[0]) === null || _detailData$likers$3 === void 0 ? void 0 : _detailData$likers$3.user_id) === (getProfile === null || getProfile === void 0 ? void 0 : getProfile.id) ? " Anda ".concat(detailData.total_like > 2 ? "dan ".concat(detailData === null || detailData === void 0 || (_detailData$likers$1$ = detailData.likers[1].user) === null || _detailData$likers$1$ === void 0 ? void 0 : _detailData$likers$1$.name) : "", " dan ").concat((detailData === null || detailData === void 0 ? void 0 : detailData.total_like) - 2, " lain nya") : " ".concat(detailData === null || detailData === void 0 || (_detailData$likers$0$ = detailData.likers[0].user) === null || _detailData$likers$0$ === void 0 ? void 0 : _detailData$likers$0$.name, " dan ").concat((detailData === null || detailData === void 0 ? void 0 : detailData.total_like) - 1, " lain nya"), " "]
           })]
         }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: isLike ? "w-2/6 flex items-center flex-row-reverse gap-3" : "w-full flex items-center flex-row-reverse gap-3",
