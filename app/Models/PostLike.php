@@ -44,7 +44,7 @@ class PostLike extends Model
 
     public function scopePostLikers(Builder $query)
     {
-        return $query->where('comment_id', null)->orWhere('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->limit(2);
+        return $query->where('comment_id', null)->orWhere('user_id', Auth::user()->id)->orderByRaw('CASE WHEN user_id = '.Auth::user()->id.' THEN 0 ELSE 1 END')->orderBy('created_at', 'desc')->limit(2);
     }
 
     public function scopeCommentLikers(Builder $query)
