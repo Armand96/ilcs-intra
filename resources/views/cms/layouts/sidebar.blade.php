@@ -72,14 +72,14 @@
                     <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'knowledges.index' ? 'hex-icon-active' : 'hex-icon' }}">
                         <img src="{{ asset('assets/images/icon/calendar-icon.svg') }}" alt="">
                     </div>
-                    <p class="mt-2 text-sm">Knowledge Management</p>
+                    <p class="mt-2 text-sm text-center">Knowledge Management</p>
                 </a>
                 <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'laporans.index' ? 'menu-child-active' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
                     href="{{ route('laporans.index') }}">
                     <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'laporans.index' ? 'hex-icon-active' : 'hex-icon' }}">
                         <img src="{{ asset('assets/images/icon/calendar-icon.svg') }}" alt="">
                     </div>
-                    <p class="mt-2 text-sm">Laporan Rapat Management</p>
+                    <p class="mt-2 text-sm text-center">Laporan Rapat Management</p>
                 </a>
                 <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'kpis.index' ? 'menu-child-active' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
                     href="{{ route('kpis.index') }}">
