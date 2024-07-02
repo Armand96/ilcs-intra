@@ -109,6 +109,23 @@ class PostController extends Controller
                 }
             }
 
+            /* UPLOAD VIDEOS */
+            if ($request->hasFile('videos')) {
+
+                foreach ($request->file('videos') as $key => $fl) {
+                    $fileName = str_replace(" ", "_", $fl->getClientOriginalName());
+                    $fl->storeAs('public/employee_forum/', $fileName);
+                    // $data['path_file'] = $fileName;
+                    $dataFile = array(
+                        'post_id' => $post->id,
+                        'path_file' => $fileName,
+                        'tipe' => 'video'
+                    );
+
+                    PostFile::create($dataFile);
+                }
+            }
+
             DB::commit();
 
             $post->load(['comments', 'postedBy']);
