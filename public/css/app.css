@@ -3313,6 +3313,18 @@ html:has(.drawer-toggle:checked) {
 .h-screen {
   height: 100vh;
 }
+.h-64 {
+  height: 16rem;
+}
+.h-24 {
+  height: 6rem;
+}
+.h-\[18rem\] {
+  height: 18rem;
+}
+.h-\[22rem\] {
+  height: 22rem;
+}
 .max-h-\[90dvh\] {
   max-height: 90dvh;
 }
@@ -3399,6 +3411,9 @@ html:has(.drawer-toggle:checked) {
 }
 .w-full {
   width: 100%;
+}
+.w-24 {
+  width: 6rem;
 }
 .max-w-3xl {
   max-width: 48rem;
