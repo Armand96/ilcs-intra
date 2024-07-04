@@ -19,7 +19,7 @@ export const ModalPostVideo = ({ toggle, show, handleEditPost, obj }) => {
         let formData = new FormData()
         formData.append('content', contentData.content)
         contentData.files.forEach((image, index) => {
-            formData.append(`files[${index}]`, image)
+            formData.append(`videos[${index}]`, image)
         })
 
         PostArticleData(formData).then((res) => {
