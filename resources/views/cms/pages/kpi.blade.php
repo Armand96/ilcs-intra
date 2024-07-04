@@ -37,6 +37,13 @@
                 </svg>
                 Tambah Data
             </button>
+            <button onclick="uploadModal()" class="btn btn-primary w-1/6 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                Upload
+            </button>
 
         </div>
         <div class="w-full">
@@ -154,6 +161,28 @@
     </dialog>
 
     <!-- Modal dialog -->
+    <dialog id="upload_modal" class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg">Upload KPI</h3>
+            <div class="modal-action">
+                <form id="upload_form" method="POST" enctype="multipart/form-data" action="{{ route('kpis.upload') }}">
+                    @csrf
+                    <div class="mt-4">
+                        <p class="text-white">File</p>
+                        <input type="file" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                            class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
+                    </div>
+
+                    <!-- if there is a button in form, it will close the modal -->
+                    <span method="dialog">
+                        <button type="button" onclick="closeUploadModal()" class="btn btn-neutral mr-3">cancel</button>
+                    </span>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+
+                </form>
+            </div>
+        </div>
+    </dialog>
 
     <!-- Open the modal using ID.showModal() method -->
     <dialog id="delete_modal" class="modal">
@@ -205,6 +234,14 @@
 
                 document.getElementById('my_modal').classList.add('modal-open');
             });
+        }
+
+        function uploadModal() {
+            $('#upload_modal').addClass('modal-open');
+        }
+
+        function closeUploadModal(){
+            $('#upload_modal').removeClass('modal-open');
         }
 
         function deleteModal(idKPI) {

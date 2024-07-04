@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\cms;
 
 use App\Http\Controllers\Controller;
+use App\Imports\KPIImport;
 use App\Models\KPIChart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KPICMSController extends Controller
 {
@@ -151,6 +154,29 @@ class KPICMSController extends Controller
             $kpi->delete();
             return redirect()->back()->with(['notif' => 'Data KPI telah dihapus']);
         } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+        }
+    }
+
+    public function uploadCSV(Request $request)
+    {
+        $request->validate([
+            'file' => 'required',
+        ]);
+
+        try {
+            if ($request->hasFile('file')) {
+                // $fileName = $request->file('file')->getClientOriginalName();
+                // $request->file->storeAs('public/kpi/', $fileName);
+                // $filePath = storage_path('public/kpi/'.$fileName);
+                // dd($filePath);
+
+                Excel::import(new KPIImport, $request->file('file'));
+                // Storage::delete("public/kpi/$fileName");
+            }
+            return redirect()->back()->with(['notif' => 'Data KPI telah diupload']);
+        } catch (\Throwable $th) {
+            throw $th;
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
         }
     }

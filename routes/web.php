@@ -66,6 +66,7 @@ Route::group(
     Route::resource('kpis', KPICMSController::class);
     Route::resource('knowledges', KnowledgeCMSController::class);
     Route::resource('laporans', LaporanRapatCMSController::class);
+    Route::post('kpis/upload', [KPICMSController::class, 'uploadCSV'])->name('kpis.upload');
 });
 
 Route::post('ckupload', [CKUploaderController::class, 'upload']);
