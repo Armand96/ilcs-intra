@@ -75,7 +75,7 @@ export const ModalPost = ({ toggle, show, handleEditPost,toggleModalFoto,toggleM
                         </div>
                     </div>
 
-                    <div class="w-5/12"></div>
+                    <div class={ obj ? 'w-1/12' : `w-5/12`}></div>
                     {
                         obj ? <button id="post-only-text" class="btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl" onClick={handleEditPostPrepare} >Update</button> :  <button id="post-only-text" class="btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl" onClick={ PostData} >Post</button>
                     }

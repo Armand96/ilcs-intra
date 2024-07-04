@@ -3,11 +3,13 @@ import { ModalPost } from './ModalPost'
 import useProfileStore from '../stores/ProfileStore'
 import { ModalPostFoto } from './ModalPostFoto'
 import { ModalPostFile } from './ModalPostFile'
+import { ModalPostVideo } from './ModalPostVideo'
 
 export const InputPostArticle = () => {
     const [toggleModalPost, setToggleModalPost] = useState(false)
     const [toggleModalPostFoto, setToggleModalPostFoto] = useState(false)
     const [toggleModalPostFile, setToggleModalPostFile] = useState(false)
+    const [toggleModalPostVideo, setToggleModalPostVideo] = useState(false)
     const getProfile = useProfileStore((state) => state.profile)
 
 
@@ -15,6 +17,7 @@ export const InputPostArticle = () => {
         <>
            {toggleModalPost && <ModalPost toggleModalFoto={() => {setToggleModalPost(!toggleModalPost);setToggleModalPostFoto(!toggleModalPostFoto)}} toggleModalFile={() => {setToggleModalPost(!toggleModalPost);setToggleModalPostFile(!toggleModalPostFile)}} show={toggleModalPost} toggle={() => setToggleModalPost(!toggleModalPost)} /> }
            {toggleModalPostFile && <ModalPostFile show={toggleModalPostFile} toggle={() => setToggleModalPostFile(!toggleModalPostFile)} /> }
+           {toggleModalPostVideo && <ModalPostVideo show={toggleModalPostVideo} toggle={() => setToggleModalPostVideo(!toggleModalPostVideo)} /> }
            {toggleModalPostFoto && <ModalPostFoto show={toggleModalPostFoto} toggle={() => setToggleModalPostFoto(!toggleModalPostFoto)} /> }
             <div class="bg-[#283358] flex flex-col w-5/6 mx-auto mt-5 mb-6 px-4 py-4 border border-blue-900 rounded-xl">
                 <div class="w-full flex gap-6 items-center cursor-pointer">

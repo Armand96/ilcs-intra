@@ -264,9 +264,9 @@ export const PostArticle = ({ obj, getProfile }) => {
                         {detailData && detailData?.content}
                     </p>
                     <div className="w-full flex flex-col">
-                        {detailData?.files[0]?.tipe === "gambar" ? 
+                        {detailData?.files?.length > 0 ? detailData?.files[0]?.tipe === "gambar" ? 
                             <ImageContent image={detailData?.files} />
-                        : detailData?.files?.map((file, index) => (
+                        : detailData?.files[0]?.tipe === "file"  ? detailData?.files?.map((file, index) => (
                             <a target='_blank' href={`../../storage/employee_forum/${file?.path_file}`} className="flex border border-blue-800 rounded-xl mt-5 w-full items-center gap-6 data-file" key={index}>
                                 <div className="w-1/6 flex items-center justify-center ">
                                     <img src="../../assets/images/sosmed/file-upload-icon.svg" alt="pdf icon" className="size-24  bg-[#00000033] rounded-full p-3" />
@@ -277,7 +277,8 @@ export const PostArticle = ({ obj, getProfile }) => {
                                     </p>
                                 </div>
                             </a>
-                        ))}
+                        )) :   <video  src={`../../storage/employee_forum/${ detailData?.files[0]?.path_file}`} controls >
+                              </video> : "" }
                     </div>
 
 

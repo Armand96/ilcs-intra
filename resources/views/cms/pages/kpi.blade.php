@@ -162,12 +162,12 @@
 
     <!-- Modal dialog -->
     <dialog id="upload_modal" class="modal">
-        <div class="modal-box">
+        <div class="modal-box flex flex-col">
             <h3 class="font-bold text-lg">Upload KPI</h3>
             <div class="modal-action">
-                <form id="upload_form" method="POST" enctype="multipart/form-data" action="{{ route('kpis.upload') }}">
+                <form id="upload_form" method="POST" class="w-full" enctype="multipart/form-data" action="{{ route('kpis.upload') }}">
                     @csrf
-                    <div class="mt-4">
+                    <div class="mb-6 w-full">
                         <p class="text-white">File</p>
                         <input type="file" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
                             class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
