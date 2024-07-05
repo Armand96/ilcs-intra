@@ -116,11 +116,11 @@ export const ModalPostVideo = ({ toggle, show, handleEditPost, obj }) => {
                     <textarea onChange={(v) => setContentData({ ...contentData, content: v.target.value })} value={contentData.content} className={`${contentData.files.length > 0 ? "flex" : "hidden"} w-full mt-5 h-28 rounded-xl outline-none text-white px-4 py-2 text-xs bg-[#384478FC]`}></textarea>
                     <div id="preview-image-list" className={`mt-6 ${contentData.files.length > 0 ? "flex" : "hidden"} w-full gap-6 flex-wrap`}>
                         {contentData?.files?.map((file, index) => (
-                            <div className="flex w-full items-center gap-6 border-b data-file pb-4" key={index}>
-                              <video  src={video} controls >
+                            <div className="flex w-full items-center relative gap-6 border-b data-file pb-4" key={index}>
+                              <video  src={video} controls className='rounded-xl' >
                               </video>
-                                <div className="flex w-1/6 items-center justify-center" onClick={() => handleDelete(index)}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white">
+                                <div className="flex px-2 py-2 rounded-full right-0 top-0 bg-blue-500 items-center absolute justify-center " onClick={() => handleDelete(index)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                                     </svg>
                                 </div>

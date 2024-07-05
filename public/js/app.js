@@ -7251,6 +7251,9 @@ var InputPostArticle = function InputPostArticle() {
             children: "Foto"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          onClick: function onClick() {
+            return setToggleModalPostVideo(true);
+          },
           "class": "w-2/6 justify-center flex items-center gap-6 border-r cursor-pointer border-r-white",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
             src: "../../assets/images/sosmed/video-icon.svg",
@@ -8215,7 +8218,7 @@ var ModalPostVideo = function ModalPostVideo(_ref) {
     var formData = new FormData();
     formData.append('content', contentData.content);
     contentData.files.forEach(function (image, index) {
-      formData.append("files[".concat(index, "]"), image);
+      formData.append("videos[".concat(index, "]"), image);
     });
     (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostArticleData)(formData).then(function (res) {
       (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("").then(function (resp) {
@@ -8393,12 +8396,13 @@ var ModalPostVideo = function ModalPostVideo(_ref) {
           className: "mt-6 ".concat(contentData.files.length > 0 ? "flex" : "hidden", " w-full gap-6 flex-wrap"),
           children: contentData === null || contentData === void 0 || (_contentData$files = contentData.files) === null || _contentData$files === void 0 ? void 0 : _contentData$files.map(function (file, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-              className: "flex w-full items-center gap-6 border-b data-file pb-4",
+              className: "flex w-full items-center relative gap-6 border-b data-file pb-4",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("video", {
                 src: video,
-                controls: true
+                controls: true,
+                className: "rounded-xl"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                className: "flex w-1/6 items-center justify-center",
+                className: "flex px-2 py-2 rounded-full right-0 top-0 bg-blue-500 items-center absolute justify-center ",
                 onClick: function onClick() {
                   return handleDelete(index);
                 },
@@ -8408,7 +8412,7 @@ var ModalPostVideo = function ModalPostVideo(_ref) {
                   viewBox: "0 0 24 24",
                   "stroke-width": "1.5",
                   stroke: "currentColor",
-                  "class": "size-8 text-white",
+                  "class": "size-6 text-white",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
                     "stroke-linecap": "round",
                     "stroke-linejoin": "round",
@@ -8869,7 +8873,8 @@ var PostArticle = function PostArticle(_ref) {
             }, index);
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("video", {
             src: "../../storage/employee_forum/".concat(detailData === null || detailData === void 0 || (_detailData$files$3 = detailData.files[0]) === null || _detailData$files$3 === void 0 ? void 0 : _detailData$files$3.path_file),
-            controls: true
+            controls: true,
+            className: "w-full h-52 object-cover"
           }) : ""
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {

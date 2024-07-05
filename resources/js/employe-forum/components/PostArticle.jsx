@@ -277,7 +277,7 @@ export const PostArticle = ({ obj, getProfile }) => {
                                     </p>
                                 </div>
                             </a>
-                        )) :   <video  src={`../../storage/employee_forum/${ detailData?.files[0]?.path_file}`} controls >
+                        )) :   <video  src={`../../storage/employee_forum/${ detailData?.files[0]?.path_file}`} controls  className='w-full h-52 object-cover'>
                               </video> : "" }
                     </div>
 
