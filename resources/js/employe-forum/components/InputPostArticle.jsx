@@ -32,7 +32,7 @@ export const InputPostArticle = () => {
                         <img src="../../assets/images/sosmed/foto-icon.svg" alt="" />
                         <p class="text-white text-xs">Foto</p>
                     </div>
-                    <div  onClick={() => setToggleModalPostVideo(true)} class="w-2/6 justify-center flex items-center gap-6 border-r cursor-pointer border-r-white">
+                    <div  class="w-2/6 justify-center flex items-center gap-6 border-r cursor-pointer border-r-white">
                         <img src="../../assets/images/sosmed/video-icon.svg" alt="" />
                         <p class="text-white text-xs">Video</p>
                     </div>

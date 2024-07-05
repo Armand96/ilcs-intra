@@ -7251,9 +7251,6 @@ var InputPostArticle = function InputPostArticle() {
             children: "Foto"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          onClick: function onClick() {
-            return setToggleModalPostVideo(true);
-          },
           "class": "w-2/6 justify-center flex items-center gap-6 border-r cursor-pointer border-r-white",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
             src: "../../assets/images/sosmed/video-icon.svg",
