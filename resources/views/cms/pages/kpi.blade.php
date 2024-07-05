@@ -30,22 +30,25 @@
                 </div>
             </form>
 
-     <div class="flex gap-6">
-     <button onclick="createNew()" class="btn btn-primary w-1/6 mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-                Tambah Data
-            </button>
-            <button onclick="uploadModal()" class="btn btn-primary w-1/6 mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-                Upload
-            </button>
-     </div>
+            <div class="flex gap-6">
+                <button onclick="createNew()" class="btn btn-primary w-1/6 mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    Tambah Data
+                </button>
+                <button onclick="uploadModal()" class="btn btn-primary w-1/6 mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    Upload
+                </button>
+                <a href="{{ route('kpis.template') }}" class="btn btn-primary w-1/6 mb-6">
+                    Download Template
+                </a>
+            </div>
 
         </div>
         <div class="w-full">
@@ -67,8 +70,8 @@
                                 <td> {{ $kpi->source }} </td>
                                 <td> {{ $kpi->bulan }} </td>
                                 <td> {{ $kpi->tahun }} </td>
-                                <td> Rp {{ number_format($kpi->rkap, 2, ",", ".") }} </td>
-                                <td> Rp {{ number_format($kpi->reals, 2, ",", ".") }} </td>
+                                <td> Rp {{ number_format($kpi->rkap, 2, ',', '.') }} </td>
+                                <td> Rp {{ number_format($kpi->reals, 2, ',', '.') }} </td>
                                 <td>
                                     <button class="btn btn-primary" onclick="edit({{ $kpi->id }})">
                                         Edit
@@ -167,11 +170,13 @@
         <div class="modal-box flex flex-col">
             <h3 class="font-bold text-lg">Upload KPI</h3>
             <div class="modal-action">
-                <form id="upload_form" method="POST" class="w-full" enctype="multipart/form-data" action="{{ route('kpis.upload') }}">
+                <form id="upload_form" method="POST" class="w-full" enctype="multipart/form-data"
+                    action="{{ route('kpis.upload') }}">
                     @csrf
                     <div class="mb-6 w-full">
                         <p class="text-white">File</p>
-                        <input type="file" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                        <input type="file" name="file"
+                            accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
                             class="bg-login-input mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                     </div>
 
@@ -242,7 +247,7 @@
             $('#upload_modal').addClass('modal-open');
         }
 
-        function closeUploadModal(){
+        function closeUploadModal() {
             $('#upload_modal').removeClass('modal-open');
         }
 

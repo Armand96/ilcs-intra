@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\cms;
 
+use App\Exports\KPIExport;
 use App\Http\Controllers\Controller;
 use App\Imports\KPIImport;
 use App\Models\KPIChart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+// use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
 class KPICMSController extends Controller
@@ -178,6 +179,15 @@ class KPICMSController extends Controller
         } catch (\Throwable $th) {
             throw $th;
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
+        }
+    }
+
+    public function downloadTemplate()
+    {
+        try {
+            return Excel::download(new KPIExport, 'template_kpi.xlsx');
+        } catch (\Throwable $th) {
+            throw $th;
         }
     }
 }
