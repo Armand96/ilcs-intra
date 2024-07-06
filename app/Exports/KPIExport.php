@@ -13,13 +13,12 @@ class KPIExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return KPIChart::select(['id', 'source', 'bulan', 'tahun', 'rkap', 'reals'])->limit(5)->get();
+        return KPIChart::select(['source', 'bulan', 'tahun', 'rkap', 'reals'])->limit(5)->get();
     }
 
     public function headings(): array
     {
         return [
-            'id',
             'source',
             'bulan',
             'tahun',
