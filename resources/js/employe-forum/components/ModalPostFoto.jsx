@@ -3,6 +3,7 @@ import usePostStore from '../stores/PostStore'
 import useProfileStore from '../stores/ProfileStore'
 import { GetPostList, PostArticleData } from '../services/Api'
 import { toast } from 'react-toastify'
+import useLoadingStroe from '../stores/LoadingStore'
 
 export const ModalPostFoto = ({ toggle, show, handleEditPost, obj }) => {
 
@@ -13,11 +14,14 @@ export const ModalPostFoto = ({ toggle, show, handleEditPost, obj }) => {
     const getProfile = useProfileStore((state) => state.profile)
     const setPostData = usePostStore((state) => state.updatePostData)
     const setResetPaginate = usePostStore((state) => state.setResetPaginate)
-    
+    // const setLoadingUpload = useLoadingStroe((state) => state.setLoading)
+    const [loading, setLoadingUpload] = useState(false)
+
 
   
 
     const PostData = () => {
+        setLoadingUpload(true)
         let formData = new FormData()
         formData.append('content', contentData.content)
         contentData.images.forEach((image, index) => {
@@ -30,10 +34,12 @@ export const ModalPostFoto = ({ toggle, show, handleEditPost, obj }) => {
                 setPostData(resp.data)
                 toggle()
                 setResetPaginate(true)
+                        setLoadingUpload(false)
             })
         }).catch((err) => {
             toast.error(`err ${err.error}`)
             toggle()
+                    setLoadingUpload(false)
         })
     }
 
@@ -128,9 +134,9 @@ export const ModalPostFoto = ({ toggle, show, handleEditPost, obj }) => {
                     </div>
 
                     {obj ? (
-                        <button id="post-only-text" className="btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl" onClick={handleEditPostPrepare}>Update</button>
+                        <button id="post-only-text" className="btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl disabled:bg-blue-500 disabled:text-white"  disabled={loading} onClick={handleEditPostPrepare}>{loading ? "...Loading" : "Update"}</button>
                     ) : (
-                        <button id="post-only-text" className="btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl" onClick={PostData}>Post</button>
+                        <button id="post-only-text" className="btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl disabled:bg-blue-500 disabled:text-white"  disabled={loading} onClick={PostData}>{loading ? "...Loading" : "Post"}</button>
                     )}
                 </div>
             </dialog>

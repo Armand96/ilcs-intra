@@ -215,6 +215,7 @@ export const PostArticle = ({ obj, getProfile }) => {
             {
                 toggleModalComment && <ModalComment obj={detailDataComment} toggle={() => setToggleModalComment(!toggleModalComment)} show={toggleModalComment} submit={handleSubmitComment} />
             }
+          
 
             <dialog id="buat-post" class={toggleModalDelete ? "modal modal-open" : "modal"}>
                 <div class="modal-box max-w-3xl bg-[#283358]">

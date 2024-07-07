@@ -6,9 +6,12 @@ import { GetPostList } from '../services/Api'
 import useProfileStore from '../stores/ProfileStore'
 import { toast } from 'react-toastify'
 import { v4 as uuidv4 } from 'uuid';
+import { Loader } from '../components/Loading'
+import useLoadingStroe from '../stores/LoadingStore'
 
 const MainPage = () => {
     const getPostData = usePostStore((state) => state.postData)
+    const LoadingAfterUpload = useLoadingStroe((state) => state.loading)
     const setPostData = usePostStore((state) => state.updatePostData)
     const getProfile = useProfileStore((state) => state.profile)
     const setResetPaginate = usePostStore((state) => state.setResetPaginate)
@@ -21,20 +24,20 @@ const MainPage = () => {
 
 
     useEffect(() => {
-        if(resetPaginate){
+        if (resetPaginate) {
             setResetPaginate(false)
             setHasMore(true)
             setPage(1)
         }
-    },[resetPaginate])
+    }, [resetPaginate])
 
     console.log(hasMore)
 
 
     const loadItems = useCallback(() => {
-        if(!hasMore) return 
+        if (!hasMore) return
         setLoading(true);
-        setTimeout(() => { 
+        setTimeout(() => {
             setLoading(true);
             GetPostList(`?page=${page}`).then((res) => {
                 if (getPostData?.data?.length > 0) {
@@ -46,8 +49,8 @@ const MainPage = () => {
                 }
                 setLoading(false);
             }).catch((err) => {
-                    toast.error(`err ${err.error}`)
-                })
+                toast.error(`err ${err.error}`)
+            })
         }, 1000);
     }, [page]);
 
@@ -67,13 +70,17 @@ const MainPage = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [handleScroll]);
+    console.log("LOADING",LoadingAfterUpload)
 
     return (
         <>
+            {
+                LoadingAfterUpload && <Loader />
+            }
             <InputPostArticle />
             <div className="py-5 w-full flex flex-col gap-6 post-container min-h-screen" >
                 {
-                 getProfile && getPostData && getPostData?.data?.map((item) => (
+                    getProfile && getPostData && getPostData?.data?.map((item) => (
                         <PostArticle obj={item} key={uuidv4()} getProfile={getProfile} />
                     ))
                 }

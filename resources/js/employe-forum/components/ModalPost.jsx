@@ -3,6 +3,7 @@ import { GetPostList, PostArticleData } from '../services/Api'
 import { toast } from 'react-toastify'
 import useProfileStore from '../stores/ProfileStore'
 import usePostStore from '../stores/PostStore'
+import useLoadingStroe from '../stores/LoadingStore'
 
 export const ModalPost = ({ toggle, show, handleEditPost,toggleModalFoto,toggleModalFile, obj}) => {
     const [contentData, setContentData] = useState({
@@ -11,19 +12,24 @@ export const ModalPost = ({ toggle, show, handleEditPost,toggleModalFoto,toggleM
     const getProfile = useProfileStore((state) => state.profile)
     const setPostData = usePostStore((state) => state.updatePostData)
     const setResetPaginate = usePostStore((state) => state.setResetPaginate)
+    // const setLoadingUpload = useLoadingStroe((state) => state.setLoading)
+    const [loading, setLoadingUpload] = useState(false)
 
     const PostData = () => {
         let formData = new FormData
         formData.append('content', contentData.content)
 
+        setLoadingUpload(true)
         PostArticleData(formData).then((res) => {
             GetPostList(``).then((resp) => {
                 toast.success(`success make a post`)
                 setPostData(resp.data)
                 toggle()
+                setLoadingUpload(false)
                 setResetPaginate(true)
             })
         }).catch((err) => {
+            setLoadingUpload(false)
             toast.error(`err ${err.error}`)
             toggle()
         })
@@ -41,7 +47,7 @@ export const ModalPost = ({ toggle, show, handleEditPost,toggleModalFoto,toggleM
 
 
     return (
-        <dialog id="buat-post" class={show ? "modal modal-open" : "modal"}>
+        <dialog id="buat-post" class={show ? "modal modal-open " : "modal"}>
             <div class="modal-box max-w-3xl bg-[#283358]">
                 <form method="dialog">
                     <button onClick={toggle} class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white border border-white rounded-full" onclick="togglePostModal()">✕</button>
@@ -76,9 +82,11 @@ export const ModalPost = ({ toggle, show, handleEditPost,toggleModalFoto,toggleM
                     </div>
 
                     <div class={ obj ? 'w-1/12' : `w-5/12`}></div>
-                    {
-                        obj ? <button id="post-only-text" class="btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl" onClick={handleEditPostPrepare} >Update</button> :  <button id="post-only-text" class="btn mt-4  text-white bg-[#0B5AFD] px-4 py-2 rounded-xl" onClick={ PostData} >Post</button>
-                    }
+                    {obj ? (
+                        <button id="post-only-text" className="btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl disabled:bg-blue-500 disabled:text-white"  disabled={loading} onClick={handleEditPostPrepare}>{loading ? "...Loading" : "Update"}</button>
+                    ) : (
+                        <button id="post-only-text" className="btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl disabled:bg-blue-500 disabled:text-white"  disabled={loading} onClick={PostData}>{loading ? "...Loading" : "Post"}</button>
+                    )}
                 </div>
             </div>
         </dialog>
