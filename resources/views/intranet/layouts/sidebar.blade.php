@@ -74,7 +74,7 @@
 
 
             <a class="text-white rounded-2xl menu-child flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
-                href="https://www.ilcs.co.id/digital-seaport/id" target="_blank">
+                href="https://www.ilcs.co.id/digital-seaport/id" id="product" target="_blank">
                 <div class="p-2 rounded-xl mt-2 hex-icon">
                     <img src="{{ asset('assets/images/icon/book-icon-2.svg') }}" alt="">
                 </div>

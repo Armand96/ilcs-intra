@@ -8279,9 +8279,11 @@ var ModalPostVideo = function ModalPostVideo(_ref) {
   var setResetPaginate = (0,_stores_PostStore__WEBPACK_IMPORTED_MODULE_1__["default"])(function (state) {
     return state.setResetPaginate;
   });
-  var setLoadingUpload = useLoadingStroe(function (state) {
-    return state.setLoading;
-  });
+  // const setLoadingUpload = useLoadingStroe((state) => state.setLoading)
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    loading = _useState6[0],
+    setLoadingUpload = _useState6[1];
   var PostData = function PostData() {
     setLoadingUpload(true);
     var formData = new FormData();
@@ -8495,14 +8497,16 @@ var ModalPostVideo = function ModalPostVideo(_ref) {
           })
         }), obj ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
           id: "post-only-text",
-          className: "btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl",
+          className: "btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl disabled:bg-blue-500 disabled:text-white",
+          disabled: loading,
           onClick: handleEditPostPrepare,
-          children: "Update"
+          children: loading ? "...Loading" : "Update"
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
           id: "post-only-text",
-          className: "btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl",
+          className: "btn mt-4 text-white bg-[#0B5AFD] px-4 py-2 rounded-xl disabled:bg-blue-500 disabled:text-white",
+          disabled: loading,
           onClick: PostData,
-          children: "Post"
+          children: loading ? "...Loading" : "Post"
         })]
       })
     })
