@@ -15,7 +15,7 @@
             </a>
 
             <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'our_leader' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
-                href="{{route('our_leader')}}">
+                href="{{route('our_leader').'/#our_leader'}}" id="our_leader">
                 <div class=" p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'our_leader' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/user-octagon.svg') }}" alt="">
                 </div>
@@ -23,7 +23,7 @@
             </a>
 
             <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'our_team' ? 'menu-child-active border border-blue-950' : 'menu-child' }}  flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
-            href="{{route('our_team')}}">
+            href="{{route('our_team').'/#our_team'}}" id="our_team">
                 <div class=" p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'our_team' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/user-square.svg') }}" alt="">
                 </div>
@@ -32,7 +32,7 @@
 
 
             <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'employee.forum' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
-                href="{{route('employee.forum')}}">
+                href="{{route('employee.forum').'/#forum'}}" id="forum">
                 <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'employee.forum' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/employe-aspiration.svg') }}" alt="">
                 </div>
@@ -40,7 +40,7 @@
             </a>
 
             <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'knowledge.management' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
-                href="{{route('knowledge.management')}}">
+                href="{{route('knowledge.management').'/#knowledge'}}" id="knowledge">
                 <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'knowledge.management' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/book-icon.svg') }}" alt="">
                 </div>
@@ -48,8 +48,8 @@
             </a>
 
             <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'laporan.management' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
-                href="{{route('laporan.management')}}">
-                <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'laporan.management' ? 'menu-child-active border border-blue-950' : 'menu-child' }}">
+                href="{{route('laporan.management').'/#laporan_management'}}" id="laporan_management">
+                <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'laporan.management' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/book-icon.svg') }}" alt="">
                 </div>
                 <p class="mt-2 text-xs 2xl:text-sm text-center w-full">Laporan Rapat Management</p>
@@ -64,7 +64,7 @@
             </a> -->
 
             <a class="text-white rounded-2xl {{ Route::currentRouteName() == 'our_regulation' ? 'menu-child-active border border-blue-950' : 'menu-child' }} flex-col items-center justify-center flex mt-4 w-5/6 px-4 py-3"
-                href="{{route('our_regulation')}}">
+                href="{{route('our_regulation').'/#our_regulation'}}" id="our_regulation">
                 <div class="p-2 rounded-xl mt-2 {{ Route::currentRouteName() == 'our_regulation' ? 'hex-icon-active' : 'hex-icon' }}">
                     <img src="{{ asset('assets/images/icon/our-regulation.svg') }}" alt="">
                 </div>
