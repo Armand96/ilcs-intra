@@ -7251,6 +7251,9 @@ var InputPostArticle = function InputPostArticle() {
             children: "Foto"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          onClick: function onClick() {
+            return setToggleModalPostVideo(true);
+          },
           "class": "w-2/6 justify-center flex items-center gap-6 border-r cursor-pointer border-r-white",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
             src: "../../assets/images/sosmed/video-icon.svg",
@@ -9305,10 +9308,10 @@ var PostArticleData = /*#__PURE__*/function () {
         case 8:
           _context.prev = 8;
           _context.t0 = _context["catch"](0);
-          console.log(_context.t0.toJSON());
+          console.log(_context.t0.response.message);
           throw {
             success: false,
-            error: _context.t0.message
+            error: _context.t0.response.data.message
           };
         case 12:
         case "end":
@@ -9341,7 +9344,7 @@ var GetProfileCurrentUser = /*#__PURE__*/function () {
           _context2.t0 = _context2["catch"](0);
           throw {
             success: false,
-            error: _context2.t0.message
+            error: _context2.t0.response.data.message
           };
         case 11:
         case "end":
@@ -9374,7 +9377,7 @@ var GetPostList = /*#__PURE__*/function () {
           _context3.t0 = _context3["catch"](0);
           throw {
             success: false,
-            error: _context3.t0.message
+            error: _context3.t0.response.data.message
           };
         case 11:
         case "end":
@@ -9408,7 +9411,7 @@ var PostLike = /*#__PURE__*/function () {
           console.log(_context4.t0.toJSON());
           throw {
             success: false,
-            error: _context4.t0.message
+            error: _context4.t0.response.data.message
           };
         case 12:
         case "end":
@@ -9442,7 +9445,7 @@ var PostDisLike = /*#__PURE__*/function () {
           console.log(_context5.t0.toJSON());
           throw {
             success: false,
-            error: _context5.t0.message
+            error: _context5.t0.response.data.message
           };
         case 12:
         case "end":
@@ -9476,7 +9479,7 @@ var PostCommentArticle = /*#__PURE__*/function () {
           console.log(_context6.t0.toJSON());
           throw {
             success: false,
-            error: _context6.t0.message
+            error: _context6.t0.response.data.message
           };
         case 12:
         case "end":
@@ -9510,7 +9513,7 @@ var PostEditComment = /*#__PURE__*/function () {
           console.log(_context7.t0.toJSON());
           throw {
             success: false,
-            error: _context7.t0.message
+            error: _context7.t0.response.data.message
           };
         case 12:
         case "end":
@@ -9544,7 +9547,7 @@ var GetDeleteComment = /*#__PURE__*/function () {
           console.log(_context8.t0.toJSON());
           throw {
             success: false,
-            error: _context8.t0.message
+            error: _context8.t0.response.data.message
           };
         case 12:
         case "end":
@@ -9578,7 +9581,7 @@ var PostEditArticle = /*#__PURE__*/function () {
           console.log(_context9.t0.toJSON());
           throw {
             success: false,
-            error: _context9.t0.message
+            error: _context9.t0.response.data.message
           };
         case 12:
         case "end":
@@ -9612,7 +9615,7 @@ var GetDeletePost = /*#__PURE__*/function () {
           console.log(_context10.t0.toJSON());
           throw {
             success: false,
-            error: _context10.t0.message
+            error: _context10.t0.response.data.message
           };
         case 12:
         case "end":
@@ -9646,7 +9649,7 @@ var PostView = /*#__PURE__*/function () {
           console.log(_context11.t0.toJSON());
           throw {
             success: false,
-            error: _context11.t0.message
+            error: _context11.t0.response.data.message
           };
         case 12:
         case "end":

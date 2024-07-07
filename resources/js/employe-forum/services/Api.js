@@ -9,8 +9,8 @@ export const PostArticleData = async (body) => {
         const { data } = await axios.post("/makePost", body);
         return { success: true, data };
     } catch (error) {
-        console.log(error.toJSON());
-        throw { success: false, error: error.message };
+        console.log(error.response.message);
+        throw { success: false, error: error.response.data.message };
     }
 }
 
@@ -19,7 +19,7 @@ export const GetProfileCurrentUser = async () => {
         const { data } = await axios.get("/currentUser");
         return { success: true, data };
     } catch (error) {
-        throw { success: false, error: error.message };
+        throw { success: false, error: error.response.data.message };
     }
 }
 
@@ -28,7 +28,7 @@ export const GetPostList = async (param) => {
         const { data } = await axios.get(`/listPost${param || ""}`);
         return { success: true, data };
     } catch (error) {
-        throw { success: false, error: error.message };
+        throw { success: false, error: error.response.data.message };
     }
 }
 
@@ -38,7 +38,7 @@ export const PostLike = async (body) => {
         return { success: true, data };
     } catch (error) {
         console.log(error.toJSON());
-        throw { success: false, error: error.message };
+        throw { success: false, error: error.response.data.message };
     }
 }
 
@@ -48,7 +48,7 @@ export const PostDisLike = async (body) => {
         return { success: true, data };
     } catch (error) {
         console.log(error.toJSON());
-        throw { success: false, error: error.message };
+        throw { success: false, error: error.response.data.message };
     }
 }
 
@@ -58,7 +58,7 @@ export const PostCommentArticle = async (body) => {
         return { success: true, data };
     } catch (error) {
         console.log(error.toJSON());
-        throw { success: false, error: error.message };
+        throw { success: false, error: error.response.data.message };
     }
 }
 
@@ -69,7 +69,7 @@ export const PostEditComment = async (body, params) => {
         return { success: true, data };
     } catch (error) {
         console.log(error.toJSON());
-        throw { success: false, error: error.message };
+        throw { success: false, error: error.response.data.message };
     }
 }
 
@@ -79,7 +79,7 @@ export const GetDeleteComment = async (params) => {
         return { success: true, data };
     } catch (error) {
         console.log(error.toJSON());
-        throw { success: false, error: error.message };
+        throw { success: false, error: error.response.data.message };
     }
 }
 
@@ -89,7 +89,7 @@ export const PostEditArticle = async (body, params) => {
         return { success: true, data };
     } catch (error) {
         console.log(error.toJSON());
-        throw { success: false, error: error.message };
+        throw { success: false, error: error.response.data.message };
     }
 }
 
@@ -99,7 +99,7 @@ export const GetDeletePost = async (params) => {
         return { success: true, data };
     } catch (error) {
         console.log(error.toJSON());
-        throw { success: false, error: error.message };
+        throw { success: false, error: error.response.data.message };
     }
 }
 
@@ -109,6 +109,6 @@ export const PostView = async (params) => {
         return { success: true, data };
     } catch (error) {
         console.log(error.toJSON());
-        throw { success: false, error: error.message };
+        throw { success: false, error: error.response.data.message };
     }
 }
