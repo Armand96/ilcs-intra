@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -56,7 +57,7 @@ class PostController extends Controller
         return response()->json($post);
     }
 
-    public function makePost(Request $request)
+    public function makePost(PostRequest $request)
     {
         $messages = [
             'videos.*.max' => 'File size melebihi batas',
