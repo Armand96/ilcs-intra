@@ -14,8 +14,10 @@ export const ModalPostVideo = ({ toggle, show, handleEditPost, obj }) => {
     const getProfile = useProfileStore((state) => state.profile)
     const setPostData = usePostStore((state) => state.updatePostData)
     const setResetPaginate = usePostStore((state) => state.setResetPaginate)
+    const setLoadingUpload = useLoadingStroe((state) => state.setLoading)
 
     const PostData = () => {
+        setLoadingUpload(true)
         let formData = new FormData()
         formData.append('content', contentData.content)
         contentData.files.forEach((image, index) => {
@@ -28,8 +30,10 @@ export const ModalPostVideo = ({ toggle, show, handleEditPost, obj }) => {
                 setPostData(resp.data)
                 toggle()
                 setResetPaginate(true)
+                setLoadingUpload(false)
             })
         }).catch((err) => {
+            setLoadingUpload(false)
             toast.error(`err ${err.error}`)
             toggle()
         })
