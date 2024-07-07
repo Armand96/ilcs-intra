@@ -58,9 +58,14 @@ class PostController extends Controller
 
     public function makePost(Request $request)
     {
+        $messages = [
+            'videos.*.max' => 'File size melebihi batas',
+        ];
+
         $request->validate([
             'content' => 'required',
-        ]);
+            'videos.*' => 'max:'.env('MAX_FILE_SIZE_VIDEO', 10240)
+        ], $messages);
 
         // dd($request->all());
 
