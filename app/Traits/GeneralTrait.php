@@ -244,7 +244,7 @@ trait GeneralTrait
 
             $realValue = number_format($dataKPI->cumulative_real/$pembagi, 2, ",", ".");
             $rkapAchieve = number_format($dataKPI->cumulative_real/$dataKPI->cumulative_plan * 100, 2, ",", ".");
-            $growth = (($dataKPI->cumulative_real - $dataKPI->real_last_year)/$dataKPI->real_last_year) * 100;
+            $growth = $dataKPI->real_last_year != 0 ? (($dataKPI->cumulative_real - $dataKPI->real_last_year)/$dataKPI->real_last_year) * 100 : 0;
             $growth = number_format($growth, 2, ",", ".");
             $words = "$filter Rp $realValue M, tercapai $rkapAchieve% RKAP; Growth $growth% YoY";
             $data['words'] = $words;

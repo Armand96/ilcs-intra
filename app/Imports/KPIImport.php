@@ -17,8 +17,8 @@ class KPIImport implements ToModel, WithHeadingRow
     {
         $kpi = KPIChart::where('source', $row['source'])->where('bulan', $row['bulan'])->where('tahun', $row['tahun'])->first();
         if($kpi) {
-            $kpi->rkap = $row['rkap'];
-            $kpi->reals = $row['reals'];
+            $kpi->rkap = $row['rkap'] ? $row['rkap'] : 0;
+            $kpi->reals = $row['reals'] ? $row['reals'] : 0;
             $kpi->update();
             return $kpi;
         } else {
@@ -26,8 +26,8 @@ class KPIImport implements ToModel, WithHeadingRow
                 'source' => $row['source'],
                 'bulan' => $row['bulan'],
                 'tahun' => $row['tahun'],
-                'rkap' => $row['rkap'],
-                'reals' => $row['reals'],
+                'rkap' => $row['rkap'] ? $row['rkap'] : 0,
+                'reals' => $row['reals'] ? $row['reals'] : 0,
             ));
         }
     }
