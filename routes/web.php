@@ -1,13 +1,13 @@
 <?php
 
 use App\Http\Controllers\CKUploaderController;
-use App\Http\Controllers\cms\CalendarCMSController;
-use App\Http\Controllers\cms\KnowledgeCMSController;
-use App\Http\Controllers\cms\KPICMSController;
+use App\Http\Controllers\CMS\CalendarCMSController;
+use App\Http\Controllers\CMS\KnowledgeCMSController;
+use App\Http\Controllers\CMS\KPICMSController;
 use App\Http\Controllers\CMS\LaporanRapatCMSController;
 use App\Http\Controllers\CMS\LeaderCMSController;
 use App\Http\Controllers\CMS\LinkCMSController;
-use App\Http\Controllers\cms\NewsCMSController;
+use App\Http\Controllers\CMS\NewsCMSController;
 use App\Http\Controllers\CMS\RegulasiCMSController;
 use App\Http\Controllers\CMS\UserCMSController;
 use App\Http\Controllers\CMSController;
