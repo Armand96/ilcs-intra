@@ -131,7 +131,7 @@
             @foreach ($users as $usr)
             <div class="flex flex-col rounded-xl border h-[13rem] border-blue-900 ">
                 <img src="{{ asset('assets/images/background/bg-team.svg') }}" class="rounded-t-xl " alt="">
-                <img src="{{ $usr->image_user }}"  onclick="window.open(`{{$usr->image_user}}`)" onerror="this.src='{{ asset('assets/images/default-profile.png') }}'" class="w-20 h-20 object-cover border border-white -mt-8 ml-2 rounded-full" alt="">
+                <img src="{{ $usr->image_user }}"  onclick="openModal({{$usr->id}})" onerror="this.src='{{ asset('assets/images/default-profile.png') }}'" class="w-20 h-20 object-cover border border-white -mt-8 ml-2 rounded-full" alt="">
                 <div class="px-4 py-4">
                     <h4 class="text-white text-base font-semibold">{{ $usr->name }}</h4>
                     <p class="text-xs text-dashboard-blue-right font-medium mt-2">{{ $usr->jabatan }}</p>
@@ -257,6 +257,9 @@
 
 </div>
 
+@include('components.modal_detail_team')
+
+
 </div>
 
 <script>
@@ -270,8 +273,20 @@
         $('#divisi').val(divisi);
         $('#name').val('');
         $('#search_form').submit();
-
     }
+
+    function openModal(idTeam) {
+            axios.get('{{ url("detail-team") }}/'+idTeam).then(({data} )=> {
+                console.log(data)
+                $('#detail_team_image').attr('src', data.image_user);
+                $('#modal_detail_team').addClass('modal-open');
+            });
+        }
+
+        function closeModal(){
+            $('#modal_detail_team').removeClass('modal-open');
+        }
+
 
     function toggleHandle() {
         let categoriesComp = document.getElementById("divisi-categories")

@@ -31,4 +31,12 @@ class TeamController extends Controller
 
         return view('intranet.pages.our_team', compact('users', 'divisi'));
     }
+    
+    public function show(User $user)
+    {
+        if (Storage::disk('public')->exists("profile_picture/" . $user->image_user)) {
+            $user->image_user = Storage::disk('public')->url('profile_picture/' . $user->image_user);
+        }
+        return response()->json($user);
+    }
 }

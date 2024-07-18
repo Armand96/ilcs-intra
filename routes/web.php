@@ -81,6 +81,7 @@ Route::group(['middleware' =>['auth', 'checkz']], function() {
     Route::get("/dashboard", [DashboardController::class, 'home'])->name('dashboard');
     Route::get("/our-leader", [LeaderController::class, 'ourLeader'])->name('our_leader');
     Route::get("/our-team", [TeamController::class, 'teams'])->name('our_team');
+    Route::get("/detail-team/{user}", [TeamController::class, 'show'])->name('our_team_modal');
     Route::get("/our-regulation", [RegulasiController::class, 'ourRegulations'])->name('our_regulation');
     Route::get("/calendar", function() {
         return view('intranet.pages.calendar');
