@@ -341,8 +341,8 @@ class PostController extends Controller
 
             $data['user_id'] = Auth::user()->id;
 
-            $post = Post::find($data['post_id']);
             if(isset($data['post_id'])) {
+                $post = Post::find($data['post_id']);
                 $post->decrement('total_like');
             }
             PostLike::when(isset($data['post_id']), function($qry) use($data){
