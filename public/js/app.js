@@ -8749,24 +8749,26 @@ var PostArticle = function PostArticle(_ref) {
     }
   };
   var handleDelete = function handleDelete(obj) {
-    console.log("LOCATION", window.location.href);
-    // GetDeleteComment(`/${obj.id}`).then((res) => {
-    //     GetPostList(`/${detailData?.id}`).then((resp) => {
-    //         let currentIndex = getPostData?.data?.findIndex((x) => x?.id === detailData?.id);
-    //         setDetailData(resp.data)
-    //         getPostData.data[currentIndex] = resp.data
-    //         setPostData(getPostData)
-    //     })
-    //     toast.success("Delete comment success")
-    // }).catch((err) => {
-    //     toast.error(`err ${err.error}`)
-    // })
+    (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetDeleteComment)("/".concat(obj.id)).then(function (res) {
+      (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
+        var _getPostData$data7;
+        var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data7 = getPostData.data) === null || _getPostData$data7 === void 0 ? void 0 : _getPostData$data7.findIndex(function (x) {
+          return (x === null || x === void 0 ? void 0 : x.id) === (detailData === null || detailData === void 0 ? void 0 : detailData.id);
+        });
+        setDetailData(resp.data);
+        getPostData.data[currentIndex] = resp.data;
+        setPostData(getPostData);
+      });
+      react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.success("Delete comment success");
+    })["catch"](function (err) {
+      react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("err ".concat(err.error));
+    });
   };
   var handleEditPost = function handleEditPost(data) {
     (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.PostEditArticle)(data, "/".concat(detailData.id)).then(function (res) {
       (0,_services_Api__WEBPACK_IMPORTED_MODULE_3__.GetPostList)("/".concat(detailData === null || detailData === void 0 ? void 0 : detailData.id)).then(function (resp) {
-        var _getPostData$data7;
-        var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data7 = getPostData.data) === null || _getPostData$data7 === void 0 ? void 0 : _getPostData$data7.findIndex(function (x) {
+        var _getPostData$data8;
+        var currentIndex = getPostData === null || getPostData === void 0 || (_getPostData$data8 = getPostData.data) === null || _getPostData$data8 === void 0 ? void 0 : _getPostData$data8.findIndex(function (x) {
           return (x === null || x === void 0 ? void 0 : x.id) === (detailData === null || detailData === void 0 ? void 0 : detailData.id);
         });
         setDetailData(resp.data);
@@ -9007,7 +9009,7 @@ var PostArticle = function PostArticle(_ref) {
             alt: "like"
           })]
         })]
-      }), (detailData === null || detailData === void 0 || (_detailData$comments = detailData.comments) === null || _detailData$comments === void 0 ? void 0 : _detailData$comments.length) > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+      }), detailData && (detailData === null || detailData === void 0 || (_detailData$comments = detailData.comments) === null || _detailData$comments === void 0 ? void 0 : _detailData$comments.length) > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: toggleComment ? "flex flex-col gap-3" : "hidden",
           children: detailData && (detailData === null || detailData === void 0 || (_detailData$comments2 = detailData.comments) === null || _detailData$comments2 === void 0 ? void 0 : _detailData$comments2.map(function (item) {
