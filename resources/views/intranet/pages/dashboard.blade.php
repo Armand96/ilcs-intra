@@ -301,7 +301,7 @@
 <!-- Chart -->
 <div class="flex flex-col w-full pb-6 px-4 lg:px-14 " id="kpi" style="zoom: 100%">
     <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
-        <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d {{ date('F') }}</h2>
+        <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d {{ date('F', strtotime('-1 month')) }}</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-7 mt-4">
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
                 <h4 class="text-white font-semibold 2xl:text-lg">Pendapatan Usaha</h4>
@@ -357,7 +357,7 @@
     </div>
 
     <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
-        <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan per Portofolio {{ date('F') }}</h2>
+        <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan per Portofolio {{ date('F', strtotime('-1 month')) }}</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-7 mt-4">
 
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
