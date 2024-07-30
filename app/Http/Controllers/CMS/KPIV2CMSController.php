@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\cms;
+namespace App\Http\Controllers\CMS;
 
-use App\Exports\KPIExport;
 use App\Http\Controllers\Controller;
-use App\Imports\KPIImport;
-use App\Models\KPIChart;
+use App\Models\KPIChartV2;
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Storage;
-use Maatwebsite\Excel\Facades\Excel;
 
-class KPICMSController extends Controller
+class KPIV2CMSController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +15,7 @@ class KPICMSController extends Controller
      */
     public function index(Request $request)
     {
-        $query = KPIChart::query();
+        $query = KPIChartV2::query();
 
         if ($request->filled('source')) {
             $query->where('source', 'like', '%' . $request->source . '%');
@@ -33,7 +29,7 @@ class KPICMSController extends Controller
 
         $kpis = $query->paginate(10);
 
-        return view('cms.pages.kpi', compact('kpis'));
+        return view('cms.pages.kpiv2', compact('kpis'));
     }
 
     /**
@@ -60,7 +56,9 @@ class KPICMSController extends Controller
                 'bulan' => 'required',
                 'tahun' => 'required',
                 'rkap' => 'required',
-                'reals' => 'required',
+                'rkap_bulan_ini' => 'required',
+                'realisasi_bulan_ini' => 'required',
+                'realisasi_tahun_lalu' => 'required',
             ]);
 
             $data = $request->only([
@@ -68,18 +66,20 @@ class KPICMSController extends Controller
                 'bulan',
                 'tahun',
                 'rkap',
-                'reals',
+                'rkap_bulan_ini',
+                'realisasi_bulan_ini',
+                'realisasi_tahun_lalu',
             ]);
 
-            $kpiExists = KPIChart::where('source', $data['source'])
+            $kpiExists = KPIChartV2::where('source', $data['source'])
                 ->where('bulan', $data['bulan'])
                 ->where('tahun', $data['tahun'])
                 ->first();
 
             if ($kpiExists) {
-                $kpiExists->update();
+                $kpiExists->update($data);
             } else {
-                KPIChart::create($data);
+                KPIChartV2::create($data);
             }
 
             return redirect()->back()->with(['notif' => 'Data KPI telah ditambahkan']);
@@ -91,10 +91,10 @@ class KPICMSController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\KPIChart  $kpi
+     * @param  \App\Models\KPIChartV2  $kpi
      * @return \Illuminate\Http\Response
      */
-    public function show(KPIChart $kpi)
+    public function show(KPIChartV2 $kpi)
     {
         return response()->json($kpi);
     }
@@ -102,10 +102,10 @@ class KPICMSController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\KPIChart  $kpi
+     * @param  \App\Models\KPIChartV2  $kpi
      * @return \Illuminate\Http\Response
      */
-    public function edit(KPIChart $kpi)
+    public function edit(KPIChartV2 $kpi)
     {
         //
     }
@@ -114,10 +114,10 @@ class KPICMSController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\KPIChart  $kpi
+     * @param  \App\Models\KPIChartV2  $kpi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, KPIChart $kpi)
+    public function update(Request $request, KPIChartV2 $kpi)
     {
         try {
             $request->validate([
@@ -125,7 +125,9 @@ class KPICMSController extends Controller
                 'bulan' => 'required',
                 'tahun' => 'required',
                 'rkap' => 'required',
-                'reals' => 'required',
+                'rkap_bulan_ini' => 'required',
+                'realisasi_bulan_ini' => 'required',
+                'realisasi_tahun_lalu' => 'required',
             ]);
 
             $data = $request->only([
@@ -133,11 +135,13 @@ class KPICMSController extends Controller
                 'bulan',
                 'tahun',
                 'rkap',
-                'reals',
+                'rkap_bulan_ini',
+                'realisasi_bulan_ini',
+                'realisasi_tahun_lalu',
             ]);
 
             $kpi->update($data);
-            return redirect()->back()->with(['notif' => 'Data KPI telah diperbarui']);
+            return redirect()->back()->with(['notif' => 'Data KPI telah ditambahkan']);
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
         }
@@ -146,48 +150,16 @@ class KPICMSController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\KPIChart  $kpi
+     * @param  \App\Models\KPIChartV2  $kpi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(KPIChart $kpi)
+    public function destroy(KPIChartV2 $kpi)
     {
         try {
             $kpi->delete();
             return redirect()->back()->with(['notif' => 'Data KPI telah dihapus']);
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
-        }
-    }
-
-    public function uploadCSV(Request $request)
-    {
-        $request->validate([
-            'file' => 'required',
-        ]);
-
-        try {
-            if ($request->hasFile('file')) {
-                // $fileName = $request->file('file')->getClientOriginalName();
-                // $request->file->storeAs('public/kpi/', $fileName);
-                // $filePath = storage_path('public/kpi/'.$fileName);
-                // dd($filePath);
-
-                Excel::import(new KPIImport, $request->file('file'));
-                // Storage::delete("public/kpi/$fileName");
-            }
-            return redirect()->back()->with(['notif' => 'Data KPI telah diupload']);
-        } catch (\Throwable $th) {
-            throw $th;
-            return redirect()->back()->withErrors(['errors' => $th->getMessage()]);
-        }
-    }
-
-    public function downloadTemplate()
-    {
-        try {
-            return Excel::download(new KPIExport, 'template_kpi.xlsx');
-        } catch (\Throwable $th) {
-            throw $th;
         }
     }
 }

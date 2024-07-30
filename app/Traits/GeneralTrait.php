@@ -254,6 +254,85 @@ trait GeneralTrait
         return $data;
     }
 
+    public function kpiChartV2($filter)
+    {
+        $sql = "SELECT
+            bulan AS month,
+            tahun AS year,
+            rkap AS plan_this_year,
+            rkap_bulan_ini AS cumulative_plan,
+            realisasi_bulan_ini As cumulative_real,
+            realisasi_tahun_lalu AS real_last_year,
+            realisasi_tahun_lalu / realisasi_bulan_ini AS achieve
+        FROM k_p_i_chart_v2_s
+        WHERE (tahun = YEAR(CURRENT_DATE) AND bulan = MONTH(CURRENT_DATE) - 1 AND source = '$filter')
+        OR (MONTH(CURRENT_DATE) = 1 AND tahun = YEAR(CURRENT_DATE) - 1 AND bulan = 12 AND source = '$filter') ";
+        $dataKPI = DB::select(DB::raw($sql));
+
+        $data = [
+            "data" => [],
+            "words" => "",
+            "growth" => 0
+        ];
+
+        if(count($dataKPI)) {
+
+            $dataKPI = $dataKPI[0];
+            $year = date('Y');
+            $month = date('F');
+            $lastYear = date('Y', strtotime('-1 year'));
+            $pembagi = 1_000_000_000;
+            $dataCount = [$dataKPI->plan_this_year/$pembagi, $dataKPI->cumulative_plan/$pembagi, $dataKPI->cumulative_real/$pembagi, $dataKPI->real_last_year/$pembagi];
+
+            $data = array(
+                'data' => [
+                    ["RKAP $year", "RKAP s.d $month $year", "Real s.d $month $year", "Real s.d $month $lastYear"],
+                    $dataCount
+                ]
+            );
+
+            $realValue = number_format($dataKPI->cumulative_real/$pembagi, 2, ",", ".");
+            $rkapAchieve = number_format($dataKPI->cumulative_real/$dataKPI->cumulative_plan * 100, 2, ",", ".");
+            $growth = $dataKPI->real_last_year != 0 ? (($dataKPI->cumulative_real - $dataKPI->real_last_year)/$dataKPI->real_last_year) * 100 : 0;
+            $growth = number_format($growth, 2, ",", ".");
+            $words = "$filter Rp $realValue M, tercapai $rkapAchieve% RKAP; Growth $growth% YoY";
+            $data['words'] = $words;
+            $data['growth'] = $growth;
+        }
+
+        return $data;
+    }
+
+    public function totalv2()
+    {
+        $sql = "SELECT
+            SUM(CASE WHEN source = 'ICT System Implementator' OR source = 'IT Manage Service' OR source = 'Digital Seaport' THEN realisasi_bulan_ini ELSE 0 END) AS total,
+            SUM(CASE WHEN source = 'ICT System Implementator' THEN realisasi_bulan_ini ELSE 0 END) AS ict_real,
+            SUM(CASE WHEN source = 'IT Manage Service' THEN realisasi_bulan_ini ELSE 0 END) AS it_service,
+            SUM(CASE WHEN source = 'Digital Seaport' THEN realisasi_bulan_ini ELSE 0 END) AS digital_seaport
+        FROM
+            k_p_i_chart_v2_s
+        WHERE (tahun = YEAR(CURRENT_DATE) AND bulan = MONTH(CURRENT_DATE) - 1)
+        OR (MONTH(CURRENT_DATE) = 1 AND tahun = YEAR(CURRENT_DATE) - 1 AND bulan = 12)";
+
+        $data = [[],[]];
+        $dataKPI = DB::select(DB::raw($sql));
+        // dd($sql);
+        if(count($dataKPI)) {
+            $dt = $dataKPI[0];
+            $data = [
+                ['IT Manage Service ', 'Digital Seaport', 'ICT Implementor '],
+                [
+                    $dt->total ? ($dt->it_service / $dt->total * 100) : 0,
+                    $dt->total ? ($dt->digital_seaport / $dt->total * 100) : 0,
+                    $dt->total ? ($dt->ict_real / $dt->total * 100) : 0
+                ]
+            ];
+            // dd($data);
+        }
+        return $data;
+    }
+
     public function total()
     {
         $sql = "SELECT

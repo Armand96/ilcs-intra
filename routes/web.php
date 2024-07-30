@@ -4,6 +4,7 @@ use App\Http\Controllers\CKUploaderController;
 use App\Http\Controllers\CMS\CalendarCMSController;
 use App\Http\Controllers\CMS\KnowledgeCMSController;
 use App\Http\Controllers\CMS\KPICMSController;
+use App\Http\Controllers\CMS\KPIV2CMSController;
 use App\Http\Controllers\CMS\LaporanRapatCMSController;
 use App\Http\Controllers\CMS\LeaderCMSController;
 use App\Http\Controllers\CMS\LinkCMSController;
@@ -63,7 +64,8 @@ Route::group(
     Route::resource('leaders', LeaderCMSController::class);
     Route::resource('news', NewsCMSController::class);
     Route::resource('calendars', CalendarCMSController::class);
-    Route::resource('kpis', KPICMSController::class);
+    // Route::resource('kpis', KPICMSController::class);
+    Route::resource('kpis', KPIV2CMSController::class);
     Route::resource('knowledges', KnowledgeCMSController::class);
     Route::resource('laporans', LaporanRapatCMSController::class);
     Route::post('kpis/upload', [KPICMSController::class, 'uploadCSV'])->name('kpis.upload');
