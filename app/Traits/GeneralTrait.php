@@ -23,7 +23,7 @@ trait GeneralTrait
      **/
     public function latestNews(): Collection
     {
-        $data = News::orderBy('created_at', 'ASC')->where('is_active', true)->limit(3)->get();
+        $data = News::orderBy('created_at', 'ASC')->where('is_active', true)->limit(10)->get();
         return $data;
     }
 
