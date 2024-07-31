@@ -150,22 +150,22 @@
                 </div>
                 <div class="mt-4">
                     <p class="text-white">RKAP</p>
-                    <input type="number" name="rkap" id="rkap"
+                    <input type="text" name="rkap" id="rkap" oninput="(v) => formatRupiah(v.target.value,'rkap')"
                         class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">RKAP Bulan Ini</p>
-                    <input type="number" name="rkap_bulan_ini" id="rkap_bulan_ini"
+                    <input type="text" name="rkap_bulan_ini" id="rkap_bulan_ini"
                         class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Realisasi Bulan Ini</p>
-                    <input type="number" name="realisasi_bulan_ini" id="realisasi_bulan_ini"
+                    <input type="text" name="realisasi_bulan_ini" id="realisasi_bulan_ini"
                         class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
                 <div class="mt-4">
                     <p class="text-white">Realisasi Tahun lalu</p>
-                    <input type="number" name="realisasi_tahun_lalu" id="realisasi_tahun_lalu"
+                    <input type="text" name="realisasi_tahun_lalu" id="realisasi_tahun_lalu"
                         class="bg-gray-700 mt-3 px-4 py-2 w-full rounded-lg text-login-text focus:outline-none">
                 </div>
             </div>
@@ -228,6 +228,32 @@
 
 @section('script')
     <script>
+
+document.getElementById('rkap').addEventListener('input', function(e) {
+    formatRupiah(e.target.value, 'rkap');
+});
+
+document.getElementById('rkap_bulan_ini').addEventListener('input', function(e) {
+    formatRupiah(e.target.value, 'rkap_bulan_ini');
+});
+
+document.getElementById('realisasi_bulan_ini').addEventListener('input', function(e) {
+    formatRupiah(e.target.value, 'realisasi_bulan_ini');
+});
+
+document.getElementById('realisasi_tahun_lalu').addEventListener('input', function(e) {
+    formatRupiah(e.target.value, 'realisasi_tahun_lalu');
+});
+
+
+
+function formatRupiah(angka, id) {
+    let clean = angka.toString().replace(/\./g, '');
+    let convert =  clean.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+    document.getElementById(id).value = convert;
+}
+
         function closeModal() {
             document.getElementById('my_modal').classList.remove('modal-open');
         }
@@ -247,10 +273,10 @@
                 $('#source').val(resp.source);
                 $('#bulan').val(resp.bulan);
                 $('#tahun').val(resp.tahun);
-                $('#rkap').val(resp.rkap);
-                $('#rkap_bulan_ini').val(resp.rkap_bulan_ini);
-                $('#realisasi_bulan_ini').val(resp.realisasi_bulan_ini);
-                $('#realisasi_tahun_lalu').val(resp.realisasi_tahun_lalu);
+                $('#rkap').val(formatRupiah(resp.rkap,'rkap'));
+                $('#rkap_bulan_ini').val(formatRupiah(resp.rkap_bulan_ini,'rkap_bulan_ini'));
+                $('#realisasi_bulan_ini').val(formatRupiah(resp.realisasi_bulan_ini,'realisasi_bulan_ini'));
+                $('#realisasi_tahun_lalu').val(formatRupiah(resp.realisasi_tahun_lalu,'realisasi_tahun_lalu'));
 
                 $('#kpi_form').prop('action', '{{ route('kpis.index') }}/' + idKPI);
                 $('input[name="_method"]').val('PATCH');
