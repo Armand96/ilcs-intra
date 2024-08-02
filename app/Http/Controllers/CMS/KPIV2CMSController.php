@@ -71,6 +71,11 @@ class KPIV2CMSController extends Controller
                 'realisasi_tahun_lalu',
             ]);
 
+            $data['rkap'] = str_replace(".", "", $data['rkap']);
+            $data['rkap_bulan_ini'] = str_replace(".", "", $data['rkap_bulan_ini']);
+            $data['realisasi_bulan_ini'] = str_replace(".", "", $data['realisasi_bulan_ini']);
+            $data['realisasi_tahun_lalu'] = str_replace(".", "", $data['realisasi_tahun_lalu']);
+
             $kpiExists = KPIChartV2::where('source', $data['source'])
                 ->where('bulan', $data['bulan'])
                 ->where('tahun', $data['tahun'])
@@ -139,6 +144,11 @@ class KPIV2CMSController extends Controller
                 'realisasi_bulan_ini',
                 'realisasi_tahun_lalu',
             ]);
+
+            $data['rkap'] = str_replace(".", "", $data['rkap']);
+            $data['rkap_bulan_ini'] = str_replace(".", "", $data['rkap_bulan_ini']);
+            $data['realisasi_bulan_ini'] = str_replace(".", "", $data['realisasi_bulan_ini']);
+            $data['realisasi_tahun_lalu'] = str_replace(".", "", $data['realisasi_tahun_lalu']);
 
             $kpi->update($data);
             return redirect()->back()->with(['notif' => 'Data KPI telah ditambahkan']);

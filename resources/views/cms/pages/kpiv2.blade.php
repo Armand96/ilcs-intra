@@ -273,10 +273,15 @@ function formatRupiah(angka, id) {
                 $('#source').val(resp.source);
                 $('#bulan').val(resp.bulan);
                 $('#tahun').val(resp.tahun);
-                $('#rkap').val(formatRupiah(resp.rkap,'rkap'));
-                $('#rkap_bulan_ini').val(formatRupiah(resp.rkap_bulan_ini,'rkap_bulan_ini'));
-                $('#realisasi_bulan_ini').val(formatRupiah(resp.realisasi_bulan_ini,'realisasi_bulan_ini'));
-                $('#realisasi_tahun_lalu').val(formatRupiah(resp.realisasi_tahun_lalu,'realisasi_tahun_lalu'));
+                $('#rkap').val(resp.rkap,'rkap');
+                $('#rkap_bulan_ini').val(resp.rkap_bulan_ini,'rkap_bulan_ini');
+                $('#realisasi_bulan_ini').val(resp.realisasi_bulan_ini,'realisasi_bulan_ini');
+                $('#realisasi_tahun_lalu').val(resp.realisasi_tahun_lalu,'realisasi_tahun_lalu');
+
+                formatRupiah(resp.rkap,'rkap');
+                formatRupiah(resp.rkap_bulan_ini,'rkap_bulan_ini');
+                formatRupiah(resp.realisasi_bulan_ini,'realisasi_bulan_ini');
+                formatRupiah(resp.realisasi_tahun_lalu,'realisasi_tahun_lalu');
 
                 $('#kpi_form').prop('action', '{{ route('kpis.index') }}/' + idKPI);
                 $('input[name="_method"]').val('PATCH');
