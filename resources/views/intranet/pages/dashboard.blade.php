@@ -301,7 +301,7 @@
 <!-- Chart -->
 <div class="flex flex-col w-full pb-6 px-4 lg:px-14 " id="kpi" style="zoom: 100%">
     <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
-        <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d {{ date('F', strtotime('-1 month')) }}</h2>
+        <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan & Beban Usaha s.d {{ \Carbon\Carbon::createFromDate($data['pendapatanChart']['year'],$data['pendapatanChart']['month_number'], 1)->format('F Y') }}</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-7 mt-4">
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
                 <h4 class="text-white font-semibold 2xl:text-lg">Pendapatan Usaha</h4>
@@ -324,7 +324,7 @@
                         </div>
                     @endif
                     {{-- <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">Pendapatan RP. 134,78 M, tercapai 61,27% RKAP; Growth 17,03% YoY</h4> --}}
-                    <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">@if (isset($data['pendapatanChart']['words'])) {{ $data['pendapatanChart']['words'] }} @endif</h4>
+                    {{-- <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">@if (isset($data['pendapatanChart']['words'])) {{ $data['pendapatanChart']['words'] }} @endif</h4> --}}
                 </div>
 
             </div>
@@ -349,7 +349,7 @@
                             </svg>
                         </div>
                     @endif
-                    <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['bebanChart']['words'])) {{ $data['bebanChart']['words'] }} @endif</h4>
+                    {{-- <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['bebanChart']['words'])) {{ $data['bebanChart']['words'] }} @endif</h4> --}}
                 </div>
 
             </div>
@@ -357,7 +357,7 @@
     </div>
 
     <div class="w-full flex flex-col bg-card-dashboard px-4 py-6 border border-blue-950 mt-8 rounded-xl">
-        <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan per Portofolio {{ date('F', strtotime('-1 month')) }}</h2>
+        <h2 class="2xl:text-lg text-white font-semibold">Kinerja Keuangan: Pendapatan per Portofolio {{ \Carbon\Carbon::createFromDate($data['ictChart']['year'],$data['ictChart']['month_number'], 1)->format('F Y') }}</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-7 mt-4">
 
             <div class="flex flex-col rounded-xl bg-card-dashboard px-4 py-4 border border-blue-950">
@@ -380,7 +380,7 @@
                             </svg>
                         </div>
                     @endif
-                    <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['ictChart']['words'])) {{ $data['ictChart']['words'] }} @endif</h4>
+                    {{-- <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['ictChart']['words'])) {{ $data['ictChart']['words'] }} @endif</h4> --}}
                 </div>
 
 
@@ -406,7 +406,7 @@
                             </svg>
                         </div>
                     @endif
-                    <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['itChart']['words'])) {{ $data['itChart']['words'] }} @endif</h4>
+                    {{-- <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['itChart']['words'])) {{ $data['itChart']['words'] }} @endif</h4> --}}
                 </div>
 
 
@@ -432,7 +432,7 @@
                             </svg>
                         </div>
                     @endif
-                    <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['digitalChart']['words'])) {{ $data['digitalChart']['words'] }} @endif</h4>
+                    {{-- <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['digitalChart']['words'])) {{ $data['digitalChart']['words'] }} @endif</h4> --}}
                 </div>
 
 
@@ -655,6 +655,7 @@
     @if (isset($data['bebanChart']['data']))
         const dataDumn2 = @json($data['bebanChart']['data']);
         dataDumn2[2] =  @json($data['orChart']['data']); //[85.9, 85.6, 94.6, 98.7];
+        console.log(dataDumn2);
     @else
         const dataDumn2 = [[],[]];
     @endif
@@ -699,7 +700,10 @@
                     fill: false,
                     yAxisID: "y1", // Link this dataset to the right y-axis
                     datalabels: {
-                        display: true // Disable datalabels for the line chart
+                        display: true, // Disable datalabels for the line chart,
+                        formatter: (value) => `${value}%`,
+                        anchor: 'start',
+                        color: 'white'
                     },
                 },
             ]
@@ -735,7 +739,7 @@
                         text: "Persen",
                     },
                     datalabels: {
-                        color: "#FFF"
+                        color: "#FFF",
                     },
                     ticks: {
                         color: 'white'
@@ -755,7 +759,7 @@
                     anchor: "end",
                     align: "end",
                     offset: 4,
-                    display: true
+                    display: true,
                 },
                 title: {
                     display: true,

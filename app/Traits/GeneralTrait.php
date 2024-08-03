@@ -10,6 +10,7 @@ use App\Models\News;
 use App\Models\NilaiKaryawan;
 use App\Models\Notification;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -226,14 +227,14 @@ trait GeneralTrait
             "growth" => 0
         ];
 
-        if(count($dataKPI)) {
+        if (count($dataKPI)) {
 
             $dataKPI = $dataKPI[0];
             $year = date('Y');
             $month = date('F');
             $lastYear = date('Y', strtotime('-1 year'));
             $pembagi = 1000000000;
-            $dataCount = [$dataKPI->plan_this_year/$pembagi, $dataKPI->cumulative_plan/$pembagi, $dataKPI->cumulative_real/$pembagi, $dataKPI->real_last_year/$pembagi];
+            $dataCount = [$dataKPI->plan_this_year / $pembagi, $dataKPI->cumulative_plan / $pembagi, $dataKPI->cumulative_real / $pembagi, $dataKPI->real_last_year / $pembagi];
 
             $data = array(
                 'data' => [
@@ -242,9 +243,9 @@ trait GeneralTrait
                 ]
             );
 
-            $realValue = number_format($dataKPI->cumulative_real/$pembagi, 2, ",", ".");
-            $rkapAchieve = number_format($dataKPI->cumulative_real/$dataKPI->cumulative_plan * 100, 2, ",", ".");
-            $growth = $dataKPI->real_last_year != 0 ? (($dataKPI->cumulative_real - $dataKPI->real_last_year)/$dataKPI->real_last_year) * 100 : 0;
+            $realValue = number_format($dataKPI->cumulative_real / $pembagi, 2, ",", ".");
+            $rkapAchieve = number_format($dataKPI->cumulative_real / $dataKPI->cumulative_plan * 100, 2, ",", ".");
+            $growth = $dataKPI->real_last_year != 0 ? (($dataKPI->cumulative_real - $dataKPI->real_last_year) / $dataKPI->real_last_year) * 100 : 0;
             $growth = number_format($growth, 2, ",", ".");
             $words = "$filter Rp $realValue M, tercapai $rkapAchieve% RKAP; Growth $growth% YoY";
             $data['words'] = $words;
@@ -265,40 +266,45 @@ trait GeneralTrait
             realisasi_tahun_lalu AS real_last_year,
             realisasi_tahun_lalu / realisasi_bulan_ini AS achieve
         FROM k_p_i_chart_v2_s
-        WHERE (tahun = YEAR(CURRENT_DATE) AND bulan = MONTH(CURRENT_DATE) - 1 AND source = '$filter')
-        OR (MONTH(CURRENT_DATE) = 1 AND tahun = YEAR(CURRENT_DATE) - 1 AND bulan = 12 AND source = '$filter') ";
+        WHERE source = '$filter' ORDER BY tahun DESC, bulan DESC LIMIT 1";
         $dataKPI = DB::select(DB::raw($sql));
 
         $data = [
             "data" => [],
             "words" => "",
-            "growth" => 0
+            "growth" => 0,
+            "month" => 0,
+            "year" => 0
         ];
 
-        if(count($dataKPI)) {
+        if (count($dataKPI)) {
 
             $dataKPI = $dataKPI[0];
-            $year = date('Y');
-            $month = date('F');
-            $lastYear = date('Y', strtotime('-1 year'));
+            $year = $dataKPI->year;
+            $month = $dataKPI->month;
+            $data['month'] = Carbon::createFromDate($dataKPI->year,$dataKPI->month, 1)->format('F');
+            $data['month_number'] = $month;
+            $data['year'] = $year;
+            $lastYear = $dataKPI->year - 1;
             $pembagi = 1_000_000_000;
-            $dataCount = [$dataKPI->plan_this_year/$pembagi, $dataKPI->cumulative_plan/$pembagi, $dataKPI->cumulative_real/$pembagi, $dataKPI->real_last_year/$pembagi];
+            $dataCount = [$dataKPI->plan_this_year / $pembagi, $dataKPI->cumulative_plan / $pembagi, $dataKPI->cumulative_real / $pembagi, $dataKPI->real_last_year / $pembagi];
 
-            $data = array(
-                'data' => [
-                    ["RKAP $year", "RKAP s.d $month $year", "Real s.d $month $year", "Real s.d $month $lastYear"],
+            $data['data'] =
+                [
+                    ["RKAP $year", "RKAP s.d ".$data['month']." $year", "Real s.d ".$data['month']." $year", "Real s.d ".$data['month']." $lastYear"],
                     $dataCount
-                ]
-            );
+                ];
 
-            $realValue = number_format($dataKPI->cumulative_real/$pembagi, 2, ",", ".");
-            $rkapAchieve = number_format($dataKPI->cumulative_real/$dataKPI->cumulative_plan * 100, 2, ",", ".");
-            $growth = $dataKPI->real_last_year != 0 ? (($dataKPI->cumulative_real - $dataKPI->real_last_year)/$dataKPI->real_last_year) * 100 : 0;
+            $realValue = number_format($dataKPI->cumulative_real / $pembagi, 2, ",", ".");
+            $rkapAchieve = number_format($dataKPI->cumulative_real / $dataKPI->cumulative_plan * 100, 2, ",", ".");
+            $growth = $dataKPI->real_last_year != 0 ? (($dataKPI->cumulative_real - $dataKPI->real_last_year) / $dataKPI->real_last_year) * 100 : 0;
             $growth = number_format($growth, 2, ",", ".");
             $words = "$filter Rp $realValue M, tercapai $rkapAchieve% RKAP; Growth $growth% YoY";
             $data['words'] = $words;
             $data['growth'] = $growth;
+            // dd($data);
         }
+
 
         return $data;
     }
@@ -312,13 +318,13 @@ trait GeneralTrait
             SUM(CASE WHEN source = 'Digital Seaport' THEN realisasi_bulan_ini ELSE 0 END) AS digital_seaport
         FROM
             k_p_i_chart_v2_s
-        WHERE (tahun = YEAR(CURRENT_DATE) AND bulan = MONTH(CURRENT_DATE) - 1)
-        OR (MONTH(CURRENT_DATE) = 1 AND tahun = YEAR(CURRENT_DATE) - 1 AND bulan = 12)";
+        WHERE tahun = (SELECT tahun FROM k_p_i_chart_v2_s where source IN ('ICT System Implementator', 'IT Manage Service', 'Digital Seaport') ORDER BY tahun DESC, bulan DESC LIMIT 1)
+        AND bulan = (SELECT bulan FROM k_p_i_chart_v2_s where source IN ('ICT System Implementator', 'IT Manage Service', 'Digital Seaport') ORDER BY tahun DESC, bulan DESC LIMIT 1)";
 
-        $data = [[],[]];
+        $data = [[], []];
         $dataKPI = DB::select(DB::raw($sql));
         // dd($sql);
-        if(count($dataKPI)) {
+        if (count($dataKPI)) {
             $dt = $dataKPI[0];
             $data = [
                 ['IT Manage Service ', 'Digital Seaport', 'ICT Implementor '],
@@ -347,9 +353,9 @@ trait GeneralTrait
             AND bulan <= MONTH ( CURRENT_DATE )
         GROUP BY tahun";
 
-        $data = [[],[]];
+        $data = [[], []];
         $dataKPI = DB::select(DB::raw($sql));
-        if(count($dataKPI)) {
+        if (count($dataKPI)) {
             $dt = $dataKPI[0];
             $data = [
                 ['IT Manage Service ', 'Digital Seaport', 'ICT Implementor '],
