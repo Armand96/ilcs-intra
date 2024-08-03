@@ -273,7 +273,8 @@ trait GeneralTrait
             "data" => [],
             "words" => "",
             "growth" => 0,
-            "month" => 0,
+            "month" => "",
+            "month_number" => 0,
             "year" => 0
         ];
 
