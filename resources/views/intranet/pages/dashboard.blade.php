@@ -309,7 +309,7 @@
                     <canvas id="barChart"></canvas>
                 </div>
 
-                <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                {{-- <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
                     @if ($data['pendapatanChart']['growth'] > 0)
                         <div class=" bg-green-600 mb-5 rounded-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -323,9 +323,9 @@
                             </svg>
                         </div>
                     @endif
-                    {{-- <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">Pendapatan RP. 134,78 M, tercapai 61,27% RKAP; Growth 17,03% YoY</h4> --}}
-                    {{-- <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">@if (isset($data['pendapatanChart']['words'])) {{ $data['pendapatanChart']['words'] }} @endif</h4> --}}
-                </div>
+                    <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">Pendapatan RP. 134,78 M, tercapai 61,27% RKAP; Growth 17,03% YoY</h4>
+                    <h4 class="font-semibold text-xs lg:text-sm 2xl:text-base">@if (isset($data['pendapatanChart']['words'])) {{ $data['pendapatanChart']['words'] }} @endif</h4>
+                </div> --}}
 
             </div>
 
@@ -335,7 +335,7 @@
                     <canvas id="barChart2" class="pt-4"></canvas>
                 </div>
 
-                <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                {{-- <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
                     @if ($data['bebanChart']['growth'] > 0)
                         <div class=" bg-green-600 mb-5 rounded-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -349,8 +349,8 @@
                             </svg>
                         </div>
                     @endif
-                    {{-- <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['bebanChart']['words'])) {{ $data['bebanChart']['words'] }} @endif</h4> --}}
-                </div>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['bebanChart']['words'])) {{ $data['bebanChart']['words'] }} @endif</h4>
+                </div> --}}
 
             </div>
         </div>
@@ -366,7 +366,7 @@
                     <canvas id="barChart3"></canvas>
                 </div>
 
-                <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                {{-- <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
                     @if ($data['ictChart']['growth'] > 0)
                         <div class=" bg-green-600 mb-5 rounded-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -380,8 +380,8 @@
                             </svg>
                         </div>
                     @endif
-                    {{-- <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['ictChart']['words'])) {{ $data['ictChart']['words'] }} @endif</h4> --}}
-                </div>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['ictChart']['words'])) {{ $data['ictChart']['words'] }} @endif</h4>
+                </div> --}}
 
 
             </div>
@@ -392,7 +392,7 @@
                     <canvas id="barChart4"></canvas>
                 </div>
 
-                <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                {{-- <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
                     @if ($data['itChart']['growth'] > 0)
                         <div class=" bg-green-600 mb-5 rounded-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -406,8 +406,8 @@
                             </svg>
                         </div>
                     @endif
-                    {{-- <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['itChart']['words'])) {{ $data['itChart']['words'] }} @endif</h4> --}}
-                </div>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['itChart']['words'])) {{ $data['itChart']['words'] }} @endif</h4>
+                </div> --}}
 
 
             </div>
@@ -418,7 +418,7 @@
                     <canvas id="barChart5"></canvas>
                 </div>
 
-                <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
+                {{-- <div class="bg-card-chart border rounded-lg border-blue-950 mt-4 text-white px-4 py-6 flex flex-col items-center">
                     @if ($data['digitalChart']['growth'] > 0)
                         <div class=" bg-green-600 mb-5 rounded-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -432,8 +432,8 @@
                             </svg>
                         </div>
                     @endif
-                    {{-- <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['digitalChart']['words'])) {{ $data['digitalChart']['words'] }} @endif</h4> --}}
-                </div>
+                    <h4 class="font-semibold  text-sm 2xl:text-base">@if (isset($data['digitalChart']['words'])) {{ $data['digitalChart']['words'] }} @endif</h4>
+                </div> --}}
 
 
             </div>
