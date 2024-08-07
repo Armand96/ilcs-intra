@@ -50,11 +50,14 @@
                     @foreach ($data['linkApps'] as $app)
                     <a href="{{ $app->link_tujuan }}" target="_blank" class="w-2/6 flex mr-6 flex-col items-center">
                         <div class="h-full w-16 py-2 px-1 object-cover bg-backoffice-icon rounded-full">
-                            <img src="{{ $app->image_path }}" class="mx-auto object-cover" alt="">
+                            <img src="{{ $app->image_path }}" class="mx-auto object-cover h-9 w-6" alt="">
                         </div>
                         <p class="text-sm text-white">{{ $app->name }}</p>
                     </a>
                     @endforeach
+
+
+
                     {{-- <a href="https://peo.pelindo.id/" target="_blank" class="w-2/6 flex mr-6 flex-col items-center">
                         <div class="h-full w-16 py-2 px-1 bg-backoffice-icon rounded-full">
                             <img src="{{ asset('assets/images/shortcut-icon/peo.svg') }}" class="mx-auto object-cover" alt="">
@@ -666,110 +669,112 @@
     // ]
 
     var myChart = new Chart(ctx2, {
-        type: 'bar',
-        data: {
-            labels: dataDumn2[0],
-            datasets: [{
-                    label: 'Data',
-                    data: dataDumn2[1],
-                    backgroundColor: [
-                        '#466AFF',
-                        '#F6C01D',
-                        '#F88B2E',
-                        '#C6C6C6',
-                    ],
-                    borderColor: [
-                        '#466AFF',
-                        '#F6C01D',
-                        '#F88B2E',
-                        '#C6C6C6',
-                    ],
-                    borderWidth: 1,
-                    datalabels: {
-                        anchor: "center",
-                    }
-                },
-                {
-                    type: "line", // Specify the type as line for the line chart
-                    label: "Percentage",
-                    data: dataDumn2[2],
-                    borderColor: "rgba(255, 99, 132, 1)",
-                    backgroundColor: "#FFF",
-                    borderWidth: 1,
-                    zIndex: 2,
-                    fill: false,
-                    yAxisID: "y1", // Link this dataset to the right y-axis
-                    datalabels: {
-                        display: true, // Disable datalabels for the line chart,
-                        formatter: (value) => `${value}%`,
-                        anchor: 'start',
-                        color: 'white'
-                    },
-                },
-            ]
-        },
-        plugins: [ChartDataLabels],
-        options: {
-            maintainAspectRatio: window.screen.availWidth >= 1024 ? true : false,
-            responsive: true,
-            scales: {
-                y: {
-                    ticks: {
-                        color: 'white'
-                    },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.1)'
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: 'white'
-                    },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.1)'
-                    }
-                },
-                y1: {
-                    beginAtZero: false,
-                    type: "linear",
-                    position: "right",
-                    title: {
-                        color: "#FFF",
-                        display: true,
-                        text: "Persen",
-                    },
-                    datalabels: {
-                        color: "#FFF",
-                    },
-                    ticks: {
-                        color: 'white'
-                    },
-                    grid: {
-                        drawOnChartArea: false,
-                    },
+    data: {
+        labels: dataDumn2[0],
+        datasets: [
+            {
+                type: "line", // Specify the type as line for the line chart
+                label: "Percentage",
+                data: dataDumn2[2],
+                borderColor: "rgba(255, 99, 132, 1)",
+                backgroundColor: "#FFF",
+                borderWidth: 1,
+                fill: false,
+                yAxisID: "y1", // Link this dataset to the right y-axis
+                datalabels: {
+                    display: true, // Enable datalabels for the line chart
+                    formatter: (value) => `${value}%`,
+                    anchor: 'start',
+                    color: 'white'
                 },
             },
-            plugins: {
-                legend: {
-                    display: false,
-
-                },
+            {
+                type: "bar", // Specify the type as bar for the bar chart
+                label: 'Data',
+                data: dataDumn2[1],
+                backgroundColor: [
+                    '#466AFF',
+                    '#F6C01D',
+                    '#F88B2E',
+                    '#C6C6C6',
+                ],
+                borderColor: [
+                    '#466AFF',
+                    '#F6C01D',
+                    '#F88B2E',
+                    '#C6C6C6',
+                ],
+                borderWidth: 1,
                 datalabels: {
-                    color: '#FFF',
-                    anchor: "end",
-                    align: "end",
-                    offset: 4,
-                    display: true,
+                    anchor: "center",
                 },
-                title: {
-                    display: true,
-                    text: '(Miliar)',
-                    align: "start",
-                    color: "#FFF"
+                order: 1 // Draw this dataset first
+            },
+         
+        ]
+    },
+    plugins: [ChartDataLabels],
+    options: {
+        maintainAspectRatio: window.screen.availWidth >= 1024 ? true : false,
+        responsive: true,
+        scales: {
+            y: {
+                ticks: {
+                    color: 'white'
+                },
+                grid: {
+                    color: 'rgba(255, 255, 255, 0.1)'
                 }
             },
+            x: {
+                ticks: {
+                    color: 'white'
+                },
+                grid: {
+                    color: 'rgba(255, 255, 255, 0.1)'
+                }
+            },
+            y1: {
+                beginAtZero: false,
+                type: "linear",
+                position: "right",
+                title: {
+                    color: "#FFF",
+                    display: true,
+                    text: "Persen",
+                },
+                datalabels: {
+                    color: "#FFF",
+                },
+                ticks: {
+                    color: 'white'
+                },
+                grid: {
+                    drawOnChartArea: false,
+                },
+            },
         },
-    });
+        plugins: {
+            legend: {
+                display: false,
+            },
+            datalabels: {
+                color: '#FFF',
+                anchor: "end",
+                align: "end",
+                offset: 4,
+                display: true,
+            },
+            title: {
+                display: true,
+                text: '(Miliar)',
+                align: "start",
+                color: "#FFF"
+            }
+        },
+    },
+});
+
 
     // chart IT SYSTEM IMPLEMENTOR
 
