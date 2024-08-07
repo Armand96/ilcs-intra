@@ -19,7 +19,7 @@ class Checkz
     {
         $isMaintenance = false;
 
-        if(date('Y-m-d') >= "2024-08-21") $isMaintenance = true;
+        if(date('Y-m-d') >= "2024-09-15") $isMaintenance = true;
         // dd(app()->isDownForMaintenance(), $isMaintenance);
         if ($isMaintenance) {
             // Put the application into maintenance mode if not already
