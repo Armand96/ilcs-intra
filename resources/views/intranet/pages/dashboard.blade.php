@@ -678,7 +678,7 @@
                 data: dataDumn2[2],
                 borderColor: "rgba(255, 99, 132, 1)",
                 backgroundColor: "#FFF",
-                borderWidth: 1,
+                borderWidth: 4,
                 fill: false,
                 yAxisID: "y1", // Link this dataset to the right y-axis
                 datalabels: {
