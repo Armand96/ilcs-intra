@@ -676,7 +676,7 @@
                 type: "line", // Specify the type as line for the line chart
                 label: "Percentage",
                 data: dataDumn2[2],
-                borderColor: "rgba(255, 99, 132, 1)",
+                borderColor: " #EE1549",
                 backgroundColor: "#FFF",
                 borderWidth: 4,
                 fill: false,
