@@ -50,7 +50,7 @@
                     @foreach ($data['linkApps'] as $app)
                     <a href="{{ $app->link_tujuan }}" target="_blank" class="w-2/6 flex mr-6 flex-col items-center">
                         <div class="h-full w-16 py-2 px-1 object-cover bg-backoffice-icon rounded-full">
-                            <img src="{{ $app->image_path }}" class="mx-auto object-cover h-9 w-6" alt="">
+                            <img src="{{ $app->image_path }}" class="mx-auto object-cover " alt="">
                         </div>
                         <p class="text-sm text-white">{{ $app->name }}</p>
                     </a>
