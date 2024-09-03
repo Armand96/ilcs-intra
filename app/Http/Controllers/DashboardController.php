@@ -80,7 +80,7 @@ class DashboardController extends Controller
         if ($user) {
             Auth::loginUsingId($user->id);
             // dd(Auth::user());
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard')->with(['notif_modal' => 'Berhasil Login']);
         }
 
         return redirect()->route('login')->withErrors(['msg' => 'NIP tidak ditemukan']);

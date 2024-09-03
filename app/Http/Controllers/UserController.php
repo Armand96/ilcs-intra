@@ -99,7 +99,7 @@ class UserController extends Controller
 
         try {
             if(Auth::attempt($credential)) {
-                return redirect()->route('dashboard');
+                return redirect()->route('dashboard')->with(['notif_modal' => 'Berhasil Login']);
             }
             // else if(Auth::guard('siswa')->attempt($credential)) return redirect()->route('test.siswa');
             return redirect()->back()->withErrors(['errors' => 'nip atau password salah']);
