@@ -3292,9 +3292,6 @@ html:has(.drawer-toggle:checked) {
 .h-8 {
   height: 2rem;
 }
-.h-9 {
-  height: 2.25rem;
-}
 .h-\[120vh\] {
   height: 120vh;
 }

@@ -457,6 +457,8 @@
 
 
 @include('components.modal_news')
+@include('components.modal_info')
+
 
 <script>
 
@@ -475,6 +477,18 @@
     function closeModal() {
         $('#modal_news').removeClass('modal-open');
     }
+
+    function showModalInfo() {
+        $('#modal_info').addClass('modal-open');
+    }
+
+    function closeModal() {
+        $('#modal_info').removeClass('modal-open');
+    }
+
+    window.addEventListener('load',() => {
+        showModalInfo()
+    })
 
     function formatDate(dateStr){
         // const dateStr = "2024-06-11T14:01:41.000000Z";
