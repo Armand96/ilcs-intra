@@ -247,6 +247,27 @@ html {
     display: none ;
 }
 
+.modal-custom-scroll::-webkit-scrollbar-track {
+    background: #FAFAFA14;
+    width: 1px ;
+    border-radius: 18px ;
+}
+
+.modal-custom-scroll::-webkit-scrollbar {
+    display: block ;
+    cursor: pointer;
+    height: 10px ;
+    width: 6px ;
+    margin-left: 9px ;
+}
+
+.modal-custom-scroll::-webkit-scrollbar-thumb {
+    display: block ;
+    background: #C1C1C1;
+    width: 1px ;
+    border-radius: 18px ;
+}
+
 .calendar-custom {
     zoom: 80% ;
 }

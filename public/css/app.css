@@ -1399,6 +1399,9 @@ html {
   transition-property: transform, opacity, visibility;
   overflow-y: hidden;
 }
+.modal-scroll {
+  overscroll-behavior: auto;
+}
 :where(.modal) {
   align-items: center;
 }
