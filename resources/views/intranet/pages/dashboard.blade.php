@@ -474,7 +474,7 @@
         });
     }
 
-    function closeModal() {
+    function closeModalNews() {
         $('#modal_news').removeClass('modal-open');
     }
 
@@ -724,7 +724,7 @@
                 },
                 order: 1 // Draw this dataset first
             },
-         
+
         ]
     },
     plugins: [ChartDataLabels],
