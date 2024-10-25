@@ -8,8 +8,9 @@ node versi v16.13.2
 NEXT STEP
 - composer install
 - npm i
-- php artisan migrate:fresh --seed
-- php artisan generate:query
-- php artisan generate:sangfor
-- php artisan user:addcol
-- php artisan adjust:role
+- npm run dev (untuk menjalankan react.js di forum)
+- php artisan migrate:fresh --seed (disarankan hanya runing di lokal)
+- php artisan generate:query (disarankan hanya runing di lokal)
+- php artisan generate:sangfor (disarankan hanya runing di lokal)
+- php artisan user:addcol (disarankan hanya runing di lokal)
+- php artisan adjust:role (disarankan hanya runing di lokal)
