@@ -123,7 +123,6 @@ class NewsCMSController extends Controller
         $request->validate([
             'judul' => 'required',
             'content' => 'required',
-            'is_active' => 'required',
         ]);
 
         $data = $request->only([
@@ -134,7 +133,7 @@ class NewsCMSController extends Controller
 
         try {
 
-            if ($data['is_active']) $data['is_active'] = true;
+            if (isset($data['is_active'])) $data['is_active'] = true;
             else $data['is_active'] = false;
 
             if ($request->hasFile('foto')) {
